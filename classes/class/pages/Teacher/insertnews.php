@@ -4,13 +4,6 @@ require_once '../../../../aes.php';
 $inputkey = "marketdayanyigba";
 $blocksize = 256;
 
-#$firstname =$row['firstname'];
-#$lastname =$row['lastname'];
-#$firstn =new AES($firstname, $inputkey, $blocksize);
-#$dec =$firstn->decrypt();
-#$lastn =new AES($lastname, $inputkey, $blocksize);
-#$decl =$lastn->decrypt();
-
 date_default_timezone_set('America/dominica');
 $datecreated = date("y-m-d h:i:sa");
 $createdbyfirstname = $row['firstname'];

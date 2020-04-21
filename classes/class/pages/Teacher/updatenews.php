@@ -36,7 +36,7 @@ $("#updatenews").validate({
 
 </script>
 <?php
-$sql2a ="SELECT * FROM ihs_news WHERE email= :email ORDER BY created_at DESC LIMIT 1";
+$sql2a ="SELECT * FROM ihs_news WHERE email= :email ORDER BY created_at ASC LIMIT 1";
 	    $stmt2a = $user_home->runQuery($sql2a);
 	    $stmt2a->bindValue(':email', $email);
 	    $stmt2a->execute();
@@ -51,8 +51,8 @@ $sql2a ="SELECT * FROM ihs_news WHERE email= :email ORDER BY created_at DESC LIM
 </div>
 <div class ='textspacer'></div>
 <div class ="row">
-<div class ='col-3'><input type ="text" name ="title" value ="<?php echo $row3['topic'];?>"/></div>
-<div class ='col-3 columnspacer'><select name="grade" id ="grade">
+<div class ='col-3'><input type ="text" name ="topic" value ="<?php echo $row3['topic'];?>"/></div>
+<div class ='col-3 columnspacer'><select name="class" id ="grade">
 <option value ="<?php echo $row3['class'];?>" selected><?php echo $row3['class'];?></option>
 <option value = "prek">Pre-K</option>
 <option value = "gradek">Grade K</option>
@@ -71,7 +71,7 @@ $sql2a ="SELECT * FROM ihs_news WHERE email= :email ORDER BY created_at DESC LIM
 </select></div>
 <div class ='col-6 columnspacer'>
 	<label><span class ='previous'><?php echo $row3['details'];?></span></label><br/>
-  <textarea name ="news" cols= 50 rows =10 class ="form-control" value ='<?php echo $row3['details'];?>'><?php echo $row3['details'];?></textarea>
+  <textarea name ="details" cols= 50 rows =10 class ="form-control" value ='<?php echo $row3['details'];?>'><?php echo $row3['details'];?></textarea>
 </div>
 <div class ='textspacer'></div>
 <input type ='hidden' name ='hidden' value ='<?php echo $row3['id'];?>'>

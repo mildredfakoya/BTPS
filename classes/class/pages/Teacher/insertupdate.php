@@ -16,15 +16,15 @@ $datecreated = date("y-m-d h:i:sa");
 $createdbyfirstname = $row['firstname'];
 $createdbylastname = $row['lastname'];
 $email = $row['email'];
-$title= !empty($_POST['title']) ? $helper->test_input($_POST['title']) : null;
-$grade= !empty($_POST['grade']) ? $helper->test_input($_POST['grade']) : null;
-$news= !empty($_POST['news']) ? $helper->test_input($_POST['news']) : null;
+$topic= !empty($_POST['topic']) ? $helper->test_input($_POST['topic']) : null;
+$class= !empty($_POST['clas']) ? $helper->test_input($_POST['class']) : null;
+$details= !empty($_POST['details']) ? $helper->test_input($_POST['details']) : null;
 $id= $_POST['hidden'];
 
 try{
 
     $sqlf = "UPDATE ihs_news SET date_last_updated='$datecreated', updated_by_firstname ='$createdbyfirstname', updated_by_lastname ='$createdbylastname',
-    topic ='$title', class ='$grade', details='$news' WHERE id ='$_POST[hidden]'";
+    topic ='$topic', class ='$class', details='$details' WHERE id ='$_POST[hidden]'";
     $resultf = $user_home->runQuery4($sqlf);
 
 
@@ -35,9 +35,9 @@ try{
     $stmtg->bindValue(':created_by_firstname', $createdbyfirstname);
     $stmtg->bindValue(':created_by_lastname', $createdbylastname);
     $stmtg->bindValue(':email', $email);
-    $stmtg->bindValue(':title', $title);
-    $stmtg->bindValue(':grade', $grade);
-    $stmtg->bindValue(':news', $news);
+    $stmtg->bindValue(':title', $topic);
+    $stmtg->bindValue(':grade', $class);
+    $stmtg->bindValue(':news', $details);
 
     $resultg = $stmtg->execute();
     if($resultf && $resultg){
