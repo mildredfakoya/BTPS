@@ -72,8 +72,8 @@ $permissions = explode(" ", $list);
 <a class="nav-link dropdown-toggle" href="#" id="navbardrop" data-toggle="dropdown">Grade 2</a>
 <div class="dropdown-menu">
   <a class="dropdown-item" href="http://www.blackboard.com/coursesites/?sig=xIKx9P289UKRwEPKTi7llNB8O6c%3D&courseId=_797059_1&timestamp=1587324171&inviteId=BB%253FBB_qs%2FmKAWONPeBMazi65eANgW6Oy0el%2FQxL2ForN8720stUG%252B4ivX5IA%253D%253D">Virtual Classroom</a>
-  <a class="dropdown-item" href="#">Grades</a>
-  <a class="dropdown-item" href="#">Videos</a>
+  <a class="dropdown-item" href="grade2.php">Grade 2 Home</a>
+
 </div>
 </li>
 

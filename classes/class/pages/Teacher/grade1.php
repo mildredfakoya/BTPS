@@ -23,7 +23,7 @@ $stmt2a = $user_home->runQuery($sql2a);
 $stmt2a->bindValue(':class', $class);
 $stmt2a->execute();
 
-$sqluploads ="SELECT * FROM ihs_video_uploads WHERE grade= :grade  OR grade ='general' ORDER BY created_at DESC";
+$sqluploads ="SELECT * FROM ihs_video_uploads WHERE grade= :grade OR grade ='general' ORDER BY created_at DESC";
 $stmtuploads = $user_home->runQuery($sqluploads);
 $stmtuploads->bindValue(':grade', $grade);
 $stmtuploads->execute();
@@ -74,6 +74,12 @@ foreach($stmt2a as $row1){
 	</tr>";
 	foreach($stmtuploads as $rowfile)
 {
+	$videofirstname =$rowfile['created_by_firstname'];
+	$videolastname = $rowfile['created_by_lastname'];
+	$encfirst = new AES($videofirstname, $inputkey, $blocksize);
+	$enclast = new AES($videolastname, $inputkey, $blocksize);
+	$decfirst = $encfirst->decrypt();
+	$declast = $enclast->decrypt();
 	echo "<tr>";
 		echo "<td>".$rowfile['created_at']."</td>";
 	echo "<td>".$rowfile['title']."</td>";
@@ -86,7 +92,7 @@ foreach($stmt2a as $row1){
 	}
 	echo "<td>".$rowfile['report']."</td>";
 
-	echo "<td>".$dec." ".$decl."</td></tr>";
+	echo "<td>".$decfirst." ".$declast."</td></tr>";
 
 
 }

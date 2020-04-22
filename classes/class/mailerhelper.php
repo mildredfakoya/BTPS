@@ -12,10 +12,10 @@ class MAILERHELPER
       $mail->Host       = "mail.privateemail.com";
       $mail->Port       = 465;
       $mail->AddAddress($email);
-      $mail->Username="cbsmail@mildredgroup.com";
-      $mail->Password="oecshivms18";
-      $mail->SetFrom('cbsmail@mildredgroup.com','Bonne Terre Preparatory School');
-      $mail->AddReplyTo("cbsmail@mildredgroup.com",'Bonne Terre Preparatory School');
+      $mail->Username="admin@btpps.org";
+      $mail->Password="adminpasswd#20";
+      $mail->SetFrom('admin@btpps.org','Bonne Terre Preparatory School');
+      $mail->AddReplyTo("admin@ptpps.org",'Bonne Terre Preparatory School');
       $mail->Subject    = $subject;
       $mail->MsgHTML($message);
       $mail->Send();
