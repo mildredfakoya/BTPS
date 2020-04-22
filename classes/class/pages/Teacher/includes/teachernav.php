@@ -68,9 +68,7 @@ $permissions = explode(" ", $list);
      ?>
 <a class="nav-link dropdown-toggle" href="#" id="navbardrop" data-toggle="dropdown">Grade 2</a>
 <div class="dropdown-menu">
-  <a class="dropdown-item" href="#">Grade 2 Student Information</a>
-  <a class="dropdown-item" href="#">Update Student Grades</a>
-  <a class="dropdown-item" href="#">My Subjects</a></div>
+<a class="dropdown-item" href="grade2.php">Grade 2 Student Home Page</a>
 </li>
 
 <?php
@@ -79,9 +77,7 @@ $permissions = explode(" ", $list);
      ?>
 <a class="nav-link dropdown-toggle" href="#" id="navbardrop" data-toggle="dropdown">Grade 3</a>
 <div class="dropdown-menu">
-  <a class="dropdown-item" href="#">Grade 3 Student Information</a>
-  <a class="dropdown-item" href="#">Update Student Grades</a>
-  <a class="dropdown-item" href="#">My Subjects</a>
+<a class="dropdown-item" href="grade3.php">Grade 3 Student Home Page</a>
 </div>
 </li>
 
@@ -91,9 +87,7 @@ $permissions = explode(" ", $list);
      ?>
 <a class="nav-link dropdown-toggle" href="#" id="navbardrop" data-toggle="dropdown">Grade 4</a>
 <div class="dropdown-menu">
-  <a class="dropdown-item" href="#">Grade 4 Student Information</a>
-  <a class="dropdown-item" href="#">Update Student Grades</a>
-  <a class="dropdown-item" href="#">My Subjects</a>
+<a class="dropdown-item" href="grade4.php">Grade 4 Student Home Page</a>
 </div>
 </li>
 
@@ -104,10 +98,7 @@ $permissions = explode(" ", $list);
      ?>
 <a class="nav-link dropdown-toggle" href="#" id="navbardrop" data-toggle="dropdown">Grade 5</a>
 <div class="dropdown-menu">
-  <a class="dropdown-item" href="#">Grade 5 Student Information</a>
-  <a class="dropdown-item" href="#">Update Student Grades</a>
-  <a class="dropdown-item" href="#">My Subjects</a>
-</div>
+<a class="dropdown-item" href="grade5.php">Grade 5 Student Home Page</a>
 </li>
 
 <?php
@@ -116,10 +107,7 @@ $permissions = explode(" ", $list);
      ?>
 <a class="nav-link dropdown-toggle" href="#" id="navbardrop" data-toggle="dropdown">Grade 6</a>
 <div class="dropdown-menu">
-  <a class="dropdown-item" href="#">Grade 6 Student Information</a>
-  <a class="dropdown-item" href="#">Update Student Grades</a>
-  <a class="dropdown-item" href="#">My Subjects</a>
-</div>
+<a class="dropdown-item" href="grade6.php">Grade 6 Student Home Page</a>
 </li>
 
 
@@ -129,9 +117,7 @@ $permissions = explode(" ", $list);
      ?>
 <a class="nav-link dropdown-toggle" href="#" id="navbardrop" data-toggle="dropdown">Grade 7</a>
 <div class="dropdown-menu">
-  <a class="dropdown-item" href="#">Grade 7 Student Information</a>
-  <a class="dropdown-item" href="#">Update Student Grades</a>
-  <a class="dropdown-item" href="#">My Subjects</a>
+<a class="dropdown-item" href="grade7.php">Grade 7 Student Home Page</a>
 </div>
 </li>
 
@@ -141,9 +127,7 @@ $permissions = explode(" ", $list);
      ?>
 <a class="nav-link dropdown-toggle" href="#" id="navbardrop" data-toggle="dropdown">Grade 8</a>
 <div class="dropdown-menu">
-  <a class="dropdown-item" href="#">Grade 8 Student Information</a>
-  <a class="dropdown-item" href="#">Update Student Grades</a>
-  <a class="dropdown-item" href="#">My Subjects</a>
+<a class="dropdown-item" href="grade8.php">Grade 8 Student Home Page</a>
 </div>
 </li>
 
@@ -153,9 +137,7 @@ $permissions = explode(" ", $list);
      ?>
 <a class="nav-link dropdown-toggle" href="#" id="navbardrop" data-toggle="dropdown">Grade 9</a>
 <div class="dropdown-menu">
-  <a class="dropdown-item" href="#">Grade 9 Student Information</a>
-  <a class="dropdown-item" href="#">Update Student Grades</a>
-  <a class="dropdown-item" href="#">My Subjects</a>
+<a class="dropdown-item" href="grade9.php">Grade 9 Student Home Page</a>
 </div>
 </li>
 
@@ -165,9 +147,7 @@ $permissions = explode(" ", $list);
      ?>
 <a class="nav-link dropdown-toggle" href="#" id="navbardrop" data-toggle="dropdown">Grade 10</a>
 <div class="dropdown-menu">
-  <a class="dropdown-item" href="#">Grade 10 Student Information</a>
-  <a class="dropdown-item" href="#">Update Student Grades</a>
-  <a class="dropdown-item" href="#">My Subjects</a>
+<a class="dropdown-item" href="grade10.php">Grade 10 Student Home Page</a>
 </div>
 </li>
 
@@ -177,9 +157,7 @@ $permissions = explode(" ", $list);
      ?>
 <a class="nav-link dropdown-toggle" href="#" id="navbardrop" data-toggle="dropdown">Grade 11</a>
 <div class="dropdown-menu">
-  <a class="dropdown-item" href="#">Grade 11 Student Information</a>
-  <a class="dropdown-item" href="#">Update Student Grades</a>
-  <a class="dropdown-item" href="#">My Subjects</a>
+<a class="dropdown-item" href="grade11.php">Grade 11 Student Home Page</a>
 </div>
 </li>
 

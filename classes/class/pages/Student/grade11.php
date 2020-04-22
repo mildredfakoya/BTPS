@@ -5,8 +5,8 @@ require_once 'includes/studentnav.php';
 require_once '../../../../aes.php';
 $inputkey = "marketdayanyigba";
 $blocksize = 256;
-$class = 'grade_2';
-$grade='grade2';
+$class = 'grade_11';
+$grade='grade11';
 $email = $row['email'];
 
 #for the logged in user

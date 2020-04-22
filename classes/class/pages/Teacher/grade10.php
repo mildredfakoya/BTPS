@@ -1,12 +1,12 @@
 <?php
-require_once 'includes/studentinit.php';
-require_once 'includes/studenthead.php';
-require_once 'includes/studentnav.php';
+require_once 'includes/teacherinit.php';
+require_once 'includes/teacherhead.php';
+require_once 'includes/teachernav.php';
 require_once '../../../../aes.php';
 $inputkey = "marketdayanyigba";
 $blocksize = 256;
-$class = 'grade_2';
-$grade='grade2';
+$class = 'grade_10';
+$grade='grade10';
 $email = $row['email'];
 
 #for the logged in user
