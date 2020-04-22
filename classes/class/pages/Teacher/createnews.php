@@ -59,19 +59,19 @@ $(document).ready(function(){
 <div class ="col-8 columnspacer">
 <select name="grade" id ="grade">
 <option value ="" selected disabled>[Choose here]</option>
-<option value = "prek">Pre-K</option>
-<option value = "gradek">Grade K</option>
-<option value = "grade1">Grade 1</option>
-<option value = "grade2">Grade 2</option>
-<option value = "grade3">Grade 3</option>
-<option value = "grade4">Grade 4</option>
-<option value = "grade5">Grade 5</option>
-<option value = "grade6">Grade 6</option>
-<option value = "grade7">Grade 7</option>
-<option value = "grade8">Grade 8</option>
-<option value = "grade9">Grade 9</option>
-<option value = "grade10">Grade 10</option>
-<option value = "grade11">Grade 11</option>
+<option value = "pre_k">Pre-K</option>
+<option value = "grade_k">Grade K</option>
+<option value = "grade_1">Grade 1</option>
+<option value = "grade_2">Grade 2</option>
+<option value = "grade_3">Grade 3</option>
+<option value = "grade_4">Grade 4</option>
+<option value = "grade_5">Grade 5</option>
+<option value = "grade_6">Grade 6</option>
+<option value = "grade_7">Grade 7</option>
+<option value = "grade_8">Grade 8</option>
+<option value = "grade_9">Grade 9</option>
+<option value = "grade_10">Grade 10</option>
+<option value = "grade_11">Grade 11</option>
 <option value = "general">General</option>
 </select>
 </div>

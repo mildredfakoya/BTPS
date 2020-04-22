@@ -17,7 +17,7 @@ $createdbyfirstname = $row['firstname'];
 $createdbylastname = $row['lastname'];
 $email = $row['email'];
 $topic= !empty($_POST['topic']) ? $helper->test_input($_POST['topic']) : null;
-$class= !empty($_POST['clas']) ? $helper->test_input($_POST['class']) : null;
+$class= !empty($_POST['class']) ? $helper->test_input($_POST['class']) : null;
 $details= !empty($_POST['details']) ? $helper->test_input($_POST['details']) : null;
 $id= $_POST['hidden'];
 

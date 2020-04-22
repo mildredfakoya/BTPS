@@ -39,8 +39,6 @@ $permissions = explode(" ", $list);
       <a class="nav-link dropdown-toggle" href="#" id="navbardrop" data-toggle="dropdown">Pre-K</a>
       <div class="dropdown-menu">
       <a class="dropdown-item" href="prek.php">Pre-K Student Home page</a>
-      <a class="dropdown-item" href="#">Update Student Grades</a>
-      <a class="dropdown-item" href="#">My Subjects</a>
       </div>
     </li>
 
@@ -50,9 +48,7 @@ $permissions = explode(" ", $list);
          ?>
     <a class="nav-link dropdown-toggle" href="#" id="navbardrop" data-toggle="dropdown">Grade-K</a>
     <div class="dropdown-menu">
-      <a class="dropdown-item" href="prek.php">Grade K Student Information</a>
-      <a class="dropdown-item" href="#">Update Student Grades</a>
-      <a class="dropdown-item" href="#">My Subjects</a>
+        <a class="dropdown-item" href="gradek.php">Grade K Student Home page</a>
     </div>
   </li>
 
@@ -62,9 +58,7 @@ $permissions = explode(" ", $list);
        ?>
   <a class="nav-link dropdown-toggle" href="#" id="navbardrop" data-toggle="dropdown">Grade 1</a>
   <div class="dropdown-menu">
-    <a class="dropdown-item" href="#">Grade 1 Student Information</a>
-    <a class="dropdown-item" href="#">Update Student Grades</a>
-    <a class="dropdown-item" href="#">My Subjects</a>
+    <a class="dropdown-item" href="grade1.php">Grade 1 Student Home Page</a>
   </div>
 </li>
 
