@@ -295,7 +295,7 @@ if(isset($_POST['register']))
 						Welcome to Bonne Terre Preparatory School!<br/>
 						To complete your registration,  please click following link<br/>
 						<br /><br />
-						<a href='http://localhost/BTPS/classes/class/verify.php?id=$id&code=$code'>Click HERE to Activate </a>
+						<a href='https://btpps.org/classes/class/verify.php?id=$id&code=$code'>Click HERE to Activate </a>
 						<br /><br />
 						Thanks,";
 

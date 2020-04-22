@@ -29,7 +29,7 @@ if(isset($_POST['btn-submit']))
 				   <br /><br />
 				   Click Following Link To Reset Your Password
 				   <br /><br />
-				   <a href='http://localhost/BTPS/classes/class/resetpass.php?id=$id&code=$code'>click here to reset your password</a>
+				   <a href='https://btpps.org/classes/class/resetpass.php?id=$id&code=$code'>click here to reset your password</a>
 				   <br /><br />
 				   thank you :)
 				   ";
