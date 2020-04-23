@@ -22,57 +22,60 @@ try{
  echo "</div><div class ='textspacer'></div>";
  foreach($stmtdistrict as $rowget){
    $counter++;
-
-   echo "<form method='post'><div class ='row'>";
-   echo "<div class ='col-2'>". $counter."</div>";
-   echo "<div class ='col-2 columnspacer'><label>".$rowget['created_at']."</label></div>";
-   echo "<div class ='col-2 columnspacer'><input type ='text' name ='title' value ='". $rowget['title']."'/></div>";
-   echo "<div class ='col-2 columnspacer'>";
-   echo '<select name="grade" id ="grade">';
-   echo '<option value ='.$rowget["grade"]'selected>[Choose here]</option>';
-   echo '<option value = "prek">Pre-K</option>';
-   echo '<option value = "gradek">Grade K</option>';
-   echo '<option value = "grade1">Grade 1</option>';
-   echo '<option value = "grade2">Grade 2</option>';
-   echo '<option value = "grade3">Grade 3</option>';
-   echo '<option value = "grade4">Grade 4</option>';
-   echo '<option value = "grade5">Grade 5</option>';
-   echo '<option value = "grade6">Grade 6</option>';
-   echo '<option value = "grade7">Grade 7</option>';
-   echo '<option value = "grade8">Grade 8</option>';
-   echo '<option value = "grade9">Grade 9</option>';
-   echo '<option value = "grade10">Grade 10</option>';
-   echo '<option value = "grade11">Grade 11</option>';
-   echo '<option value = "general">General</option>';
-   echo '</select>';
-   echo "</div>";
-   echo "<div class ='col-2 columnspacer'>";
-   echo "<select name='subject' id ='subject'>";
-   echo "<option value ='.$rowget['subject'].'selected>[Choose here]</option>";
-   echo '<option value = "biology">Biology</option>';
-   echo '<option value = "caribbean_history">Caribbean History</option>';
-   echo '<option value = "chemistry">Chemistry</option>';
-   echo '<option value = "english">English</option>';
-   echo '<option value = "food_nutrition">Food & Nutrition</option>';
-   echo '<option value = "french">French</option>';
-   echo '<option value = "general_science">General Science</option>';
-   echo '<option value = "geography">Geography</option>';
-   echo '<option value = "health_science">Health Science</option>';
-   echo '<option value = "information_technology">Information Technology</option>';
-   echo '<option value = "integrated_science">Integrated Science</option>';
-   echo '<option value = "language_arts">Language Arts</option>';
-   echo '<option value = "mathematics">Mathematics</option>';
-   echo '<option value = "physics">Physics</option>';
-   echo '<option value = "physical_education">Physical Education</option>';
-   echo '<option value = "principles_of_business">Principles of Business</option>';
-   echo '<option value = "social_studies">Social Studies</option>';
-   echo '<option value = "spanish">Spanish</option>';
-   echo '<option value = "visual_arts">Virtual Arts</option>';
-   echo '<option value = "general">General Information</option>';
-   echo '</select></div>';
-   echo "<input type='hidden' name='date' value='".$rowget['created_at']."'>";
-   echo "<div class ='col-2 columnspacer'><input type='submit' name='deletedistrict' value='Delete' class ='btn btn-danger' style ='width:100%'/></div>";
-   echo "</div><div class ='textspacer'></div></form>";
+?>
+  <form method='post'>
+    <div class ='row'>
+      <div class ='col-2'><?php echo $counter?></div>
+      <div class ='col-2 columnspacer'><label><?php echo $rowget['created_at']?></label></div>
+      <div class ='col-2 columnspacer'><input type ='text' name ='title' value ="<?php echo $rowget['title']?>"/></div>
+      <div class ='col-2 columnspacer'>
+      <select name="grade" id ="grade">
+         <option value ='<?php echo $rowget["grade"]?>' selected>[Choose here]</option>
+         <option value = "prek">Pre-K</option>
+         <option value = "gradek">Grade K</option>
+         <option value = "grade1">Grade 1</option>
+         <option value = "grade2">Grade 2</option>
+         <option value = "grade3">Grade 3</option>
+         <option value = "grade4">Grade 4</option>
+         <option value = "grade5">Grade 5</option>
+         <option value = "grade6">Grade 6</option>
+         <option value = "grade7">Grade 7</option>
+         <option value = "grade8">Grade 8</option>
+         <option value = "grade9">Grade 9</option>
+         <option value = "grade10">Grade 10</option>
+         <option value = "grade11">Grade 11</option>
+         <option value = "general">General</option>
+       </select>
+   </div>
+   <div class ='col-2 columnspacer'>
+   <select name='subject' id ='subject'>
+     <option value ='<?php echo $rowget['subject']?>' selected>[Choose here]</option>
+     <option value = "biology">Biology</option>
+     <option value = "caribbean_history">Caribbean History</option>
+     <option value = "chemistry">Chemistry</option>
+     <option value = "english">English</option>
+     <option value = "food_nutrition">Food & Nutrition</option>
+     <option value = "french">French</option>
+     <option value = "general_science">General Science</option>
+     <option value = "geography">Geography</option>
+     <option value = "health_science">Health Science</option>
+     <option value = "information_technology">Information Technology</option>
+     <option value = "integrated_science">Integrated Science</option>
+     <option value = "language_arts">Language Arts</option>
+     <option value = "mathematics">Mathematics</option>
+     <option value = "physics">Physics</option>
+     <option value = "physical_education">Physical Education</option>
+     <option value = "principles_of_business">Principles of Business</option>
+     <option value = "social_studies">Social Studies</option>
+     <option value = "spanish">Spanish</option>
+     <option value = "visual_arts">Virtual Arts</option>
+     <option value = "general">General Information</option>
+    </select>
+  </div>
+  <input type='hidden' name='date' value='<?php echo $rowget['created_at']?>'>
+   <div class ='col-2 columnspacer'><input type='submit' name='deletedistrict' value='Delete' class ='btn btn-danger' style ='width:100%'/></div>
+  </div><div class ='textspacer'></div></form>
+  <?php
 	 }
 echo "</div>";
 }
@@ -83,9 +86,6 @@ catch(PDOException $e)
 
 if(isset($_POST['deletedistrict'])){
       date_default_timezone_set('America/dominica');
-      $districtname = $_POST['title'];
-      $districtcode =$_POST['grade'];
-      $districtname = $_POST['subject'];
 
     	try{
         $sql = "DELETE FROM ihs_video_uploads WHERE created_at='$_POST[date]'";
