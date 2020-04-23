@@ -30,9 +30,9 @@
         <a class="nav-link" href="index.php">Home</a>
       </li>
       <li class ='nav-item'>
-      <a class ='nav-link' href = 'https://www.facebook.com/Bonne-Terre-Preparatory-School-173673542656780/'>-----facebook</a>
+      <a class ='nav-link' href = 'https://www.facebook.com/groups/bonneterre/'>..::..facebook</a>
     </li>
-      <li class="nav-item"><a class="nav-link" href="classes/class/login.php">-----Login</a></li>
+      <li class="nav-item"><a class="nav-link" href="classes/class/login.php">..::..Login</a></li>
     </ul>
   </div>
 </nav>
