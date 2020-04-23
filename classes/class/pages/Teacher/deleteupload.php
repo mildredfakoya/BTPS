@@ -1,6 +1,6 @@
 <?php
-$firstname  = $row['firstname']
-$lastname  = $row['lastname']
+$firstname  = $row['firstname'];
+$lastname  = $row['lastname'];
 try{
   # initialize a serial number counter that will increment after every iteration
   $counter = 0;
@@ -86,7 +86,6 @@ catch(PDOException $e)
 
 if(isset($_POST['deletedistrict'])){
       date_default_timezone_set('America/dominica');
-
     	try{
         $sql = "DELETE FROM ihs_video_uploads WHERE created_at='$_POST[date]'";
         $result = $user_home->runQuery4($sql);
