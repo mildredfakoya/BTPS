@@ -5,7 +5,7 @@ try{
   # initialize a serial number counter that will increment after every iteration
   $counter = 0;
   # query the sites table for the list of available sites
-  $sqldistrict = "SELECT * FROM ihs_video_uploads where created_by_firstname = $firstname and created_by_lastname = $lastname ORDER BY created_at";
+  $sqldistrict = "SELECT * FROM ihs_video_uploads where created_by_firstname = '$firstname' and created_by_lastname = '$lastname' ORDER BY created_at";
   $stmtdistrict = $user_home->runQuery($sqldistrict);
   $stmtdistrict->execute();
 
