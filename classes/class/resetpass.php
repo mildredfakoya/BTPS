@@ -7,7 +7,7 @@ $user= new USER();
 
 if(empty($_GET['id']) && empty($_GET['code']))
 {
-	$user->redirect('country_login.php');
+	$user->redirect('login.php');
 }
 
 if(isset($_GET['id']) && isset($_GET['code']))
@@ -43,7 +43,7 @@ if(isset($_GET['id']) && isset($_GET['code']))
 				$msg = "<div class='alert alert-info'>
 						<strong>Password Changed.</strong>
 						</div>";
-				header("refresh:5;country_login.php");
+				header("refresh:5;login.php");
 			}
 		}
 	}

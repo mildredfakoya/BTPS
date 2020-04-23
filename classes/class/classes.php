@@ -509,6 +509,7 @@ public function __construct()
  created_at varchar(100),
  created_by_firstname VARCHAR(100) NOT NULL,
  created_by_lastname VARCHAR(100) NOT NULL,
+ email VARCHAR(100) DEFAULT NULL,
  title VARCHAR(100) DEFAULT NULL,
  grade VARCHAR(100) DEFAULT NULL,
  subject VARCHAR(100) DEFAULT NULL,

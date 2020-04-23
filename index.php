@@ -19,8 +19,8 @@ Students of Grade 2 & Grade 4 write the Minimum Standards Test set by the Minist
   Your browser does not support HTML5 video.
   </video>
 </div></div>
-<p style = "font-family:'Palatino Linotype', 'Book Antiqua', 'Palatino', 'serif'"> We are working round the clock to ensure that our students get the best and remain the best. See below samples recorded classes. These will be available as a supplement to the live classes.
-</p>
+<h1 style = "font-family:'Palatino Linotype', 'Book Antiqua', 'Palatino', 'serif'"> We are working round the clock to ensure that our students get the best and remain the best. See below samples recorded classes. These will be available as a supplement to the live classes.
+</h1>
 
 <div class ='outer'>
 <div class ='heading'><h3 style='color:#0000ff'>Lecture Highlight</h3></div>

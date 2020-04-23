@@ -27,6 +27,7 @@ date_default_timezone_set('America/dominica');
 $datecreated = date("y-m-d h:i:sa");
 $createdbyfirstname = $row['firstname'];
 $createdbylastname = $row['lastname'];
+$createdbyemail = $row['email'];
 $title= !empty($_POST['title']) ? $helper->test_input($_POST['title']) : null;
 $grade= !empty($_POST['grade']) ? $helper->test_input($_POST['grade']) : null;
 $subject= !empty($_POST['subject']) ? $helper->test_input($_POST['subject']) : null;
@@ -34,12 +35,13 @@ $report= !empty($_POST['report']) ? $helper->test_input($_POST['report']) : null
 
 
 try{
- $sqlf="INSERT INTO ihs_video_uploads(created_at, created_by_firstname, created_by_lastname, title, grade,subject, image, report)
- VALUES(:created_at, :created_by_firstname, :created_by_lastname, :title, :grade, :subject, :file_name, :report)";
+ $sqlf="INSERT INTO ihs_video_uploads(created_at, created_by_firstname, created_by_lastname, email, title, grade,subject, image, report)
+ VALUES(:created_at, :created_by_firstname, :created_by_lastname, :email, :title, :grade, :subject, :file_name, :report)";
  $stmtf = $user_home->runQuery($sqlf);
  $stmtf->bindValue(':created_at', $datecreated);
  $stmtf->bindValue(':created_by_firstname', $createdbyfirstname);
  $stmtf->bindValue(':created_by_lastname', $createdbylastname);
+ $stmtf->bindValue(':email', $email);
  $stmtf->bindValue(':title', $title);
  $stmtf->bindValue(':grade', $grade);
  $stmtf->bindValue(':subject', $subject);

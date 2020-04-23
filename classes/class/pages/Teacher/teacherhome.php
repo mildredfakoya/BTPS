@@ -36,6 +36,7 @@ require_once 'includes/teachernav.php';
                     <li id="tabHeader_3">View Uploads</li>
                     <li id="tabHeader_4">Create News</li>
                     <li id="tabHeader_5">Update News</li>
+                    <li id="tabHeader_6">Delete Upload</li>
                 </ul>
             </div>
             <div id="tabscontent">
@@ -166,6 +167,10 @@ require_once 'includes/teachernav.php';
 
             <nav class="tabpage" id="tabpage_5">
            <?php include "updatenews.php" ?>
+            </nav>
+
+            <nav class="tabpage" id="tabpage_5">
+           <?php include "deleteupload.php" ?>
             </nav>
 
 
