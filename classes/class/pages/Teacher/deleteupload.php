@@ -1,15 +1,6 @@
 <?php
 include "includes/admininit.php";
-include_once 'includes/adminhead.php';
-include_once 'includes/adminnav.php';
-if(!in_array("system_configuration", $permissions)){
-$user_home->redirect('../../errors.php?nop');
-}
-else{
-#get the name of the logged in user.
-$firstname =$row['firstname'];
-$lastname =$row['lastname'];
-$email =$row['email']
+
 try{
   # initialize a serial number counter that will increment after every iteration
   $counter = 0;
@@ -116,11 +107,4 @@ if(isset($_POST['deletedistrict'])){
         die('SYSTEM FAILURE!! PLEASE CONTACT YOUR ADMINISTRATOR');
         }
     }
-
-
-
-
-
-}
-include_once 'includes/adminfooter.php';
 ?>
