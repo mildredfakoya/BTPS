@@ -53,7 +53,7 @@ public function __construct()
   ON DELETE CASCADE
   ) ENGINE=MyISAM DEFAULT CHARSET=utf8;
   INSERT INTO `ihs_users` (`id`, `uuid`, `firstname`, `middlename`, `lastname`, `email`, `password`, `role`, `userStatus`, `code`, `last_logged_in`, `access_status`, `created_at`, `created_by_firstname`, `created_by_lastname`, `updated_at`, `updated_by_firstname`, `updated_by_lastname`) VALUES
-  (1, '75b1d11de6a4bb71d7057d3f44aaf8079a1c10fb36b030d991693e988ae5fc396e7fcd3a246e37e9a6ce45c6857427cf7a72', 'l064xcvrQ+KqiACxJkspsw==', NULL, 'jkfwH0L03ZTvBK0LIWwE6w==', 'r6TppR8eFavexNmWXTNyk+2LqhPDGlq5z492eRPr8NU=', 'h2pJ9R66xPp658byPqjZjGlW1qO0dOjbt06d/F3UAQI=', 'Admin', 'Y', '148f37eb56546d38a950', NULL, 'OK', '', '/yVgGxBKo5oyf/5C+gNxcA==', 'EySvf+MgEwj5yDRvN1au4Q==', NULL, NULL, NULL);";
+  (1, '75b1d11de6a4bb71d7057d3f44aaf8079a1c10fb36b030d991693e988ae5fc396e7fcd3a246e37e9a6ce45c6857427cf7a72', 'l064xcvrQ+KqiACxJkspsw==', NULL, 'jkfwH0L03ZTvBK0LIWwE6w==', 'r6TppR8eFavexNmWXTNyk+2LqhPDGlq5z492eRPr8NU=', 'h2pJ9R66xPp658byPqjZjGlW1qO0dOjbt06d/F3UAQI=', 'Admin', 'Y', '148f37eb56546d38a950', NULL, 'OK', '2020-04-23 06:30:00', '/yVgGxBKo5oyf/5C+gNxcA==', 'EySvf+MgEwj5yDRvN1au4Q==', NULL, NULL, NULL);";
   $this->conn->exec($sql2);
 
 
