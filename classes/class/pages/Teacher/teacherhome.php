@@ -169,7 +169,7 @@ require_once 'includes/teachernav.php';
            <?php include "updatenews.php" ?>
             </nav>
 
-            <nav class="tabpage" id="tabpage_5">
+            <nav class="tabpage" id="tabpage_6">
            <?php include "deleteupload.php" ?>
             </nav>
 
