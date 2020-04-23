@@ -1,7 +1,7 @@
 <?php
-require_once 'includes/teacherinit.php';
-require_once 'includes/teacherhead.php';
-require_once 'includes/teachernav.php';
+require_once 'includes/studentinit.php';
+require_once 'includes/studenthead.php';
+require_once 'includes/studentnav.php';
 require_once '../../../../aes.php';
 $inputkey = "marketdayanyigba";
 $blocksize = 256;
