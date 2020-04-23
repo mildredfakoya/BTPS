@@ -81,7 +81,8 @@ echo "</div>";
 }
 catch(PDOException $e)
     {
-    die('SYSTEM FAILURE!! PLEASE CONTACT YOUR ADMINISTRATOR');
+    #die('SYSTEM FAILURE!! PLEASE CONTACT YOUR ADMINISTRATOR');
+    echo $e->getMessage()
     }
 
 if(isset($_POST['deletedistrict'])){
