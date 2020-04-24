@@ -77,7 +77,7 @@ require_once 'includes/teachernav.php';
         ?>
         <a class="nav-link dropdown-toggle" href="#" id="navbardrop" data-toggle="dropdown">Grade 4 Virtual Classroom</a>
         <div class="dropdown-menu">
-          <a class="dropdown-item" target = "_blank" href="">Grade 4</a>
+          <a class="dropdown-item" target = "_blank" href="http://www.blackboard.com/coursesites/?sig=zFN8apC2K%2BpWZ5K4IpMpJqp8Cf8%3D&courseId=_797061_1&timestamp=1587324389&inviteId=BB%253FBB_i%252Bx55KLOcLz8exwnj%252Bo9J0%252BdYsh30cWNzcKBa3gF17otUG%252B4ivX5IA%253D%253D">Grade 4</a>
         </div>
         </li>
 
@@ -86,7 +86,7 @@ require_once 'includes/teachernav.php';
         ?>
         <a class="nav-link dropdown-toggle" href="#" id="navbardrop" data-toggle="dropdown">Grade 5 Virtual Classroom</a>
         <div class="dropdown-menu">
-          <a class="dropdown-item" target = "_blank" href="">Grade 5</a>
+          <a class="dropdown-item" target = "_blank" href="http://www.blackboard.com/coursesites/?sig=KWVgiXQL%2BBkvNB015TAglS6i%2B7k%3D&courseId=_797062_1&timestamp=1587324421&inviteId=BB%253FBB_dNgvtbgCTqZZqanbyPn0Lc90YZkhXx5%2FGEpNWBi1414tUG%252B4ivX5IA%253D%253D">Grade 5</a>
         </div>
         </li>
 
@@ -95,7 +95,7 @@ require_once 'includes/teachernav.php';
         ?>
         <a class="nav-link dropdown-toggle" href="#" id="navbardrop" data-toggle="dropdown">Grade 6 Virtual Classroom</a>
         <div class="dropdown-menu">
-          <a class="dropdown-item" target = "_blank" href="">Grade 6</a>
+          <a class="dropdown-item" target = "_blank" href="http://www.blackboard.com/coursesites/?sig=Mva%2FgjuV4B%2BJhfuwQ%2FbEVZyypxk%3D&courseId=_797063_1&timestamp=1587324456&inviteId=BB%253FBB_09GKL%252Bd22N3zKG%252B4BUJGwgn0u%252BrwRIalOsMok82obTMtUG%252B4ivX5IA%253D%253D">Grade 6</a>
         </div>
         </li>
 
@@ -104,7 +104,7 @@ require_once 'includes/teachernav.php';
         ?>
         <a class="nav-link dropdown-toggle" href="#" id="navbardrop" data-toggle="dropdown">Grade 7 Virtual Classroom</a>
         <div class="dropdown-menu">
-          <a class="dropdown-item" target = "_blank" href="">Grade 7</a>
+          <a class="dropdown-item" target = "_blank" href="http://www.blackboard.com/coursesites/?sig=vsd%2BFuK5AdCNdfiVC5A8DZmm4%2BU%3D&courseId=_797064_1&timestamp=1587324492&inviteId=BB%253FBB_66zgpPwVbYAGfysBAkDJVsL%252Bf6yVBqOonYfJtJ0h1ogtUG%252B4ivX5IA%253D%253D">Grade 7</a>
         </div>
         </li>
 
@@ -113,7 +113,7 @@ require_once 'includes/teachernav.php';
         ?>
         <a class="nav-link dropdown-toggle" href="#" id="navbardrop" data-toggle="dropdown">Grade 8 Virtual Classroom</a>
         <div class="dropdown-menu">
-          <a class="dropdown-item" target = "_blank" href="">Grade 8</a>
+          <a class="dropdown-item" target = "_blank" href="http://www.blackboard.com/coursesites/?sig=78lE3vqvcyFPyxqqnAMjqL39R68%3D&courseId=_797058_1&timestamp=1587324284&inviteId=BB%253FBB_HPQJJtzWXp20IDajHI6fzytwJp0ymsQ2JDoPMhXF0A4tUG%252B4ivX5IA%253D%253D">Grade 8</a>
         </div>
         </li>
 
@@ -122,7 +122,7 @@ require_once 'includes/teachernav.php';
         ?>
         <a class="nav-link dropdown-toggle" href="#" id="navbardrop" data-toggle="dropdown">Grade 9 Virtual Classroom</a>
         <div class="dropdown-menu">
-          <a class="dropdown-item" target = "_blank" href="">Grade 9</a>
+          <a class="dropdown-item" target = "_blank" href="http://www.blackboard.com/coursesites/?sig=ZXxI%2FS9KL8v0LOm%2FkslSInAw6BQ%3D&courseId=_797065_1&timestamp=1587324707&inviteId=BB%253FBB_adhrd2hji00R%2FF6ZcMlXo69OWbRZR6xGcYfQFhqyR54tUG%252B4ivX5IA%253D%253D">Grade 9</a>
         </div>
         </li>
 
@@ -131,7 +131,7 @@ require_once 'includes/teachernav.php';
         ?>
         <a class="nav-link dropdown-toggle" href="#" id="navbardrop" data-toggle="dropdown">Grade 10 Virtual Classroom</a>
         <div class="dropdown-menu">
-          <a class="dropdown-item" target = "_blank" href="">Grade 10</a>
+          <a class="dropdown-item" target = "_blank" href="http://www.blackboard.com/coursesites/?sig=mCFO7FA30KPagdiVK0JogQqulMo%3D&courseId=_797066_1&timestamp=1587324767&inviteId=BB%253FBB_Xt7yALYIvwFt%2FZnwrvShEGPXSVFEDI2JM2TUWKHIkQAtUG%252B4ivX5IA%253D%253D">Grade 10</a>
         </div>
         </li>
 
@@ -140,7 +140,7 @@ require_once 'includes/teachernav.php';
         ?>
         <a class="nav-link dropdown-toggle" href="#" id="navbardrop" data-toggle="dropdown">Grade 11 Virtual Classroom</a>
         <div class="dropdown-menu">
-          <a class="dropdown-item" target = "_blank" href="">Grade 11</a>
+          <a class="dropdown-item" target = "_blank" href="http://www.blackboard.com/coursesites/?sig=LyhS%2BHZF2WfQxE6aosnjexhp9UM%3D&courseId=_797067_1&timestamp=1587324818&inviteId=BB%253FBB_Kx%252Bi70DERUZ2ompKgmm0avSbWcR0s5IuJ6VF8u%252ByM7MtUG%252B4ivX5IA%253D%253D">Grade 11</a>
         </div>
         </li>
 
