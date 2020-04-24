@@ -514,7 +514,7 @@ public function __construct()
  grade VARCHAR(100) DEFAULT NULL,
  subject VARCHAR(100) DEFAULT NULL,
  image VARCHAR(100) DEFAULT NULL,
- report VARCHAR(100) DEFAULT NULL
+ report TEXT
  )ENGINE=MyISAM DEFAULT CHARSET=utf8;
  ";
  $this->conn->exec($sql19);
