@@ -8,7 +8,7 @@ require_once "includes/studentheader.php";
     <h2>Welcome to Term 3</h2>
     </div>
 	<div class ='container'>
-		<p>We welcome you to our online learning platform. we will provide you all the support that you need to help you get settled.<br/>
+		<p>We welcome you to our online learning platform. we will provide you the support that you need to help you get settled.<br/>
 			We look forward to best results from you and a good association of studies with you.</p>
 			<p>For best user experience, please use the following browsers: Listed in order of best experience
 			<ol>
