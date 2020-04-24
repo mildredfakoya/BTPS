@@ -15,7 +15,7 @@ require_once "includes/studentheader.php";
        <li>Google Chrome</li>
 			 <li>Apple Safari</li>
 			 <li>Opera</li>
-			 <li>Moxilla Firefox</li>
+			 <li>Mozilla Firefox</li>
 			 <li>Internet Explorer (edge)</li>
 			</ol>
 		</p>
