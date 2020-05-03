@@ -67,7 +67,7 @@ require_once 'includes/teachernav.php';
 
 
             <?php
-            $decide = in_array("garde_k_teacher", $permissions)?'<li class="nav-item dropdown">':'<li class="nav-item dropdown hidden">';
+            $decide = in_array("grade_k_teacher", $permissions)?'<li class="nav-item dropdown">':'<li class="nav-item dropdown hidden">';
               echo $decide;
             ?>
             <a class="nav-link dropdown-toggle" href="#" id="navbardrop" data-toggle="dropdown">Grade K Virtual Classroom</a>
@@ -78,7 +78,7 @@ require_once 'includes/teachernav.php';
 
 
           <?php
-          $decide = in_array("garde_1_teacher", $permissions)?'<li class="nav-item dropdown">':'<li class="nav-item dropdown hidden">';
+          $decide = in_array("grade_1_teacher", $permissions)?'<li class="nav-item dropdown">':'<li class="nav-item dropdown hidden">';
             echo $decide;
           ?>
           <a class="nav-link dropdown-toggle" href="#" id="navbardrop" data-toggle="dropdown">Grade 1 Virtual Classroom</a>
