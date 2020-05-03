@@ -7,10 +7,10 @@
 <link rel="SHORTCUT ICON" href="favicon.ico"/>
 <link rel="icon" href="favicon.ico?" type="image/x-icon">
 <link rel="stylesheet" type ="text/css" href ="css/style.css">
-<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
- <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
- <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"></script>
-  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+<link rel="stylesheet" href="scripts/bootstrap.min.css">
+ <script src="scripts/jquery.min.js"></script>
+ <script src="scripts/popper.min.js"></script>
+  <script src="scripts/bootstrap.min.js"></script>
 </head>
 <body>
 <h1><img class="img-responsive" src="images/logo.png" alt="Logo" id ="logo" galleryimg="no"></h1>
