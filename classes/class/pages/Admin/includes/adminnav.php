@@ -37,7 +37,9 @@ $permissions = explode(" ", $list);
       ?>
       <a class="nav-link dropdown-toggle" href="#" id="navbardrop" data-toggle="dropdown">Virtual classroom</a>
       <div class="dropdown-menu">
-
+      <a class="dropdown-item" target = "_blank" href="http://www.blackboard.com/coursesites/?sig=WgS4LqZMI1zdrzpeMCnN8J2bMaw%3D&courseId=_905235_1&timestamp=1588537959&inviteId=BB%253FBB_23LzHX6bGZvGouI2M9yB%2Fb3TNIRK8jYPhrDVplLtgrMtUG%252B4ivX5IA%253D%253D">Pre K</a>
+      <a class="dropdown-item" target = "_blank" href="http://www.blackboard.com/coursesites/?sig=WiQ2I84y1UkQhCUC%2BdzHrgtB14U%3D&courseId=_905236_1&timestamp=1588538246&inviteId=BB%253FBB_xjs4KjtxZMUKDJyw8tDVn7H3PyRSgJ7j6YY%252BboQSwvwtUG%252B4ivX5IA%253D%253D">Grade K</a>
+      <a class="dropdown-item" target = "_blank" href="http://www.blackboard.com/coursesites/?sig=o7GkPUfsTfJ2m%2FdTt%2BYjM5SJrUg%3D&courseId=_905237_1&timestamp=1588538350&inviteId=BB%253FBB_0RAaBJIQQ9cZeJeIvMigcoU5VZzl%252BSKldJ3B%252BnU9e84tUG%252B4ivX5IA%253D%253D">Grade 1</a>
       <a class="dropdown-item" target = "_blank" href="http://www.blackboard.com/coursesites/?sig=xIKx9P289UKRwEPKTi7llNB8O6c%3D&courseId=_797059_1&timestamp=1587324171&inviteId=BB%253FBB_qs%2FmKAWONPeBMazi65eANgW6Oy0el%2FQxL2ForN8720stUG%252B4ivX5IA%253D%253D">Grade 2</a>
       <a class="dropdown-item" target = "_blank" href="http://www.blackboard.com/coursesites/?sig=BFCmKZHY83gM683K5BTY9yBBpYE%3D&courseId=_797060_1&timestamp=1587324325&inviteId=BB%253FBB_j2VFeZQam2t38ArLwXTnrsUno9zTQpePlLtwrRW%252B1JUtUG%252B4ivX5IA%253D%253D">Grade 3</a>
       <a class="dropdown-item" target = "_blank" href="http://www.blackboard.com/coursesites/?sig=zFN8apC2K%2BpWZ5K4IpMpJqp8Cf8%3D&courseId=_797061_1&timestamp=1587324389&inviteId=BB%253FBB_i%252Bx55KLOcLz8exwnj%252Bo9J0%252BdYsh30cWNzcKBa3gF17otUG%252B4ivX5IA%253D%253D">Grade 4</a>
