@@ -24,7 +24,7 @@ $permissions = explode(" ", $list);
 <img class="img-responsive" src="../../../../images/logo.png" alt="Logo" id ="logo" galleryimg="no">
 <nav class="navbar navbar-dark bg-dark">
 <!-- Brand -->
-<a class="navbar-brand" href="teacherhome.php">BTPS .::. STUDENT</a>
+<a class="navbar-brand" href="studenthome.php">BTPS .::. STUDENT</a>
 <!-- Toggler/collapsibe Button-->
 <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#collapsibleNavbar">
     <span class="navbar-toggler-icon"></span>
