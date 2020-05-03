@@ -53,6 +53,40 @@ require_once 'includes/teachernav.php';
       			$permissions = explode(" ", $list);
             ?>
             <ul type ="none">
+
+
+              <?php
+              $decide = in_array("pre_k_teacher", $permissions)?'<li class="nav-item dropdown">':'<li class="nav-item dropdown hidden">';
+                echo $decide;
+              ?>
+              <a class="nav-link dropdown-toggle" href="#" id="navbardrop" data-toggle="dropdown">Pre K Virtual Classroom</a>
+              <div class="dropdown-menu">
+              <a class="dropdown-item" target = "_blank" href="http://www.blackboard.com/coursesites/?sig=WgS4LqZMI1zdrzpeMCnN8J2bMaw%3D&courseId=_905235_1&timestamp=1588537959&inviteId=BB%253FBB_23LzHX6bGZvGouI2M9yB%2Fb3TNIRK8jYPhrDVplLtgrMtUG%252B4ivX5IA%253D%253D">Pre K</a>
+            </div>
+            </li>
+
+
+            <?php
+            $decide = in_array("garde_k_teacher", $permissions)?'<li class="nav-item dropdown">':'<li class="nav-item dropdown hidden">';
+              echo $decide;
+            ?>
+            <a class="nav-link dropdown-toggle" href="#" id="navbardrop" data-toggle="dropdown">Grade K Virtual Classroom</a>
+            <div class="dropdown-menu">
+            <a class="dropdown-item" target = "_blank" href="http://www.blackboard.com/coursesites/?sig=WiQ2I84y1UkQhCUC%2BdzHrgtB14U%3D&courseId=_905236_1&timestamp=1588538246&inviteId=BB%253FBB_xjs4KjtxZMUKDJyw8tDVn7H3PyRSgJ7j6YY%252BboQSwvwtUG%252B4ivX5IA%253D%253D">Grade K</a>
+          </div>
+          </li>
+
+
+          <?php
+          $decide = in_array("garde_1_teacher", $permissions)?'<li class="nav-item dropdown">':'<li class="nav-item dropdown hidden">';
+            echo $decide;
+          ?>
+          <a class="nav-link dropdown-toggle" href="#" id="navbardrop" data-toggle="dropdown">Grade 1 Virtual Classroom</a>
+          <div class="dropdown-menu">
+          <a class="dropdown-item" target = "_blank" href="http://www.blackboard.com/coursesites/?sig=o7GkPUfsTfJ2m%2FdTt%2BYjM5SJrUg%3D&courseId=_905237_1&timestamp=1588538350&inviteId=BB%253FBB_0RAaBJIQQ9cZeJeIvMigcoU5VZzl%252BSKldJ3B%252BnU9e84tUG%252B4ivX5IA%253D%253D">Grade 1</a>
+        </div>
+        </li>
+
             <?php
             $decide = in_array("grade_2_teacher", $permissions)?'<li class="nav-item dropdown">':'<li class="nav-item dropdown hidden">';
               echo $decide;
