@@ -91,6 +91,7 @@ $(document).ready(function (e) {
 <option value = "social_studies">Social Studies</option>
 <option value = "spanish">Spanish</option>
 <option value = "visual_arts">Virtual Arts</option>
+<option value = "vocational">Vocational</option>
 <option value = "general">General Information</option>
 </select>
 </div>
