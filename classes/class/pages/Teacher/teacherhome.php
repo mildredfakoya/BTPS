@@ -84,7 +84,7 @@ require_once 'includes/teachernav.php';
           <a class="nav-link dropdown-toggle" href="#" id="navbardrop" data-toggle="dropdown">Grade 1 Virtual Classroom</a>
           <div class="dropdown-menu">
           <a class="dropdown-item" target = "_blank" href="https://blackboard.coursesites.com/">Grade 1 - Blackboard</a>
-          <a class="dropdown-item" href="https://us02web.zoom.us/j/87114057766">Start Grade 1 - Zoom Class</a>
+          <a class="dropdown-item" target= "_blank" href="https://us02web.zoom.us/j/87114057766">Start Grade 1 - Zoom Class</a>
         </div>
         </li>
 
@@ -95,7 +95,7 @@ require_once 'includes/teachernav.php';
             <a class="nav-link dropdown-toggle" href="#" id="navbardrop" data-toggle="dropdown">Grade 2 Virtual Classroom</a>
             <div class="dropdown-menu">
               <a class="dropdown-item" target = "_blank" href="https://blackboard.coursesites.com/">Grade 2 - Blackboard</a>
-              <a class="dropdown-item" href="https://us02web.zoom.us/j/82052708190">Start Grade 2 - Zoom Class</a>
+              <a class="dropdown-item" target= "_blank" href="https://us02web.zoom.us/j/82052708190">Start Grade 2 - Zoom Class</a>
             </div>
           </li>
 
@@ -105,7 +105,7 @@ require_once 'includes/teachernav.php';
         <a class="nav-link dropdown-toggle" href="#" id="navbardrop" data-toggle="dropdown">Grade 3 Virtual Classroom</a>
         <div class="dropdown-menu">
           <a class="dropdown-item" target = "_blank" href="https://blackboard.coursesites.com/">Grade 3 - Blackboard</a>
-          <a class="dropdown-item" href="https://us02web.zoom.us/j/84702993730">Start Grade 3 - Zoom Class</a>
+          <a class="dropdown-item" target= "_blank" href="https://us02web.zoom.us/j/84702993730">Start Grade 3 - Zoom Class</a>
         </div>
         </li>
 
@@ -115,7 +115,7 @@ require_once 'includes/teachernav.php';
         <a class="nav-link dropdown-toggle" href="#" id="navbardrop" data-toggle="dropdown">Grade 4 Virtual Classroom</a>
         <div class="dropdown-menu">
           <a class="dropdown-item" target = "_blank" href="https://blackboard.coursesites.com/">Grade 4 - Blackboard</a>
-          <a class="dropdown-item" href="https://us02web.zoom.us/j/85675057132">Start Grade 4 - Zoom Class</a>
+          <a class="dropdown-item" target= "_blank"  href="https://us02web.zoom.us/j/85675057132">Start Grade 4 - Zoom Class</a>
         </div>
         </li>
 
@@ -125,7 +125,7 @@ require_once 'includes/teachernav.php';
         <a class="nav-link dropdown-toggle" href="#" id="navbardrop" data-toggle="dropdown">Grade 5 Virtual Classroom</a>
         <div class="dropdown-menu">
           <a class="dropdown-item" target = "_blank" href="https://blackboard.coursesites.com/">Grade 5 - Blackboard</a>
-          <a class="dropdown-item" href="https://us02web.zoom.us/j/87063460642">Start Grade 5 - Zoom Class</a>
+          <a class="dropdown-item" target= "_blank" href="https://us02web.zoom.us/j/87063460642">Start Grade 5 - Zoom Class</a>
         </div>
         </li>
 
@@ -135,7 +135,7 @@ require_once 'includes/teachernav.php';
         <a class="nav-link dropdown-toggle" href="#" id="navbardrop" data-toggle="dropdown">Grade 6 Virtual Classroom</a>
         <div class="dropdown-menu">
           <a class="dropdown-item" target = "_blank" href="https://blackboard.coursesites.com/">Grade 6 - Blackboard</a>
-          <a class="dropdown-item" href="https://us02web.zoom.us/j/81104844111">Start Grade 6 - Zoom Class</a>
+          <a class="dropdown-item" target= "_blank" href="https://us02web.zoom.us/j/81104844111">Start Grade 6 - Zoom Class</a>
         </div>
         </li>
 
@@ -153,7 +153,8 @@ require_once 'includes/teachernav.php';
         ?>
         <a class="nav-link dropdown-toggle" href="#" id="navbardrop" data-toggle="dropdown">Grade 8 Virtual Classroom</a>
         <div class="dropdown-menu">
-          <a class="dropdown-item" target = "_blank" href="https://blackboard.coursesites.com/">Grade 8</a>
+          <a class="dropdown-item" target = "_blank" href="https://blackboard.coursesites.com/">Grade 8 - Blackboard</a>
+          <a class="dropdown-item" target= "_blank" href=" https://us02web.zoom.us/j/85617723160">Start Grade 8 - Zoom Class</a>
         </div>
         </li>
 
