@@ -549,6 +549,49 @@ public function __construct()
  )ENGINE=MyISAM DEFAULT CHARSET=utf8;
  ";
  $this->conn->exec($sql21);
+
+
+
+ $sql22 ="
+ CREATE TABLE IF NOT EXISTS ihs_timetable_uploads(
+ id INT PRIMARY KEY AUTO_INCREMENT,
+ created_at varchar(100),
+ created_by_firstname VARCHAR(100) NOT NULL,
+ created_by_lastname VARCHAR(100) NOT NULL,
+ email VARCHAR(100) DEFAULT NULL,
+ grade VARCHAR(100) DEFAULT NULL,
+ file VARCHAR(100) DEFAULT NULL
+ )ENGINE=MyISAM DEFAULT CHARSET=utf8;
+ ";
+ $this->conn->exec($sql22);
+
+
+ $sql23 ="
+ CREATE TABLE IF NOT EXISTS ihs_menu_uploads(
+ id INT PRIMARY KEY AUTO_INCREMENT,
+ created_at varchar(100),
+ created_by_firstname VARCHAR(100) NOT NULL,
+ created_by_lastname VARCHAR(100) NOT NULL,
+ email VARCHAR(100) DEFAULT NULL,
+ month VARCHAR(100) DEFAULT NULL,
+ file VARCHAR(100) DEFAULT NULL
+ )ENGINE=MyISAM DEFAULT CHARSET=utf8;
+ ";
+ $this->conn->exec($sql23);
+
+
+ $sql24 ="
+ CREATE TABLE IF NOT EXISTS ihs_newsletter_uploads(
+ id INT PRIMARY KEY AUTO_INCREMENT,
+ created_at varchar(100),
+ created_by_firstname VARCHAR(100) NOT NULL,
+ created_by_lastname VARCHAR(100) NOT NULL,
+ email VARCHAR(100) DEFAULT NULL,
+ monthnews VARCHAR(100) DEFAULT NULL,
+ file VARCHAR(100) DEFAULT NULL
+ )ENGINE=MyISAM DEFAULT CHARSET=utf8;
+ ";
+ $this->conn->exec($sql24);
 }
 public function runQuery($sql)
 	{
@@ -647,7 +690,7 @@ public function lasdID()
 			{
 				if($userRow['userStatus']=="Y" )
 				{
-
+          if($userRow['access_status']=="OK"){
 						$_SESSION['userSession'] = $userRow['id'];
 						$_SESSION['useremail'] = $userRow['email'];
 						$_SESSION['userrole'] = $userRow['role'];
@@ -655,8 +698,9 @@ public function lasdID()
 						$_SESSION['userlastname'] = $userRow['lastname'];
 						$_SESSION['userpermission'] = $permissions;
 						return true;
-
+          }
 				}
+
 
 			}
 			else
