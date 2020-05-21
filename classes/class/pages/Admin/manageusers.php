@@ -45,7 +45,13 @@ try{
 	$namen = $encname->encrypt();
 	$encname->setData($namen);
 	echo "<div class ='outer'>";
-	echo "<div class ='heading'><h3>Search result</h3></div>";
+	echo "<div class ='heading'><h3>Search result</h3>
+
+	</div>";
+	echo "  <p style = 'color:black'>Please use the Activation status drop-down menu to manually activate a user. Note that Activation Status of Not activated will prevent the user from logging in.</p>
+		<p>If a user has administrative issues, change the Access right drop-down menu to Restricted.</p>
+		<p>When restricting access, please use the correct functionality as stated above. The error message that the user will get is dependant on the functionality you use. </p>
+		<p><b>Once you update any information on the manage users tab, ensure that you reset the user's permission as everytime you update a users information, they will loose all previous permissions.</b></p>";
 	echo "<div class ='container'>";
 	echo '</div><div id="wrapper">';
 
@@ -95,6 +101,7 @@ try{
    $mailn = new AES($emailn, $inputkey, $blocksize);
    $decemail=$mailn->decrypt();
    $userStatus = $row2['userStatus'];
+	 $access = $row2['access_status'];
 	?>
 
  <nav class="tabpage" id="tabpage_1">
@@ -104,17 +111,18 @@ try{
 	<div class ='row'>
 	<div class ='col-2'>First Name</div>
 	<div class ='col-2 columnspacer'>Last Name</div>
-	<div class ='col-3 columnspacer'>Email</div>
-	<div class ='col-3 columnspacer'>Role</div>
+	<div class ='col-2 columnspacer'>Email</div>
+	<div class ='col-2 columnspacer'>Role</div>
 	<div class ='col-2 columnspacer'>Activation Status</div>
+	<div class ='col-2 columnspacer'>Access right</div>
 	</div><div class ='textspacer'></div>
 
 	<div class ='row'>
 
     <div class ='col-2'><input type ='text' name ='firstname' value ="<?php echo $dec?>" ><span class ='error' id ='firstname'></span></div>
 	<div class ='col-2 columnspacer'><input type ='text' name ='lastname' value ="<?php echo $decl?>" ><span class ='error' id ='lastname'></span></div>
-	<div class ='col-3 columnspacer effect'><label><?php echo $decemail?></label></div>
-	<div class ='col-3 columnspacer'>
+	<div class ='col-2 columnspacer effect'><label><?php echo $decemail?></label></div>
+	<div class ='col-2 columnspacer'>
 	 <select name ='role' value ="<?php echo $name;?>">
 		 <option selected value ="<?php echo $row2['role']?>"><?php echo $row2['role']?></option>
 																	<?php
@@ -135,6 +143,16 @@ try{
 
 
           </select><span class ='error' id ='userStatus'></span>
+	</div>
+
+	<div class ='col-2 columnspacer'>
+	 <select name ='access' value ="<?php echo $access;?>">
+			 <option selected value ='' >[choose here]</option>
+					 <option value ='OK' <?php if($row2['access_status']=='OK') echo 'selected'?>>OK</option>
+					 <option value='Restricted' <?php if($row2['access_status']=='Restricted') echo 'selected'?>>Restricted</option>
+
+
+				 </select><span class ='error' id ='access'></span>
 	</div>
 
 	</div>
@@ -287,36 +305,16 @@ if (isset($_POST['updateusers'])){
 	$encln->setData($lastname);
 	$role = !empty($_POST['role']) ? $helper->test_input($_POST['role']) : null;
 	$userStatus = !empty($_POST['userStatus']) ? ($_POST['userStatus']) : null;
+	$access = !empty($_POST['access']) ? ($_POST['access']) : null;
     $permissions ='';
 	try{
-
-	 $sql2 = "UPDATE ihs_users SET firstname ='$firstname', lastname ='$lastname',  role ='$role', userStatus = '$userStatus' WHERE email ='$_POST[hidden]'";
+		date_default_timezone_set('America/dominica');
+		$datecreated = date("y-m-d h:i:sa");
+	 $sql2 = "UPDATE ihs_users SET firstname ='$firstname', lastname ='$lastname',  role ='$role', userStatus = '$userStatus', access_status = '$access', updated_at ='$datecreated', updated_by_firstname ='$row[firstname]', updated_by_lastname ='$row[lastname]' WHERE email ='$_POST[hidden]'";
 	 $result2 =$user_home->runQuery4($sql2);
-     if($role ==='idc'){
-		$sqlk="SELECT * FROM ihs_user_permissions WHERE email= :email" ;
-	    $stmtk = $user_home->runQuery($sqlk);
-	    $stmtk->bindValue(':email', $_POST['hidden']);
-	    $stmtk->execute();
-	    $rowk = $stmtk->fetch(PDO::FETCH_ASSOC);
 
-	if($stmtk->rowCount() > 0)
-	{
 
-          echo  "<div class='alert alert-info'>
-				<strong>user already has permissions set. Please review permissions.</strong>
-		</div>" ;
 
-	}
-	else{
-		 $sqlset = "INSERT INTO ihs_user_permissions(email, permissions)VALUES(:emailn, :permissions)";
-         $stmtset = $user_home->runQuery($sqlset);
-		 $stmtset->bindValue(':emailn' ,$_POST['hidden']);
-		 $stmtset->bindValue(':permissions', $permissions);
-		 $resultset = $stmtset->execute();
-		}
-	 }
-
-	else{
 		$sqlk="SELECT * FROM ihs_user_permissions WHERE email= :email" ;
 	    $stmtk = $user_home->runQuery($sqlk);
 	    $stmtk->bindValue(':email', $_POST['hidden']);
@@ -330,7 +328,7 @@ if (isset($_POST['updateusers'])){
 
 	}
 
-	}
+
 
 
 	if ($result2||$resultset){

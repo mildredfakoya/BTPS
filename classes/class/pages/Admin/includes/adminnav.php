@@ -35,7 +35,7 @@ $permissions = explode(" ", $list);
          $decide = in_array("classrooms", $permissions)?'<li class="nav-item dropdown">':'<li class="nav-item dropdown hidden">';
         echo $decide;
       ?>
-      <a class="nav-link dropdown-toggle" href="#" id="navbardrop" data-toggle="dropdown">Virtual classroom</a>
+      <a class="nav-link dropdown-toggle" href="#" id="navbardrop" data-toggle="dropdown">Blackboard Classrooms</a>
       <div class="dropdown-menu">
       <a class="dropdown-item" target = "_blank" href="http://www.blackboard.com/coursesites/?sig=WgS4LqZMI1zdrzpeMCnN8J2bMaw%3D&courseId=_905235_1&timestamp=1588537959&inviteId=BB%253FBB_23LzHX6bGZvGouI2M9yB%2Fb3TNIRK8jYPhrDVplLtgrMtUG%252B4ivX5IA%253D%253D">Pre K</a>
       <a class="dropdown-item" target = "_blank" href="http://www.blackboard.com/coursesites/?sig=WiQ2I84y1UkQhCUC%2BdzHrgtB14U%3D&courseId=_905236_1&timestamp=1588538246&inviteId=BB%253FBB_xjs4KjtxZMUKDJyw8tDVn7H3PyRSgJ7j6YY%252BboQSwvwtUG%252B4ivX5IA%253D%253D">Grade K</a>

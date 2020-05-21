@@ -16,7 +16,7 @@ require_once "header.php";
 		{
 			?>
             <div class='alert alert-danger'>
-				<strong>You need to Login in with the right credentials to access this page.</strong>
+				<strong>Your login credential has been restricted. Contact administration to find out more.</strong>
 			</div>
             <?php
 			header('refresh:3; login.php');
