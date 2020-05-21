@@ -17,12 +17,13 @@ require_once 'includes/adminheader.php';
 		$stmt->execute();
 		$counter = 0;
 		echo "<div class ='row'>";
-		echo "<div class ='col-2 effect'><label>S /No.</label></div>";
+		echo "<div class ='col-1 effect'><label>S /No.</label></div>";
 		echo "<div class ='col-2 effect columnspacer'><label>FIRST NAME</label></div>";
 		echo "<div class ='col-2 columnspacer effect'><label>LAST NAME</label></div>";
 		echo "<div class ='col-2 columnspacer effect'><label>EMAIL</label></div>";
 		echo "<div class ='col-2 columnspacer effect'><label>ROLE</label></div>";
-		echo "<div class ='col-2 columnspacer effect'><label>STATUS</label></div>";
+		echo "<div class ='col-1 columnspacer effect'><label>Activated?</label></div>";
+		echo "<div class ='col-2 columnspacer effect'><label>Access status</label></div>";
 		echo "</div><div class ='textspacer'></div>";
 
 		foreach($stmt as $row1){
@@ -37,12 +38,13 @@ require_once 'includes/adminheader.php';
 			$decemail = $encemail->decrypt();
 			$declast = $enclast->decrypt();
 		echo "<div class ='row'>";
-		echo "<p class ='col-2 effect'>".$counter."</p>";
+		echo "<p class ='col-1 effect'>".$counter."</p>";
 		echo "<p class ='col-2 effect columnspacer'>".$decfirst."</p>";
 		echo "<p class ='col-2 columnspacer effect'>".$declast."</p>";
 		echo "<p class ='col-2 columnspacer effect'>".$decemail."</p>";
 		echo "<p class ='col-2 columnspacer effect'>".$row1['role']."</p>";
-		echo "<p class ='col-2 columnspacer effect'>".$row1['userStatus']."</p>";
+		echo "<p class ='col-1 columnspacer effect'>".$row1['userStatus']."</p>";
+		echo "<p class ='col-2 columnspacer effect'>".$row1['access_status']."</p>";
 
 		echo "</div>";
 
