@@ -13,7 +13,9 @@
   <script src="scripts/bootstrap.min.js"></script>
 </head>
 <body>
-<h1><img class="img-responsive" src="images/logo.png" alt="Logo" id ="logo" galleryimg="no"></h1>
+  <h1 style ="text-align:center">Bonne Terre Preparatory School</h1>
+  <h4 style ="text-align:center"><i>Committed to providing a sound education</i></h4>
+<!--<h1><img class="img-responsive" src="images/logo.png" alt="Logo" id ="logo" galleryimg="no"></h1>-->
 <div class ="spacer"></div>
 <nav class="navbar navbar-expand-md bg-dark navbar-dark">
   <!-- Brand -->
@@ -30,9 +32,12 @@
         <a class="nav-link" href="index.php">Home</a>
       </li>
       <li class ='nav-item'>
-      <a class ='nav-link' href = 'https://www.facebook.com/groups/bonneterre/'>..::..facebook</a>
+      <a class ='nav-link' target = "_blank" href = 'https://www.facebook.com/groups/bonneterre/'>||   facebook</a>
     </li>
-      <li class="nav-item"><a class="nav-link" href="classes/class/login.php">..::..Login</a></li>
+      <li class="nav-item"><a class="nav-link" href="classes/class/login.php">||   Login</a></li>
+      <li class="nav-item"><a class="nav-link" href="#">||   Academics</a></li>
+        <li class="nav-item"><a class="nav-link" href="#">||   Resources & Policies</a></li>
+        <li class="nav-item"><a class="nav-link" href="#">||   Calendar</a></li>
     </ul>
   </div>
 </nav>
