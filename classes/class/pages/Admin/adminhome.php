@@ -324,6 +324,9 @@ html {
     </form>
     </div>
 
+
+
+
   </div>
 <?php
 $classemail = $row['email'];
@@ -343,9 +346,8 @@ $decemail = $encemail->decrypt();
           <h2>Most recent uploads</h2><hr />
           <p> Note: If you just uploaded a file and it doesn't show up here, please refresh your page to update the list.<br/> Please use the date and time to locate the last uploaded file.<br/>
           The first 2 are from the timetable uploads, the next 2 are from the food menu uploads, the last 2 are from the news letters upload. You will get the 2 most recent uploads from each category</p>
-<?php
 
-
+          <?php
           $sql2a ="SELECT * FROM ihs_timetable_uploads ORDER BY created_at DESC LIMIT 2";
           $stmt2a = $user_home->runQuery($sql2a);
           $stmt2a->execute();
@@ -358,9 +360,9 @@ $decemail = $encemail->decrypt();
           $sqlletteruploads ="SELECT * FROM ihs_newsletter_uploads ORDER BY created_at DESC LIMIT 2";
           $stmtletteruploads = $user_home->runQuery($sqlletteruploads);
           $stmtletteruploads->execute();
-          ?>
 
-          <?php
+
+
           	echo "<table><thead><tr>";
           	echo "<th>Date uploaded</th>
           	    <th>Email</th>

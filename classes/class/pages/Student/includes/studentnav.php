@@ -21,7 +21,9 @@ $permissions = explode(" ", $list);
 ?>
 
 <body>
-<img class="img-responsive" src="../../../../images/logo.png" alt="Logo" id ="logo" galleryimg="no">
+<!--<img class="img-responsive" src="../../../../images/logo.png" alt="Logo" id ="logo" galleryimg="no">-->
+<h1 style ="text-align:center">Bonne Terre Preparatory School</h1>
+<h4 style ="text-align:center"><i>Committed to providing a sound education</i></h4>
 <nav class="navbar navbar-dark bg-dark">
 <!-- Brand -->
 <a class="navbar-brand" href="studenthome.php">BTPS .::. STUDENT</a>

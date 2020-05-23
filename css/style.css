@@ -337,6 +337,7 @@ height:auto;
 }
 
 
+
 .container{
 padding:10px;
 }
@@ -344,6 +345,18 @@ padding:10px;
 div.heading{
 background-color:#B5D3E7;
 color:#ffffff;
+height:30px;
+padding:10px;
+text-transform:capitalize;
+}
+
+div.container{
+background-color:#B5D3E7;	
+}
+
+div.headinghome{
+background-color:#B5D3E7;
+color:#0000ff;
 height:30px;
 padding:10px;
 text-transform:capitalize;
@@ -461,4 +474,10 @@ label{
 video {
   max-width: 100%;
   height: auto;
+}
+body {
+
+  background-image: url("../images/school.png");
+	background-repeat: no-repeat;
+	background-size: cover;
 }

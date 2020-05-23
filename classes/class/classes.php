@@ -767,6 +767,30 @@ public function lasdID()
     }
 
 
+    public function send_mail2($to, $from, $subject, $message, $fullname, $path)
+      {
+        require_once('../../../../mailer/class.phpmailer.php');
+        $mail = new PHPMailer();
+        $mail->IsSMTP();
+        $mail->SMTPDebug  = 0;
+        $mail->SMTPAuth   = true;
+        $mail->SMTPSecure = "ssl";
+        $mail->Host       = "mail.privateemail.com";
+        $mail->Port       = 465;
+        $mail->AddAddress($to);
+        $mail->Username="admin@btpps.org";
+        $mail->Password="adminpasswd#20";
+        #$mail->SetFrom($from,$fullname);
+        $mail->SetFrom("admin@btpps.org",$fullname);
+        $mail->AddReplyTo($from, $fullname);
+        $mail->IsHTML(true);
+        $mail->wordwrap = 50;
+        $mail-> AddAttachment($path);
+        $mail->Subject    = $subject;
+        $mail->MsgHTML($message);
+        $mail->Send();
+      }
+
 }
 
 
