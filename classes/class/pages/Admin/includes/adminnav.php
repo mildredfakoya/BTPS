@@ -75,7 +75,7 @@ $permissions = explode(" ", $list);
     ?>
       <a class="nav-link dropdown-toggle" href="#" id="navbardrop" data-toggle="dropdown">Updates</a>
       <div class="dropdown-menu">
-        <a class="dropdown-item" href="#">Delete Uploaded files</a>
+        <a class="dropdown-item" href="deleteuploaded.php">Delete Uploaded files</a>
         <a class="dropdown-item" href="personalinformation.php">Update student's personal information</a>
         <a class="dropdown-item" href="antenatalinformation.php">Update teachers's personal information</a>
       </div>
