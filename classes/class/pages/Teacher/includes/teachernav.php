@@ -10,6 +10,8 @@ $firstn =new AES($firstname, $inputkey, $blocksize);
 $dec =$firstn->decrypt();
 $lastn =new AES($lastname, $inputkey, $blocksize);
 $decl =$lastn->decrypt();
+$emailn =new AES($email, $inputkey, $blocksize);
+$decemail =$emailn->decrypt();
 
 $sqlid="SELECT * FROM ihs_user_permissions WHERE email= :email" ;
 $stmtid = $user_home->runQuery($sqlid);
@@ -21,7 +23,8 @@ $permissions = explode(" ", $list);
 ?>
 
 <body>
-<img class="img-responsive" src="../../../../images/logo.png" alt="Logo" id ="logo" galleryimg="no">
+  <h1 style ="text-align:center">Bonne Terre Preparatory School</h1>
+  <h4 style ="text-align:center"><i>Committed to providing a sound education</i></h4>
 <nav class="navbar navbar-dark bg-dark">
 <!-- Brand -->
 <a class="navbar-brand" href="teacherhome.php">BTPS .::. TEACHER</a>

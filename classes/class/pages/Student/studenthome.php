@@ -29,7 +29,6 @@ $stmttimetable->execute();
 
 
 
-
 if(isset($_GET['msg']))
 	 {
 
