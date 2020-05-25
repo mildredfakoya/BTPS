@@ -39,6 +39,7 @@ require_once 'includes/teachernav.php';
 
 		<div class="header">
 		  <h1>Welcome!!  <?php echo $dec." ". $decl?></h1>
+      <?php $fullname = $dec." ".$decl;?>
 		</div>
 
 		<div class="row">
@@ -315,7 +316,7 @@ require_once 'includes/teachernav.php';
 
 		</div>
 <?php
-$fullname = $dec." ".$decl;
+
 
 
 if(isset($_POST['btn-submit']))
