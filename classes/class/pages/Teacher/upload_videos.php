@@ -39,11 +39,12 @@ $(document).ready(function (e) {
 });
 </script>
 
+
 <div class ="jumbotron">
 <h2>Upload Videos and Files</h2>
 <form id ="form" method="post" enctype="multipart/form-data">
 <div class="form-group">
-<label for="title">Video / File Title: </label>
+<label for="title">TITLE</label>
 <input type="text" class="form-control" id = "title" name="title"/>
 </div>
 
@@ -96,11 +97,10 @@ $(document).ready(function (e) {
 </select>
 </div>
 
-<input id = "uploadImage" type="file" accept="video/*, image/*" name="image" /><span class ="error">Note: accepted file types - mp4, jpeg, jpg, png, gif, bmp, pdf, docx</span>
+<input id = "uploadImage" type="file" accept="video/*, image/*, .doc, .docx, .pdf" name="image" /><span class ="error">Note: accepted file types - mp4, jpeg, jpg, png, gif, bmp, pdf, docx</span>
 <hr>
-<h1>OR</h1>
 <label for ="note">Notes</label>
-<textarea name ="report" cols= 50 rows =10 class ="form-control"></textarea>
+<textarea name ="report" cols= 50 rows =10 class ="form-control" required></textarea>
 <input type='hidden' name='hidden'/>
 <input class="btn btn-success" type="submit" value="Upload">
 </form>

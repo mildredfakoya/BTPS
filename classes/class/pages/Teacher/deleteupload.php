@@ -19,15 +19,17 @@ foreach($stmtuploads as $row1){
   <th>Grade</th>
   <th>Subject</th>
   <th>Report</th>
+  <th>File</th>
   <th></th>
 </tr>
 <tr>
-  <td><?php echo $row1['created_at']  ?></td>
+  <td><?php echo $row1['created_at']?></td>
   <td><?php echo $row1['title']  ?></td>
   <td><?php echo $row1['grade']  ?></td>
   <td><?php echo $row1['subject'] ?></td>
   <td><?php echo $row1['report']?></td>
-  <td><input type='hidden' name='hiddendate' value='<?php echo $row1['created_at']?>'><input type='submit' name='deletevideo' value='Delete' class ='btn btn-danger' style ='width:100%'/></td>
+  <td><?php echo $row1['image']?></td>
+  <td><input type='hidden' name='hiddenimage' value='<?php echo $row1['image']?>'><input type='submit' name='deletevideo' value='Delete' class ='btn btn-danger' style ='width:100%'/></td>
 </tr>
   </table>
 </form>
@@ -36,9 +38,10 @@ foreach($stmtuploads as $row1){
 if(isset($_POST['deletevideo'])){
      date_default_timezone_set('America/dominica');
    	try{
-        $sql = "DELETE FROM ihs_video_uploads WHERE created_at='$_POST[hiddendate]'";
+        $sql = "DELETE FROM ihs_video_uploads WHERE image='$_POST[hiddenimage]'";
         $result = $user_home->runQuery4($sql);
        if ($result){
+                       unlink($_POST['hiddenimage']);
                        $helper->redirect('success.php?deleted');
                      }
         else{
