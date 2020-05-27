@@ -7,7 +7,7 @@ $blocksize = 256;
 $user_login = new USER();
 $helper = new HELPER();
 
-
+#if the login button is clicked
 if(isset($_POST['login']))
 {
 	$email = !empty($_POST['email']) ? $helper->test_input($_POST['email']) : null;

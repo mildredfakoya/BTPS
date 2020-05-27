@@ -73,11 +73,11 @@ $permissions = explode(" ", $list);
   	   $decide = in_array("updates", $permissions)?'<li class="nav-item dropdown">':'<li class="nav-item dropdown hidden">';
   	  echo $decide;
     ?>
-      <a class="nav-link dropdown-toggle" href="#" id="navbardrop" data-toggle="dropdown">Updates</a>
+      <a class="nav-link dropdown-toggle" href="#" id="navbardrop" data-toggle="dropdown">Records & Updates</a>
       <div class="dropdown-menu">
+        <a class="dropdown-item" href="getstudents.php">Student's Records</a>
+        <a class="dropdown-item" href="#">Teacher's records</a>
         <a class="dropdown-item" href="deleteuploaded.php">Delete Uploaded files</a>
-        <a class="dropdown-item" href="personalinformation.php">Update student's personal information</a>
-        <a class="dropdown-item" href="antenatalinformation.php">Update teachers's personal information</a>
       </div>
     </li>
 

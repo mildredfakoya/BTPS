@@ -35,7 +35,7 @@
       <a class ='nav-link' target = "_blank" href = 'https://www.facebook.com/groups/bonneterre/'>||   facebook</a>
     </li>
       <li class="nav-item"><a class="nav-link" href="classes/class/login.php">||   Login</a></li>
-      <li class="nav-item"><a class="nav-link" href="#">||   Academics</a></li>
+      <li class="nav-item"><a class="nav-link" href="#">||   Admissions</a></li>
         <li class="nav-item"><a class="nav-link" href="#">||   Resources & Policies</a></li>
         <li class="nav-item"><a class="nav-link" href="#">||   Calendar</a></li>
     </ul>
