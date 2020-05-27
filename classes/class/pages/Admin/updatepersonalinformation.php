@@ -197,8 +197,8 @@ else{
     }
 catch(PDOException $e)
     {
-		//echo "could not find record: ".$e->getMessage();
-   die('SYSTEM FAILURE!! PLEASE CONTACT YOUR ADMINISTRATOR');
+		echo "could not find record: ".$e->getMessage();
+   //die('SYSTEM FAILURE!! PLEASE CONTACT YOUR ADMINISTRATOR');
 
 	}
 
