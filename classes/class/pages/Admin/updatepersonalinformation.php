@@ -8,6 +8,7 @@ $stmtaccess = $user_home->runQuery($sqlaccess);
 $stmtaccess->bindValue(':email',$_POST['hiddenpersonal']);
 $stmtaccess->execute();
 $rowaccess = $stmtaccess->fetch(PDO::FETCH_ASSOC);
+$uuid = $rowaccess['uuid'];
     // set the time zone and get the date
 	date_default_timezone_set('America/dominica');
   $date_last_updated = date("y-m-d h:i:s");
@@ -73,12 +74,13 @@ medications ='$medications',emergency_contact ='$contact', other_information ='$
 $resultupdatestudentsmedical = $user_home->runQuery4($sqlupdatestudentsmedical);
 
   #insert into ihs_students_change
-	$sqlstudentschange = "INSERT INTO ihs_students_change(created_at, created_by_firstname, created_by_lastname, first_name, middle_name, last_name,
+	$sqlstudentschange = "INSERT INTO ihs_students_change(uuid, created_at, created_by_firstname, created_by_lastname, first_name, middle_name, last_name,
 		grade, gender, day_of_birth, month_of_birth, year_of_birth, address, telephone, email, access_right, medical_conditions, medications,
-	emergency_contact, other_information, month, year)VALUES(:created_at, :created_by_firstname, :created_by_lastname, :first_name, :middle_name, :last_name,
+	emergency_contact, other_information, month, year)VALUES(:uuid, :created_at, :created_by_firstname, :created_by_lastname, :first_name, :middle_name, :last_name,
 		:grade, :gender, :day_of_birth, :month_of_birth, :year_of_birth, :address, :telephone, :email, :access_right, :medical_conditions, :medications,
 	:emergency_contact, :other_information, :month, :year)";
 	$stmtsc = $user_home->runQuery($sqlstudentschange);
+	$stmtsc->bindValue(':uuid' ,  $uuid);
 	$stmtsc->bindValue(':created_at' ,  $date_last_updated);
 	$stmtsc->bindValue(':created_by_firstname', $updated_by_firstname);
 	$stmtsc->bindValue(':created_by_lastname',$updated_by_lastname);
@@ -103,10 +105,11 @@ $resultupdatestudentsmedical = $user_home->runQuery4($sqlupdatestudentsmedical);
 	$resultsc = $stmtsc->execute();
 
 #insert into the students age change table
-$sqlstudentsagechange = "INSERT INTO ihs_students_age_change(created_at, created_by_firstname, created_by_lastname,
-email, day_of_birth, month_of_birth, year_of_birth, month, year)VALUES(:created_at, :created_by_firstname, :created_by_lastname,:email,
+$sqlstudentsagechange = "INSERT INTO ihs_students_age_change(uuid, created_at, created_by_firstname, created_by_lastname,
+email, day_of_birth, month_of_birth, year_of_birth, month, year)VALUES(:uuid, :created_at, :created_by_firstname, :created_by_lastname,:email,
 :day_of_birth, :month_of_birth, :year_of_birth, :month, :year)";
 $stmtac = $user_home->runQuery($sqlstudentsagechange);
+$stmtac->bindValue(':uuid' ,  $uuid);
 $stmtac->bindValue(':created_at' ,  $date_last_updated);
 $stmtac->bindValue(':created_by_firstname', $updated_by_firstname);
 $stmtac->bindValue(':created_by_lastname',$updated_by_lastname);
@@ -119,10 +122,11 @@ $stmtac->bindValue(':year', $year);
 $resultac = $stmtac->execute();
 
 # insert into the students contact change table
-$sqlstudentscontactchange = "INSERT INTO ihs_students_contact_change(created_at, created_by_firstname, created_by_lastname,
-address, telephone, email, emergency_contact, other_information,month, year)VALUES(:created_at, :created_by_firstname, :created_by_lastname,
+$sqlstudentscontactchange = "INSERT INTO ihs_students_contact_change(uuid, created_at, created_by_firstname, created_by_lastname,
+address, telephone, email, emergency_contact, other_information,month, year)VALUES(:uuid, :created_at, :created_by_firstname, :created_by_lastname,
 :address, :telephone, :email, :emergency_contact, :other_information, :month, :year)";
 $stmtcc = $user_home->runQuery($sqlstudentscontactchange);
+$stmtcc->bindValue(':uuid' ,  $uuid);
 $stmtcc->bindValue(':created_at' ,  $date_last_updated);
 $stmtcc->bindValue(':created_by_firstname', $updated_by_firstname);
 $stmtcc->bindValue(':created_by_lastname',$updated_by_lastname);
@@ -136,10 +140,11 @@ $stmtcc->bindValue(':year', $year);
 $resultcc = $stmtcc->execute();
 
 #insert into the class change table
-$sqlclasschange = "INSERT INTO ihs_students_class_change(created_at, created_by_firstname, created_by_lastname,
-email, grade, month, year)VALUES(:created_at, :created_by_firstname, :created_by_lastname,
+$sqlclasschange = "INSERT INTO ihs_students_class_change(uuid, created_at, created_by_firstname, created_by_lastname,
+email, grade, month, year)VALUES(:uuid, :created_at, :created_by_firstname, :created_by_lastname,
 :email, :grade, :month, :year)";
 $stmtclass = $user_home->runQuery($sqlclasschange);
+$stmtclass->bindValue(':uuid' ,  $uuid);
 $stmtclass->bindValue(':created_at' ,  $date_last_updated);
 $stmtclass->bindValue(':created_by_firstname', $updated_by_firstname);
 $stmtclass->bindValue(':created_by_lastname',$updated_by_lastname);
@@ -151,10 +156,11 @@ $resultclass = $stmtclass->execute();
 
 #insert into the gender change table
 
-$sqlgenderchange = "INSERT INTO ihs_students_gender_change(created_at, created_by_firstname, created_by_lastname,
-email, gender, month, year)VALUES(:created_at, :created_by_firstname, :created_by_lastname,
+$sqlgenderchange = "INSERT INTO ihs_students_gender_change(uuid, created_at, created_by_firstname, created_by_lastname,
+email, gender, month, year)VALUES(:uuid, :created_at, :created_by_firstname, :created_by_lastname,
 :email, :gender, :month, :year)";
 $stmtgender = $user_home->runQuery($sqlgenderchange);
+$stmtgender->bindValue(':uuid' ,  $uuid);
 $stmtgender->bindValue(':created_at' ,  $date_last_updated);
 $stmtgender->bindValue(':created_by_firstname', $updated_by_firstname);
 $stmtgender->bindValue(':created_by_lastname',$updated_by_lastname);
@@ -165,10 +171,11 @@ $stmtgender->bindValue(':year', $year);
 $resultgender = $stmtgender->execute();
 
 #insert into the medical conditions change table
-$sqlmedical = "INSERT INTO ihs_students_medical_change(created_at, created_by_firstname, created_by_lastname,
-email, medical_conditions, medications, emergency_contact, other_information, month, year)VALUES(:created_at, :created_by_firstname, :created_by_lastname,
+$sqlmedical = "INSERT INTO ihs_students_medical_change(uuid, created_at, created_by_firstname, created_by_lastname,
+email, medical_conditions, medications, emergency_contact, other_information, month, year)VALUES(:uuid, :created_at, :created_by_firstname, :created_by_lastname,
 :email, :medical_conditions, :medications, :emergency_contact, :other_information, :month, :year)";
 $stmtmedical = $user_home->runQuery($sqlmedical);
+$stmtmedical->bindValue(':uuid' ,  $uuid);
 $stmtmedical->bindValue(':created_at' ,  $date_last_updated);
 $stmtmedical->bindValue(':created_by_firstname', $updated_by_firstname);
 $stmtmedical->bindValue(':created_by_lastname',$updated_by_lastname);
@@ -188,10 +195,7 @@ if($resultupdatestudents&&$resultupdateusers&&$resultupdatestudentsage&&$resultu
 else{
 	echo "Failed!! not saved. Try again";
 }
-	#insert into ihs_students_gender_change
 
-
-	#update ihs
 
 
     }
