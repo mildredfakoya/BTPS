@@ -592,6 +592,38 @@ public function __construct()
  )ENGINE=MyISAM DEFAULT CHARSET=utf8;
  ";
  $this->conn->exec($sql24);
+
+
+ $sql25 ="
+ CREATE TABLE IF NOT EXISTS btps_info(
+ id INT PRIMARY KEY AUTO_INCREMENT,
+ created_at varchar(100),
+ created_by_firstname VARCHAR(100) NOT NULL,
+ created_by_lastname VARCHAR(100) NOT NULL,
+ date_last_updated varchar(100),
+ updated_by_firstname VARCHAR(100) DEFAULT NULL,
+ updated_by_lastname VARCHAR(100) DEFAULT NULL,
+ email VARCHAR(100) NOT NULL,
+ grade VARCHAR(35) DEFAULT NULL,
+ ages VARCHAR(20) DEFAULT NULL,
+ information TEXT DEFAULT NULL
+ )ENGINE=MyISAM DEFAULT CHARSET=utf8;
+ ";
+ $this->conn->exec($sql25);
+
+ $sql26 ="
+ CREATE TABLE IF NOT EXISTS btps_info_change(
+ id INT PRIMARY KEY AUTO_INCREMENT,
+ created_at varchar(100),
+ created_by_firstname VARCHAR(100) NOT NULL,
+ created_by_lastname VARCHAR(100) NOT NULL,
+ email VARCHAR(100) NOT NULL,
+ grade VARCHAR(35) DEFAULT NULL,
+ ages VARCHAR(20) DEFAULT NULL,
+ information TEXT DEFAULT NULL
+ )ENGINE=MyISAM DEFAULT CHARSET=utf8;
+ ";
+ $this->conn->exec($sql26);
 }
 public function runQuery($sql)
 	{

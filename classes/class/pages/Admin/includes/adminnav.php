@@ -78,6 +78,7 @@ $permissions = explode(" ", $list);
         <a class="dropdown-item" href="getstudents.php">Student's Records</a>
         <a class="dropdown-item" href="#">Teacher's records</a>
         <a class="dropdown-item" href="deleteuploaded.php">Delete Uploaded files</a>
+        <a class="dropdown-item" href="information.php">Update Visitor's Information</a>
       </div>
     </li>
 
