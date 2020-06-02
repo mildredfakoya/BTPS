@@ -167,7 +167,6 @@ foreach($stmtteachers as $rowteachers){
 <tr>
   <th>Date created</th>
   <th>Created by</th>
-  <th>Email</th>
   <th>Title</th>
   <th>Grade</th>
   <th>Subject</th>
@@ -178,7 +177,6 @@ foreach($stmtteachers as $rowteachers){
 <tr>
   <td><?php echo $rowteachers['created_at']  ?></td>
   <td><?php echo $dec.' '.$decl?></td>
-  <td><?php echo $decemail ?></td>
   <td><?php echo $rowteachers['title'] ?></td>
   <td><?php echo $rowteachers['grade']?></td>
   <td><?php echo $rowteachers['subject']?></td>
