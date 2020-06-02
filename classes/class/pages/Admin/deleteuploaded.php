@@ -1,6 +1,17 @@
 <?php
 require_once 'includes/adminheader.php';
 
+
+#to delete teachers uploads
+$sqlteachers = 'SELECT * FROM ihs_video_uploads ORDER BY created_at DESC';
+$stmtteachers = $user_home->runQuery($sqlteachers);
+$stmtteachers->execute();
+
+#to delete information entry
+$sqlinfo = 'SELECT * FROM btps_info ORDER BY created_at DESC';
+$stmtinfo = $user_home->runQuery($sqlinfo);
+$stmtinfo->execute();
+
 #to delete timetable uploads
 $sqltimetable = 'SELECT * FROM ihs_timetable_uploads ORDER BY created_at DESC';
 $stmttimetable = $user_home->runQuery($sqltimetable);
@@ -132,6 +143,140 @@ if(isset($_POST['deletemenu'])){
         }
     }
 ?>
+
+
+
+
+<?php
+#create the delete table for teachers uploads
+foreach($stmtteachers as $rowteachers){
+  $firstname =$rowteachers['created_by_firstname'];
+  $lastname =$rowteachers['created_by_lastname'];
+  $email =$rowteachers['email'];
+  $firstn =new AES($firstname, $inputkey, $blocksize);
+  $dec =$firstn->decrypt();
+  $lastn =new AES($lastname, $inputkey, $blocksize);
+  $decl =$lastn->decrypt();
+  $emailn =new AES($email, $inputkey, $blocksize);
+  $decemail =$emailn->decrypt();
+?>
+
+  <h2>Teachers Uploads</h2>
+<form id ="form" method="post">
+  <table>
+<tr>
+  <th>Date created</th>
+  <th>Created by</th>
+  <th>Email</th>
+  <th>Title</th>
+  <th>Grade</th>
+  <th>Subject</th>
+  <th>File</th>
+  <th>Report</th>
+  <th></th>
+</tr>
+<tr>
+  <td><?php echo $rowteachers['created_at']  ?></td>
+  <td><?php echo $dec.' '.$decl?></td>
+  <td><?php echo $decemail ?></td>
+  <td><?php echo $rowteachers['title'] ?></td>
+  <td><?php echo $rowteachers['grade']?></td>
+  <td><?php echo $rowteachers['subject']?></td>
+  <td><?php echo $rowteachers['image']?></td>
+  <td><?php echo $rowteachers['report']?></td>
+  <td><input type='hidden' name='hiddenteachers' value='<?php echo $rowteachers['image']?>'><input type='submit' name='deleteteachers' value='Delete' class ='btn btn-danger' style ='width:100%'/></td>
+</tr>
+  </table>
+</form>
+<?php
+}
+if(isset($_POST['deleteteachers'])){
+   	try{
+        $sql = "DELETE FROM ihs_video_uploads WHERE image='$_POST[hiddenteachers]'";
+        $result = $user_home->runQuery4($sql);
+       if ($result){
+                       unlink($_POST['hiddenteachers']);
+                       $helper->redirect('success.php?tabledeleted');
+                     }
+        else{
+          echo "Update Failed";
+
+        }
+
+    }
+    catch(PDOException $e)
+        {
+        die('SYSTEM FAILURE!! PLEASE CONTACT YOUR ADMINISTRATOR');
+        }
+    }
+?>
+
+
+<?php
+#create the visitor information table
+foreach($stmtinfo as $rowinfo){
+  $firstname =$rowinfo['created_by_firstname'];
+  $lastname =$rowinfo['created_by_lastname'];
+  $email =$rowinfo['email'];
+  $firstn =new AES($firstname, $inputkey, $blocksize);
+  $dec =$firstn->decrypt();
+  $lastn =new AES($lastname, $inputkey, $blocksize);
+  $decl =$lastn->decrypt();
+  $emailn =new AES($email, $inputkey, $blocksize);
+  $decemail =$emailn->decrypt();
+?>
+
+  <h2>Visitors Information Content</h2>
+<form id ="form" method="post">
+  <table>
+<tr>
+  <th>Date created</th>
+  <th>Created by</th>
+  <th>Email</th>
+  <th>Grade</th>
+  <th>Ages</th>
+  <th>Information</th>
+  <th></th>
+</tr>
+<tr>
+  <td><?php echo $rowinfo['created_at']  ?></td>
+  <td><?php echo $dec.' '.$decl?></td>
+  <td><?php echo $decemail ?></td>
+  <td><?php echo $rowinfo['grade']?></td>
+  <td><?php echo $rowinfo['ages']?></td>
+  <td><?php echo $rowinfo['information']?></td>
+  <td><input type='hidden' name='hiddeninfo' value='<?php echo $rowinfo['information']?>'><input type='submit' name='deleteinfo' value='Delete' class ='btn btn-danger' style ='width:100%'/></td>
+</tr>
+  </table>
+</form>
+<?php
+}
+if(isset($_POST['deleteinfo'])){
+   	try{
+        $sql = "DELETE FROM btps_info WHERE information='$_POST[hiddeninfo]'";
+        $result = $user_home->runQuery4($sql);
+       if ($result){
+                       $helper->redirect('success.php?tabledeleted');
+                     }
+        else{
+          echo "Update Failed";
+
+        }
+
+    }
+    catch(PDOException $e)
+        {
+        die('SYSTEM FAILURE!! PLEASE CONTACT YOUR ADMINISTRATOR');
+        }
+    }
+?>
+
+
+
+
+
+
+
 
 
 

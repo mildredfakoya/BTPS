@@ -41,7 +41,7 @@ try{
  $stmtf->bindValue(':created_at', $datecreated);
  $stmtf->bindValue(':created_by_firstname', $createdbyfirstname);
  $stmtf->bindValue(':created_by_lastname', $createdbylastname);
- $stmtf->bindValue(':email', $email);
+ $stmtf->bindValue(':email', $createdbyemail);
  $stmtf->bindValue(':title', $title);
  $stmtf->bindValue(':grade', $grade);
  $stmtf->bindValue(':subject', $subject);

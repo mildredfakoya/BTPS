@@ -6,11 +6,13 @@
 <title>BTPS.::.LMS</title>
 <link rel="SHORTCUT ICON" href="favicon.ico"/>
 <link rel="icon" href="favicon.ico?" type="image/x-icon">
-<link rel="stylesheet" type ="text/css" href ="css/style.css">
 <link rel="stylesheet" href="scripts/bootstrap.min.css">
+<link rel="stylesheet" type ="text/css" href ="css/style.css">
+
  <script src="scripts/jquery.min.js"></script>
  <script src="scripts/popper.min.js"></script>
   <script src="scripts/bootstrap.min.js"></script>
+
 </head>
 <body>
   <h1 style ="text-align:center">Bonne Terre Preparatory School</h1>
