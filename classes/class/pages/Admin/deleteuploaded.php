@@ -142,12 +142,7 @@ if(isset($_POST['deletemenu'])){
         die('SYSTEM FAILURE!! PLEASE CONTACT YOUR ADMINISTRATOR');
         }
     }
-?>
 
-
-
-
-<?php
 #create the delete table for teachers uploads
 foreach($stmtteachers as $rowteachers){
   $firstname =$rowteachers['created_by_firstname'];
@@ -207,10 +202,7 @@ if(isset($_POST['deleteteachers'])){
         die('SYSTEM FAILURE!! PLEASE CONTACT YOUR ADMINISTRATOR');
         }
     }
-?>
 
-
-<?php
 #create the visitor information table
 foreach($stmtinfo as $rowinfo){
   $firstname =$rowinfo['created_by_firstname'];
@@ -267,18 +259,6 @@ if(isset($_POST['deleteinfo'])){
         die('SYSTEM FAILURE!! PLEASE CONTACT YOUR ADMINISTRATOR');
         }
     }
-?>
-
-
-
-
-
-
-
-
-
-
-<?php
 
 #create the delete for newsletter uploads
 foreach($stmtnewsletter as $rowletter){
