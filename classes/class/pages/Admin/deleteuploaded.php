@@ -65,28 +65,7 @@ foreach($stmttimetable as $rowtimetable){
 </form>
 <?php
 }
-if(isset($_POST['deletetable'])){
-   	try{
-        $sql = "DELETE FROM ihs_timetable_uploads WHERE file='$_POST[hiddentables]'";
-        $result = $user_home->runQuery4($sql);
-       if ($result){
-                       unlink($_POST['hiddentables']);
-                       $helper->redirect('success.php?tabledeleted');
-                     }
-        else{
-          echo "Update Failed";
 
-        }
-
-    }
-    catch(PDOException $e)
-        {
-        die('SYSTEM FAILURE!! PLEASE CONTACT YOUR ADMINISTRATOR');
-        }
-    }
-?>
-
-<?php
 #create the delete table for food menu uploads
 foreach($stmtmenu as $rowmenu){
   $firstname =$rowmenu['created_by_firstname'];
@@ -123,25 +102,7 @@ foreach($stmtmenu as $rowmenu){
 </form>
 <?php
 }
-if(isset($_POST['deletemenu'])){
-   	try{
-        $sql = "DELETE FROM ihs_menu_uploads WHERE file='$_POST[hiddenmenu]'";
-        $result = $user_home->runQuery4($sql);
-       if ($result){
-                       unlink($_POST['hiddenmenu']);
-                       $helper->redirect('success.php?tabledeleted');
-                     }
-        else{
-          echo "Update Failed";
 
-        }
-
-    }
-    catch(PDOException $e)
-        {
-        die('SYSTEM FAILURE!! PLEASE CONTACT YOUR ADMINISTRATOR');
-        }
-    }
 
 #create the delete table for teachers uploads
 foreach($stmtteachers as $rowteachers){
@@ -183,25 +144,7 @@ foreach($stmtteachers as $rowteachers){
 </form>
 <?php
 }
-if(isset($_POST['deleteteachers'])){
-   	try{
-        $sql = "DELETE FROM ihs_video_uploads WHERE image='$_POST[hiddenteachers]'";
-        $result = $user_home->runQuery4($sql);
-       if ($result){
-                       unlink($_POST['hiddenteachers']);
-                       $helper->redirect('success.php?tabledeleted');
-                     }
-        else{
-          echo "Update Failed";
 
-        }
-
-    }
-    catch(PDOException $e)
-        {
-        die('SYSTEM FAILURE!! PLEASE CONTACT YOUR ADMINISTRATOR');
-        }
-    }
 
 #create the visitor information table
 foreach($stmtinfo as $rowinfo){
@@ -241,24 +184,6 @@ foreach($stmtinfo as $rowinfo){
 </form>
 <?php
 }
-if(isset($_POST['deleteinfo'])){
-   	try{
-        $sql = "DELETE FROM btps_info WHERE information='$_POST[hiddeninfo]'";
-        $result = $user_home->runQuery4($sql);
-       if ($result){
-                       $helper->redirect('success.php?tabledeleted');
-                     }
-        else{
-          echo "Update Failed";
-
-        }
-
-    }
-    catch(PDOException $e)
-        {
-        die('SYSTEM FAILURE!! PLEASE CONTACT YOUR ADMINISTRATOR');
-        }
-    }
 
 #create the delete for newsletter uploads
 foreach($stmtnewsletter as $rowletter){
@@ -296,12 +221,18 @@ foreach($stmtnewsletter as $rowletter){
 </form>
 <?php
 }
-if(isset($_POST['deleteletter'])){
+
+?>
+</div>
+
+<?php
+
+if(isset($_POST['deletetable'])){
    	try{
-        $sql = "DELETE FROM ihs_newsletter_uploads WHERE file='$_POST[hiddenletter]'";
+        $sql = "DELETE FROM ihs_timetable_uploads WHERE file='$_POST[hiddentables]'";
         $result = $user_home->runQuery4($sql);
        if ($result){
-                       unlink($_POST['hiddenletter']);
+                       unlink($_POST['hiddentables']);
                        $helper->redirect('success.php?tabledeleted');
                      }
         else{
@@ -315,7 +246,80 @@ if(isset($_POST['deleteletter'])){
         die('SYSTEM FAILURE!! PLEASE CONTACT YOUR ADMINISTRATOR');
         }
     }
-?>
-</div>
+    if(isset($_POST['deletemenu'])){
+       	try{
+            $sql = "DELETE FROM ihs_menu_uploads WHERE file='$_POST[hiddenmenu]'";
+            $result = $user_home->runQuery4($sql);
+           if ($result){
+                           unlink($_POST['hiddenmenu']);
+                           $helper->redirect('success.php?tabledeleted');
+                         }
+            else{
+              echo "Update Failed";
 
-<?php require_once 'includes/adminfooter.php';?>
+            }
+
+        }
+        catch(PDOException $e)
+            {
+            die('SYSTEM FAILURE!! PLEASE CONTACT YOUR ADMINISTRATOR');
+            }
+        }
+
+        if(isset($_POST['deleteteachers'])){
+           	try{
+                $sql = "DELETE FROM ihs_video_uploads WHERE image='$_POST[hiddenteachers]'";
+                $result = $user_home->runQuery4($sql);
+               if ($result){
+                               unlink($_POST['hiddenteachers']);
+                               $helper->redirect('success.php?tabledeleted');
+                             }
+                else{
+                  echo "Update Failed";
+
+                }
+
+            }
+            catch(PDOException $e)
+                {
+                die('SYSTEM FAILURE!! PLEASE CONTACT YOUR ADMINISTRATOR');
+                }
+            }
+            if(isset($_POST['deleteinfo'])){
+               	try{
+                    $sql = "DELETE FROM btps_info WHERE information='$_POST[hiddeninfo]'";
+                    $result = $user_home->runQuery4($sql);
+                   if ($result){
+                                   $helper->redirect('success.php?tabledeleted');
+                                 }
+                    else{
+                      echo "Update Failed";
+
+                    }
+
+                }
+                catch(PDOException $e)
+                    {
+                    die('SYSTEM FAILURE!! PLEASE CONTACT YOUR ADMINISTRATOR');
+                    }
+                }
+                if(isset($_POST['deleteletter'])){
+                   	try{
+                        $sql = "DELETE FROM ihs_newsletter_uploads WHERE file='$_POST[hiddenletter]'";
+                        $result = $user_home->runQuery4($sql);
+                       if ($result){
+                                       unlink($_POST['hiddenletter']);
+                                       $helper->redirect('success.php?tabledeleted');
+                                     }
+                        else{
+                          echo "Update Failed";
+
+                        }
+
+                    }
+                    catch(PDOException $e)
+                        {
+                        die('SYSTEM FAILURE!! PLEASE CONTACT YOUR ADMINISTRATOR');
+                        }
+                    }
+require_once 'includes/adminfooter.php';?>
