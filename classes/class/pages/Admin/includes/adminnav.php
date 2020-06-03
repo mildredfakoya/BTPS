@@ -68,17 +68,82 @@ $permissions = explode(" ", $list);
     </div>
     </li>
 
+    <?php
+  	   $decide = in_array("records", $permissions)?'<li class="nav-item dropdown">':'<li class="nav-item dropdown hidden">';
+  	  echo $decide;
+    ?>
+      <a class="nav-link dropdown-toggle" href="#" id="navbardrop" data-toggle="dropdown">Records</a>
+      <div class="dropdown-menu">
+        <a class="dropdown-item" href="getstudents.php">Student's Records</a>
+        <a class="dropdown-item" href="#">Teacher's records</a>
+      </div>
+    </li>
+
+    <?php
+  	   $decide = in_array("exams", $permissions)?'<li class="nav-item dropdown">':'<li class="nav-item dropdown hidden">';
+  	  echo $decide;
+    ?>
+      <a class="nav-link dropdown-toggle" href="#" id="navbardrop" data-toggle="dropdown">Exams and Promotions</a>
+      <div class="dropdown-menu">
+        <a class="dropdown-item" href="#">Create Assessment</a>
+        <a class="dropdown-item" href="#">Create SBA information</a>
+        <a class="dropdown-item" href="#">Create Exam</a>
+        <a class="dropdown-item" href="#">Create / Review / Approve Grades</a>
+        <a class="dropdown-item" href="#">Promote Students</a>
+        <a class="dropdown-item" href="#">Mock Examinations</a>
+
+      </div>
+    </li>
+
+    <?php
+  	   $decide = in_array("information", $permissions)?'<li class="nav-item dropdown">':'<li class="nav-item dropdown hidden">';
+  	  echo $decide;
+    ?>
+      <a class="nav-link dropdown-toggle" href="#" id="navbardrop" data-toggle="dropdown">Create Information</a>
+      <div class="dropdown-menu">
+        <a class="dropdown-item" href="information.php">Create Visitor's Information</a>
+        <a class="dropdown-item" href="#">Create Admissions Information</a>
+        <a class="dropdown-item" href="#">Create Grade sheet</a>
+        <a class="dropdown-item" href="#">Create Grading Scheme</a>
+        <a class="dropdown-item" href="#">Create Teachers Guidelines</a>
+        <a class="dropdown-item" href="#">Create Students and Parents Brochure</a>
+        <a class="dropdown-item" href="#">Create event sign-up sheet</a>
+      </div>
+    </li>
+
+    <?php
+  	   $decide = in_array("finance", $permissions)?'<li class="nav-item dropdown">':'<li class="nav-item dropdown hidden">';
+  	  echo $decide;
+    ?>
+      <a class="nav-link dropdown-toggle" href="#" id="navbardrop" data-toggle="dropdown">Bills & Finance</a>
+      <div class="dropdown-menu">
+        <a class="dropdown-item" href="#">Prepare Tuition</a>
+        <a class="dropdown-item" href="#">Prepare Extracurricular fees</a>
+        <a class="dropdown-item" href="#">Prepare food bill</a>
+
+      </div>
+    </li>
+
+    <?php
+  	   $decide = in_array("deletes", $permissions)?'<li class="nav-item dropdown">':'<li class="nav-item dropdown hidden">';
+  	  echo $decide;
+    ?>
+      <a class="nav-link dropdown-toggle" href="#" id="navbardrop" data-toggle="dropdown">Delete a file</a>
+      <div class="dropdown-menu">
+        <a class="dropdown-item" href="#">Delete timetable</a>
+        <a class="dropdown-item" href="#">Delete food menu</a>
+        <a class="dropdown-item" href="#">Delete teachers uploads</a>
+        <a class="dropdown-item" href="#">Delete newsletter</a>
+      </div>
+    </li>
 
     <?php
   	   $decide = in_array("updates", $permissions)?'<li class="nav-item dropdown">':'<li class="nav-item dropdown hidden">';
   	  echo $decide;
     ?>
-      <a class="nav-link dropdown-toggle" href="#" id="navbardrop" data-toggle="dropdown">Records & Updates</a>
+      <a class="nav-link dropdown-toggle" href="#" id="navbardrop" data-toggle="dropdown">Update a file</a>
       <div class="dropdown-menu">
-        <a class="dropdown-item" href="getstudents.php">Student's Records</a>
-        <a class="dropdown-item" href="#">Teacher's records</a>
-        <a class="dropdown-item" href="deleteuploaded.php">Delete Uploaded files</a>
-        <a class="dropdown-item" href="information.php">Update Visitor's Information</a>
+        <a class="dropdown-item" href="#">Update Visitors Information</a>
       </div>
     </li>
 

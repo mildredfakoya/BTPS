@@ -70,7 +70,7 @@ public function __construct()
   ON DELETE CASCADE
   )ENGINE=MyISAM DEFAULT CHARSET=utf8;
   INSERT INTO `ihs_user_permissions` (`id`, `email`, `permissions`) VALUES
-  (3, 'r6TppR8eFavexNmWXTNyk+2LqhPDGlq5z492eRPr8NU=', 'classrooms users_account updates pre_k grade_k grade_1 grade_2 grade_3 grade_4 grade_5 grade_6 grade_7 grade_8 grade_9 grade_10 grade_11 pre_k_teacher grade_1_teacher grade_1_teacher grade_2_teacher grade_3_teacher grade_4_teacher grade_5_teacher grade_6_teacher grade_7_teacher grade_8_teacher grade_9_teacher grade_10_teacher grade_11_teacher');
+  (3, 'r6TppR8eFavexNmWXTNyk+2LqhPDGlq5z492eRPr8NU=', 'classrooms users_account updates records exams information finance deletes pre_k grade_k grade_1 grade_2 grade_3 grade_4 grade_5 grade_6 grade_7 grade_8 grade_9 grade_10 grade_11 pre_k_teacher grade_1_teacher grade_1_teacher grade_2_teacher grade_3_teacher grade_4_teacher grade_5_teacher grade_6_teacher grade_7_teacher grade_8_teacher grade_9_teacher grade_10_teacher grade_11_teacher');
   ";
   $this->conn->exec($sql2);
 
@@ -109,7 +109,14 @@ public function __construct()
  INSERT INTO `ihs_permissions` VALUES (27, 'grade_9_teacher', 'teacher');
  INSERT INTO `ihs_permissions` VALUES (28, 'grade_10_teacher', 'teacher');
  INSERT INTO `ihs_permissions` VALUES (29, 'grade_11_teacher', 'teacher');
- INSERT INTO `ihs_permissions` VALUES (31, 'classrooms', 'admin');";
+ INSERT INTO `ihs_permissions` VALUES (31, 'classrooms', 'admin');
+ INSERT INTO `ihs_permissions` VALUES (32, 'records', 'admin');
+ INSERT INTO `ihs_permissions` VALUES (33, 'exams', 'admin');
+ INSERT INTO `ihs_permissions` VALUES (34, 'information', 'admin');
+ INSERT INTO `ihs_permissions` VALUES (35, 'finance', 'admin');
+ INSERT INTO `ihs_permissions` VALUES (36, 'deletes', 'admin');
+
+ ";
  $this->conn->exec($sql3);
 
 //CREATE THE ROLE TABLE
