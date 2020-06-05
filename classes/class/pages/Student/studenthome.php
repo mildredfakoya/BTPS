@@ -43,7 +43,7 @@ if(isset($_GET['msg']))
 
 ?>
 
-		<div class="header">
+		<div class="headeranimated">
 		  <h1 style="color:#ffffff">Welcome!!  <?php echo $dec." ". $decl?></h1>
 		</div>
 

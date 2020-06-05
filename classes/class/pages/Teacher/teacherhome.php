@@ -37,7 +37,7 @@ require_once 'includes/teachernav.php';
 ?>
 
 
-		<div class="header">
+		<div class="headeranimated">
 		  <h1>Welcome!!  <?php echo $dec." ". $decl?></h1>
       <?php $fullname = $dec." ".$decl;?>
 		</div>
@@ -82,7 +82,7 @@ require_once 'includes/teachernav.php';
                       $decide = in_array("pre_k_teacher", $permissions)?'<li class="nav-item dropdown">':'<li class="nav-item dropdown hidden">';
                         echo $decide;
                       ?>
-                      <a class="nav-link dropdown-toggle" href="#" id="navbardrop" data-toggle="dropdown">Pre K Virtual Classroom</a>
+                      <a class="nav-link dropdown-toggle" style ="color:White; font-size:large" href="#" id="navbardrop" data-toggle="dropdown">Pre K Virtual Classroom</a>
                       <div class="dropdown-menu">
                       <a class="dropdown-item" target = "_blank" href="https://blackboard.coursesites.com/">Pre K</a>
                     </div>
@@ -93,7 +93,7 @@ require_once 'includes/teachernav.php';
                     $decide = in_array("grade_k_teacher", $permissions)?'<li class="nav-item dropdown">':'<li class="nav-item dropdown hidden">';
                       echo $decide;
                     ?>
-                    <a class="nav-link dropdown-toggle" href="#" id="navbardrop" data-toggle="dropdown">Grade K Virtual Classroom</a>
+                    <a class="nav-link dropdown-toggle" style ="color:White; font-size:large" href="#" id="navbardrop" data-toggle="dropdown">Grade K Virtual Classroom</a>
                     <div class="dropdown-menu">
                     <a class="dropdown-item" target = "_blank" href="https://blackboard.coursesites.com/">Grade K</a>
                   </div>
@@ -104,7 +104,7 @@ require_once 'includes/teachernav.php';
                   $decide = in_array("grade_1_teacher", $permissions)?'<li class="nav-item dropdown">':'<li class="nav-item dropdown hidden">';
                     echo $decide;
                   ?>
-                  <a class="nav-link dropdown-toggle" href="#" id="navbardrop" data-toggle="dropdown">Grade 1 Virtual Classroom</a>
+                  <a class="nav-link dropdown-toggle" style ="color:White; font-size:large" href="#" id="navbardrop" data-toggle="dropdown">Grade 1 Virtual Classroom</a>
                   <div class="dropdown-menu">
                   <a class="dropdown-item" target = "_blank" href="https://blackboard.coursesites.com/">Grade 1 - Blackboard</a>
                   <a class="dropdown-item" target= "_blank" href="https://us02web.zoom.us/j/87114057766">Start Grade 1 - Zoom Class</a>
@@ -115,7 +115,7 @@ require_once 'includes/teachernav.php';
                     $decide = in_array("grade_2_teacher", $permissions)?'<li class="nav-item dropdown">':'<li class="nav-item dropdown hidden">';
                       echo $decide;
                     ?>
-                    <a class="nav-link dropdown-toggle" href="#" id="navbardrop" data-toggle="dropdown">Grade 2 Virtual Classroom</a>
+                    <a class="nav-link dropdown-toggle" style ="color:White; font-size:large" href="#" id="navbardrop" data-toggle="dropdown">Grade 2 Virtual Classroom</a>
                     <div class="dropdown-menu">
                       <a class="dropdown-item" target = "_blank" href="https://blackboard.coursesites.com/">Grade 2 - Blackboard</a>
                       <a class="dropdown-item" target= "_blank" href="https://us02web.zoom.us/j/82052708190">Start Grade 2 - Zoom Class</a>
@@ -125,7 +125,7 @@ require_once 'includes/teachernav.php';
                 <?php $decide = in_array("grade_3_teacher", $permissions)?'<li class="nav-item dropdown">':'<li class="nav-item dropdown hidden">';
                   echo $decide;
                 ?>
-                <a class="nav-link dropdown-toggle" href="#" id="navbardrop" data-toggle="dropdown">Grade 3 Virtual Classroom</a>
+                <a class="nav-link dropdown-toggle" style ="color:White; font-size:large" href="#" id="navbardrop" data-toggle="dropdown">Grade 3 Virtual Classroom</a>
                 <div class="dropdown-menu">
                   <a class="dropdown-item" target = "_blank" href="https://blackboard.coursesites.com/">Grade 3 - Blackboard</a>
                   <a class="dropdown-item" target= "_blank" href="https://us02web.zoom.us/j/84702993730">Start Grade 3 - Zoom Class</a>
@@ -135,7 +135,7 @@ require_once 'includes/teachernav.php';
                 <?php $decide = in_array("grade_4_teacher", $permissions)?'<li class="nav-item dropdown">':'<li class="nav-item dropdown hidden">';
                   echo $decide;
                 ?>
-                <a class="nav-link dropdown-toggle" href="#" id="navbardrop" data-toggle="dropdown">Grade 4 Virtual Classroom</a>
+                <a class="nav-link dropdown-toggle" style ="color:White; font-size:large" href="#" id="navbardrop" data-toggle="dropdown">Grade 4 Virtual Classroom</a>
                 <div class="dropdown-menu">
                   <a class="dropdown-item" target = "_blank" href="https://blackboard.coursesites.com/">Grade 4 - Blackboard</a>
                   <a class="dropdown-item" target= "_blank"  href="https://us02web.zoom.us/j/85675057132">Start Grade 4 - Zoom Class</a>
@@ -145,7 +145,7 @@ require_once 'includes/teachernav.php';
                 <?php $decide = in_array("grade_5_teacher", $permissions)?'<li class="nav-item dropdown">':'<li class="nav-item dropdown hidden">';
                   echo $decide;
                 ?>
-                <a class="nav-link dropdown-toggle" href="#" id="navbardrop" data-toggle="dropdown">Grade 5 Virtual Classroom</a>
+                <a class="nav-link dropdown-toggle" style ="color:White; font-size:large" href="#" id="navbardrop" data-toggle="dropdown">Grade 5 Virtual Classroom</a>
                 <div class="dropdown-menu">
                   <a class="dropdown-item" target = "_blank" href="https://blackboard.coursesites.com/">Grade 5 - Blackboard</a>
                   <a class="dropdown-item" target= "_blank" href="https://us02web.zoom.us/j/87063460642">Start Grade 5 - Zoom Class</a>
@@ -155,7 +155,7 @@ require_once 'includes/teachernav.php';
                 <?php $decide = in_array("grade_6_teacher", $permissions)?'<li class="nav-item dropdown">':'<li class="nav-item dropdown hidden">';
                   echo $decide;
                 ?>
-                <a class="nav-link dropdown-toggle" href="#" id="navbardrop" data-toggle="dropdown">Grade 6 Virtual Classroom</a>
+                <a class="nav-link dropdown-toggle" style ="color:White; font-size:large" href="#" id="navbardrop" data-toggle="dropdown">Grade 6 Virtual Classroom</a>
                 <div class="dropdown-menu">
                   <a class="dropdown-item" target = "_blank" href="https://blackboard.coursesites.com/">Grade 6 - Blackboard</a>
                   <a class="dropdown-item" target= "_blank" href="https://us02web.zoom.us/j/81104844111">Start Grade 6 - Zoom Class</a>
@@ -165,7 +165,7 @@ require_once 'includes/teachernav.php';
                 <?php $decide = in_array("grade_7_teacher", $permissions)?'<li class="nav-item dropdown">':'<li class="nav-item dropdown hidden">';
                   echo $decide;
                 ?>
-                <a class="nav-link dropdown-toggle" href="#" id="navbardrop" data-toggle="dropdown">Grade 7 Virtual Classroom</a>
+                <a class="nav-link dropdown-toggle" style ="color:White; font-size:large" href="#" id="navbardrop" data-toggle="dropdown">Grade 7 Virtual Classroom</a>
                 <div class="dropdown-menu">
                   <a class="dropdown-item" target = "_blank" href="https://blackboard.coursesites.com/">Grade 7</a>
                 </div>
@@ -174,7 +174,7 @@ require_once 'includes/teachernav.php';
                 <?php $decide = in_array("grade_8_teacher", $permissions)?'<li class="nav-item dropdown">':'<li class="nav-item dropdown hidden">';
                   echo $decide;
                 ?>
-                <a class="nav-link dropdown-toggle" href="#" id="navbardrop" data-toggle="dropdown">Grade 8 Virtual Classroom</a>
+                <a class="nav-link dropdown-toggle" style ="color:White; font-size:large" href="#" id="navbardrop" data-toggle="dropdown">Grade 8 Virtual Classroom</a>
                 <div class="dropdown-menu">
                   <a class="dropdown-item" target = "_blank" href="https://blackboard.coursesites.com/">Grade 8 - Blackboard</a>
                   <a class="dropdown-item" target= "_blank" href=" https://us02web.zoom.us/j/85617723160">Start Grade 8 - Zoom Class</a>
@@ -184,7 +184,7 @@ require_once 'includes/teachernav.php';
                 <?php $decide = in_array("grade_9_teacher", $permissions)?'<li class="nav-item dropdown">':'<li class="nav-item dropdown hidden">';
                   echo $decide;
                 ?>
-                <a class="nav-link dropdown-toggle" href="#" id="navbardrop" data-toggle="dropdown">Grade 9 Virtual Classroom</a>
+                <a class="nav-link dropdown-toggle" style ="color:White; font-size:large" href="#" id="navbardrop" data-toggle="dropdown">Grade 9 Virtual Classroom</a>
                 <div class="dropdown-menu">
                   <a class="dropdown-item" target = "_blank" href="https://blackboard.coursesites.com/">Grade 9</a>
                 </div>
@@ -193,7 +193,7 @@ require_once 'includes/teachernav.php';
                 <?php $decide = in_array("grade_10_teacher", $permissions)?'<li class="nav-item dropdown">':'<li class="nav-item dropdown hidden">';
                   echo $decide;
                 ?>
-                <a class="nav-link dropdown-toggle" href="#" id="navbardrop" data-toggle="dropdown">Grade 10 Virtual Classroom</a>
+                <a class="nav-link dropdown-toggle" style ="color:White; font-size:large" href="#" id="navbardrop" data-toggle="dropdown">Grade 10 Virtual Classroom</a>
                 <div class="dropdown-menu">
                   <a class="dropdown-item" target = "_blank" href="https://blackboard.coursesites.com/">Grade 10</a>
                 </div>
@@ -202,7 +202,7 @@ require_once 'includes/teachernav.php';
                 <?php $decide = in_array("grade_11_teacher", $permissions)?'<li class="nav-item dropdown">':'<li class="nav-item dropdown hidden">';
                   echo $decide;
                 ?>
-                <a class="nav-link dropdown-toggle" href="#" id="navbardrop" data-toggle="dropdown">Grade 11 Virtual Classroom</a>
+                <a class="nav-link dropdown-toggle" style ="color:White; font-size:large" href="#" id="navbardrop" data-toggle="dropdown">Grade 11 Virtual Classroom</a>
                 <div class="dropdown-menu">
                   <a class="dropdown-item" target = "_blank" href="https://blackboard.coursesites.com/">Grade 11</a>
                 </div>

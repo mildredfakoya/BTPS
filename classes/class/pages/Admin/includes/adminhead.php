@@ -42,6 +42,24 @@ html {
   padding: 15px;
 }
 
+
+.headeranimated {
+  background-color: #9933cc;
+  color: #ffffff;
+  padding: 15px;
+  animation-name: example;
+  animation-duration: 30s;
+  animation-iteration-count: infinite;
+}
+
+@keyframes example {
+  0%   {background-color:red}
+  25%  {background-color:yellow}
+  50%  {background-color:white}
+  75%  {background-color:green}
+  100% {background-color:red}
+}
+
 .menu ul {
   list-style-type: none;
   margin: 0;

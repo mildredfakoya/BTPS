@@ -118,7 +118,7 @@ $(document).ready(function (e) {
   $emailn =new AES($email, $inputkey, $blocksize);
   $decemail =$emailn->decrypt();
   ?>
-<div class="header">
+<div class="headeranimated">
   <h1>Welcome <?php echo $dec . " ".$decl ?></h1>
 </div>
 
