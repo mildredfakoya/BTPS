@@ -130,10 +130,11 @@ $permissions = explode(" ", $list);
     ?>
       <a class="nav-link dropdown-toggle" href="#" id="navbardrop" data-toggle="dropdown">Delete a file</a>
       <div class="dropdown-menu">
-        <a class="dropdown-item" href="#">Delete timetable</a>
-        <a class="dropdown-item" href="#">Delete food menu</a>
-        <a class="dropdown-item" href="#">Delete teachers uploads</a>
-        <a class="dropdown-item" href="#">Delete newsletter</a>
+        <a class="dropdown-item" href="deletetimetable.php">Delete timetable</a>
+        <a class="dropdown-item" href="deletefoodmenu.php">Delete food menu</a>
+        <a class="dropdown-item" href="deleteteachers.php">Delete teachers uploads</a>
+        <a class="dropdown-item" href="deletenewsletter.php">Delete newsletter</a>
+          <a class="dropdown-item" href="deleteinformation.php">Delete Visitor's information</a>
       </div>
     </li>
 
@@ -143,7 +144,7 @@ $permissions = explode(" ", $list);
     ?>
       <a class="nav-link dropdown-toggle" href="#" id="navbardrop" data-toggle="dropdown">Update a file</a>
       <div class="dropdown-menu">
-        <a class="dropdown-item" href="#">Update Visitors Information</a>
+        <a class="dropdown-item" href="updateinfo.php">Update Visitors Information</a>
       </div>
     </li>
 

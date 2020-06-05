@@ -43,6 +43,8 @@ $(document).ready(function(){
  });
 </script>
 <div class ="container">
+  <p class ="error">After creation of an information <a href ="http://localhost/BTPS/classes/class/pages/Admin/updateinfo.php">click here</a> to verify that the
+  information entered is as intended before creating another information</p>
 <!---for for grade 1 information-->
 <form method = "post" id = "gradeinfo" novalidate ="novlidate">
 	<fieldset>
