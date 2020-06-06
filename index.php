@@ -35,10 +35,10 @@ require 'header.php';
 <div class ="jumbotron pencil">
   <p>Bonne Terre Preparatory School Limited was established in September 1992. Use the links below to get detailed information that will help you in your decision for your child's educational future.</p>
   <ul>
-    <li><a href ="">PreSchool - Toddlers to Kindergarten</a></li>
-    <li><a href ="">Elementary School section - Grade 1  to Grade 4</a></li>
-    <li><a href ="">Middle School Section - Grade 5 - Grade 8</a></li>
-    <li><a href ="">High School Section - Grade 9 - Grade 11</a></li>
+    <li><a href ="toddler-k.php">PreSchool - Toddlers to Kindergarten</a></li>
+    <li><a href ="elementaryschool.php">Elementary School section - Grade 1  to Grade 4</a></li>
+    <li><a href ="middleschool.php">Middle School Section - Grade 5 - Grade 8</a></li>
+    <li><a href ="highschool.php">High School Section - Grade 9 - Grade 11</a></li>
   </ul>
   <p>Our mission is to provide all students with a broad education in a dynamic and nuturing environment. We are committed to Instilling
   in students good study habits and time management skills, to assure quality pupil performance so that students build a significant record of personal and academic achievement.

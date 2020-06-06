@@ -35,33 +35,25 @@ P.O.Box RB2350, Gros-Islet<br/>
 Phone: 758-452-8987<br/>
 Fax: 758-452-0626<br/>
 Email:admin@btpps.org</p>
-</div>
-<div class ="row">
-<div class ="col-6 col-s-12">
-<h1 style= "color:#0000ff;text-align:center">High School</h1>
-<div class ="outer">
-  <div class ="headinghome">Curriculum</div>
-  <div class ="container">
-    <p> In addition to the normal curriculum, we offer the following co-curricula subjects as much as possible.</p>
-    <ul>
-      <li>French</li>
-      <li>Spanish</li>
-      <li>Information Technology</li>
-      <li>Swimming</li>
-      <li>Music</li>
-      <li>Library</li>
-      <li>Physical Education</li>
-      <li>Visual Arts</li>
-      <li>Crafts</li>
-    </ul>
-  </div>
-  </div>
-</div>
-<div class ="col-6 col-s-12">
-<h1 style= "color:#0000ff;text-align:center">Pre School - Middle School</h1>
-<div class ="jumbotron">
-  <p>Students of Grade 2 & Grade 4 write the minimum standards test (MST) set by the Ministry of Education. Grade 6 Students write the common entrance examination.
-  (CEE) for entry into secondary school. High school students write the CSEC Examinations. </p>
-</div>
-</div>
+<h5>Admission</h5>
+<p>The school will reserve and exercise the right to screen prospective students for entry, and to accept students who are, in sole judgement of the school suitable applicant.
+Admission will be based on, among other factors, academic achievement, intellectual potential, developmental maturity and a level of preparedness for our programme.</p>
+<h5>School Fees</h5>
+<p>As this is a private school, its operations are financed solely from school fees which must be paid before the opening date of each term.
+A fine of 5% per month will be added on to late payments. Apart from the school fees, there are charges for swimming lessons, insurance, extra-curricula activities and facilities.
+The school does not refund ANY part of school fees. Non-payment of fees can result in parents having to keep a child / children at home.
+The school requires at least one month's notice of a child's withdrawal from school. Families with three or more children attending this school are granted discounts. The following are our current fee structure:</p>
+<?php
+#code to get fee structure goes here.
+ ?>
+ <table>
+   <tr>
+     <th>Class</th>
+     <th>Fees per term </th>
+   </tr>
+   <tr>
+     <td></td>
+     <td></td>
+   </tr>
+</table>
 </div>

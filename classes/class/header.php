@@ -16,7 +16,8 @@ require_once "../../aes.php";
 </head>
 <body>
   <h1 style ="text-align:center">Bonne Terre Preparatory School</h1>
-  <h4 style ="text-align:center"><i>Committed to providing a sound education</i></h4>
+  <h4 style ="text-align:center"><i>St. Lucia, Caribbean W.I</i></h4>
+  <h5 style ="text-align:center"><i>Committed to providing a sound education</i></h5>
 <!--<img class="img-responsive" src="../../images/logo.png" alt="Logo" id ="logo" galleryimg="no">-->
 <div class ="spacer"></div>
 <nav class="navbar navbar-expand-md bg-dark navbar-dark">
