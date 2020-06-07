@@ -19,6 +19,7 @@ require 'header.php';
 </style>
 <div class ="jumbotron">
 <h4 class ="animation">General Information</h4>
+<p class ="error">Read the Information and select the application form for your child(ren)'s category to apply</p>
 <h5>Extra curricula activities</h5>
 <p>These activities depend on the giving of time by interested teachers and parents and so vary from term to term.</p>
 <h5>School Hours</h5>
@@ -56,4 +57,12 @@ The school requires at least one month's notice of a child's withdrawal from sch
      <td></td>
    </tr>
 </table>
+</div>
+<div class ="spacer"></div>
+<div class ="jumbotron">
+  <ul>
+<li><a href ="#">Toddler Group Application form</a></li>
+<li><a href ="#">Elementary and Middle School Application form</a></li>
+<li><a href ="#">High School Application form</a></li>
+</ul>
 </div>
