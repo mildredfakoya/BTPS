@@ -164,6 +164,23 @@ $permissions = explode(" ", $list);
 </div>
 </li>
 
+
+<?php
+   $decide = in_array("assessment", $permissions)?'<li class="nav-item dropdown">':'<li class="nav-item dropdown hidden">';
+  echo $decide;
+     ?>
+<a class="nav-link dropdown-toggle" href="#" id="navbardrop" data-toggle="dropdown">Create and Review Assessment</a>
+<div class="dropdown-menu">
+<a class="dropdown-item" href="createassessment.php">Create an assessment</a>
+<a class="dropdown-item" href="getassessment.php">Review / Update an assessment</a>
+<a class="dropdown-item" href="#">Grade an assessment</a>
+<a class="dropdown-item" href="#">Change an assessment setting</a>
+<a class="dropdown-item" href="#">Delete an assessment</a>
+<a class="dropdown-item" href="#">My assessments</a>
+
+</div>
+</li>
+
         <li class ="nav-item"><a href="../../logout.php" class ="nav-link"><?php echo "[".$dec. ' ' . $decl. " Logout]";?></a></li>
       </ul>
    </div>

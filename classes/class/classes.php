@@ -115,6 +115,8 @@ public function __construct()
  INSERT INTO `ihs_permissions` VALUES (34, 'information', 'admin');
  INSERT INTO `ihs_permissions` VALUES (35, 'finance', 'admin');
  INSERT INTO `ihs_permissions` VALUES (36, 'deletes', 'admin');
+ INSERT INTO `ihs_permissions` VALUES (37, 'assessment', 'teacher');
+ INSERT INTO `ihs_permissions` VALUES (38, 'review', 'admin');
 
  ";
  $this->conn->exec($sql3);
@@ -631,6 +633,252 @@ public function __construct()
  )ENGINE=MyISAM DEFAULT CHARSET=utf8;
  ";
  $this->conn->exec($sql26);
+
+ $sql27 ="
+ CREATE TABLE IF NOT EXISTS btps_new_assessment(
+ id INT PRIMARY KEY AUTO_INCREMENT,
+ assessment_id VARCHAR(50) NOT NULL,
+ access_code VARCHAR(50) NOT NULL,
+ created_at VARCHAR(100),
+ created_by_firstname VARCHAR(100) NOT NULL,
+ created_by_lastname VARCHAR(100) NOT NULL,
+ email VARCHAR(100) NOT NULL,
+ target_class VARCHAR(50) NOT NULL,
+ intended_access_date VARCHAR(100) NOT NULL,
+ intended_close_date VARCHAR(100) NOT NULL,
+ assessment_type VARCHAR(100) NOT NULL,
+ subject VARCHAR(100) NOT NULL,
+ review_status VARCHAR(100) DEFAULT NULL,
+ review_notes TEXT DEFAULT NULL,
+ approval_status VARCHAR(50) DEFAULT NULL,
+ date_last_updated VARCHAR(50) DEFAULT NULL,
+ updated_by_firstname VARCHAR(250) DEFAULT NULL,
+ upadated_by_lastname VARCHAR(250) DEFAULT NULL,
+ month VARCHAR(15) DEFAULT NULL,
+ year VARCHAR(4) DEFAULT NULL
+ )ENGINE=MyISAM DEFAULT CHARSET=utf8;
+ ";
+ $this->conn->exec($sql27);
+
+ $sql28 ="
+ CREATE TABLE IF NOT EXISTS btps_new_assessment_change(
+ id INT PRIMARY KEY AUTO_INCREMENT,
+ assessment_id VARCHAR(50) NOT NULL,
+ access_code VARCHAR(50) NOT NULL,
+ created_at VARCHAR(100),
+ created_by_firstname VARCHAR(100) NOT NULL,
+ created_by_lastname VARCHAR(100) NOT NULL,
+ email VARCHAR(100) NOT NULL,
+ target_class VARCHAR(50) NOT NULL,
+ intended_access_date VARCHAR(100) NOT NULL,
+ intended_close_date VARCHAR(100) NOT NULL,
+ assessment_type VARCHAR(100) NOT NULL,
+ subject VARCHAR(100) NOT NULL,
+ review_status VARCHAR(100) DEFAULT NULL,
+ review_notes TEXT DEFAULT NULL,
+ approval_status VARCHAR(50) DEFAULT NULL,
+ month VARCHAR(15) DEFAULT NULL,
+ year VARCHAR(4) DEFAULT NULL
+ )ENGINE=MyISAM DEFAULT CHARSET=utf8;
+ ";
+ $this->conn->exec($sql28);
+
+ $sql29 ="
+ CREATE TABLE IF NOT EXISTS btps_assignment(
+ id INT PRIMARY KEY AUTO_INCREMENT,
+ assessment_id VARCHAR(50) NOT NULL,
+ created_at VARCHAR(100),
+ created_by_firstname VARCHAR(100) NOT NULL,
+ created_by_lastname VARCHAR(100) NOT NULL,
+ email VARCHAR(100) NOT NULL,
+ target_class VARCHAR(50) NOT NULL,
+ subject VARCHAR(100),
+ month VARCHAR(15) DEFAULT NULL,
+ year VARCHAR(4) DEFAULT NULL,
+ FOREIGN KEY (assessment_id)
+ REFERENCES btps_new_assessment(assessment_id)
+ ON UPDATE CASCADE
+ ON DELETE CASCADE
+ )ENGINE=MyISAM DEFAULT CHARSET=utf8;
+ ";
+ $this->conn->exec($sql29);
+
+ $sql30 ="
+ CREATE TABLE IF NOT EXISTS continous_assessment(
+ id INT PRIMARY KEY AUTO_INCREMENT,
+ assessment_id VARCHAR(50) NOT NULL,
+ created_at VARCHAR(100),
+ created_by_firstname VARCHAR(100) NOT NULL,
+ created_by_lastname VARCHAR(100) NOT NULL,
+ email VARCHAR(100) NOT NULL,
+ target_class VARCHAR(50) NOT NULL,
+ subject VARCHAR(100),
+ month VARCHAR(15) DEFAULT NULL,
+ year VARCHAR(4) DEFAULT NULL,
+ FOREIGN KEY (assessment_id)
+ REFERENCES btps_new_assessment(assessment_id)
+ ON UPDATE CASCADE
+ ON DELETE CASCADE
+ )ENGINE=MyISAM DEFAULT CHARSET=utf8;
+ ";
+ $this->conn->exec($sql30);
+
+ $sql31 ="
+ CREATE TABLE IF NOT EXISTS exam(
+ id INT PRIMARY KEY AUTO_INCREMENT,
+ assessment_id VARCHAR(50) NOT NULL,
+ created_at VARCHAR(100),
+ created_by_firstname VARCHAR(100) NOT NULL,
+ created_by_lastname VARCHAR(100) NOT NULL,
+ email VARCHAR(100) NOT NULL,
+ target_class VARCHAR(50) NOT NULL,
+ subject VARCHAR(100),
+ month VARCHAR(15) DEFAULT NULL,
+ year VARCHAR(4) DEFAULT NULL,
+ FOREIGN KEY (assessment_id)
+ REFERENCES btps_new_assessment(assessment_id)
+ ON UPDATE CASCADE
+ ON DELETE CASCADE
+ )ENGINE=MyISAM DEFAULT CHARSET=utf8;
+ ";
+ $this->conn->exec($sql31);
+
+ $sql32 ="
+ CREATE TABLE IF NOT EXISTS btps_project(
+ id INT PRIMARY KEY AUTO_INCREMENT,
+ assessment_id VARCHAR(50) NOT NULL,
+ created_at VARCHAR(100),
+ created_by_firstname VARCHAR(100) NOT NULL,
+ created_by_lastname VARCHAR(100) NOT NULL,
+ email VARCHAR(100) NOT NULL,
+ target_class VARCHAR(50) NOT NULL,
+ subject VARCHAR(100),
+ month VARCHAR(15) DEFAULT NULL,
+ year VARCHAR(4) DEFAULT NULL,
+ FOREIGN KEY (assessment_id)
+ REFERENCES btps_new_assessment(assessment_id)
+ ON UPDATE CASCADE
+ ON DELETE CASCADE
+ )ENGINE=MyISAM DEFAULT CHARSET=utf8;
+ ";
+ $this->conn->exec($sql32);
+
+ $sql33 ="
+ CREATE TABLE IF NOT EXISTS btps_multichoice(
+ id INT PRIMARY KEY AUTO_INCREMENT,
+ assessment_id VARCHAR(50) NOT NULL,
+ created_at VARCHAR(100),
+ created_by_firstname VARCHAR(100) NOT NULL,
+ created_by_lastname VARCHAR(100) NOT NULL,
+ email VARCHAR(100) NOT NULL,
+ question_id VARCHAR(15) NOT NULL,
+ question_text TEXT NOT NULL,
+ option1 VARCHAR(250) NOT NULL,
+ option2 VARCHAR(250) NOT NULL,
+ option3 VARCHAR(250) NOT NULL,
+ option4 VARCHAR(250) NOT NULL,
+ answer VARCHAR(250) NOT NULL,
+ feedback TEXT NOT NULL,
+ month VARCHAR(15) DEFAULT NULL,
+ year VARCHAR(4) DEFAULT NULL,
+ FOREIGN KEY (assessment_id)
+ REFERENCES btps_new_assessment(assessment_id)
+ ON UPDATE CASCADE
+ ON DELETE CASCADE
+ )ENGINE=MyISAM DEFAULT CHARSET=utf8;
+ ";
+ $this->conn->exec($sql33);
+
+
+  $sql34 ="
+  CREATE TABLE IF NOT EXISTS btps_boolean(
+  id INT PRIMARY KEY AUTO_INCREMENT,
+  assessment_id VARCHAR(50) NOT NULL,
+  created_at VARCHAR(100),
+  created_by_firstname VARCHAR(100) NOT NULL,
+  created_by_lastname VARCHAR(100) NOT NULL,
+  email VARCHAR(100) NOT NULL,
+  question_id VARCHAR(15) NOT NULL,
+  question_text TEXT NOT NULL,
+  option1VARCHAR(250) NOT NULL,
+  option2 VARCHAR(250) NOT NULL,
+  answer VARCHAR(250) NOT NULL,
+  feedback TEXT NOT NULL,
+  month VARCHAR(15) DEFAULT NULL,
+  year VARCHAR(4) DEFAULT NULL,
+  FOREIGN KEY (assessment_id)
+  REFERENCES btps_new_assessment(assessment_id)
+  ON UPDATE CASCADE
+  ON DELETE CASCADE
+  )ENGINE=MyISAM DEFAULT CHARSET=utf8;
+  ";
+  $this->conn->exec($sql34);
+
+  $sql34 ="
+  CREATE TABLE IF NOT EXISTS btps_essay(
+  id INT PRIMARY KEY AUTO_INCREMENT,
+  assessment_id VARCHAR(50) NOT NULL,
+  created_at VARCHAR(100),
+  created_by_firstname VARCHAR(100) NOT NULL,
+  created_by_lastname VARCHAR(100) NOT NULL,
+  email VARCHAR(100) NOT NULL,
+  question_id VARCHAR(15) NOT NULL,
+  question_text TEXT NOT NULL,
+  answer_guide TEXT NOT NULL,
+  feedback TEXT NOT NULL,
+  month VARCHAR(15) DEFAULT NULL,
+  year VARCHAR(4) DEFAULT NULL,
+  FOREIGN KEY (assessment_id)
+  REFERENCES btps_new_assessment(assessment_id)
+  ON UPDATE CASCADE
+  ON DELETE CASCADE
+  )ENGINE=MyISAM DEFAULT CHARSET=utf8;
+  ";
+  $this->conn->exec($sql34);
+  $sql35 ="
+  CREATE TABLE IF NOT EXISTS btps_blank(
+  id INT PRIMARY KEY AUTO_INCREMENT,
+  assessment_id VARCHAR(50) NOT NULL,
+  created_at VARCHAR(100),
+  created_by_firstname VARCHAR(100) NOT NULL,
+  created_by_lastname VARCHAR(100) NOT NULL,
+  email VARCHAR(100) NOT NULL,
+  question_id VARCHAR(15) NOT NULL,
+  question_text TEXT NOT NULL,
+  answer_keyword TEXT NOT NULL,
+  feedback TEXT NOT NULL,
+  month VARCHAR(15) DEFAULT NULL,
+  year VARCHAR(4) DEFAULT NULL,
+  FOREIGN KEY (assessment_id)
+  REFERENCES btps_new_assessment(assessment_id)
+  ON UPDATE CASCADE
+  ON DELETE CASCADE
+  )ENGINE=MyISAM DEFAULT CHARSET=utf8;
+  ";
+  $this->conn->exec($sql35);
+
+
+  $sql36 ="
+  CREATE TABLE IF NOT EXISTS btps_matching(
+  id INT PRIMARY KEY AUTO_INCREMENT,
+  assessment_id VARCHAR(50) NOT NULL,
+  created_at VARCHAR(100),
+  created_by_firstname VARCHAR(100) NOT NULL,
+  created_by_lastname VARCHAR(100) NOT NULL,
+  email VARCHAR(100) NOT NULL,
+  question_id VARCHAR(15) NOT NULL,
+  question_text TEXT NOT NULL,
+  answer TEXT NOT NULL,
+  feedback TEXT NOT NULL,
+  month VARCHAR(15) DEFAULT NULL,
+  year VARCHAR(4) DEFAULT NULL,
+  FOREIGN KEY (assessment_id)
+  REFERENCES btps_new_assessment(assessment_id)
+  ON UPDATE CASCADE
+  ON DELETE CASCADE
+  )ENGINE=MyISAM DEFAULT CHARSET=utf8;
+  ";
+  $this->conn->exec($sql36);
 }
 public function runQuery($sql)
 	{
