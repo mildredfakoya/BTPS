@@ -800,7 +800,7 @@ public function __construct()
   email VARCHAR(100) NOT NULL,
   question_id VARCHAR(15) NOT NULL,
   question_text TEXT NOT NULL,
-  option1VARCHAR(250) NOT NULL,
+  option1 VARCHAR(250) NOT NULL,
   option2 VARCHAR(250) NOT NULL,
   answer VARCHAR(250) NOT NULL,
   feedback TEXT NOT NULL,
