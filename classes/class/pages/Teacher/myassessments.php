@@ -14,6 +14,7 @@ else{
     $stmttest->execute();
 ?>
 <div class ="container">
+	<p> To create assessment questions or view already created assessment question click <a href = "getassessment.php"> here </a></p>
 <h2 class ="headeranimated">Assessments created by you</h2>;
 <table>
 	<tr>

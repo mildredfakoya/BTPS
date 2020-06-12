@@ -19,6 +19,7 @@
        option3: "required",
        option4: "required",
        answer: "required",
+       topic: "required",
        feedback: "required",
      },
 
@@ -32,6 +33,7 @@
        option3: "required",
        option4: "required",
        answer: "required",
+       topic: "required",
        feedback: "required",
      },
 

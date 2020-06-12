@@ -16,6 +16,7 @@
        question: "required",
        option1: "required",
        option2: "required",
+       topic: "required",
        answer: "required",
        feedback: "required",
      },
@@ -27,6 +28,7 @@
        question: "required",
        option1: "required",
        option2: "required",
+       topic: "required",
        answer: "required",
        feedback: "required",
      },
@@ -75,6 +77,24 @@ Option 2: <input type = "text" name = "option2" Value="True/Yes" readonly><br/><
   <option value = "option1">Option 1</option>
   <option value = "option2">Option 2</option>
 </select><br/><br/>
+
+Please select a topic title:
+<select name ="topic">
+  <option selected disabled>[choose here]</option>
+                               <?php
+                               $sqltopic = "SELECT * FROM btps_topics WHERE grade = :grade";
+                               $stmttopic = $user_home->runQuery($sqltopic);
+                               $stmttopic->bindValue(':grade' ,$_POST['class']);
+                               #$stmttopic->bindValue(':subject' ,$_POST['subject']);
+                               $stmttopic->execute();
+                               while ($rowtopic = $stmttopic->fetch(PDO::FETCH_ASSOC)) {
+                                   echo "<option value='" . $rowtopic['topics_covered'] . "'>" . $rowtopic['topics_covered'] . "</option>";
+                               }
+                               ?>
+                           </select>
+
+
+<br/><br/>
 
 Answer feedback: <textarea placeholder="Answer explaination" name = "feedback"></textarea><br/><br/>
  <input type ='submit' name ='submit' value ='save' class ="btn btn-success"/>

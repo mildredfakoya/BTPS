@@ -6,7 +6,6 @@ $option1 = !empty($_POST['option1']) ? $helper->test_input($_POST['option1']) : 
 $option2 = !empty($_POST['option2']) ? $helper->test_input($_POST['option2']) : null;
 $option3 = !empty($_POST['option3']) ? $helper->test_input($_POST['option3']) : null;
 $option4 = !empty($_POST['option4']) ? $helper->test_input($_POST['option4']) : null;
-
 if(isset($_REQUEST['answer'])){
 $assigned = $_REQUEST['answer'];
 $answer ="";

@@ -4,6 +4,7 @@ $questiontitle = !empty($_POST['questiontitle']) ? $helper->test_input($_POST['q
 $question = !empty($_POST['question']) ? $helper->test_input($_POST['question']) : null;
 $option1 = !empty($_POST['option1']) ? $helper->test_input($_POST['option1']) : null;
 $option2 = !empty($_POST['option2']) ? $helper->test_input($_POST['option2']) : null;
+$topiccovered = !empty($_POST['topic']) ? $helper->test_input($_POST['topic']) : null;
 $answer= !empty($_POST['answer']) ? $helper->test_input($_POST['answer']) : null;
 $feedback = !empty($_POST['feedback']) ? $helper->test_input($_POST['feedback']) : null;
 //$ = !empty($_POST['']) ? $helper->test_input($_POST['']) : null;
@@ -19,9 +20,9 @@ $month = date('m', $y);
 if(!empty($assessmentid)&&!empty($questiontitle)&&!empty($question)&&!empty($option1)&&!empty($option2)&&!empty($answer) &&!empty($feedback)){
 try{
   $sqlmultichoice= "INSERT INTO btps_boolean(created_at, created_by_firstname, created_by_lastname, assessment_id,  email,
-  question_id, question_text, option1, option2, answer, feedback, month, year)
+  question_id, question_text, option1, option2, answer, topic, feedback, month, year)
   VALUES(:created_at, :created_by_firstname, :created_by_lastname, :assessment_id,  :email,
-  :question_id, :question_text, :option1, :option2, :answer, :feedback, :month, :year)";
+  :question_id, :question_text, :option1, :option2, :answer, :topic, :feedback, :month, :year)";
   $stmtmultichoice = $user_home->runQuery($sqlmultichoice);
   $stmtmultichoice->bindValue(':created_at' ,$date_created);
   $stmtmultichoice->bindValue(':created_by_firstname', $createdbyfirstname);
@@ -33,13 +34,10 @@ try{
   $stmtmultichoice->bindValue(':option1',$option1);
   $stmtmultichoice->bindValue(':option2',$option2);
   $stmtmultichoice->bindValue(':answer',$answer);
+  $stmtmultichoice->bindValue(':topic',$topiccovered);
   $stmtmultichoice->bindValue(':feedback',$feedback);
   $stmtmultichoice->bindValue(':month',$month);
   $stmtmultichoice->bindValue(':year',$year);
-  #$stmtcreate->bindValue(':',$);
-  #$stmtcreate->bindValue(':',$);
-  #$stmtcreate->bindValue(':',$);
-  #$stmtcreate->bindValue(':',$);
   $resultmultichoice = $stmtmultichoice->execute();
 
   if($resultmultichoice){

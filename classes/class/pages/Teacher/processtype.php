@@ -3,7 +3,7 @@ include_once "includes/teacherheader.php";
 function random_strings($length_of_string)
 {
     // String of all alphanumeric character and some special characters
-    $str_result = '0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz&!#@$';
+    $str_result = '0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz';
     return substr(str_shuffle($str_result),
                        0, $length_of_string);
 }

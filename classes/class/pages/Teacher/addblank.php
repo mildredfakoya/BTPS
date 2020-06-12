@@ -11,6 +11,7 @@
        questiontitle: "required",
        question: "required",
        answer_keyword:"required",
+       topic: "required",
        feedback: "required",
      },
 
@@ -20,6 +21,7 @@
        questiontitle: "required",
        question: "required",
        answer_keyword:"required",
+       topic: "required",
        feedback: "required",
      },
 
@@ -58,6 +60,26 @@
 <h5>Answer Keyword</h5>
 Answer Keywords<input type ="text" name ="answer_keyword">
 <br/><br/>
+
+
+Please select a topic title:
+<select name ="topic">
+  <option selected disabled>[choose here]</option>
+                               <?php
+                               $sqltopic = "SELECT * FROM btps_topics WHERE grade = :grade";
+                               $stmttopic = $user_home->runQuery($sqltopic);
+                               $stmttopic->bindValue(':grade' ,$_POST['class']);
+                               #$stmttopic->bindValue(':subject' ,$_POST['subject']);
+                               $stmttopic->execute();
+                               while ($rowtopic = $stmttopic->fetch(PDO::FETCH_ASSOC)) {
+                                   echo "<option value='" . $rowtopic['topics_covered'] . "'>" . $rowtopic['topics_covered'] . "</option>";
+                               }
+                               ?>
+                           </select>
+
+
+<br/><br/>
+
 
 Answer feedback: <textarea placeholder="Answer explaination" name = "feedback"></textarea><br/><br/>
  <input type ='submit' name ='submit' value ='save' class ="btn btn-success"/>

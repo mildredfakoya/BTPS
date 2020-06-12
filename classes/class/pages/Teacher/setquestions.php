@@ -5,6 +5,33 @@ include_once "includes/teacherheader.php";
 // when the form is submitted
 if (isset($_POST['submit'])) {
 ?>
+<script>
+$(document).ready(function(){
+  $("#submitreview").validate({
+ //specify how the form should be submitted
+  submitHandler: function(form) {
+    var r = confirm('Are you ready to save the information?');
+       if(r==true){
+         $.ajax({
+ //specify file for form processing
+            url:"submitreview.php",
+            method:"post",
+           data:$('form').serialize(),
+            dataType:"text",
+            success:function(strMessage){
+             alert(strMessage);
+              location.reload();
+            },
+         })
+       }
+   }
+  })
+ });
+
+
+
+</script>
+
 <div class="container">
 <h1 style='text-align:center'>Enter Questions</h1>
 <?php
@@ -45,6 +72,13 @@ $("#selecttype").toggle()
 
 </script>
 <?php
+# if assessment has been submitted for review:
+$sqlreview= "SELECT * FROM btps_new_assessment WHERE assessment_id = :id";
+$stmtreview = $user_home->runQuery($sqlreview);
+$stmtreview->bindValue(':id', $assessmentid);
+$stmtreview->execute();
+$rowreview = $stmtreview->fetch(PDO::FETCH_ASSOC);
+
 #for multichoice Questions
 $sqlmulti= "SELECT * FROM btps_multichoice WHERE assessment_id = :id ORDER BY id";
 $stmtmulti = $user_home->runQuery($sqlmulti);
@@ -143,8 +177,23 @@ echo "<td>". $keyblank['feedback']. "</td></tr>";
 }
 ?>
 </table>
-
+   <div class ="spacer"></div>
   <button class="button" value="add question" id ="addquestion">Add question</button>
+  <br/><br/>
+  <p class="error">Please note that submission of assessment for review is final. Once submitted, it will be sent to admin for approval</p>
+<?php
+if($rowreview['submitted_review'] == 'Submitted'){
+    echo "<h4>This assesssment has been submitted for review</h4>";
+  }
+  else{
+   ?>
+  <form method = "post" novalidate id = "submitreview">
+    <input type ="hidden" value ="<?php echo $rowfindassessment['assessment_id']?>" name ="submithidden">
+    <button class="button" name = "submitreview">Submit for Review</button>
+  </form>
+<?php
+};
+?>
   </div>
   <div id ='selecttype' class ="container">
   <h3>Question Types</h3>

@@ -8,6 +8,7 @@ $stmtsubjects->execute();
 ?>
 
 <div class ="jumbotron">
+  <h5 class ="headeranimated">Already Listed Subjects</h5>
   <table>
 <tr>
   <th>Date Created</th>

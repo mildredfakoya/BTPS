@@ -24,7 +24,7 @@ if(isset($_POST['register']))
     }
 
     else {
-   $firstname= strtolower(!empty($_POST['firstname']) ? $helper->test_input($_POST['firstname']) : null);
+    $firstname= strtolower(!empty($_POST['firstname']) ? $helper->test_input($_POST['firstname']) : null);
 		$encfirst = new AES($firstname, $inputkey, $blocksize);
 		$firstn = $encfirst->encrypt();
 		$encfirst->setData($firstn);
@@ -144,7 +144,7 @@ if(isset($_POST['register']))
 		$id = $user_home->lasdID();
 		$key = base64_encode($id);
 		$id = $key;
-		
+
 		 $sqlset = "INSERT INTO ihs_user_permissions(email, permissions)VALUES(:emailn, :permissions)";
      $stmtset = $user_home->runQuery($sqlset);
 		 $stmtset->bindValue(':emailn' ,$emailn);

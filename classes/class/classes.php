@@ -560,7 +560,7 @@ $sql2 =
  approval_status VARCHAR(50) DEFAULT NULL,
  date_last_updated VARCHAR(50) DEFAULT NULL,
  updated_by_firstname VARCHAR(250) DEFAULT NULL,
- upadated_by_lastname VARCHAR(250) DEFAULT NULL,
+ updated_by_lastname VARCHAR(250) DEFAULT NULL,
  month VARCHAR(15) DEFAULT NULL,
  year VARCHAR(4) DEFAULT NULL
  )ENGINE=InnoDB DEFAULT CHARSET=utf8;
@@ -580,7 +580,6 @@ $sql2 =
  intended_close_date VARCHAR(100) NOT NULL,
  assessment_type VARCHAR(100) NOT NULL,
  subject VARCHAR(100) NOT NULL,
- submitted_review VARCHAR(50) DEFAULT NULL,
  review_status VARCHAR(100) DEFAULT NULL,
  review_notes TEXT DEFAULT NULL,
  approval_status VARCHAR(50) DEFAULT NULL,

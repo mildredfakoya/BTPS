@@ -2,6 +2,7 @@
 $assessmentid = !empty($_POST['assessmentid']) ? $helper->test_input($_POST['assessmentid']) : null;
 $questiontitle = !empty($_POST['questiontitle']) ? $helper->test_input($_POST['questiontitle']) : null;
 $question = !empty($_POST['question']) ? $helper->test_input($_POST['question']) : null;
+$topiccovered = !empty($_POST['topic']) ? $helper->test_input($_POST['topic']) : null;
 $answer_keyword = !empty($_POST['answer_keyword']) ? $helper->test_input($_POST['answer_keyword']) : null;
 $feedback = !empty($_POST['feedback']) ? $helper->test_input($_POST['feedback']) : null;
 //$ = !empty($_POST['']) ? $helper->test_input($_POST['']) : null;
@@ -17,9 +18,9 @@ $month = date('m', $y);
 if(!empty($assessmentid)&&!empty($questiontitle)&&!empty($question)){
 try{
   $sqlmultichoice= "INSERT INTO btps_blank(created_at, created_by_firstname, created_by_lastname, assessment_id,  email,
-  question_id, question_text, answer_keyword, feedback, month, year)
+  question_id, question_text, answer_keyword, topic, feedback, month, year)
   VALUES(:created_at, :created_by_firstname, :created_by_lastname, :assessment_id,  :email,
-  :question_id, :question_text, :answer_keyword, :feedback, :month, :year)";
+  :question_id, :question_text, :answer_keyword, :topic, :feedback, :month, :year)";
   $stmtmultichoice = $user_home->runQuery($sqlmultichoice);
   $stmtmultichoice->bindValue(':created_at' ,$date_created);
   $stmtmultichoice->bindValue(':created_by_firstname', $createdbyfirstname);
@@ -29,6 +30,7 @@ try{
   $stmtmultichoice->bindValue(':question_id',$questiontitle);
   $stmtmultichoice->bindValue(':question_text',$question);
   $stmtmultichoice->bindValue(':answer_keyword',$answer_keyword);
+  $stmtmultichoice->bindValue(':topic',$topiccovered);
   $stmtmultichoice->bindValue(':feedback',$feedback);
   $stmtmultichoice->bindValue(':month',$month);
   $stmtmultichoice->bindValue(':year',$year);
