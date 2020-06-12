@@ -140,7 +140,11 @@ if(isset($_POST['register']))
 	}
 	else
 	{
-
+		$user_home->register($uuid, $firstn, $lastn, $emailn, $passwordn, $role, $code, $access, $created_at, $created_by_firstname, $created_by_lastname);
+		$id = $user_home->lasdID();
+		$key = base64_encode($id);
+		$id = $key;
+		
 		 $sqlset = "INSERT INTO ihs_user_permissions(email, permissions)VALUES(:emailn, :permissions)";
      $stmtset = $user_home->runQuery($sqlset);
 		 $stmtset->bindValue(':emailn' ,$emailn);
@@ -284,10 +288,6 @@ if(isset($_POST['register']))
 		 $stmtteacherchange->bindValue(':email' ,$emailn);
 		 $resultteacherchange = $stmtteacherchange->execute();
 	 }
-		$user_home->register($uuid, $firstn, $lastn, $emailn, $passwordn, $role, $code, $access, $created_at, $created_by_firstname, $created_by_lastname);
-		$id = $user_home->lasdID();
-		$key = base64_encode($id);
-		$id = $key;
 
 			$message = "
 						Hello $firstname,

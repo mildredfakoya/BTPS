@@ -12,25 +12,29 @@ public function __construct()
   $this->conn = $db;
 
 
-  #create the uuid table
-  $sql1 ="
-  CREATE TABLE IF NOT EXISTS ihs_uuid(
-  uuid VARCHAR(255) PRIMARY KEY NOT NULL,
-  email VARCHAR(100) NOT NULL,
-  created_at varchar(100),
-  created_by_firstname VARCHAR(100) NOT NULL,
-  created_by_lastname VARCHAR(100) NOT NULL,
-  updated_at varchar(100),
-  updated_by_firstname VARCHAR(100) DEFAULT NULL,
-  updated_by_lastname VARCHAR(100) DEFAULT NULL
-  )ENGINE=MyISAM DEFAULT CHARSET=utf8;
-  ";
-  $this->conn->exec($sql1);
+$sql1 ="CREATE TABLE IF NOT EXISTS btps_topics(
+id INT UNIQUE AUTO_INCREMENT ,
+created_at varchar(100),
+created_by_firstname VARCHAR(100) DEFAULT NULL,
+created_by_lastname VARCHAR(100) DEFAULT NULL,
+email VARCHAR(350) DEFAULT NULL,
+date_last_updated varchar(100),
+updated_by_firstname VARCHAR(100) DEFAULT NULL,
+updated_by_lastname VARCHAR(100) DEFAULT NULL,
+topics_covered VARCHAR (100) DEFAULT NULL,
+grade VARCHAR(100) DEFAULT NULL,
+subject VARCHAR(100) DEFAULT NULL,
+notes TEXT,
+month VARCHAR(15) DEFAULT NULL,
+year VARCHAR(4) DEFAULT NULL
+)ENGINE=InnoDB DEFAULT CHARSET=utf8;
+";
+$this->conn->exec($sql1);
 
- $sql2 =
-  "CREATE TABLE IF NOT EXISTS `ihs_users` (
-    `id` int(11) PRIMARY KEY AUTO_INCREMENT NOT NULL,
-    `uuid` varchar(255) NOT NULL,
+$sql2 =
+"CREATE TABLE IF NOT EXISTS `ihs_users` (
+    `id` int(11) UNIQUE AUTO_INCREMENT  NOT NULL,
+    `uuid` varchar(255) PRIMARY KEY NOT NULL,
     `firstname` varchar(255) NOT NULL,
     `middlename` varchar(255) DEFAULT NULL,
     `lastname` varchar(255) NOT NULL,
@@ -46,41 +50,18 @@ public function __construct()
     `created_by_lastname` varchar(100) NOT NULL,
     `updated_at` varchar(100),
     `updated_by_firstname` varchar(100) DEFAULT NULL,
-    `updated_by_lastname` varchar(100) DEFAULT NULL,
-  FOREIGN KEY (uuid)
-  REFERENCES ihs_uuid(uuid)
-  ON UPDATE CASCADE
-  ON DELETE CASCADE
-  ) ENGINE=MyISAM DEFAULT CHARSET=utf8;
+    `updated_by_lastname` varchar(100) DEFAULT NULL
+  ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
   INSERT INTO `ihs_users` (`id`, `uuid`, `firstname`, `middlename`, `lastname`, `email`, `password`, `role`, `userStatus`, `code`, `last_logged_in`, `access_status`, `created_at`, `created_by_firstname`, `created_by_lastname`, `updated_at`, `updated_by_firstname`, `updated_by_lastname`) VALUES
   (1, '75b1d11de6a4bb71d7057d3f44aaf8079a1c10fb36b030d991693e988ae5fc396e7fcd3a246e37e9a6ce45c6857427cf7a72', 'l064xcvrQ+KqiACxJkspsw==', NULL, 'jkfwH0L03ZTvBK0LIWwE6w==', 'r6TppR8eFavexNmWXTNyk+2LqhPDGlq5z492eRPr8NU=', 'h2pJ9R66xPp658byPqjZjGlW1qO0dOjbt06d/F3UAQI=', 'Admin', 'Y', '148f37eb56546d38a950', NULL, 'OK', '2020-04-23 06:30:00', '/yVgGxBKo5oyf/5C+gNxcA==', 'EySvf+MgEwj5yDRvN1au4Q==', '2020-04-23 06:30:00', NULL, NULL);";
   $this->conn->exec($sql2);
 
-
- //CREATE THE USER PERMISSIONS TABLE
-  $sql2 =
-  "CREATE TABLE IF NOT EXISTS ihs_user_permissions(
-  id INT NOT NULL PRIMARY KEY AUTO_INCREMENT,
-  uuid VARCHAR(250) DEFAULT NULL,
-  email VARCHAR(250) DEFAULT NULL,
-  permissions TEXT,
-  FOREIGN KEY (uuid)
-  REFERENCES ihs_uuid(uuid)
-  ON UPDATE CASCADE
-  ON DELETE CASCADE
-  )ENGINE=MyISAM DEFAULT CHARSET=utf8;
-  INSERT INTO `ihs_user_permissions` (`id`, `email`, `permissions`) VALUES
-  (3, 'r6TppR8eFavexNmWXTNyk+2LqhPDGlq5z492eRPr8NU=', 'classrooms users_account updates records exams information finance deletes pre_k grade_k grade_1 grade_2 grade_3 grade_4 grade_5 grade_6 grade_7 grade_8 grade_9 grade_10 grade_11 pre_k_teacher grade_1_teacher grade_1_teacher grade_2_teacher grade_3_teacher grade_4_teacher grade_5_teacher grade_6_teacher grade_7_teacher grade_8_teacher grade_9_teacher grade_10_teacher grade_11_teacher');
-  ";
-  $this->conn->exec($sql2);
-
-//CREATE THE PERMISSIONS TABLE
  $sql3 =
  "CREATE TABLE IF NOT EXISTS ihs_permissions(
- id INT NOT NULL PRIMARY KEY AUTO_INCREMENT,
+ id INT NOT NULL UNIQUE AUTO_INCREMENT ,
  permission_name VARCHAR(100),
  permission_group VARCHAR(100)
- )ENGINE=MyISAM DEFAULT CHARSET=utf8;
+ )ENGINE=InnoDB DEFAULT CHARSET=utf8;
  INSERT INTO `ihs_permissions` VALUES (1, 'users_account', 'admin');
  INSERT INTO `ihs_permissions` VALUES (2, 'updates', 'admin');
  INSERT INTO `ihs_permissions` VALUES (3, 'pre_k', 'student');
@@ -117,14 +98,12 @@ public function __construct()
  INSERT INTO `ihs_permissions` VALUES (36, 'deletes', 'admin');
  INSERT INTO `ihs_permissions` VALUES (37, 'assessment', 'teacher');
  INSERT INTO `ihs_permissions` VALUES (38, 'review', 'admin');
-
  ";
  $this->conn->exec($sql3);
 
 //CREATE THE ROLE TABLE
- $sql4 =
- "CREATE TABLE IF NOT EXISTS role(
- role_id INT PRIMARY KEY AUTO_INCREMENT,
+ $sql4 ="CREATE TABLE IF NOT EXISTS role(
+ role_id INT UNIQUE AUTO_INCREMENT ,
  role VARCHAR(100)
  );
  INSERT INTO role (role_id, role) VALUES (1, 'Admin');
@@ -132,11 +111,9 @@ public function __construct()
  INSERT INTO role (role_id, role) VALUES (3, 'Student');";
  $this->conn->exec($sql4);
 
-
- $sql5 ="
- CREATE TABLE IF NOT EXISTS ihs_students(
- id INT PRIMARY KEY AUTO_INCREMENT,
- uuid VARCHAR(100) NOT NULL,
+ $sql5 ="CREATE TABLE IF NOT EXISTS ihs_students(
+ id INT UNIQUE AUTO_INCREMENT ,
+ `uuid` varchar(255) PRIMARY KEY NOT NULL,
  created_at varchar(100),
  created_by_firstname VARCHAR(100) NOT NULL,
  created_by_lastname VARCHAR(100) NOT NULL,
@@ -162,23 +139,19 @@ public function __construct()
  month VARCHAR(15) DEFAULT NULL,
  year VARCHAR(4) DEFAULT NULL,
  FOREIGN KEY (uuid)
- REFERENCES ihs_uuid(uuid)
- ON UPDATE CASCADE
- ON DELETE CASCADE
- )ENGINE=MyISAM DEFAULT CHARSET=utf8;
+ REFERENCES ihs_users(uuid)
+ ON DELETE CASCADE ON UPDATE CASCADE
+ )ENGINE=InnoDB DEFAULT CHARSET=utf8;
  ";
  $this->conn->exec($sql5);
 
- $sql6 ="
- CREATE TABLE IF NOT EXISTS ihs_students_change(
- id INT PRIMARY KEY AUTO_INCREMENT,
- uuid VARCHAR(100) NOT NULL,
+ $sql6 =
+ "CREATE TABLE IF NOT EXISTS ihs_students_change(
+ id INT UNIQUE AUTO_INCREMENT ,
+ `uuid` varchar(255) PRIMARY KEY NOT NULL,
  created_at varchar(100),
  created_by_firstname VARCHAR(100) NOT NULL,
  created_by_lastname VARCHAR(100) NOT NULL,
- date_last_updated varchar(100),
- updated_by_firstname VARCHAR(100) DEFAULT NULL,
- updated_by_lastname VARCHAR(100) DEFAULT NULL,
  first_name VARCHAR(100) DEFAULT NULL,
  middle_name VARCHAR(100) DEFAULT NULL,
  last_name VARCHAR(100) DEFAULT NULL,
@@ -196,20 +169,16 @@ public function __construct()
  emergency_contact VARCHAR(50) DEFAULT NULL,
  other_information TEXT,
  month VARCHAR(15) DEFAULT NULL,
- year VARCHAR(4) DEFAULT NULL,
- FOREIGN KEY (uuid)
- REFERENCES ihs_uuid(uuid)
- ON UPDATE CASCADE
- ON DELETE CASCADE
- )ENGINE=MyISAM DEFAULT CHARSET=utf8;
+ year VARCHAR(4) DEFAULT NULL
+ )ENGINE=InnoDB DEFAULT CHARSET=utf8;
  ";
  $this->conn->exec($sql6);
 
 
- $sql7 ="
- CREATE TABLE IF NOT EXISTS ihs_students_gender(
- id INT PRIMARY KEY AUTO_INCREMENT,
- uuid VARCHAR(100) NOT NULL,
+ $sql7 =
+ "CREATE TABLE IF NOT EXISTS ihs_students_gender(
+ id INT UNIQUE AUTO_INCREMENT ,
+ `uuid` varchar(255) PRIMARY KEY NOT NULL,
  email VARCHAR(100) DEFAULT NULL,
  created_at varchar(100),
  created_by_firstname VARCHAR(100) DEFAULT NULL,
@@ -221,84 +190,64 @@ public function __construct()
  month VARCHAR(15) DEFAULT NULL,
  year VARCHAR(4) DEFAULT NULL,
  FOREIGN KEY (uuid)
- REFERENCES ihs_uuid(uuid)
- ON UPDATE CASCADE
- ON DELETE CASCADE
- )ENGINE=MyISAM DEFAULT CHARSET=utf8;
+ REFERENCES ihs_users(uuid)
+ ON DELETE CASCADE ON UPDATE CASCADE
+ )ENGINE=InnoDB DEFAULT CHARSET=utf8;
  ";
  $this->conn->exec($sql7);
 
- $sql8 ="
- CREATE TABLE IF NOT EXISTS ihs_students_gender_change(
- id INT PRIMARY KEY AUTO_INCREMENT,
- uuid VARCHAR(100) NOT NULL,
+ $sql8 =
+ "CREATE TABLE IF NOT EXISTS ihs_students_gender_change(
+ id INT UNIQUE AUTO_INCREMENT ,
+ `uuid` varchar(255) PRIMARY KEY NOT NULL,
  email VARCHAR(100) DEFAULT NULL,
  created_at varchar(100),
  created_by_firstname VARCHAR(100) DEFAULT NULL,
  created_by_lastname VARCHAR(100) DEFAULT NULL,
- date_last_updated varchar(100),
- updated_by_firstname VARCHAR(100) DEFAULT NULL,
- updated_by_lastname VARCHAR(100) DEFAULT NULL,
  gender VARCHAR(100) DEFAULT NULL,
  month VARCHAR(15) DEFAULT NULL,
- year VARCHAR(4) DEFAULT NULL,
- FOREIGN KEY (uuid)
- REFERENCES ihs_uuid(uuid)
- ON UPDATE CASCADE
- ON DELETE CASCADE
- )ENGINE=MyISAM DEFAULT CHARSET=utf8;
+ year VARCHAR(4) DEFAULT NULL
+ )ENGINE=InnoDB DEFAULT CHARSET=utf8;
  ";
  $this->conn->exec($sql8);
 
- $sql9 ="
- CREATE TABLE IF NOT EXISTS ihs_students_class(
- id INT PRIMARY KEY AUTO_INCREMENT,
- uuid VARCHAR(100) NOT NULL,
+ $sql9 =
+ "CREATE TABLE IF NOT EXISTS ihs_students_class(
+ id INT UNIQUE AUTO_INCREMENT ,
+ `uuid` varchar(255) PRIMARY KEY NOT NULL,
  email VARCHAR(100) DEFAULT NULL,
  created_at varchar(100),
  created_by_firstname VARCHAR(100) DEFAULT NULL,
  created_by_lastname VARCHAR(100) DEFAULT NULL,
- date_last_updated varchar(100),
- updated_by_firstname VARCHAR(100) DEFAULT NULL,
- updated_by_lastname VARCHAR(100) DEFAULT NULL,
  grade VARCHAR(100) DEFAULT NULL,
  month VARCHAR(15) DEFAULT NULL,
  year VARCHAR(4) DEFAULT NULL,
  FOREIGN KEY (uuid)
- REFERENCES ihs_uuid(uuid)
- ON UPDATE CASCADE
- ON DELETE CASCADE
- )ENGINE=MyISAM DEFAULT CHARSET=utf8;
+ REFERENCES ihs_users(uuid)
+ ON DELETE CASCADE ON UPDATE CASCADE
+ )ENGINE=InnoDB DEFAULT CHARSET=utf8;
  ";
  $this->conn->exec($sql9);
 
- $sql10 ="
- CREATE TABLE IF NOT EXISTS ihs_students_class_change(
- id INT PRIMARY KEY AUTO_INCREMENT,
- uuid VARCHAR(100) NOT NULL,
+ $sql10 =
+ "CREATE TABLE IF NOT EXISTS ihs_students_class_change(
+ id INT UNIQUE AUTO_INCREMENT ,
+ `uuid` varchar(255) PRIMARY KEY NOT NULL,
  email VARCHAR(100) DEFAULT NULL,
  created_at varchar(100),
  created_by_firstname VARCHAR(100) DEFAULT NULL,
  created_by_lastname VARCHAR(100) DEFAULT NULL,
- date_last_updated varchar(100),
- updated_by_firstname VARCHAR(100) DEFAULT NULL,
- updated_by_lastname VARCHAR(100) DEFAULT NULL,
  grade VARCHAR(100) DEFAULT NULL,
  month VARCHAR(15) DEFAULT NULL,
- year VARCHAR(4) DEFAULT NULL,
- FOREIGN KEY (uuid)
- REFERENCES ihs_uuid(uuid)
- ON UPDATE CASCADE
- ON DELETE CASCADE
- )ENGINE=MyISAM DEFAULT CHARSET=utf8;
+ year VARCHAR(4) DEFAULT NULL
+ )ENGINE=InnoDB DEFAULT CHARSET=utf8;
  ";
  $this->conn->exec($sql10);
 
-
- $sql11 ="
- CREATE TABLE IF NOT EXISTS ihs_students_contact(
- id INT PRIMARY KEY AUTO_INCREMENT,
- uuid VARCHAR(100) NOT NULL,
+ $sql11 =
+ "CREATE TABLE IF NOT EXISTS ihs_students_contact(
+ id INT UNIQUE AUTO_INCREMENT ,
+ `uuid` varchar(255) PRIMARY KEY NOT NULL,
  created_at varchar(100),
  created_by_firstname VARCHAR(100) DEFAULT NULL,
  created_by_lastname VARCHAR(100) DEFAULT NULL,
@@ -313,42 +262,33 @@ public function __construct()
  month VARCHAR(15) DEFAULT NULL,
  year VARCHAR(4) DEFAULT NULL,
  FOREIGN KEY (uuid)
- REFERENCES ihs_uuid(uuid)
- ON UPDATE CASCADE
- ON DELETE CASCADE
- )ENGINE=MyISAM DEFAULT CHARSET=utf8;
+ REFERENCES ihs_users(uuid)
+ ON DELETE CASCADE ON UPDATE CASCADE
+ )ENGINE=InnoDB DEFAULT CHARSET=utf8;
  ";
  $this->conn->exec($sql11);
 
- $sql12 ="
- CREATE TABLE IF NOT EXISTS ihs_students_contact_change(
- id INT PRIMARY KEY AUTO_INCREMENT,
- uuid VARCHAR(100) NOT NULL,
+ $sql12 ="CREATE TABLE IF NOT EXISTS ihs_students_contact_change(
+ id INT UNIQUE AUTO_INCREMENT ,
+ `uuid` varchar(255) PRIMARY KEY NOT NULL,
  created_at varchar(100),
  created_by_firstname VARCHAR(100) DEFAULT NULL,
  created_by_lastname VARCHAR(100) DEFAULT NULL,
- date_last_updated varchar(100),
- updated_by_firstname VARCHAR(100) DEFAULT NULL,
- updated_by_lastname VARCHAR(100) DEFAULT NULL,
  address VARCHAR(250) DEFAULT NULL,
  telephone VARCHAR(100) DEFAULT NULL,
  email VARCHAR(100) DEFAULT NULL,
  emergency_contact VARCHAR(50) DEFAULT NULL,
  other_information TEXT,
  month VARCHAR(15) DEFAULT NULL,
- year VARCHAR(4) DEFAULT NULL,
- FOREIGN KEY (uuid)
- REFERENCES ihs_uuid(uuid)
- ON UPDATE CASCADE
- ON DELETE CASCADE
- )ENGINE=MyISAM DEFAULT CHARSET=utf8;
+ year VARCHAR(4) DEFAULT NULL
+ )ENGINE=InnoDB DEFAULT CHARSET=utf8;
  ";
  $this->conn->exec($sql12);
 
- $sql13 ="
- CREATE TABLE IF NOT EXISTS ihs_students_age(
- id INT PRIMARY KEY AUTO_INCREMENT,
- uuid VARCHAR(100) NOT NULL,
+ $sql13 =
+ "CREATE TABLE IF NOT EXISTS ihs_students_age(
+ id INT UNIQUE AUTO_INCREMENT ,
+ `uuid` varchar(255) PRIMARY KEY NOT NULL,
  email VARCHAR(100) DEFAULT NULL,
  created_at varchar(100),
  created_by_firstname VARCHAR(100) DEFAULT NULL,
@@ -362,41 +302,32 @@ public function __construct()
  month VARCHAR(15) DEFAULT NULL,
  year VARCHAR(4) DEFAULT NULL,
  FOREIGN KEY (uuid)
- REFERENCES ihs_uuid(uuid)
- ON UPDATE CASCADE
- ON DELETE CASCADE
- )ENGINE=MyISAM DEFAULT CHARSET=utf8;
+ REFERENCES ihs_users(uuid)
+ ON DELETE CASCADE ON UPDATE CASCADE
+ )ENGINE=InnoDB DEFAULT CHARSET=utf8;
  ";
  $this->conn->exec($sql13);
 
- $sql14 ="
- CREATE TABLE IF NOT EXISTS ihs_students_age_change(
- id INT PRIMARY KEY AUTO_INCREMENT,
- uuid VARCHAR(100) NOT NULL,
+ $sql14 ="CREATE TABLE IF NOT EXISTS ihs_students_age_change(
+ id INT UNIQUE AUTO_INCREMENT ,
+ `uuid` varchar(255) PRIMARY KEY NOT NULL,
  email VARCHAR(100) DEFAULT NULL,
  created_at varchar(100),
  created_by_firstname VARCHAR(100) DEFAULT NULL,
  created_by_lastname VARCHAR(100) DEFAULT NULL,
- date_last_updated varchar(100),
- updated_by_firstname VARCHAR(100) DEFAULT NULL,
- updated_by_lastname VARCHAR(100) DEFAULT NULL,
  day_of_birth VARCHAR(15) DEFAULT NULL,
  month_of_birth VARCHAR(15) DEFAULT NULL,
  year_of_birth VARCHAR(15) DEFAULT NULL,
  month VARCHAR(15) DEFAULT NULL,
- year VARCHAR(4) DEFAULT NULL,
- FOREIGN KEY (uuid)
- REFERENCES ihs_uuid(uuid)
- ON UPDATE CASCADE
- ON DELETE CASCADE
- )ENGINE=MyISAM DEFAULT CHARSET=utf8;
+ year VARCHAR(4) DEFAULT NULL
+ )ENGINE=InnoDB DEFAULT CHARSET=utf8;
  ";
  $this->conn->exec($sql14);
 
- $sql15 ="
- CREATE TABLE IF NOT EXISTS ihs_students_medical(
- id INT PRIMARY KEY AUTO_INCREMENT,
- uuid VARCHAR(100) NOT NULL,
+ $sql15 =
+ "CREATE TABLE IF NOT EXISTS ihs_students_medical(
+ id INT UNIQUE AUTO_INCREMENT ,
+ `uuid` varchar(255) PRIMARY KEY NOT NULL,
  email VARCHAR(100) DEFAULT NULL,
  created_at varchar(100),
  created_by_firstname VARCHAR(100) DEFAULT NULL,
@@ -411,43 +342,34 @@ public function __construct()
  month VARCHAR(15) DEFAULT NULL,
  year VARCHAR(4) DEFAULT NULL,
  FOREIGN KEY (uuid)
- REFERENCES ihs_uuid(uuid)
- ON UPDATE CASCADE
- ON DELETE CASCADE
- )ENGINE=MyISAM DEFAULT CHARSET=utf8;
+ REFERENCES ihs_users(uuid)
+ ON DELETE CASCADE ON UPDATE CASCADE
+ )ENGINE=InnoDB DEFAULT CHARSET=utf8;
  ";
  $this->conn->exec($sql15);
 
- $sql16 ="
- CREATE TABLE IF NOT EXISTS ihs_students_medical_change(
- id INT PRIMARY KEY AUTO_INCREMENT,
- uuid VARCHAR(100) NOT NULL,
+ $sql16 ="CREATE TABLE IF NOT EXISTS ihs_students_medical_change(
+ id INT UNIQUE AUTO_INCREMENT ,
+ `uuid` varchar(255) PRIMARY KEY NOT NULL,
  email VARCHAR(100) DEFAULT NULL,
  created_at varchar(100),
  created_by_firstname VARCHAR(100) DEFAULT NULL,
  created_by_lastname VARCHAR(100) DEFAULT NULL,
- date_last_updated varchar(100),
- updated_by_firstname VARCHAR(100) DEFAULT NULL,
- updated_by_lastname VARCHAR(100) DEFAULT NULL,
  medical_conditions TEXT,
  medications TEXT,
  emergency_contact VARCHAR(50) DEFAULT NULL,
  other_information TEXT,
  month VARCHAR(15) DEFAULT NULL,
- year VARCHAR(4) DEFAULT NULL,
- FOREIGN KEY (uuid)
- REFERENCES ihs_uuid(uuid)
- ON UPDATE CASCADE
- ON DELETE CASCADE
- )ENGINE=MyISAM DEFAULT CHARSET=utf8;
+ year VARCHAR(4) DEFAULT NULL
+ )ENGINE=InnoDB DEFAULT CHARSET=utf8;
  ";
  $this->conn->exec($sql16);
 
 
- $sql17 ="
- CREATE TABLE IF NOT EXISTS ihs_teachers(
- id INT PRIMARY KEY AUTO_INCREMENT,
- uuid VARCHAR(100) NOT NULL,
+ $sql17 =
+ "CREATE TABLE IF NOT EXISTS ihs_teachers(
+ id INT UNIQUE AUTO_INCREMENT ,
+ `uuid` varchar(255) PRIMARY KEY NOT NULL,
  email VARCHAR(100) DEFAULT NULL,
  created_at varchar(100),
  created_by_firstname VARCHAR(100) NOT NULL,
@@ -471,24 +393,20 @@ public function __construct()
  month VARCHAR(15) DEFAULT NULL,
  year VARCHAR(4) DEFAULT NULL,
  FOREIGN KEY (uuid)
- REFERENCES ihs_uuid(uuid)
- ON UPDATE CASCADE
- ON DELETE CASCADE
- )ENGINE=MyISAM DEFAULT CHARSET=utf8;
+ REFERENCES ihs_users(uuid)
+ ON DELETE CASCADE ON UPDATE CASCADE
+ )ENGINE=InnoDB DEFAULT CHARSET=utf8;
  ";
  $this->conn->exec($sql17);
 
- $sql18 ="
- CREATE TABLE IF NOT EXISTS ihs_teachers_change(
- id INT PRIMARY KEY AUTO_INCREMENT,
- uuid VARCHAR(100) NOT NULL,
+ $sql18 =
+ "CREATE TABLE IF NOT EXISTS ihs_teachers_change(
+ id INT UNIQUE AUTO_INCREMENT ,
+ `uuid` varchar(255) PRIMARY KEY NOT NULL,
  email VARCHAR(100) DEFAULT NULL,
  created_at varchar(100),
  created_by_firstname VARCHAR(100) NOT NULL,
  created_by_lastname VARCHAR(100) NOT NULL,
- date_last_updated varchar(100),
- updated_by_firstname VARCHAR(100) DEFAULT NULL,
- updated_by_lastname VARCHAR(100) DEFAULT NULL,
  first_name VARCHAR(100) DEFAULT NULL,
  middle_name VARCHAR(100) DEFAULT NULL,
  last_name VARCHAR(100) DEFAULT NULL,
@@ -503,18 +421,14 @@ public function __construct()
  access_right VARCHAR(10) DEFAULT NULL,
  other_information TEXT,
  month VARCHAR(15) DEFAULT NULL,
- year VARCHAR(4) DEFAULT NULL,
- FOREIGN KEY (uuid)
- REFERENCES ihs_uuid(uuid)
- ON UPDATE CASCADE
- ON DELETE CASCADE
- )ENGINE=MyISAM DEFAULT CHARSET=utf8;
+ year VARCHAR(4) DEFAULT NULL
+ )ENGINE=InnoDB DEFAULT CHARSET=utf8;
  ";
  $this->conn->exec($sql18);
 
- $sql19 ="
- CREATE TABLE IF NOT EXISTS ihs_video_uploads(
- id INT PRIMARY KEY AUTO_INCREMENT,
+ $sql19 =
+ "CREATE TABLE IF NOT EXISTS ihs_video_uploads(
+ id INT UNIQUE AUTO_INCREMENT ,
  created_at varchar(100),
  created_by_firstname VARCHAR(100) NOT NULL,
  created_by_lastname VARCHAR(100) NOT NULL,
@@ -524,13 +438,13 @@ public function __construct()
  subject VARCHAR(100) DEFAULT NULL,
  image VARCHAR(100) DEFAULT NULL,
  report TEXT
- )ENGINE=MyISAM DEFAULT CHARSET=utf8;
+ )ENGINE=InnoDB DEFAULT CHARSET=utf8;
  ";
  $this->conn->exec($sql19);
 
- $sql20 ="
- CREATE TABLE IF NOT EXISTS ihs_news(
- id INT PRIMARY KEY AUTO_INCREMENT,
+ $sql20 =
+ "CREATE TABLE IF NOT EXISTS ihs_news(
+ id INT UNIQUE AUTO_INCREMENT ,
  created_at varchar(100),
  created_by_firstname VARCHAR(100) NOT NULL,
  created_by_lastname VARCHAR(100) NOT NULL,
@@ -541,71 +455,65 @@ public function __construct()
  topic VARCHAR(100) ,
  class VARCHAR(15) ,
  details TEXT
- )ENGINE=MyISAM DEFAULT CHARSET=utf8;
+ )ENGINE=InnoDB DEFAULT CHARSET=utf8;
  ";
  $this->conn->exec($sql20);
 
- $sql21 ="
- CREATE TABLE IF NOT EXISTS ihs_news_change(
- id INT PRIMARY KEY AUTO_INCREMENT,
+ $sql21 ="CREATE TABLE IF NOT EXISTS ihs_news_change(
+ id INT UNIQUE AUTO_INCREMENT ,
  created_at varchar(100),
  created_by_firstname VARCHAR(100) NOT NULL,
  created_by_lastname VARCHAR(100) NOT NULL,
  email VARCHAR(100) NOT NULL,
- topic VARCHAR(100) ,
- class VARCHAR(15) ,
+ topic VARCHAR(100),
+ class VARCHAR(15),
  details TEXT
- )ENGINE=MyISAM DEFAULT CHARSET=utf8;
+ )ENGINE=InnoDB DEFAULT CHARSET=utf8;
  ";
  $this->conn->exec($sql21);
 
 
-
- $sql22 ="
- CREATE TABLE IF NOT EXISTS ihs_timetable_uploads(
- id INT PRIMARY KEY AUTO_INCREMENT,
+ $sql22 ="CREATE TABLE IF NOT EXISTS ihs_timetable_uploads(
+ id INT UNIQUE AUTO_INCREMENT ,
  created_at varchar(100),
  created_by_firstname VARCHAR(100) NOT NULL,
  created_by_lastname VARCHAR(100) NOT NULL,
  email VARCHAR(100) DEFAULT NULL,
  grade VARCHAR(100) DEFAULT NULL,
  file VARCHAR(100) DEFAULT NULL
- )ENGINE=MyISAM DEFAULT CHARSET=utf8;
+ )ENGINE=InnoDB DEFAULT CHARSET=utf8;
  ";
  $this->conn->exec($sql22);
 
 
- $sql23 ="
- CREATE TABLE IF NOT EXISTS ihs_menu_uploads(
- id INT PRIMARY KEY AUTO_INCREMENT,
+ $sql23 ="CREATE TABLE IF NOT EXISTS ihs_menu_uploads(
+ id INT UNIQUE AUTO_INCREMENT ,
  created_at varchar(100),
  created_by_firstname VARCHAR(100) NOT NULL,
  created_by_lastname VARCHAR(100) NOT NULL,
  email VARCHAR(100) DEFAULT NULL,
  month VARCHAR(100) DEFAULT NULL,
  file VARCHAR(100) DEFAULT NULL
- )ENGINE=MyISAM DEFAULT CHARSET=utf8;
+ )ENGINE=InnoDB DEFAULT CHARSET=utf8;
  ";
  $this->conn->exec($sql23);
 
 
- $sql24 ="
- CREATE TABLE IF NOT EXISTS ihs_newsletter_uploads(
- id INT PRIMARY KEY AUTO_INCREMENT,
+ $sql24 ="CREATE TABLE IF NOT EXISTS ihs_newsletter_uploads(
+ id INT UNIQUE AUTO_INCREMENT ,
  created_at varchar(100),
  created_by_firstname VARCHAR(100) NOT NULL,
  created_by_lastname VARCHAR(100) NOT NULL,
  email VARCHAR(100) DEFAULT NULL,
  monthnews VARCHAR(100) DEFAULT NULL,
  file VARCHAR(100) DEFAULT NULL
- )ENGINE=MyISAM DEFAULT CHARSET=utf8;
+ )ENGINE=InnoDB DEFAULT CHARSET=utf8;
  ";
  $this->conn->exec($sql24);
 
 
- $sql25 ="
- CREATE TABLE IF NOT EXISTS btps_info(
- id INT PRIMARY KEY AUTO_INCREMENT,
+ $sql25 ="CREATE TABLE IF NOT EXISTS btps_info(
+ id INT UNIQUE AUTO_INCREMENT ,
  created_at varchar(100),
  created_by_firstname VARCHAR(100) NOT NULL,
  created_by_lastname VARCHAR(100) NOT NULL,
@@ -616,13 +524,12 @@ public function __construct()
  grade VARCHAR(35) DEFAULT NULL,
  ages VARCHAR(20) DEFAULT NULL,
  information TEXT DEFAULT NULL
- )ENGINE=MyISAM DEFAULT CHARSET=utf8;
+ )ENGINE=InnoDB DEFAULT CHARSET=utf8;
  ";
  $this->conn->exec($sql25);
 
- $sql26 ="
- CREATE TABLE IF NOT EXISTS btps_info_change(
- id INT PRIMARY KEY AUTO_INCREMENT,
+ $sql26 ="CREATE TABLE IF NOT EXISTS btps_info_change(
+ id INT UNIQUE AUTO_INCREMENT ,
  created_at varchar(100),
  created_by_firstname VARCHAR(100) NOT NULL,
  created_by_lastname VARCHAR(100) NOT NULL,
@@ -630,14 +537,13 @@ public function __construct()
  grade VARCHAR(35) DEFAULT NULL,
  ages VARCHAR(20) DEFAULT NULL,
  information TEXT DEFAULT NULL
- )ENGINE=MyISAM DEFAULT CHARSET=utf8;
+ )ENGINE=InnoDB DEFAULT CHARSET=utf8;
  ";
  $this->conn->exec($sql26);
 
- $sql27 ="
- CREATE TABLE IF NOT EXISTS btps_new_assessment(
- id INT PRIMARY KEY AUTO_INCREMENT,
- assessment_id VARCHAR(50) NOT NULL,
+ $sql27 ="CREATE TABLE IF NOT EXISTS btps_new_assessment(
+ id INT UNIQUE AUTO_INCREMENT ,
+ assessment_id VARCHAR(50) UNIQUE NOT NULL,
  access_code VARCHAR(50) NOT NULL,
  created_at VARCHAR(100),
  created_by_firstname VARCHAR(100) NOT NULL,
@@ -648,6 +554,7 @@ public function __construct()
  intended_close_date VARCHAR(100) NOT NULL,
  assessment_type VARCHAR(100) NOT NULL,
  subject VARCHAR(100) NOT NULL,
+ submitted_review VARCHAR(50) DEFAULT NULL,
  review_status VARCHAR(100) DEFAULT NULL,
  review_notes TEXT DEFAULT NULL,
  approval_status VARCHAR(50) DEFAULT NULL,
@@ -656,14 +563,13 @@ public function __construct()
  upadated_by_lastname VARCHAR(250) DEFAULT NULL,
  month VARCHAR(15) DEFAULT NULL,
  year VARCHAR(4) DEFAULT NULL
- )ENGINE=MyISAM DEFAULT CHARSET=utf8;
+ )ENGINE=InnoDB DEFAULT CHARSET=utf8;
  ";
  $this->conn->exec($sql27);
 
- $sql28 ="
- CREATE TABLE IF NOT EXISTS btps_new_assessment_change(
- id INT PRIMARY KEY AUTO_INCREMENT,
- assessment_id VARCHAR(50) NOT NULL,
+ $sql28 ="CREATE TABLE IF NOT EXISTS btps_new_assessment_change(
+ id INT UNIQUE AUTO_INCREMENT ,
+ assessment_id VARCHAR(50) UNIQUE NOT NULL,
  access_code VARCHAR(50) NOT NULL,
  created_at VARCHAR(100),
  created_by_firstname VARCHAR(100) NOT NULL,
@@ -674,19 +580,19 @@ public function __construct()
  intended_close_date VARCHAR(100) NOT NULL,
  assessment_type VARCHAR(100) NOT NULL,
  subject VARCHAR(100) NOT NULL,
+ submitted_review VARCHAR(50) DEFAULT NULL,
  review_status VARCHAR(100) DEFAULT NULL,
  review_notes TEXT DEFAULT NULL,
  approval_status VARCHAR(50) DEFAULT NULL,
  month VARCHAR(15) DEFAULT NULL,
  year VARCHAR(4) DEFAULT NULL
- )ENGINE=MyISAM DEFAULT CHARSET=utf8;
+ )ENGINE=InnoDB DEFAULT CHARSET=utf8;
  ";
  $this->conn->exec($sql28);
 
- $sql29 ="
- CREATE TABLE IF NOT EXISTS btps_assignment(
- id INT PRIMARY KEY AUTO_INCREMENT,
- assessment_id VARCHAR(50) NOT NULL,
+ $sql29 ="CREATE TABLE IF NOT EXISTS btps_assignment(
+ id INT UNIQUE AUTO_INCREMENT ,
+ assessment_id VARCHAR(50) UNIQUE NOT NULL,
  created_at VARCHAR(100),
  created_by_firstname VARCHAR(100) NOT NULL,
  created_by_lastname VARCHAR(100) NOT NULL,
@@ -697,16 +603,15 @@ public function __construct()
  year VARCHAR(4) DEFAULT NULL,
  FOREIGN KEY (assessment_id)
  REFERENCES btps_new_assessment(assessment_id)
- ON UPDATE CASCADE
- ON DELETE CASCADE
- )ENGINE=MyISAM DEFAULT CHARSET=utf8;
+ ON DELETE CASCADE ON UPDATE CASCADE
+
+ )ENGINE=InnoDB DEFAULT CHARSET=utf8;
  ";
  $this->conn->exec($sql29);
 
- $sql30 ="
- CREATE TABLE IF NOT EXISTS continous_assessment(
- id INT PRIMARY KEY AUTO_INCREMENT,
- assessment_id VARCHAR(50) NOT NULL,
+ $sql30 ="CREATE TABLE IF NOT EXISTS continous_assessment(
+ id INT UNIQUE AUTO_INCREMENT ,
+ assessment_id VARCHAR(50) UNIQUE NOT NULL,
  created_at VARCHAR(100),
  created_by_firstname VARCHAR(100) NOT NULL,
  created_by_lastname VARCHAR(100) NOT NULL,
@@ -717,16 +622,15 @@ public function __construct()
  year VARCHAR(4) DEFAULT NULL,
  FOREIGN KEY (assessment_id)
  REFERENCES btps_new_assessment(assessment_id)
- ON UPDATE CASCADE
- ON DELETE CASCADE
- )ENGINE=MyISAM DEFAULT CHARSET=utf8;
+ ON DELETE CASCADE ON UPDATE CASCADE
+
+ )ENGINE=InnoDB DEFAULT CHARSET=utf8;
  ";
  $this->conn->exec($sql30);
 
- $sql31 ="
- CREATE TABLE IF NOT EXISTS exam(
- id INT PRIMARY KEY AUTO_INCREMENT,
- assessment_id VARCHAR(50) NOT NULL,
+ $sql31 ="CREATE TABLE IF NOT EXISTS exam(
+ id INT UNIQUE AUTO_INCREMENT ,
+ assessment_id VARCHAR(50) UNIQUE NOT NULL,
  created_at VARCHAR(100),
  created_by_firstname VARCHAR(100) NOT NULL,
  created_by_lastname VARCHAR(100) NOT NULL,
@@ -737,16 +641,15 @@ public function __construct()
  year VARCHAR(4) DEFAULT NULL,
  FOREIGN KEY (assessment_id)
  REFERENCES btps_new_assessment(assessment_id)
- ON UPDATE CASCADE
- ON DELETE CASCADE
- )ENGINE=MyISAM DEFAULT CHARSET=utf8;
+ ON DELETE CASCADE ON UPDATE CASCADE
+
+ )ENGINE=InnoDB DEFAULT CHARSET=utf8;
  ";
  $this->conn->exec($sql31);
 
- $sql32 ="
- CREATE TABLE IF NOT EXISTS btps_project(
- id INT PRIMARY KEY AUTO_INCREMENT,
- assessment_id VARCHAR(50) NOT NULL,
+ $sql32 ="CREATE TABLE IF NOT EXISTS btps_project(
+ id INT UNIQUE AUTO_INCREMENT ,
+ assessment_id VARCHAR(50) UNIQUE NOT NULL,
  created_at VARCHAR(100),
  created_by_firstname VARCHAR(100) NOT NULL,
  created_by_lastname VARCHAR(100) NOT NULL,
@@ -757,128 +660,141 @@ public function __construct()
  year VARCHAR(4) DEFAULT NULL,
  FOREIGN KEY (assessment_id)
  REFERENCES btps_new_assessment(assessment_id)
- ON UPDATE CASCADE
- ON DELETE CASCADE
- )ENGINE=MyISAM DEFAULT CHARSET=utf8;
+
+ ON DELETE CASCADE ON UPDATE CASCADE
+ )ENGINE=InnoDB DEFAULT CHARSET=utf8;
  ";
  $this->conn->exec($sql32);
 
- $sql33 ="
- CREATE TABLE IF NOT EXISTS btps_multichoice(
- id INT PRIMARY KEY AUTO_INCREMENT,
- assessment_id VARCHAR(50) NOT NULL,
+ $sql33 ="CREATE TABLE IF NOT EXISTS btps_multichoice(
+ id INT UNIQUE AUTO_INCREMENT ,
+ assessment_id VARCHAR(50) UNIQUE NOT NULL,
  created_at VARCHAR(100),
  created_by_firstname VARCHAR(100) NOT NULL,
  created_by_lastname VARCHAR(100) NOT NULL,
  email VARCHAR(100) NOT NULL,
- question_id VARCHAR(15) NOT NULL,
+ question_id VARCHAR(50) NOT NULL,
  question_text TEXT NOT NULL,
  option1 VARCHAR(250) NOT NULL,
  option2 VARCHAR(250) NOT NULL,
  option3 VARCHAR(250) NOT NULL,
  option4 VARCHAR(250) NOT NULL,
  answer VARCHAR(250) NOT NULL,
+ topic VARCHAR(250) NOT NULL,
  feedback TEXT NOT NULL,
  month VARCHAR(15) DEFAULT NULL,
  year VARCHAR(4) DEFAULT NULL,
  FOREIGN KEY (assessment_id)
  REFERENCES btps_new_assessment(assessment_id)
- ON UPDATE CASCADE
- ON DELETE CASCADE
- )ENGINE=MyISAM DEFAULT CHARSET=utf8;
+
+ ON DELETE CASCADE ON UPDATE CASCADE
+ )ENGINE=InnoDB DEFAULT CHARSET=utf8;
  ";
  $this->conn->exec($sql33);
 
 
-  $sql34 ="
-  CREATE TABLE IF NOT EXISTS btps_boolean(
-  id INT PRIMARY KEY AUTO_INCREMENT,
-  assessment_id VARCHAR(50) NOT NULL,
+  $sql34 ="CREATE TABLE IF NOT EXISTS btps_boolean(
+  id INT UNIQUE AUTO_INCREMENT ,
+  assessment_id VARCHAR(50) UNIQUE NOT NULL,
   created_at VARCHAR(100),
   created_by_firstname VARCHAR(100) NOT NULL,
   created_by_lastname VARCHAR(100) NOT NULL,
   email VARCHAR(100) NOT NULL,
-  question_id VARCHAR(15) NOT NULL,
+  question_id VARCHAR(50) NOT NULL,
   question_text TEXT NOT NULL,
   option1 VARCHAR(250) NOT NULL,
   option2 VARCHAR(250) NOT NULL,
   answer VARCHAR(250) NOT NULL,
+  topic VARCHAR(250) NOT NULL,
   feedback TEXT NOT NULL,
   month VARCHAR(15) DEFAULT NULL,
   year VARCHAR(4) DEFAULT NULL,
   FOREIGN KEY (assessment_id)
   REFERENCES btps_new_assessment(assessment_id)
-  ON UPDATE CASCADE
-  ON DELETE CASCADE
-  )ENGINE=MyISAM DEFAULT CHARSET=utf8;
+
+  ON DELETE CASCADE ON UPDATE CASCADE
+  )ENGINE=InnoDB DEFAULT CHARSET=utf8;
   ";
   $this->conn->exec($sql34);
 
-  $sql34 ="
-  CREATE TABLE IF NOT EXISTS btps_essay(
-  id INT PRIMARY KEY AUTO_INCREMENT,
-  assessment_id VARCHAR(50) NOT NULL,
+
+
+  $sql35 ="CREATE TABLE IF NOT EXISTS btps_blank(
+  id INT UNIQUE AUTO_INCREMENT ,
+  assessment_id VARCHAR(50) UNIQUE NOT NULL,
   created_at VARCHAR(100),
   created_by_firstname VARCHAR(100) NOT NULL,
   created_by_lastname VARCHAR(100) NOT NULL,
   email VARCHAR(100) NOT NULL,
-  question_id VARCHAR(15) NOT NULL,
-  question_text TEXT NOT NULL,
-  answer_guide TEXT NOT NULL,
-  feedback TEXT NOT NULL,
-  month VARCHAR(15) DEFAULT NULL,
-  year VARCHAR(4) DEFAULT NULL,
-  FOREIGN KEY (assessment_id)
-  REFERENCES btps_new_assessment(assessment_id)
-  ON UPDATE CASCADE
-  ON DELETE CASCADE
-  )ENGINE=MyISAM DEFAULT CHARSET=utf8;
-  ";
-  $this->conn->exec($sql34);
-  $sql35 ="
-  CREATE TABLE IF NOT EXISTS btps_blank(
-  id INT PRIMARY KEY AUTO_INCREMENT,
-  assessment_id VARCHAR(50) NOT NULL,
-  created_at VARCHAR(100),
-  created_by_firstname VARCHAR(100) NOT NULL,
-  created_by_lastname VARCHAR(100) NOT NULL,
-  email VARCHAR(100) NOT NULL,
-  question_id VARCHAR(15) NOT NULL,
+  question_id VARCHAR(50) NOT NULL,
   question_text TEXT NOT NULL,
   answer_keyword TEXT NOT NULL,
+  topic VARCHAR(250) NOT NULL,
   feedback TEXT NOT NULL,
   month VARCHAR(15) DEFAULT NULL,
   year VARCHAR(4) DEFAULT NULL,
   FOREIGN KEY (assessment_id)
   REFERENCES btps_new_assessment(assessment_id)
-  ON UPDATE CASCADE
-  ON DELETE CASCADE
-  )ENGINE=MyISAM DEFAULT CHARSET=utf8;
+
+  ON DELETE CASCADE ON UPDATE CASCADE
+  )ENGINE=InnoDB DEFAULT CHARSET=utf8;
   ";
   $this->conn->exec($sql35);
 
+//CREATE THE USER PERMISSIONS TABLE
+$sql36 =
+"CREATE TABLE IF NOT EXISTS ihs_user_permissions(
+id INT NOT NULL UNIQUE AUTO_INCREMENT ,
+uuid VARCHAR(250) DEFAULT NULL,
+email VARCHAR(250) DEFAULT NULL,
+permissions TEXT,
+FOREIGN KEY (uuid)
+REFERENCES ihs_users(uuid)
 
-  $sql36 ="
-  CREATE TABLE IF NOT EXISTS btps_matching(
-  id INT PRIMARY KEY AUTO_INCREMENT,
-  assessment_id VARCHAR(50) NOT NULL,
-  created_at VARCHAR(100),
-  created_by_firstname VARCHAR(100) NOT NULL,
-  created_by_lastname VARCHAR(100) NOT NULL,
-  email VARCHAR(100) NOT NULL,
-  question_id VARCHAR(15) NOT NULL,
-  question_text TEXT NOT NULL,
-  answer TEXT NOT NULL,
-  feedback TEXT NOT NULL,
-  month VARCHAR(15) DEFAULT NULL,
-  year VARCHAR(4) DEFAULT NULL,
-  FOREIGN KEY (assessment_id)
-  REFERENCES btps_new_assessment(assessment_id)
-  ON UPDATE CASCADE
-  ON DELETE CASCADE
-  )ENGINE=MyISAM DEFAULT CHARSET=utf8;
-  ";
-  $this->conn->exec($sql36);
+ON DELETE CASCADE ON UPDATE CASCADE
+)ENGINE=InnoDB DEFAULT CHARSET=utf8;
+INSERT INTO `ihs_user_permissions` (`id`, `email`, `permissions`) VALUES
+(1, 'r6TppR8eFavexNmWXTNyk+2LqhPDGlq5z492eRPr8NU=', 'classrooms users_account updates records exams information finance deletes pre_k grade_k grade_1 grade_2 grade_3 grade_4 grade_5 grade_6 grade_7 grade_8 grade_9 grade_10 grade_11 pre_k_teacher grade_1_teacher grade_1_teacher grade_2_teacher grade_3_teacher grade_4_teacher grade_5_teacher grade_6_teacher grade_7_teacher grade_8_teacher grade_9_teacher grade_10_teacher grade_11_teacher');
+";
+$this->conn->exec($sql36);
+
+$sql37 ="CREATE TABLE IF NOT EXISTS btps_essay(
+id INT UNIQUE AUTO_INCREMENT ,
+assessment_id VARCHAR(50) UNIQUE NOT NULL,
+created_at VARCHAR(100),
+created_by_firstname VARCHAR(100) NOT NULL,
+created_by_lastname VARCHAR(100) NOT NULL,
+email VARCHAR(100) NOT NULL,
+question_id VARCHAR(50) NOT NULL,
+question_text TEXT NOT NULL,
+answer_guide TEXT NOT NULL,
+topic VARCHAR(250) NOT NULL,
+feedback TEXT NOT NULL,
+month VARCHAR(15) DEFAULT NULL,
+year VARCHAR(4) DEFAULT NULL,
+FOREIGN KEY (assessment_id)
+REFERENCES btps_new_assessment(assessment_id)
+ON DELETE CASCADE ON UPDATE CASCADE
+)ENGINE=InnoDB DEFAULT CHARSET=utf8;
+";
+$this->conn->exec($sql37);
+
+$sql38 =
+"CREATE TABLE IF NOT EXISTS btps_subject(
+id INT UNIQUE AUTO_INCREMENT ,
+created_at varchar(100),
+created_by_firstname VARCHAR(100) NOT NULL,
+created_by_lastname VARCHAR(100) NOT NULL,
+date_last_updated varchar(100),
+updated_by_firstname VARCHAR(100) DEFAULT NULL,
+updated_by_lastname VARCHAR(100) DEFAULT NULL,
+email VARCHAR(100) NOT NULL,
+subject VARCHAR(100) ,
+class VARCHAR(15)
+)ENGINE=InnoDB DEFAULT CHARSET=utf8;
+";
+$this->conn->exec($sql38);
+
 }
 public function runQuery($sql)
 	{

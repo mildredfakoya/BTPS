@@ -1,16 +1,6 @@
 <?php
 ob_start();
 require_once 'includes/teacherinit.php';
-#require_once '../../../../aes.php';
-#$inputkey = "marketdayanyigba";
-#$blocksize = 256;
-#$firstname =$row['firstname'];
-#$lastname =$row['lastname'];
-#$firstn =new AES($firstname, $inputkey, $blocksize);
-#$dec =$firstn->decrypt();
-#$lastn =new AES($lastname, $inputkey, $blocksize);
-#$decl =$lastn->decrypt();
-
 // SET THE TIME ZONE
 date_default_timezone_set('America/dominica');
 //AUTOMATICALLY SET THE DATE OF CREATION AND THE USER.
@@ -29,7 +19,6 @@ $intendedcloseyear= !empty($_POST['intendedcloseyear']) ? $helper->test_input($_
 $assessmenttype= !empty($_POST['assessment_type']) ? $helper->test_input($_POST['assessment_type']) : null;
 $targetclass= !empty($_POST['target_class']) ? $helper->test_input($_POST['target_class']) : null;
 $subject= !empty($_POST['subject']) ? $helper->test_input($_POST['subject']) : null;
-#$= !empty($_POST['']) ? $helper->test_input($_POST['']) : null;
 $ad =mktime(8, 0, 0, $intendedaccessmonth, $intendedaccessday, $intendedaccessyear);
 $intendedaccessdate = date("Y-m-d h:i:sa", $ad);
 $cd = mktime(8, 0, 0, $intendedclosemonth, $intendedcloseday, $intendedcloseyear);
@@ -38,7 +27,7 @@ $y = strtotime($date_created);
 	$year = date('Y', $y);
   $month = date('m', $y);
 try{
-			//CHECK IF THE CLIENT HAS A UUID / HAS BEEN TESTED PREVIOUSLY PRESENTING THE SAME ID CARD AND USING THE NUMBER AS THE UNIQUE ID.
+
 		  $sqlid="SELECT * FROM btps_new_assessment WHERE assessment_id= :assessmentid" ;
 	    $stmtid = $user_home->runQuery($sqlid);
 	    $stmtid->bindValue(':assessmentid', $assessmentid);
@@ -72,10 +61,6 @@ try{
 	   $stmtcreate->bindValue(':subject',$subject);
 		 $stmtcreate->bindValue(':month',$month);
 	   $stmtcreate->bindValue(':year',$year);
-		 #$stmtcreate->bindValue(':',$);
-	   #$stmtcreate->bindValue(':',$);
-		 #$stmtcreate->bindValue(':',$);
-	   #$stmtcreate->bindValue(':',$);
 		 $resultcreate = $stmtcreate->execute();
 
 		 //insert into the btps_new_assessment_change table
@@ -98,57 +83,107 @@ try{
 		 $stmtcreatechange->bindValue(':month',$month);
 		 $stmtcreatechange->bindValue(':year',$year);
 		 $resultcreatechange = $stmtcreatechange->execute();
-
-	   if ($assessmenttype == "assignment"){
-			 $sqlassignment= "INSERT INTO btps_assignment(created_at, created_by_firstname, created_by_lastname, assessment_id, access_code, email, target_class, intended_access_date, intended_close_date,
-			 assessment_type, subject, month, year)
-			 VALUES(:created_at, :created_by_firstname, :created_by_lastname, :assessment_id, :access_code, :email, :target_class, :intended_access_date, :intended_close_date,
-			 :assessment_type, :subject, :month, :year)";
+if ($assessmenttype == "assignment"){
+			 $sqlassignment= "INSERT INTO btps_assignment(created_at, created_by_firstname, created_by_lastname, assessment_id,  email, target_class, subject, month, year)
+			 VALUES(:created_at, :created_by_firstname, :created_by_lastname, :assessment_id, :email, :target_class, :subject, :month, :year)";
 			 $stmtassignment = $user_home->runQuery($sqlassignment);
 			 $stmtassignment->bindValue(':created_at' ,$date_created);
 			 $stmtassignment->bindValue(':created_by_firstname', $createdbyfirstname);
 			 $stmtassignment->bindValue(':created_by_lastname', $createdbylastname);
 			 $stmtassignment->bindValue(':assessment_id',$assessmentid);
-			 $stmtassignment->bindValue(':access_code',$accesscode);
 			 $stmtassignment->bindValue(':email',$email);
 			 $stmtassignment->bindValue(':target_class',$targetclass);
-			 $stmtassignment->bindValue(':intended_access_date',$intendedaccessdate);
-			 $stmtassignment->bindValue(':intended_close_date',$intendedclosedate);
-			 $stmtassignment->bindValue(':assessment_type',$assessmenttype);
 			 $stmtassignment->bindValue(':subject',$subject);
 			 $stmtassignment->bindValue(':month',$month);
 		   $stmtassignment->bindValue(':year',$year);
 			 $resultassignment = $stmtassignment->execute();
 
-
-
-	if($resultcreate||$resultcreatechange||$resultassignment){
-	     echo "Success!! Assessment has been created";
-	}
-	else{
-    echo "Failure!! Failed to create test. Please try again later.";
+if($resultcreate||$resultcreatechange||$resultassignment){
+echo "Success!! Assessment has been created";
+}
+else{
+echo "Failure!! Failed to create test. Please try again later.";
 
 	}
-
-
 }
 
 if($assessmenttype == "project"){
-	#todo
+	$sqlproject= "INSERT INTO btps_project(created_at, created_by_firstname, created_by_lastname, assessment_id,  email, target_class, subject, month, year)
+	VALUES(:created_at, :created_by_firstname, :created_by_lastname, :assessment_id, :email, :target_class, :subject, :month, :year)";
+	$stmtproject = $user_home->runQuery($sqlproject);
+	$stmtproject->bindValue(':created_at' ,$date_created);
+	$stmtproject->bindValue(':created_by_firstname', $createdbyfirstname);
+	$stmtproject->bindValue(':created_by_lastname', $createdbylastname);
+	$stmtproject->bindValue(':assessment_id',$assessmentid);
+	$stmtproject->bindValue(':email',$email);
+	$stmtproject->bindValue(':target_class',$targetclass);
+	$stmtproject->bindValue(':subject',$subject);
+	$stmtproject->bindValue(':month',$month);
+	$stmtproject->bindValue(':year',$year);
+	$resultproject = $stmtproject->execute();
+
+if($resultcreate||$resultcreatechange||$resultproject){
+echo "Success!! Assessment has been created";
+}
+else{
+echo "Failure!! Failed to create test. Please try again later.";
+
+}
 }
 
 if($assessmenttype == "continous_assessment"){
-	#todo
+	$sqlcont= "INSERT INTO continous_assessment(created_at, created_by_firstname, created_by_lastname, assessment_id,  email, target_class, subject, month, year)
+	VALUES(:created_at, :created_by_firstname, :created_by_lastname, :assessment_id, :email, :target_class, :subject, :month, :year)";
+	$stmtcont = $user_home->runQuery($sqlcont);
+	$stmtcont->bindValue(':created_at' ,$date_created);
+	$stmtcont->bindValue(':created_by_firstname', $createdbyfirstname);
+	$stmtcont->bindValue(':created_by_lastname', $createdbylastname);
+	$stmtcont->bindValue(':assessment_id',$assessmentid);
+	$stmtcont->bindValue(':email',$email);
+	$stmtcont->bindValue(':target_class',$targetclass);
+	$stmtcont->bindValue(':subject',$subject);
+	$stmtcont->bindValue(':month',$month);
+	$stmtcont->bindValue(':year',$year);
+	$resultcont = $stmtcont->execute();
+
+if($resultcreate||$resultcreatechange||$resultcont){
+echo "Success!! Assessment has been created";
+}
+else{
+echo "Failure!! Failed to create test. Please try again later.";
+
+}
 }
 
 if($assessmenttype == "exam"){
-	#todo
+	$sqlexam= "INSERT INTO exam(created_at, created_by_firstname, created_by_lastname, assessment_id,  email, target_class, subject, month, year)
+	VALUES(:created_at, :created_by_firstname, :created_by_lastname, :assessment_id, :email, :target_class, :subject, :month, :year)";
+	$stmtexam = $user_home->runQuery($sqlexam);
+	$stmtexam->bindValue(':created_at' ,$date_created);
+	$stmtexam->bindValue(':created_by_firstname', $createdbyfirstname);
+	$stmtexam->bindValue(':created_by_lastname', $createdbylastname);
+	$stmtexam->bindValue(':assessment_id',$assessmentid);
+	$stmtexam->bindValue(':email',$email);
+	$stmtexam->bindValue(':target_class',$targetclass);
+	$stmtexam->bindValue(':subject',$subject);
+	$stmtexam->bindValue(':month',$month);
+	$stmtexam->bindValue(':year',$year);
+	$resultexam = $stmtexam->execute();
+
+if($resultcreate||$resultcreatechange||$resultexam){
+echo "Success!! Assessment has been created";
+}
+else{
+echo "Failure!! Failed to create test. Please try again later.";
+
+}
 }
 }
 }
 //IF THERE IS AN ERROR WITH THE DATABASE
 catch(PDOException $e)
     {
-    die('SYSTEM FAILURE! CONTACT YOUR ADMINISTRATOR');
+			echo $e->getMessage();
+    //die('SYSTEM FAILURE! CONTACT YOUR ADMINISTRATOR');
 	}
 ?>

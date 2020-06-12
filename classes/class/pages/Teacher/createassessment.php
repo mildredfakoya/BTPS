@@ -15,6 +15,7 @@ function random_strings($length_of_string)
 
 $assessment_id = random_strings(6);
 $access_passwd = random_strings(8);
+$question_id = random_strings(10);
 ?>
 <script>
 //script for form validation and submission.
@@ -60,7 +61,7 @@ submitHandler: function(form) {
 		  dataType:"text",
 		  success:function(strMessage){
 		  alert(strMessage);
-		  location.reload();
+		  location.assign('getassessment.php');
 		  },
 	   })
 	}
@@ -78,8 +79,8 @@ $(document).ready(function(){
     dayDefault: 'Day', /* Optional */
     monthDefault: 'Month', /* Optional */
     yearDefault: 'Year', /* Optional */
-    minimumAge: 0, /* Optional */
-    maximumAge: 100 /* Optional */
+    minimumAge: -1, /* Optional */
+    maximumAge: 1 /* Optional */
 
 });
 });
@@ -92,10 +93,8 @@ $(document).ready(function(){
     dayDefault: 'Day', /* Optional */
     monthDefault: 'Month', /* Optional */
     yearDefault: 'Year', /* Optional */
-    minimumAge: 0, /* Optional */
-    maximumAge: 100 /* Optional */
-
-
+    minimumAge: -1, /* Optional */
+    maximumAge: 1 /* Optional */
   });
 });
 
@@ -107,13 +106,14 @@ $(document).ready(function(){
 <h4>Please read before filling the form</h4>
 <p class ='error'>Note: The assessment id is automatically generated 6 character code. Please copy the ID for future use.
   The assessment_id is regenerated every time the page is refreshed. Please ensure you copy the ID just before a sucessful creation.</p>
-<h5>THE ACCESS PASSWORD IS AUTO GENERATED 8 CHARACTER CODE. STUDENTS WILL NEED THIS CODE TO BE ABLE TO START ACCESS AN ASSESSMENT. PLEASE MAKE NOT OF THIS CODE.</h5>
-<p>After the assessment has been created, it will be sent automatically by the system for approval. Assessment will become visible to students once it is approved.</p>
+<p>THE ACCESS PASSWORD IS AUTO GENERATED 8 CHARACTER CODE. STUDENTS WILL NEED THIS CODE TO BE ABLE TO ACCESS AN ASSESSMENT. PLEASE MAKE NOT OF THIS CODE.</p>
+<p>After the assessment has been created, it will be sent automatically by the system for approval. Assessment will become visible to students once it is approved.
+<span class ="error">Administration is responsible for approval of graded assessments</span></p>
 </div>
 <div class ="col-8 columnspacer">
 <h1>Create a new assessment</h1>
-<p><em>Note: This is a one time creation form. For update of a previously created assessment, use the <strong><a href ="#">Name the link here</a>.</strong></em></p>
-<p class ="error">If this is an examination, please use the <a href ="#"><strong>exam creation page link here</strong></a>.</p>
+<p><em>Note: This is a one time creation form. For update of a previously created assessment, use <strong><a href ="getassessment.php">this link</a>.</strong></em></p>
+
 <form method ="post" name ="assessment" id ='insertassessment' novalidate ="novalidate" autocomplete ="off">
 <h4>Assessment Settings</h4>
 <div class="row">
@@ -182,19 +182,19 @@ $(document).ready(function(){
 <div class="col-7 columnspacer">
 <select name = "target_class">
 <option selected disabled value ="">[Choose here]</option>
-<option value ='prek'>Pre - K</option>
-<option value ='gradek'>Grade K</option>
-<option value ='grade1'>Grade 1</option>
-<option value ='grade2'>Grade 2</option>
-<option value ='grade3'>Grade 3</option>
-<option value ='grade4'>Grade 4</option>
-<option value ='grade5'>Grade 5</option>
-<option value ='grade6'>Grade 6</option>
-<option value ='grade7'>Grade 7</option>
-<option value ='grade8'>Grade 8</option>
-<option value ='grade9'>Grade 9</option>
-<option value ='grade10'>Grade 10</option>
-<option value ='grade11'>Grade 11</option>
+<option value ='pre_k'>Pre - K</option>
+<option value ='grade_k'>Grade K</option>
+<option value ='grade_1'>Grade 1</option>
+<option value ='grade_2'>Grade 2</option>
+<option value ='grade_3'>Grade 3</option>
+<option value ='grade_4'>Grade 4</option>
+<option value ='grade_5'>Grade 5</option>
+<option value ='grade_6'>Grade 6</option>
+<option value ='grade_7'>Grade 7</option>
+<option value ='grade_8'>Grade 8</option>
+<option value ='grade_9'>Grade 9</option>
+<option value ='grade_10'>Grade 10</option>
+<option value ='grade_11'>Grade 11</option>
 <option value ='general'>General</option>
 </select>
 </div>
@@ -204,30 +204,17 @@ $(document).ready(function(){
 <div class="row">
 <label for="disabledSelect" class="col-5">Subject</label>
 <div class="col-7 columnspacer">
-  <select name="subject">
-  <option value ="" selected disabled>[Choose here]</option>
-  <option value = "biology">Biology</option>
-  <option value = "caribbean_history">Caribbean History</option>
-  <option value = "chemistry">Chemistry</option>
-  <option value = "english">English</option>
-  <option value = "food_nutrition">Food & Nutrition</option>
-  <option value = "french">French</option>
-  <option value = "general_science">General Science</option>
-  <option value = "geography">Geography</option>
-  <option value = "health_science">Health Science</option>
-  <option value = "information_technology">Information Technology</option>
-  <option value = "integrated_science">Integrated Science</option>
-  <option value = "language_arts">Language Arts</option>
-  <option value = "mathematics">Mathematics</option>
-  <option value = "physics">Physics</option>
-  <option value = "physical_education">Physical Education</option>
-  <option value = "principles_of_business">Principles of Business</option>
-  <option value = "social_studies">Social Studies</option>
-  <option value = "spanish">Spanish</option>
-  <option value = "visual_arts">Virtual Arts</option>
-  <option value = "vocational">Vocational</option>
-  <option value = "general">General Information</option>
-  </select>
+<select name ="subject">
+    <option selected disabled>[choose here]</option>
+                                 <?php
+                                 $sqltopic = "SELECT DISTINCT subject FROM btps_subject";
+                                 $stmttopic = $user_home->runQuery($sqltopic);
+                                 $stmttopic->execute();
+                                 while ($rowtopic = $stmttopic->fetch(PDO::FETCH_ASSOC)) {
+                                     echo "<option value='" . $rowtopic['subject'] . "'>" . $rowtopic['subject'] . "</option>";
+                                 }
+                                 ?>
+                             </select>
 </div>
 </div>
 <div class ='spacer'></div>

@@ -43,5 +43,4 @@ $stmtfindclient->execute();
 
 	}
 echo "</table></div>";
-require_once 'includes/teacherfooter.php';
 ?>
