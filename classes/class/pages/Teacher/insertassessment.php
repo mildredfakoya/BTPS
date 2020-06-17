@@ -9,6 +9,8 @@ $createdbyfirstname = $row['firstname'];
 $createdbylastname = $row['lastname'];
 $email = $row['email'];
 $review = "Not Submitted";
+$reviewstatus = "Not Reviewed";
+$approvalstatus = "Not Approved";
 $assessmentid = !empty($_POST['assessment_id']) ? $helper->test_input($_POST['assessment_id']) : null;
 $accesscode = !empty($_POST['access_password']) ? $helper->test_input($_POST['access_password']) : null;
 $intendedaccessday= !empty($_POST['intendedaccessday']) ? $helper->test_input($_POST['intendedaccessday']) : null;
@@ -45,9 +47,9 @@ try{
 
 	// insert into btps_new_assessment table
 		 $sqlcreate= "INSERT INTO btps_new_assessment(created_at, created_by_firstname, created_by_lastname, assessment_id, access_code, email, target_class, intended_access_date, intended_close_date,
-		 assessment_type, submitted_review, subject, month, year)
+		 assessment_type, submitted_review, review_status, approval_status, subject, month, year)
 		 VALUES(:created_at, :created_by_firstname, :created_by_lastname, :assessment_id, :access_code, :email, :target_class, :intended_access_date, :intended_close_date,
-		 :assessment_type, :submitted_review, :subject, :month, :year)";
+		 :assessment_type, :submitted_review, :review_status, :approval_status, :subject, :month, :year)";
      $stmtcreate = $user_home->runQuery($sqlcreate);
 		 $stmtcreate->bindValue(':created_at' ,$date_created);
 		 $stmtcreate->bindValue(':created_by_firstname', $createdbyfirstname);
@@ -60,6 +62,8 @@ try{
 	   $stmtcreate->bindValue(':intended_close_date',$intendedclosedate);
 		 $stmtcreate->bindValue(':assessment_type',$assessmenttype);
 		 $stmtcreate->bindValue(':submitted_review',$review);
+		 $stmtcreate->bindValue(':review_status',$reviewstatus);
+		 $stmtcreate->bindValue(':approval_status',$approvalstatus);
 	   $stmtcreate->bindValue(':subject',$subject);
 		 $stmtcreate->bindValue(':month',$month);
 	   $stmtcreate->bindValue(':year',$year);
@@ -67,9 +71,9 @@ try{
 
 		 //insert into the btps_new_assessment_change table
 		 $sqlcreatechange= "INSERT INTO btps_new_assessment_change(created_at, created_by_firstname, created_by_lastname, assessment_id, access_code, email, target_class, intended_access_date, intended_close_date,
-		 assessment_type, submitted_review, subject, month, year)
+		 assessment_type, subject, month, year)
 		 VALUES(:created_at, :created_by_firstname, :created_by_lastname, :assessment_id, :access_code, :email, :target_class, :intended_access_date, :intended_close_date,
-		 :assessment_type, :submitted_review, :subject, :month, :year)";
+		 :assessment_type, :subject, :month, :year)";
 		 $stmtcreatechange = $user_home->runQuery($sqlcreatechange);
 		 $stmtcreatechange->bindValue(':created_at' ,$date_created);
 		 $stmtcreatechange->bindValue(':created_by_firstname', $createdbyfirstname);
@@ -81,7 +85,6 @@ try{
 		 $stmtcreatechange->bindValue(':intended_access_date',$intendedaccessdate);
 		 $stmtcreatechange->bindValue(':intended_close_date',$intendedclosedate);
 		 $stmtcreatechange->bindValue(':assessment_type',$assessmenttype);
-		 $stmtcreatechange->bindValue(':submitted_review',$review);
 		 $stmtcreatechange->bindValue(':subject',$subject);
 		 $stmtcreatechange->bindValue(':month',$month);
 		 $stmtcreatechange->bindValue(':year',$year);

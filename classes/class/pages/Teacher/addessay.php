@@ -12,6 +12,7 @@
        question: "required",
        feedback: "required",
        topic : "required",
+       guide : "required",
      },
 
   // Specify the validation error messages
@@ -21,6 +22,7 @@
        question: "required",
        feedback: "required",
        topic: "required",
+       guide: "required",
      },
 
   //specify how the form should be submitted

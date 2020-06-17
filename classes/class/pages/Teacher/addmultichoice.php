@@ -1,10 +1,11 @@
 <?php
 //echo $assessmentid;
-
  ?>
  <script>
  $(document).ready(function() {
-   $('#summernote').summernote();
+   $('#summernote').summernote({
+     maximumImageFileSize: 102400
+   });
  });
 
  $(document).ready(function(){
@@ -59,7 +60,9 @@
 
 
 
+
  </script>
+
 <div class ="jumbotron">
 <h5>Create a multiple choice question</h5>
 <div class ="mt-5 mb-5">

@@ -178,7 +178,15 @@ echo "<td>". $keyblank['feedback']. "</td></tr>";
 ?>
 </table>
    <div class ="spacer"></div>
+   <?php
+    if($rowfindassessment['approval_status'] =='Approved'){
+      echo " <h5 class ='error'>This assessment has been approved. You can no longer add questions</h5>";
+    }
+    else{
+    ?>
   <button class="button" value="add question" id ="addquestion">Add question</button>
+<?php }
+?>
   <br/><br/>
   <p class="error">Please note that submission of assessment for review is final. Once submitted, it will be sent to admin for approval</p>
 <?php

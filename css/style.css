@@ -296,7 +296,7 @@ height:50px;
 }
 
 .borderless{
-border:0px solid white;
+border:0px;
 }
 
 
@@ -351,7 +351,7 @@ text-transform:capitalize;
 }
 
 div.container{
-
+padding:10px;
 background-color:#B5D3E7;
 }
 
@@ -360,9 +360,9 @@ background-color:#B5D3E7;
 div.headinghome{
 background-color:#B5D3E7;
 color:#0000ff;
-height:30px;
+height:auto;
 padding:10px;
-text-transform:capitalize;
+//text-transform:capitalize;
 }
 
 .jumbotron h1{

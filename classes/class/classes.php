@@ -542,7 +542,7 @@ $sql2 =
  $this->conn->exec($sql26);
 
  $sql27 ="CREATE TABLE IF NOT EXISTS btps_new_assessment(
- id INT UNIQUE AUTO_INCREMENT ,
+ id INT PRIMARY KEY AUTO_INCREMENT ,
  assessment_id VARCHAR(50) UNIQUE NOT NULL,
  access_code VARCHAR(50) NOT NULL,
  created_at VARCHAR(100),
@@ -568,7 +568,7 @@ $sql2 =
  $this->conn->exec($sql27);
 
  $sql28 ="CREATE TABLE IF NOT EXISTS btps_new_assessment_change(
- id INT UNIQUE AUTO_INCREMENT ,
+ id INT PRIMARY KEY AUTO_INCREMENT ,
  assessment_id VARCHAR(50) UNIQUE NOT NULL,
  access_code VARCHAR(50) NOT NULL,
  created_at VARCHAR(100),
@@ -590,7 +590,7 @@ $sql2 =
  $this->conn->exec($sql28);
 
  $sql29 ="CREATE TABLE IF NOT EXISTS btps_assignment(
- id INT UNIQUE AUTO_INCREMENT ,
+ id INT PRIMARY KEY  AUTO_INCREMENT ,
  assessment_id VARCHAR(50) UNIQUE NOT NULL,
  created_at VARCHAR(100),
  created_by_firstname VARCHAR(100) NOT NULL,
@@ -609,7 +609,7 @@ $sql2 =
  $this->conn->exec($sql29);
 
  $sql30 ="CREATE TABLE IF NOT EXISTS continous_assessment(
- id INT UNIQUE AUTO_INCREMENT ,
+ id INT PRIMARY KEY AUTO_INCREMENT ,
  assessment_id VARCHAR(50) UNIQUE NOT NULL,
  created_at VARCHAR(100),
  created_by_firstname VARCHAR(100) NOT NULL,
@@ -628,7 +628,7 @@ $sql2 =
  $this->conn->exec($sql30);
 
  $sql31 ="CREATE TABLE IF NOT EXISTS exam(
- id INT UNIQUE AUTO_INCREMENT ,
+ id INT PRIMARY KEY AUTO_INCREMENT ,
  assessment_id VARCHAR(50) UNIQUE NOT NULL,
  created_at VARCHAR(100),
  created_by_firstname VARCHAR(100) NOT NULL,
@@ -647,7 +647,7 @@ $sql2 =
  $this->conn->exec($sql31);
 
  $sql32 ="CREATE TABLE IF NOT EXISTS btps_project(
- id INT UNIQUE AUTO_INCREMENT ,
+ id INT PRIMARY KEY AUTO_INCREMENT ,
  assessment_id VARCHAR(50) UNIQUE NOT NULL,
  created_at VARCHAR(100),
  created_by_firstname VARCHAR(100) NOT NULL,
@@ -666,8 +666,8 @@ $sql2 =
  $this->conn->exec($sql32);
 
  $sql33 ="CREATE TABLE IF NOT EXISTS btps_multichoice(
- id INT UNIQUE AUTO_INCREMENT ,
- assessment_id VARCHAR(50) UNIQUE NOT NULL,
+ id INT PRIMARY KEY AUTO_INCREMENT ,
+ assessment_id VARCHAR(50) NOT NULL,
  created_at VARCHAR(100),
  created_by_firstname VARCHAR(100) NOT NULL,
  created_by_lastname VARCHAR(100) NOT NULL,
@@ -688,13 +688,14 @@ $sql2 =
 
  ON DELETE CASCADE ON UPDATE CASCADE
  )ENGINE=InnoDB DEFAULT CHARSET=utf8;
+ ALTER TABLE `btps_multichoice` ADD INDEX(`question_id`);
  ";
  $this->conn->exec($sql33);
 
 
   $sql34 ="CREATE TABLE IF NOT EXISTS btps_boolean(
-  id INT UNIQUE AUTO_INCREMENT ,
-  assessment_id VARCHAR(50) UNIQUE NOT NULL,
+  id INT PRIMARY KEY AUTO_INCREMENT ,
+  assessment_id VARCHAR(50) NOT NULL,
   created_at VARCHAR(100),
   created_by_firstname VARCHAR(100) NOT NULL,
   created_by_lastname VARCHAR(100) NOT NULL,
@@ -719,8 +720,8 @@ $sql2 =
 
 
   $sql35 ="CREATE TABLE IF NOT EXISTS btps_blank(
-  id INT UNIQUE AUTO_INCREMENT ,
-  assessment_id VARCHAR(50) UNIQUE NOT NULL,
+  id INT PRIMARY KEY AUTO_INCREMENT ,
+  assessment_id VARCHAR(50) NOT NULL,
   created_at VARCHAR(100),
   created_by_firstname VARCHAR(100) NOT NULL,
   created_by_lastname VARCHAR(100) NOT NULL,
@@ -758,8 +759,8 @@ INSERT INTO `ihs_user_permissions` (`id`, `email`, `permissions`) VALUES
 $this->conn->exec($sql36);
 
 $sql37 ="CREATE TABLE IF NOT EXISTS btps_essay(
-id INT UNIQUE AUTO_INCREMENT ,
-assessment_id VARCHAR(50) UNIQUE NOT NULL,
+id INT PRIMARY KEY AUTO_INCREMENT ,
+assessment_id VARCHAR(50)  NOT NULL,
 created_at VARCHAR(100),
 created_by_firstname VARCHAR(100) NOT NULL,
 created_by_lastname VARCHAR(100) NOT NULL,
@@ -780,7 +781,7 @@ $this->conn->exec($sql37);
 
 $sql38 =
 "CREATE TABLE IF NOT EXISTS btps_subject(
-id INT UNIQUE AUTO_INCREMENT ,
+id INT PRIMARY KEY AUTO_INCREMENT ,
 created_at varchar(100),
 created_by_firstname VARCHAR(100) NOT NULL,
 created_by_lastname VARCHAR(100) NOT NULL,
@@ -793,6 +794,26 @@ class VARCHAR(15)
 )ENGINE=InnoDB DEFAULT CHARSET=utf8;
 ";
 $this->conn->exec($sql38);
+
+$sql39 =
+"CREATE TABLE IF NOT EXISTS btps_student_assignment_grade_4(
+id INT PRIMARY KEY AUTO_INCREMENT ,
+submitted_at varchar(100),
+first_name VARCHAR(100) NOT NULL,
+last_name VARCHAR(100) NOT NULL,
+email VARCHAR(100) NOT NULL,
+subject VARCHAR(100) NOT NULL,
+assessment_id VARCHAR(100) ,
+question_id VARCHAR(100),
+question_text TEXT,
+student_answer TEXT,
+correct_answer TEXT,
+score ENUM('Correct', 'Incorrect')
+)ENGINE=InnoDB DEFAULT CHARSET=utf8;
+";
+$this->conn->exec($sql39);
+
+
 
 }
 public function runQuery($sql)

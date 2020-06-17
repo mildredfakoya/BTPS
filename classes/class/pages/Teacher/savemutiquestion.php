@@ -1,4 +1,5 @@
 <?php require_once 'includes/teacherinit.php';
+
 $assessmentid = !empty($_POST['assessmentid']) ? $helper->test_input($_POST['assessmentid']) : null;
 $questiontitle = !empty($_POST['questiontitle']) ? $helper->test_input($_POST['questiontitle']) : null;
 $question = !empty($_POST['question']) ? $helper->test_input($_POST['question']) : null;
@@ -70,7 +71,8 @@ try{
 }
 catch(PDOException $e)
     {
-    die('SYSTEM FAILURE! CONTACT YOUR ADMINISTRATOR');
+    //die('SYSTEM FAILURE! CONTACT YOUR ADMINISTRATOR');
+    echo $e->getMessage();
 	}
 }
 else{

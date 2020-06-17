@@ -10,10 +10,6 @@ $y = strtotime($date_created);
 $year = date('Y', $y);
 $month = date('m', $y);
 
-
-
-
-
 try{
 
   $sqlf = "UPDATE btps_new_assessment SET date_last_updated='$date_created', updated_by_firstname ='$createdbyfirstname', updated_by_lastname ='$createdbylastname',

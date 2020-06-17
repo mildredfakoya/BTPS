@@ -9,6 +9,7 @@ $stmtsubjects->execute();
 
 <div class ="jumbotron">
   <h5 class ="headeranimated">Already Listed Subjects</h5>
+  <p><em>Use the form at the buttom of this page to add subject(s) to a class</em></p>
   <table>
 <tr>
   <th>Date Created</th>

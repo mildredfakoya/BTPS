@@ -29,8 +29,11 @@ $stmtuploads->bindValue(':grade', $grade);
 $stmtuploads->execute();
 ?>
 <div class ="row">
-	<div class ="col-5 jumbotron">
-
+	<div class ="col-5 container">
+		<div>
+			<h5 class ="header">Click for: <a href ='grade4assessment.php'>Assessments and Examinations</a></h5>
+		</div>
+<h5 class ="header">Class news</h5>
 <?php
 
 #get every news for the class of the email
@@ -53,11 +56,22 @@ foreach($stmt2a as $row1){
 </div>
 <?php
 }
+$sqltimetable ="SELECT * FROM ihs_timetable_uploads WHERE grade = 'grade4' ORDER BY created_at DESC LIMIT 1";
+$stmttimetable = $user_home->runQuery($sqltimetable);
+$stmttimetable->execute();
+$rowtable = $stmttimetable->fetch(PDO::FETCH_ASSOC);
 ?>
+
+
 
 </div>
 <div class ='col-7 columnspacer'>
-<h2><i>Welcome!! <?php echo $dec." ".$decl ?></i></h2>
+<h2 class ="headeranimated"><i>Welcome!! <?php echo $dec." ".$decl ?></i></h2>
+<div class ="container">
+<h5 class ="header">
+	Click for <a target = '_blank' href='<?php echo $rowtable["file"]?>'> time table </a>
+</h5>
+</div>
 <div class ="jumbotron">
 <div class ="outer">
 <div class ="heading">File / Video Uploads</div>

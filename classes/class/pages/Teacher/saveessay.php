@@ -45,7 +45,8 @@ try{
 }
 catch(PDOException $e)
     {
-    die('SYSTEM FAILURE! CONTACT YOUR ADMINISTRATOR');
+      echo $e->getMessage();
+    //die('SYSTEM FAILURE! CONTACT YOUR ADMINISTRATOR');
 	}
 }
 else{

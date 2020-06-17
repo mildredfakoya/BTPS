@@ -66,6 +66,11 @@ if(isset($_GET['msg']))
 						echo "</ul>";
 						}
 						?>
+<!---
+					<div class ="aside">
+						<h2 class ="aside" style ="background-color:brown">Assessment / Examination</h2>
+					<a class = "aside" href = "assessments.php" style ="color:white">Click me for assessment information</a>
+				</div>--->
 		  </div>
 
 		  <div class="col-6 col-s-9">
