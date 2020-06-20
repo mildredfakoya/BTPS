@@ -63,7 +63,7 @@ foreach($stmt2a as $row1){
 	$declast = $enclast->decrypt();
 ?>
 <div class ="outer">
-<div class ='heading'><h2>Class News <?php echo $row1['created_at']. "---". strtoupper($row1['topic'])?></h2></div>
+<div class ='heading'><h5>Class News <?php echo $row1['created_at']. "---". strtoupper($row1['topic'])?></h5></div>
 <div class ='container'><p><?php echo $row1['details']?></p>
 <p><?php echo $decfirst." ".$declast." "?></p>
 <p><?php echo $decemail ?></p></div>
