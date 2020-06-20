@@ -1,4 +1,5 @@
-<?php require_once 'includes/teacherheader.php';
+<?php
+require_once 'includes/teacherheader.php';
 $email = $row['email'];
 #to view all the subjects added
 #for multichoice Questions
@@ -7,7 +8,13 @@ $stmttopics = $user_home->runQuery($sqltopics);
 $stmttopics->bindValue(':email',$email);
 $stmttopics->execute();
 ?>
-
+<script>
+$(document).ready(function() {
+  $('.summernote').summernote({
+    maximumImageFileSize: 102400
+  });
+});
+</script>
 <div class ="jumbotron">
   <h5 class ="headeranimated">Created Topics</h5>
   <table>
@@ -135,7 +142,7 @@ $(document).ready(function(){
  <h5>Study Guide</h5>
   </div>
   <div class ="columnspacer col-8">
-  <textarea class="form-control" name ="notes"></textarea>
+  <textarea class="summernote" name ="notes"></textarea>
   </div>
 </div>
 <div class ="textspacer"></div>
