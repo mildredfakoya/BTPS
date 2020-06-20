@@ -27,7 +27,7 @@ $(".submit").validate({
 	var r = confirm('Are you ready to save the information?');
 	if(r==true){
 	$.ajax({
-		  url:"submitexam4.php",
+		  url:"submitcontinous4.php",
 		  method:"post",
 		  data:$('form').serialize(),
 		  dataType:"text",
@@ -104,7 +104,7 @@ echo "<h5 class = 'headeranimated'> Multiple Choice </h5><br/>";
 //echo '<form method ="post" class="submit" novalidate>';
 $counter = 1;
 foreach($stmtmulti as $rowmulti){
-  $sqlcheck= "SELECT * FROM btps_student_exam_grade_4 WHERE email = :email AND assessment_id = :id AND question_id = :qid";
+  $sqlcheck= "SELECT * FROM btps_student_continous_grade_4 WHERE email = :email AND assessment_id = :id AND question_id = :qid";
   $stmtcheck = $user_home->runQuery($sqlcheck);
   $stmtcheck->bindValue(':qid', $rowmulti['question_id']);
   $stmtcheck->bindValue(':id', $assessmentid);
@@ -155,7 +155,7 @@ if($stmtblank){
   echo '<div class ="container">';
   echo "<h5 class = 'headeranimated'>Fill in the blank </h5>";
 foreach($stmtblank as $rowblank){
-  $sqlcheck= "SELECT * FROM btps_student_exam_grade_4 WHERE email = :email AND assessment_id = :id AND question_id = :qid";
+  $sqlcheck= "SELECT * FROM btps_student_continous_grade_4 WHERE email = :email AND assessment_id = :id AND question_id = :qid";
   $stmtcheck = $user_home->runQuery($sqlcheck);
   $stmtcheck->bindValue(':qid', $rowblank['question_id']);
   $stmtcheck->bindValue(':id', $assessmentid);
@@ -208,7 +208,7 @@ if($stmtessay){
   echo '<div class ="container">';
   echo "<h5 class = 'headeranimated'>Essay / Comprehension</h5>";
 foreach($stmtessay as $rowessay){
-  $sqlcheck= "SELECT * FROM btps_student_exam_grade_4 WHERE email = :email AND assessment_id = :id AND question_id = :qid";
+  $sqlcheck= "SELECT * FROM btps_student_continous_grade_4 WHERE email = :email AND assessment_id = :id AND question_id = :qid";
   $stmtcheck = $user_home->runQuery($sqlcheck);
   $stmtcheck->bindValue(':qid', $rowessay['question_id']);
   $stmtcheck->bindValue(':id', $assessmentid);
@@ -259,7 +259,7 @@ if($stmtbool){
   echo '<div class ="container">';
   echo "<h5 class = 'headeranimated'> True or False </h5>";
 foreach($stmtbool as $rowbool){
-  $sqlcheck= "SELECT * FROM btps_student_exam_grade_4 WHERE email = :email AND assessment_id = :id AND question_id = :qid";
+  $sqlcheck= "SELECT * FROM btps_student_continous_grade_4 WHERE email = :email AND assessment_id = :id AND question_id = :qid";
   $stmtcheck = $user_home->runQuery($sqlcheck);
   $stmtcheck->bindValue(':qid', $rowbool['question_id']);
   $stmtcheck->bindValue(':id', $assessmentid);

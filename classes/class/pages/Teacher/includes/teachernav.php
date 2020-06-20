@@ -175,10 +175,8 @@ $permissions = explode(" ", $list);
 <a class="dropdown-item" href="myassessments.php">My assessments</a>
 <a class="dropdown-item" href="createassessment.php">Create an assessment</a>
 <a class="dropdown-item" href="getassessment.php">Review Questions / Add question(s) to an assessment</a>
-<a class="dropdown-item" href="#">Change an assessment setting</a>
-<a class="dropdown-item" href="#">Update an assessment question</a>
+<a class="dropdown-item" href="changesettings.php">Change an assessment setting</a>
 <a class="dropdown-item" href="deleteassessment.php">Delete an assessment</a>
-<a class="dropdown-item" href="#">Submit an assessment for Approval</a>
 <a class="dropdown-item" href="#">Grade an assessment</a>
 
 

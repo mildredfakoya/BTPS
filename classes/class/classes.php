@@ -688,7 +688,6 @@ $sql2 =
 
  ON DELETE CASCADE ON UPDATE CASCADE
  )ENGINE=InnoDB DEFAULT CHARSET=utf8;
- ALTER TABLE `btps_multichoice` ADD INDEX(`question_id`);
  ";
  $this->conn->exec($sql33);
 
@@ -798,22 +797,827 @@ $this->conn->exec($sql38);
 $sql39 =
 "CREATE TABLE IF NOT EXISTS btps_student_assignment_grade_4(
 id INT PRIMARY KEY AUTO_INCREMENT ,
-submitted_at varchar(100),
-first_name VARCHAR(100) NOT NULL,
-last_name VARCHAR(100) NOT NULL,
-email VARCHAR(100) NOT NULL,
+submitted_at varchar(100) NOT NULL,
+`firstname` varchar(255) NOT NULL,
+`lastname` varchar(255) NOT NULL,
+`email` varchar(255) NOT NULL,
+assessment_id VARCHAR(50) NOT NULL,
+question_id VARCHAR(100) NOT NULL,
 subject VARCHAR(100) NOT NULL,
-assessment_id VARCHAR(100) ,
-question_id VARCHAR(100),
-question_text TEXT,
-student_answer TEXT,
+topic TEXT,
+student_answer TEXT NOT NULL,
 correct_answer TEXT,
-score ENUM('Correct', 'Incorrect')
+visibility VARCHAR(50),
+feedback TEXT,
+score VARCHAR(50)
 )ENGINE=InnoDB DEFAULT CHARSET=utf8;
 ";
 $this->conn->exec($sql39);
 
+$sql40 =
+"CREATE TABLE IF NOT EXISTS btps_student_assignment_pre_k(
+id INT PRIMARY KEY AUTO_INCREMENT ,
+submitted_at varchar(100) NOT NULL,
+`firstname` varchar(255) NOT NULL,
+`lastname` varchar(255) NOT NULL,
+`email` varchar(255) NOT NULL,
+assessment_id VARCHAR(50) NOT NULL,
+question_id VARCHAR(100) NOT NULL,
+subject VARCHAR(100) NOT NULL,
+topic TEXT,
+student_answer TEXT NOT NULL,
+correct_answer TEXT,
+visibility VARCHAR(50),
+feedback TEXT,
+score VARCHAR(50)
+)ENGINE=InnoDB DEFAULT CHARSET=utf8;
+";
+$this->conn->exec($sql40);
 
+
+$sql41 =
+"CREATE TABLE IF NOT EXISTS btps_student_continous_grade_4(
+id INT PRIMARY KEY AUTO_INCREMENT ,
+submitted_at varchar(100) NOT NULL,
+`firstname` varchar(255) NOT NULL,
+`lastname` varchar(255) NOT NULL,
+`email` varchar(255) NOT NULL,
+assessment_id VARCHAR(50) NOT NULL,
+question_id VARCHAR(100) NOT NULL,
+subject VARCHAR(100) NOT NULL,
+topic TEXT,
+student_answer TEXT NOT NULL,
+correct_answer TEXT,
+visibility VARCHAR(50),
+feedback TEXT,
+score VARCHAR(50)
+)ENGINE=InnoDB DEFAULT CHARSET=utf8;
+";
+$this->conn->exec($sql41);
+
+
+$sql42 =
+"CREATE TABLE IF NOT EXISTS btps_student_exam_grade_4(
+id INT PRIMARY KEY AUTO_INCREMENT ,
+submitted_at varchar(100) NOT NULL,
+`firstname` varchar(255) NOT NULL,
+`lastname` varchar(255) NOT NULL,
+`email` varchar(255) NOT NULL,
+assessment_id VARCHAR(50) NOT NULL,
+question_id VARCHAR(100) NOT NULL,
+subject VARCHAR(100) NOT NULL,
+topic TEXT,
+student_answer TEXT NOT NULL,
+correct_answer TEXT,
+visibility VARCHAR(50),
+feedback TEXT,
+score VARCHAR(50)
+)ENGINE=InnoDB DEFAULT CHARSET=utf8;
+";
+$this->conn->exec($sql42);
+
+
+
+$sql43 =
+"CREATE TABLE IF NOT EXISTS btps_student_assignment_grade_5(
+id INT PRIMARY KEY AUTO_INCREMENT ,
+submitted_at varchar(100) NOT NULL,
+`firstname` varchar(255) NOT NULL,
+`lastname` varchar(255) NOT NULL,
+`email` varchar(255) NOT NULL,
+assessment_id VARCHAR(50) NOT NULL,
+question_id VARCHAR(100) NOT NULL,
+subject VARCHAR(100) NOT NULL,
+topic TEXT,
+student_answer TEXT NOT NULL,
+correct_answer TEXT,
+visibility VARCHAR(50),
+feedback TEXT,
+score VARCHAR(50)
+)ENGINE=InnoDB DEFAULT CHARSET=utf8;
+";
+$this->conn->exec($sql43);
+
+$sql44 =
+"CREATE TABLE IF NOT EXISTS btps_student_continous_grade_5(
+id INT PRIMARY KEY AUTO_INCREMENT ,
+submitted_at varchar(100) NOT NULL,
+`firstname` varchar(255) NOT NULL,
+`lastname` varchar(255) NOT NULL,
+`email` varchar(255) NOT NULL,
+assessment_id VARCHAR(50) NOT NULL,
+question_id VARCHAR(100) NOT NULL,
+subject VARCHAR(100) NOT NULL,
+topic TEXT,
+student_answer TEXT NOT NULL,
+correct_answer TEXT,
+visibility VARCHAR(50),
+feedback TEXT,
+score VARCHAR(50)
+)ENGINE=InnoDB DEFAULT CHARSET=utf8;
+";
+$this->conn->exec($sql44);
+
+
+
+$sql45 =
+"CREATE TABLE IF NOT EXISTS btps_student_exam_grade_5(
+id INT PRIMARY KEY AUTO_INCREMENT ,
+submitted_at varchar(100) NOT NULL,
+`firstname` varchar(255) NOT NULL,
+`lastname` varchar(255) NOT NULL,
+`email` varchar(255) NOT NULL,
+assessment_id VARCHAR(50) NOT NULL,
+question_id VARCHAR(100) NOT NULL,
+subject VARCHAR(100) NOT NULL,
+topic TEXT,
+student_answer TEXT NOT NULL,
+correct_answer TEXT,
+visibility VARCHAR(50),
+feedback TEXT,
+score VARCHAR(50)
+)ENGINE=InnoDB DEFAULT CHARSET=utf8;
+";
+$this->conn->exec($sql45);
+
+
+
+$sql46 =
+"CREATE TABLE IF NOT EXISTS btps_student_assignment_grade_6(
+id INT PRIMARY KEY AUTO_INCREMENT ,
+submitted_at varchar(100) NOT NULL,
+`firstname` varchar(255) NOT NULL,
+`lastname` varchar(255) NOT NULL,
+`email` varchar(255) NOT NULL,
+assessment_id VARCHAR(50) NOT NULL,
+question_id VARCHAR(100) NOT NULL,
+subject VARCHAR(100) NOT NULL,
+topic TEXT,
+student_answer TEXT NOT NULL,
+correct_answer TEXT,
+visibility VARCHAR(50),
+feedback TEXT,
+score VARCHAR(50)
+)ENGINE=InnoDB DEFAULT CHARSET=utf8;
+";
+$this->conn->exec($sql46);
+
+$sql47 =
+"CREATE TABLE IF NOT EXISTS btps_student_continous_grade_6(
+id INT PRIMARY KEY AUTO_INCREMENT ,
+submitted_at varchar(100) NOT NULL,
+`firstname` varchar(255) NOT NULL,
+`lastname` varchar(255) NOT NULL,
+`email` varchar(255) NOT NULL,
+assessment_id VARCHAR(50) NOT NULL,
+question_id VARCHAR(100) NOT NULL,
+subject VARCHAR(100) NOT NULL,
+topic TEXT,
+student_answer TEXT NOT NULL,
+correct_answer TEXT,
+visibility VARCHAR(50),
+feedback TEXT,
+score VARCHAR(50)
+)ENGINE=InnoDB DEFAULT CHARSET=utf8;
+";
+$this->conn->exec($sql47);
+
+
+
+$sql48 =
+"CREATE TABLE IF NOT EXISTS btps_student_exam_grade_6(
+id INT PRIMARY KEY AUTO_INCREMENT ,
+submitted_at varchar(100) NOT NULL,
+`firstname` varchar(255) NOT NULL,
+`lastname` varchar(255) NOT NULL,
+`email` varchar(255) NOT NULL,
+assessment_id VARCHAR(50) NOT NULL,
+question_id VARCHAR(100) NOT NULL,
+subject VARCHAR(100) NOT NULL,
+topic TEXT,
+student_answer TEXT NOT NULL,
+correct_answer TEXT,
+visibility VARCHAR(50),
+feedback TEXT,
+score VARCHAR(50)
+)ENGINE=InnoDB DEFAULT CHARSET=utf8;
+";
+$this->conn->exec($sql48);
+
+
+
+$sql49 =
+"CREATE TABLE IF NOT EXISTS btps_student_assignment_grade_3(
+id INT PRIMARY KEY AUTO_INCREMENT ,
+submitted_at varchar(100) NOT NULL,
+`firstname` varchar(255) NOT NULL,
+`lastname` varchar(255) NOT NULL,
+`email` varchar(255) NOT NULL,
+assessment_id VARCHAR(50) NOT NULL,
+question_id VARCHAR(100) NOT NULL,
+subject VARCHAR(100) NOT NULL,
+topic TEXT,
+student_answer TEXT NOT NULL,
+correct_answer TEXT,
+visibility VARCHAR(50),
+feedback TEXT,
+score VARCHAR(50)
+)ENGINE=InnoDB DEFAULT CHARSET=utf8;
+";
+$this->conn->exec($sql49);
+
+$sql50 =
+"CREATE TABLE IF NOT EXISTS btps_student_continous_grade_3(
+id INT PRIMARY KEY AUTO_INCREMENT ,
+submitted_at varchar(100) NOT NULL,
+`firstname` varchar(255) NOT NULL,
+`lastname` varchar(255) NOT NULL,
+`email` varchar(255) NOT NULL,
+assessment_id VARCHAR(50) NOT NULL,
+question_id VARCHAR(100) NOT NULL,
+subject VARCHAR(100) NOT NULL,
+topic TEXT,
+student_answer TEXT NOT NULL,
+correct_answer TEXT,
+visibility VARCHAR(50),
+feedback TEXT,
+score VARCHAR(50)
+)ENGINE=InnoDB DEFAULT CHARSET=utf8;
+";
+$this->conn->exec($sql50);
+
+
+
+$sql51 =
+"CREATE TABLE IF NOT EXISTS btps_student_exam_grade_3(
+id INT PRIMARY KEY AUTO_INCREMENT ,
+submitted_at varchar(100) NOT NULL,
+`firstname` varchar(255) NOT NULL,
+`lastname` varchar(255) NOT NULL,
+`email` varchar(255) NOT NULL,
+assessment_id VARCHAR(50) NOT NULL,
+question_id VARCHAR(100) NOT NULL,
+subject VARCHAR(100) NOT NULL,
+topic TEXT,
+student_answer TEXT NOT NULL,
+correct_answer TEXT,
+visibility VARCHAR(50),
+feedback TEXT,
+score VARCHAR(50)
+)ENGINE=InnoDB DEFAULT CHARSET=utf8;
+";
+$this->conn->exec($sql51);
+
+
+$sql52 =
+"CREATE TABLE IF NOT EXISTS btps_student_assignment_grade_2(
+id INT PRIMARY KEY AUTO_INCREMENT ,
+submitted_at varchar(100) NOT NULL,
+`firstname` varchar(255) NOT NULL,
+`lastname` varchar(255) NOT NULL,
+`email` varchar(255) NOT NULL,
+assessment_id VARCHAR(50) NOT NULL,
+question_id VARCHAR(100) NOT NULL,
+subject VARCHAR(100) NOT NULL,
+topic TEXT,
+student_answer TEXT NOT NULL,
+correct_answer TEXT,
+visibility VARCHAR(50),
+feedback TEXT,
+score VARCHAR(50)
+)ENGINE=InnoDB DEFAULT CHARSET=utf8;
+";
+$this->conn->exec($sql52);
+
+$sql53 =
+"CREATE TABLE IF NOT EXISTS btps_student_continous_grade_2(
+id INT PRIMARY KEY AUTO_INCREMENT ,
+submitted_at varchar(100) NOT NULL,
+`firstname` varchar(255) NOT NULL,
+`lastname` varchar(255) NOT NULL,
+`email` varchar(255) NOT NULL,
+assessment_id VARCHAR(50) NOT NULL,
+question_id VARCHAR(100) NOT NULL,
+subject VARCHAR(100) NOT NULL,
+topic TEXT,
+student_answer TEXT NOT NULL,
+correct_answer TEXT,
+visibility VARCHAR(50),
+feedback TEXT,
+score VARCHAR(50)
+)ENGINE=InnoDB DEFAULT CHARSET=utf8;
+";
+$this->conn->exec($sql53);
+
+
+
+$sql54 =
+"CREATE TABLE IF NOT EXISTS btps_student_exam_grade_2(
+id INT PRIMARY KEY AUTO_INCREMENT ,
+submitted_at varchar(100) NOT NULL,
+`firstname` varchar(255) NOT NULL,
+`lastname` varchar(255) NOT NULL,
+`email` varchar(255) NOT NULL,
+assessment_id VARCHAR(50) NOT NULL,
+question_id VARCHAR(100) NOT NULL,
+subject VARCHAR(100) NOT NULL,
+topic TEXT,
+student_answer TEXT NOT NULL,
+correct_answer TEXT,
+visibility VARCHAR(50),
+feedback TEXT,
+score VARCHAR(50)
+)ENGINE=InnoDB DEFAULT CHARSET=utf8;
+";
+$this->conn->exec($sql54);
+
+
+
+$sql55 =
+"CREATE TABLE IF NOT EXISTS btps_student_assignment_grade_1(
+id INT PRIMARY KEY AUTO_INCREMENT ,
+submitted_at varchar(100) NOT NULL,
+`firstname` varchar(255) NOT NULL,
+`lastname` varchar(255) NOT NULL,
+`email` varchar(255) NOT NULL,
+assessment_id VARCHAR(50) NOT NULL,
+question_id VARCHAR(100) NOT NULL,
+subject VARCHAR(100) NOT NULL,
+topic TEXT,
+student_answer TEXT NOT NULL,
+correct_answer TEXT,
+visibility VARCHAR(50),
+feedback TEXT,
+score VARCHAR(50)
+)ENGINE=InnoDB DEFAULT CHARSET=utf8;
+";
+$this->conn->exec($sql55);
+
+$sql56 =
+"CREATE TABLE IF NOT EXISTS btps_student_continous_grade_1(
+id INT PRIMARY KEY AUTO_INCREMENT ,
+submitted_at varchar(100) NOT NULL,
+`firstname` varchar(255) NOT NULL,
+`lastname` varchar(255) NOT NULL,
+`email` varchar(255) NOT NULL,
+assessment_id VARCHAR(50) NOT NULL,
+question_id VARCHAR(100) NOT NULL,
+subject VARCHAR(100) NOT NULL,
+topic TEXT,
+student_answer TEXT NOT NULL,
+correct_answer TEXT,
+visibility VARCHAR(50),
+feedback TEXT,
+score VARCHAR(50)
+)ENGINE=InnoDB DEFAULT CHARSET=utf8;
+";
+$this->conn->exec($sql56);
+
+
+
+$sql57 =
+"CREATE TABLE IF NOT EXISTS btps_student_exam_grade_1(
+id INT PRIMARY KEY AUTO_INCREMENT ,
+submitted_at varchar(100) NOT NULL,
+`firstname` varchar(255) NOT NULL,
+`lastname` varchar(255) NOT NULL,
+`email` varchar(255) NOT NULL,
+assessment_id VARCHAR(50) NOT NULL,
+question_id VARCHAR(100) NOT NULL,
+subject VARCHAR(100) NOT NULL,
+topic TEXT,
+student_answer TEXT NOT NULL,
+correct_answer TEXT,
+visibility VARCHAR(50),
+feedback TEXT,
+score VARCHAR(50)
+)ENGINE=InnoDB DEFAULT CHARSET=utf8;
+";
+$this->conn->exec($sql57);
+
+
+$sql58 =
+"CREATE TABLE IF NOT EXISTS btps_student_continous_pre_k(
+id INT PRIMARY KEY AUTO_INCREMENT ,
+submitted_at varchar(100) NOT NULL,
+`firstname` varchar(255) NOT NULL,
+`lastname` varchar(255) NOT NULL,
+`email` varchar(255) NOT NULL,
+assessment_id VARCHAR(50) NOT NULL,
+question_id VARCHAR(100) NOT NULL,
+subject VARCHAR(100) NOT NULL,
+topic TEXT,
+student_answer TEXT NOT NULL,
+correct_answer TEXT,
+visibility VARCHAR(50),
+feedback TEXT,
+score VARCHAR(50)
+)ENGINE=InnoDB DEFAULT CHARSET=utf8;
+";
+$this->conn->exec($sql58);
+
+
+
+$sql59 =
+"CREATE TABLE IF NOT EXISTS btps_student_exam_pre_k(
+id INT PRIMARY KEY AUTO_INCREMENT ,
+submitted_at varchar(100) NOT NULL,
+`firstname` varchar(255) NOT NULL,
+`lastname` varchar(255) NOT NULL,
+`email` varchar(255) NOT NULL,
+assessment_id VARCHAR(50) NOT NULL,
+question_id VARCHAR(100) NOT NULL,
+subject VARCHAR(100) NOT NULL,
+topic TEXT,
+student_answer TEXT NOT NULL,
+correct_answer TEXT,
+visibility VARCHAR(50),
+feedback TEXT,
+score VARCHAR(50)
+)ENGINE=InnoDB DEFAULT CHARSET=utf8;
+";
+$this->conn->exec($sql59);
+
+
+$sql60 =
+"CREATE TABLE IF NOT EXISTS btps_student_assignment_grade_k(
+id INT PRIMARY KEY AUTO_INCREMENT ,
+submitted_at varchar(100) NOT NULL,
+`firstname` varchar(255) NOT NULL,
+`lastname` varchar(255) NOT NULL,
+`email` varchar(255) NOT NULL,
+assessment_id VARCHAR(50) NOT NULL,
+question_id VARCHAR(100) NOT NULL,
+subject VARCHAR(100) NOT NULL,
+topic TEXT,
+student_answer TEXT NOT NULL,
+correct_answer TEXT,
+visibility VARCHAR(50),
+feedback TEXT,
+score VARCHAR(50)
+)ENGINE=InnoDB DEFAULT CHARSET=utf8;
+";
+$this->conn->exec($sql60);
+
+$sql61 =
+"CREATE TABLE IF NOT EXISTS btps_student_continous_grade_k(
+id INT PRIMARY KEY AUTO_INCREMENT ,
+submitted_at varchar(100) NOT NULL,
+`firstname` varchar(255) NOT NULL,
+`lastname` varchar(255) NOT NULL,
+`email` varchar(255) NOT NULL,
+assessment_id VARCHAR(50) NOT NULL,
+question_id VARCHAR(100) NOT NULL,
+subject VARCHAR(100) NOT NULL,
+topic TEXT,
+student_answer TEXT NOT NULL,
+correct_answer TEXT,
+visibility VARCHAR(50),
+feedback TEXT,
+score VARCHAR(50)
+)ENGINE=InnoDB DEFAULT CHARSET=utf8;
+";
+$this->conn->exec($sql61);
+
+
+
+$sql62 =
+"CREATE TABLE IF NOT EXISTS btps_student_exam_grade_k(
+id INT PRIMARY KEY AUTO_INCREMENT ,
+submitted_at varchar(100) NOT NULL,
+`firstname` varchar(255) NOT NULL,
+`lastname` varchar(255) NOT NULL,
+`email` varchar(255) NOT NULL,
+assessment_id VARCHAR(50) NOT NULL,
+question_id VARCHAR(100) NOT NULL,
+subject VARCHAR(100) NOT NULL,
+topic TEXT,
+student_answer TEXT NOT NULL,
+correct_answer TEXT,
+visibility VARCHAR(50),
+feedback TEXT,
+score VARCHAR(50)
+)ENGINE=InnoDB DEFAULT CHARSET=utf8;
+";
+$this->conn->exec($sql62);
+
+
+$sql63 =
+"CREATE TABLE IF NOT EXISTS btps_student_assignment_grade_7(
+id INT PRIMARY KEY AUTO_INCREMENT ,
+submitted_at varchar(100) NOT NULL,
+`firstname` varchar(255) NOT NULL,
+`lastname` varchar(255) NOT NULL,
+`email` varchar(255) NOT NULL,
+assessment_id VARCHAR(50) NOT NULL,
+question_id VARCHAR(100) NOT NULL,
+subject VARCHAR(100) NOT NULL,
+topic TEXT,
+student_answer TEXT NOT NULL,
+correct_answer TEXT,
+visibility VARCHAR(50),
+feedback TEXT,
+score VARCHAR(50)
+)ENGINE=InnoDB DEFAULT CHARSET=utf8;
+";
+$this->conn->exec($sql63);
+
+$sql64 =
+"CREATE TABLE IF NOT EXISTS btps_student_continous_grade_7(
+id INT PRIMARY KEY AUTO_INCREMENT ,
+submitted_at varchar(100) NOT NULL,
+`firstname` varchar(255) NOT NULL,
+`lastname` varchar(255) NOT NULL,
+`email` varchar(255) NOT NULL,
+assessment_id VARCHAR(50) NOT NULL,
+question_id VARCHAR(100) NOT NULL,
+subject VARCHAR(100) NOT NULL,
+topic TEXT,
+student_answer TEXT NOT NULL,
+correct_answer TEXT,
+visibility VARCHAR(50),
+feedback TEXT,
+score VARCHAR(50)
+)ENGINE=InnoDB DEFAULT CHARSET=utf8;
+";
+$this->conn->exec($sql64);
+
+
+
+$sql65 =
+"CREATE TABLE IF NOT EXISTS btps_student_exam_grade_7(
+id INT PRIMARY KEY AUTO_INCREMENT ,
+submitted_at varchar(100) NOT NULL,
+`firstname` varchar(255) NOT NULL,
+`lastname` varchar(255) NOT NULL,
+`email` varchar(255) NOT NULL,
+assessment_id VARCHAR(50) NOT NULL,
+question_id VARCHAR(100) NOT NULL,
+subject VARCHAR(100) NOT NULL,
+topic TEXT,
+student_answer TEXT NOT NULL,
+correct_answer TEXT,
+visibility VARCHAR(50),
+feedback TEXT,
+score VARCHAR(50)
+)ENGINE=InnoDB DEFAULT CHARSET=utf8;
+";
+$this->conn->exec($sql65);
+
+
+$sql66 =
+"CREATE TABLE IF NOT EXISTS btps_student_assignment_grade_8(
+id INT PRIMARY KEY AUTO_INCREMENT ,
+submitted_at varchar(100) NOT NULL,
+`firstname` varchar(255) NOT NULL,
+`lastname` varchar(255) NOT NULL,
+`email` varchar(255) NOT NULL,
+assessment_id VARCHAR(50) NOT NULL,
+question_id VARCHAR(100) NOT NULL,
+subject VARCHAR(100) NOT NULL,
+topic TEXT,
+student_answer TEXT NOT NULL,
+correct_answer TEXT,
+visibility VARCHAR(50),
+feedback TEXT,
+score VARCHAR(50)
+)ENGINE=InnoDB DEFAULT CHARSET=utf8;
+";
+$this->conn->exec($sql66);
+
+$sql67 =
+"CREATE TABLE IF NOT EXISTS btps_student_continous_grade_8(
+id INT PRIMARY KEY AUTO_INCREMENT ,
+submitted_at varchar(100) NOT NULL,
+`firstname` varchar(255) NOT NULL,
+`lastname` varchar(255) NOT NULL,
+`email` varchar(255) NOT NULL,
+assessment_id VARCHAR(50) NOT NULL,
+question_id VARCHAR(100) NOT NULL,
+subject VARCHAR(100) NOT NULL,
+topic TEXT,
+student_answer TEXT NOT NULL,
+correct_answer TEXT,
+visibility VARCHAR(50),
+feedback TEXT,
+score VARCHAR(50)
+)ENGINE=InnoDB DEFAULT CHARSET=utf8;
+";
+$this->conn->exec($sql67);
+
+
+
+$sql68 =
+"CREATE TABLE IF NOT EXISTS btps_student_exam_grade_8(
+id INT PRIMARY KEY AUTO_INCREMENT ,
+submitted_at varchar(100) NOT NULL,
+`firstname` varchar(255) NOT NULL,
+`lastname` varchar(255) NOT NULL,
+`email` varchar(255) NOT NULL,
+assessment_id VARCHAR(50) NOT NULL,
+question_id VARCHAR(100) NOT NULL,
+subject VARCHAR(100) NOT NULL,
+topic TEXT,
+student_answer TEXT NOT NULL,
+correct_answer TEXT,
+visibility VARCHAR(50),
+feedback TEXT,
+score VARCHAR(50)
+)ENGINE=InnoDB DEFAULT CHARSET=utf8;
+";
+$this->conn->exec($sql68);
+
+
+
+$sql69 =
+"CREATE TABLE IF NOT EXISTS btps_student_assignment_grade_9(
+id INT PRIMARY KEY AUTO_INCREMENT ,
+submitted_at varchar(100) NOT NULL,
+`firstname` varchar(255) NOT NULL,
+`lastname` varchar(255) NOT NULL,
+`email` varchar(255) NOT NULL,
+assessment_id VARCHAR(50) NOT NULL,
+question_id VARCHAR(100) NOT NULL,
+subject VARCHAR(100) NOT NULL,
+topic TEXT,
+student_answer TEXT NOT NULL,
+correct_answer TEXT,
+visibility VARCHAR(50),
+feedback TEXT,
+score VARCHAR(50)
+)ENGINE=InnoDB DEFAULT CHARSET=utf8;
+";
+$this->conn->exec($sql69);
+
+$sql70 =
+"CREATE TABLE IF NOT EXISTS btps_student_continous_grade_9(
+id INT PRIMARY KEY AUTO_INCREMENT ,
+submitted_at varchar(100) NOT NULL,
+`firstname` varchar(255) NOT NULL,
+`lastname` varchar(255) NOT NULL,
+`email` varchar(255) NOT NULL,
+assessment_id VARCHAR(50) NOT NULL,
+question_id VARCHAR(100) NOT NULL,
+subject VARCHAR(100) NOT NULL,
+topic TEXT,
+student_answer TEXT NOT NULL,
+correct_answer TEXT,
+visibility VARCHAR(50),
+feedback TEXT,
+score VARCHAR(50)
+)ENGINE=InnoDB DEFAULT CHARSET=utf8;
+";
+$this->conn->exec($sql70);
+
+
+
+$sql71 =
+"CREATE TABLE IF NOT EXISTS btps_student_exam_grade_9(
+id INT PRIMARY KEY AUTO_INCREMENT ,
+submitted_at varchar(100) NOT NULL,
+`firstname` varchar(255) NOT NULL,
+`lastname` varchar(255) NOT NULL,
+`email` varchar(255) NOT NULL,
+assessment_id VARCHAR(50) NOT NULL,
+question_id VARCHAR(100) NOT NULL,
+subject VARCHAR(100) NOT NULL,
+topic TEXT,
+student_answer TEXT NOT NULL,
+correct_answer TEXT,
+visibility VARCHAR(50),
+feedback TEXT,
+score VARCHAR(50)
+)ENGINE=InnoDB DEFAULT CHARSET=utf8;
+";
+$this->conn->exec($sql71);
+
+
+
+$sql72 =
+"CREATE TABLE IF NOT EXISTS btps_student_assignment_grade_10(
+id INT PRIMARY KEY AUTO_INCREMENT ,
+submitted_at varchar(100) NOT NULL,
+`firstname` varchar(255) NOT NULL,
+`lastname` varchar(255) NOT NULL,
+`email` varchar(255) NOT NULL,
+assessment_id VARCHAR(50) NOT NULL,
+question_id VARCHAR(100) NOT NULL,
+subject VARCHAR(100) NOT NULL,
+topic TEXT,
+student_answer TEXT NOT NULL,
+correct_answer TEXT,
+visibility VARCHAR(50),
+feedback TEXT,
+score VARCHAR(50)
+)ENGINE=InnoDB DEFAULT CHARSET=utf8;
+";
+$this->conn->exec($sql72);
+
+$sql73 =
+"CREATE TABLE IF NOT EXISTS btps_student_continous_grade_10(
+id INT PRIMARY KEY AUTO_INCREMENT ,
+submitted_at varchar(100) NOT NULL,
+`firstname` varchar(255) NOT NULL,
+`lastname` varchar(255) NOT NULL,
+`email` varchar(255) NOT NULL,
+assessment_id VARCHAR(50) NOT NULL,
+question_id VARCHAR(100) NOT NULL,
+subject VARCHAR(100) NOT NULL,
+topic TEXT,
+student_answer TEXT NOT NULL,
+correct_answer TEXT,
+visibility VARCHAR(50),
+feedback TEXT,
+score VARCHAR(50)
+)ENGINE=InnoDB DEFAULT CHARSET=utf8;
+";
+$this->conn->exec($sql73);
+
+
+
+$sql74 =
+"CREATE TABLE IF NOT EXISTS btps_student_exam_grade_10(
+id INT PRIMARY KEY AUTO_INCREMENT ,
+submitted_at varchar(100) NOT NULL,
+`firstname` varchar(255) NOT NULL,
+`lastname` varchar(255) NOT NULL,
+`email` varchar(255) NOT NULL,
+assessment_id VARCHAR(50) NOT NULL,
+question_id VARCHAR(100) NOT NULL,
+subject VARCHAR(100) NOT NULL,
+topic TEXT,
+student_answer TEXT NOT NULL,
+correct_answer TEXT,
+visibility VARCHAR(50),
+feedback TEXT,
+score VARCHAR(50)
+)ENGINE=InnoDB DEFAULT CHARSET=utf8;
+";
+$this->conn->exec($sql74);
+
+
+
+$sql75 =
+"CREATE TABLE IF NOT EXISTS btps_student_assignment_grade_11(
+id INT PRIMARY KEY AUTO_INCREMENT ,
+submitted_at varchar(100) NOT NULL,
+`firstname` varchar(255) NOT NULL,
+`lastname` varchar(255) NOT NULL,
+`email` varchar(255) NOT NULL,
+assessment_id VARCHAR(50) NOT NULL,
+question_id VARCHAR(100) NOT NULL,
+subject VARCHAR(100) NOT NULL,
+topic TEXT,
+student_answer TEXT NOT NULL,
+correct_answer TEXT,
+visibility VARCHAR(50),
+feedback TEXT,
+score VARCHAR(50)
+)ENGINE=InnoDB DEFAULT CHARSET=utf8;
+";
+$this->conn->exec($sql75);
+
+$sql76 =
+"CREATE TABLE IF NOT EXISTS btps_student_continous_grade_11(
+id INT PRIMARY KEY AUTO_INCREMENT ,
+submitted_at varchar(100) NOT NULL,
+`firstname` varchar(255) NOT NULL,
+`lastname` varchar(255) NOT NULL,
+`email` varchar(255) NOT NULL,
+assessment_id VARCHAR(50) NOT NULL,
+question_id VARCHAR(100) NOT NULL,
+subject VARCHAR(100) NOT NULL,
+topic TEXT,
+student_answer TEXT NOT NULL,
+correct_answer TEXT,
+visibility VARCHAR(50),
+feedback TEXT,
+score VARCHAR(50)
+)ENGINE=InnoDB DEFAULT CHARSET=utf8;
+";
+$this->conn->exec($sql76);
+
+
+
+$sql77 =
+"CREATE TABLE IF NOT EXISTS btps_student_exam_grade_11(
+id INT PRIMARY KEY AUTO_INCREMENT ,
+submitted_at varchar(100) NOT NULL,
+`firstname` varchar(255) NOT NULL,
+`lastname` varchar(255) NOT NULL,
+`email` varchar(255) NOT NULL,
+assessment_id VARCHAR(50) NOT NULL,
+question_id VARCHAR(100) NOT NULL,
+subject VARCHAR(100) NOT NULL,
+topic TEXT,
+student_answer TEXT NOT NULL,
+correct_answer TEXT,
+visibility VARCHAR(50),
+feedback TEXT,
+score VARCHAR(50)
+)ENGINE=InnoDB DEFAULT CHARSET=utf8;
+";
+$this->conn->exec($sql77);
 
 }
 public function runQuery($sql)

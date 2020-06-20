@@ -49,15 +49,6 @@ $stmtfindassessment->execute();
 //Fetch the row.
 date_default_timezone_set('America/dominica');
 $rowfindassessment = $stmtfindassessment->fetch(PDO::FETCH_ASSOC);
-#$today = strtotime("Today");
-#$date = strtotime($rowfindsite['date']);
-#if ($date === $today) {
-
-#}
-#else{
-
-#}
-
 if($rowfindassessment){
 
 ?>
@@ -117,11 +108,12 @@ $stmtblank->execute();
   <th>Answer guide / Keyword</th>
   <th>Topic</th>
   <th>Feedback</th>
+  <th class ="error">Edit this Question</th>
 </tr>
 
 <?php
 foreach ($stmtmulti as $key) {
-echo "<tr><td>". $key['question_id']. "</td>";
+echo "<form method ='post' action = 'updatemulti.php'><tr><td>". $key['question_id']."</td>";
 echo "<td>". htmlspecialchars_decode($key['question_text']). "</td>";
 echo "<td>". $key['option1']. "</td>";
 echo "<td>". $key['option2']. "</td>";
@@ -130,12 +122,14 @@ echo "<td>". $key['option4']. "</td>";
 echo "<td>". $key['answer']. "</td>";
 echo "<td></td>";
 echo "<td>". $key['topic']. "</td>";
-echo "<td>". $key['feedback']. "</td></tr>";
-
+echo "<td>". $key['feedback']."</td>";
+echo "<td><input type = 'submit' class ='btn btn-info' name ='updatemulti' value ='UPDATE'><input type = 'hidden' name ='hiddenmulti' value =".$key['question_id']."></td></tr>";
+echo "</form>";
 }
 
+
 foreach ($stmtbool as $keybool) {
-echo "<tr><td>". $keybool['question_id']. "</td>";
+echo "<form method ='post' action = 'updatebool.php'><tr><td>". $keybool['question_id']."</td>";
 echo "<td>". htmlspecialchars_decode($keybool['question_text']). "</td>";
 echo "<td>". $keybool['option1']. "</td>";
 echo "<td>". $keybool['option2']. "</td>";
@@ -144,12 +138,14 @@ echo "<td></td>";
 echo "<td>". $keybool['answer']. "</td>";
 echo "<td></td>";
 echo "<td>". $keybool['topic']. "</td>";
-echo "<td>". $keybool['feedback']. "</td></tr>";
+echo "<td>". $keybool['feedback']. "</td>";
+echo "<td><input type = 'submit' class ='btn btn-info' name ='updatemulti' value ='UPDATE'><input type = 'hidden' name ='hiddenmulti' value =".$keybool['question_id']."></td></tr>";
+echo "</form>";
 
 }
 
 foreach ($stmtessay as $keyessay) {
-echo "<tr><td>". $keyessay['question_id']. "</td>";
+echo "<form method ='post' action = 'updateessay.php'><tr><td>". $keyessay['question_id']."</td>";
 echo "<td>". htmlspecialchars_decode($keyessay['question_text']). "</td>";
 echo "<td></td>";
 echo "<td></td>";
@@ -158,12 +154,13 @@ echo "<td></td>";
 echo "<td></td>";
 echo "<td>". $keyessay['answer_guide']. "</td>";
 echo "<td>". $keyessay['topic']. "</td>";
-echo "<td>". $keyessay['feedback']. "</td></tr>";
-
+echo "<td>". $keyessay['feedback']. "</td>";
+echo "<td><input type = 'submit' class ='btn btn-info' name ='updatemulti' value ='UPDATE'><input type = 'hidden' name ='hiddenmulti' value =".$keyessay['question_id']."></td></tr>";
+echo "</form>";
 }
 
 foreach ($stmtblank as $keyblank) {
-echo "<tr><td>". $keyblank['question_id']. "</td>";
+echo "<form method ='post' action = 'updateblank.php'><tr><td>". $keyblank['question_id']."</td>";
 echo "<td>". htmlspecialchars_decode($keyblank['question_text']). "</td>";
 echo "<td></td>";
 echo "<td></td>";
@@ -172,8 +169,9 @@ echo "<td></td>";
 echo "<td></td>";
 echo "<td>". $keyblank['answer_keyword']. "</td>";
 echo "<td>". $keyblank['topic']. "</td>";
-echo "<td>". $keyblank['feedback']. "</td></tr>";
-
+echo "<td>". $keyblank['feedback']. "</td>";
+echo "<td><input type = 'submit' class ='btn btn-info' name ='updatemulti' value ='UPDATE'><input type = 'hidden' name ='hiddenmulti' value =".$keyblank['question_id']."></td></tr>";
+echo "</form>";
 }
 ?>
 </table>

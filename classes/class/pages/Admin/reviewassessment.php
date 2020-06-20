@@ -1,6 +1,8 @@
 <?php
 require_once "includes/adminheader.php";
 $email = $row['email'];
+$firstname = $row['firstname'];
+$lastname = $row['lastname'];
 
 $sqlid="SELECT * FROM ihs_user_permissions WHERE email= :email" ;
 $stmtid = $user_home->runQuery($sqlid);
@@ -90,8 +92,8 @@ echo "</tr></form>";
 
   foreach($stmtapp as $rowapp){
   echo "<form method ='post' id = 'approvalform'  action = 'getreview.php'>";
-    $created_by_firstname = $rowid['created_by_firstname'];
-    $created_by_lastname = $rowid['created_by_lastname'];
+    $created_by_firstname = $rowapp['created_by_firstname'];
+    $created_by_lastname = $rowapp['created_by_lastname'];
     $createdfn = new AES($created_by_firstname, $inputkey, $blocksize);
     $createdln = new AES($created_by_lastname, $inputkey, $blocksize);
     $fndec =$createdfn->decrypt();

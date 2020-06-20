@@ -91,12 +91,8 @@ if(!empty($assessmentid)){
     <th>Feedback</th>
     <th class ="error">Edit this Question</th>
   </tr>
-  <img src="data:image/png;base64, iVBORw0KGgoAAAANSUhEUgAAAAUA
-      AAAFCAYAAACNbyblAAAAHElEQVQI12P4//8/w38GIAXDIBKE0DHxgljNBAAO
-          9TXL0Y4OHwAAAABJRU5ErkJggg==" alt="Red dot" />
-  <?php
 
-  $counter = 1;
+  <?php
   foreach ($stmtmulti as $key) {
   echo "<form method ='post' action = 'updatemulti.php'><tr><td>". $key['question_id']."</td>";
   echo "<td>". htmlspecialchars_decode($key['question_text']). "</td>";

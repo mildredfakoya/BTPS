@@ -2,17 +2,28 @@
 require_once 'includes/studentinit.php';
 require_once 'includes/studenthead.php';
 require_once 'includes/studentnav.php';
+$email = $row['email'];
+$firstname = $row['firstname'];
+$lastname = $row['lastname'];
+
+$sqlid="SELECT * FROM ihs_user_permissions WHERE email= :email" ;
+$stmtid = $user_home->runQuery($sqlid);
+$stmtid->bindValue(':email', $email);
+$stmtid->execute();
+$rowid = $stmtid->fetch(PDO::FETCH_ASSOC);
+$list = $rowid['permissions'];
+$permissions = explode(" ", $list);
+if(!in_array("grade_2", $permissions)){
+$user_home->redirect('../../errors.php?nop');
+}
+else{
+
+
 require_once '../../../../aes.php';
 $inputkey = "marketdayanyigba";
 $blocksize = 256;
 $class = 'grade_2';
 $grade='grade2';
-$email = $row['email'];
-
-#for the logged in user
-$firstname =$row['firstname'];
-$lastname =$row['lastname'];
-$email =$row['email'];
 $firstn =new AES($firstname, $inputkey, $blocksize);
 $dec =$firstn->decrypt();
 $lastn =new AES($lastname, $inputkey, $blocksize);
@@ -29,8 +40,14 @@ $stmtuploads->bindValue(':grade', $grade);
 $stmtuploads->execute();
 ?>
 <div class ="row">
-	<div class ="col-5 jumbotron">
-
+	<div class ="col-5 container">
+		<div>
+			<h5 class ="header">Click for: <a href ='grade2assignments.php'>Assignments & Projects</a></h5>
+			<h5 class ="header">Click for: <a href ='grade2continous.php'>Continous Assessments</a></h5>
+			<h5 class ="header">Click for: <a href ='grade2exams.php'>Examination</a></h5>
+			<h5 class ="header">Click for: <a href ='studyguide2.php'>Study Guide</a></h5>
+		</div>
+<h5 class ="header">Class news</h5>
 <?php
 
 #get every news for the class of the email
@@ -53,11 +70,22 @@ foreach($stmt2a as $row1){
 </div>
 <?php
 }
+$sqltimetable ="SELECT * FROM ihs_timetable_uploads WHERE grade = 'grade2' ORDER BY created_at DESC LIMIT 1";
+$stmttimetable = $user_home->runQuery($sqltimetable);
+$stmttimetable->execute();
+$rowtable = $stmttimetable->fetch(PDO::FETCH_ASSOC);
 ?>
+
+
 
 </div>
 <div class ='col-7 columnspacer'>
-<h2><i>Welcome!! <?php echo $dec." ".$decl ?></i></h2>
+<h2 class ="headeranimated"><i>Welcome!! <?php echo $dec." ".$decl ?></i></h2>
+<div class ="container">
+<h5 class ="header">
+	Click for <a target = '_blank' href='<?php echo $rowtable["file"]?>'> time table </a>
+</h5>
+</div>
 <div class ="jumbotron">
 <div class ="outer">
 <div class ="heading">File / Video Uploads</div>
@@ -103,5 +131,8 @@ echo "</table></div>";
 
 </div>
 </div>
-
 </div>
+
+<?php }
+include "includes/studentfooter.php";
+?>
