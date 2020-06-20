@@ -19,14 +19,14 @@ if(!empty($studentanswer) && !empty($questionid) &&!empty($assessmentid) && !emp
 for($i=0;$i<count($questionid);$i++)
 {
 
-  $sqlcheck = "SELECT * FROM btps_student_assignment_pre_k WHERE question_id = '$questionid[$i]'";
+  $sqlcheck = "SELECT * FROM btps_student_continous_grade_9 WHERE question_id = '$questionid[$i]'";
   $stmtcheck = $user_home->runQuery($sqlcheck);
   $stmtcheck->execute();
   $rowcheck =$stmtcheck->fetch(PDO::FETCH_ASSOC);
   if($rowcheck){
 
 try{
-  $sqlmultichoice= "UPDATE btps_student_assignment_pre_k SET submitted_at ='$submittedat', student_answer ='$studentanswer[$i]' WHERE question_id = '$questionid[$i]'";
+  $sqlmultichoice= "UPDATE btps_student_continous_grade_9 SET submitted_at ='$submittedat', student_answer ='$studentanswer[$i]' WHERE question_id = '$questionid[$i]'";
   $result = $user_home->runQuery4($sqlmultichoice);
 
 
@@ -38,7 +38,7 @@ catch(PDOException $e)
 }
 else{
   try{
-  $sqlsubmit = "INSERT INTO btps_student_assignment_pre_k(submitted_at, email, firstname, lastname, assessment_id, question_id, subject,
+  $sqlsubmit = "INSERT INTO btps_student_continous_grade_9(submitted_at, email, firstname, lastname, assessment_id, question_id, subject,
   topic, student_answer, correct_answer, visibility, feedback)
   VALUES(:submitted_at, :email, :firstname, :lastname, :assessment_id, :question_id, :subject,
   :topic, :student_answer, :correct_answer, :visibility, :feedback)";

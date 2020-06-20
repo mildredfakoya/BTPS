@@ -10,24 +10,24 @@ $stmtid->execute();
 $rowid = $stmtid->fetch(PDO::FETCH_ASSOC);
 $list = $rowid['permissions'];
 $permissions = explode(" ", $list);
-if(!in_array("grade_4", $permissions)){
+if(!in_array("grade_3", $permissions)){
 $user_home->redirect('../../errors.php?nop');
 }
 else{
 ?>
 
 <div class ="jumbotron">
-<div class ="header" style ="background-color:#ff0000"><h3>Welcome to Grade 4 Graded Assessment page</h3>
+<div class ="header" style ="background-color:#ff0000"><h3>Welcome to Grade 3 Graded Assessment page</h3>
 <p>All assessment listed here are access controlled. Your teacher will give you the access code.<br/>Once a correct access code is entered, your question form will be displayed at the top of this page.</p></div>
 
 
 <!---For Assignments and Projects--->
 
-<h5 class ="header">Assignments</h5>
+<h5 class ="header">Continous Assessment</h5>
 
   <?php
-    $targetclass = "grade_4";
-    $sqlclass="SELECT * FROM btps_new_assessment WHERE target_class= :class AND (assessment_type = 'assignment' || assessment_type = 'project') AND approval_status ='Approved'" ;
+    $targetclass = "grade_3";
+    $sqlclass="SELECT * FROM btps_new_assessment WHERE target_class= :class and assessment_type = 'continous_assessment' and approval_status ='Approved'" ;
     $stmtclass = $user_home->runQuery($sqlclass);
     $stmtclass->bindValue(':class', $targetclass);
     $stmtclass->execute();
@@ -43,7 +43,7 @@ else{
 
 
       if($diffdate <= 0){
-      echo "<form method ='post' action ='grade4assignmentform.php' id ='getassignment' novalidate = 'novalidate'>";
+      echo "<form method ='post' action ='grade3continousform.php' id ='getassignment' novalidate = 'novalidate'>";
       echo "<div class ='row'>";
       echo "<div class ='col-3'>";
       echo "<label>Assessment ID</label>";
@@ -69,18 +69,19 @@ else{
     }
   }
 
-  $sqlcheck= "SELECT DISTINCT assessment_id FROM btps_student_assignment_grade_4 WHERE email = :email";
+  $sqlcheck= "SELECT DISTINCT assessment_id FROM btps_student_continous_grade_3 WHERE email = :email";
   $stmtcheck = $user_home->runQuery($sqlcheck);
   $stmtcheck->bindValue(':email', $email);
   $stmtcheck->execute();
 //  $rowcheck = $stmtcheck->fetch(PDO::FETCH_ASSOC);
-  echo "<div class ='spacer'></div>";
-  echo "<div class ='header' style = 'background-color:green'><p>You made submissions for the following assessments";
-  echo "<ul>";
+echo "<div class ='spacer'></div>";
+echo "<div class ='header' style = 'background-color:green'><p>You made submissions for the following assessments";
+echo "<ul>";
 foreach($stmtcheck as $get){
-  echo "<li>".$get['assessment_id']."</li>";
+echo "<li>".$get['assessment_id']."</li>";
 }
 echo "</div>";
+
 ?>
 
 
