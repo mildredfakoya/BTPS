@@ -48,6 +48,7 @@ $permissions = explode(" ", $list);
       <a class="dropdown-item" href="getassessment.php">Review Questions / Add question(s) to an assessment</a>
       <a class="dropdown-item" href="changesettings.php">Change an assessment setting</a>
       <a class="dropdown-item" href="deleteassessment.php">Delete an assessment</a>
+      <a class="dropdown-item" href="proctor.php">Proctor an Assessment</a>
       <a class="dropdown-item" href="#">Grade an assessment</a>
 
 

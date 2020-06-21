@@ -32,7 +32,7 @@ echo "<tr><td>". $key['created_at']. "</td>";
 echo "<td>". $key['subject']. "</td>";
 echo "<td>". $key['grade']. "</td>";
 echo "<td>". $key['topics_covered']. "</td>";
-echo "<td>". $key['notes']. "</td></tr>";
+echo "<td>". htmlspecialchars_decode($key['notes']). "</td></tr>";
 
 }
 ?>
