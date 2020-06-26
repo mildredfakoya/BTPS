@@ -21,13 +21,13 @@ else{
 <p>All assessment listed here are access controlled. Your teacher will give you the access code.<br/>Once a correct access code is entered, your question form will be displayed at the top of this page.</p></div>
 
 
-<!---For Assignments and Projects--->
+<!---For Examination--->
 
 <h5 class ="header">Examination</h5>
 
   <?php
     $targetclass = "grade_2";
-    $sqlclass="SELECT * FROM btps_new_assessment WHERE target_class= :class and assessment_type = 'exam' and approval_status ='Approved'" ;
+    $sqlclass="SELECT * FROM btps_new_assessment WHERE target_class= :class and assessment_type = 'exam' and approval_status ='Approved' AND access_status = 'UNLOCKED'" ;
     $stmtclass = $user_home->runQuery($sqlclass);
     $stmtclass->bindValue(':class', $targetclass);
     $stmtclass->execute();

@@ -19,14 +19,14 @@ if(!empty($studentanswer) && !empty($questionid) &&!empty($assessmentid) && !emp
 for($i=0;$i<count($questionid);$i++)
 {
 
-  $sqlcheck = "SELECT * FROM btps_student_continous_grade_9 WHERE question_id = '$questionid[$i]'";
+  $sqlcheck = "SELECT * FROM btps_student_continous_grade_9 WHERE question_id = '$questionid[$i]' AND email = '$email'";
   $stmtcheck = $user_home->runQuery($sqlcheck);
   $stmtcheck->execute();
   $rowcheck =$stmtcheck->fetch(PDO::FETCH_ASSOC);
   if($rowcheck){
 
 try{
-  $sqlmultichoice= "UPDATE btps_student_continous_grade_9 SET submitted_at ='$submittedat', student_answer ='$studentanswer[$i]' WHERE question_id = '$questionid[$i]'";
+  $sqlmultichoice= "UPDATE btps_student_continous_grade_9 SET submitted_at ='$submittedat', student_answer ='$studentanswer[$i]' WHERE question_id = '$questionid[$i]' AND email ='$email'";
   $result = $user_home->runQuery4($sqlmultichoice);
 
 

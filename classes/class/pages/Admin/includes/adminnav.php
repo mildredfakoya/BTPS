@@ -86,8 +86,7 @@ $permissions = explode(" ", $list);
       <a class="nav-link dropdown-toggle" href="#" id="navbardrop" data-toggle="dropdown">Exams and Promotions</a>
       <div class="dropdown-menu">
         <a class="dropdown-item" href="reviewassessment.php">Review an Assessment</a>
-        <a class="dropdown-item" href="#">Create SBA information</a>
-        <a class="dropdown-item" href="#">Create Exam</a>
+        <a class ="dropdown-item" href ="unlock.php">Unlock an assessment</a>
         <a class="dropdown-item" href="#">Create / Review / Approve Grades</a>
         <a class="dropdown-item" href="#">Promote Students</a>
         <a class="dropdown-item" href="#">Mock Examinations</a>

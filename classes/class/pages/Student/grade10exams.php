@@ -27,7 +27,7 @@ else{
 
   <?php
     $targetclass = "grade_10";
-    $sqlclass="SELECT * FROM btps_new_assessment WHERE target_class= :class and assessment_type = 'exam' and approval_status ='Approved'" ;
+    $sqlclass="SELECT * FROM btps_new_assessment WHERE target_class= :class and assessment_type = 'exam' and approval_status ='Approved' AND access_status = 'UNLOCKED'" ;
     $stmtclass = $user_home->runQuery($sqlclass);
     $stmtclass->bindValue(':class', $targetclass);
     $stmtclass->execute();

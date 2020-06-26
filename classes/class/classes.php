@@ -561,6 +561,7 @@ $sql2 =
  date_last_updated VARCHAR(50) DEFAULT NULL,
  updated_by_firstname VARCHAR(250) DEFAULT NULL,
  updated_by_lastname VARCHAR(250) DEFAULT NULL,
+ access_status VARCHAR(50) DEFAULT 'UNLOCKED',
  month VARCHAR(15) DEFAULT NULL,
  year VARCHAR(4) DEFAULT NULL
  )ENGINE=InnoDB DEFAULT CHARSET=utf8;

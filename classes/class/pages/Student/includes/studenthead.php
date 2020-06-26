@@ -12,7 +12,7 @@
 <script src="../../../../scripts/jquery.min.js"></script>
 <script src="../../../../scripts/popper.min.js"></script>
 <script src="../../../../scripts/bootstrap.min.js"></script>
-<!--<script src="../../../../scripts/idle_timer.js"></script>-->
+<script src="../../../../scripts/idle_timer.js"></script>
 <script src="../../../../scripts/dobPicker.min.js"></script>
 <script src="../../../../scripts/tabs_old.js"></script>
 <script src="../../../../scripts/formvalidator.js"></script>
