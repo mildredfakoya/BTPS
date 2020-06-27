@@ -91,7 +91,7 @@ echo "</tr></form>";
 
 
   foreach($stmtapp as $rowapp){
-  echo "<form method ='post' id = 'approvalform'  action = 'getreview.php'>";
+  echo "<form method ='post'  action = 'getreview.php'>";
     $created_by_firstname = $rowapp['created_by_firstname'];
     $created_by_lastname = $rowapp['created_by_lastname'];
     $createdfn = new AES($created_by_firstname, $inputkey, $blocksize);
@@ -104,9 +104,10 @@ echo "</tr></form>";
   echo "<td>".$rowapp['target_class']."</td>";
   echo "<td>".$rowapp['assessment_type']."</td>";
   echo "<td>".$rowapp['subject']."</td>";
-  echo "<td><button type ='submit' name = 'smt' value ='smt'>Change Approval</button></td>";
-  echo "</tr>";
+  echo "<td><input type ='submit' name = 'smt' value ='Change Approval'/></td>";
+  echo "</tr></form>";
   }
+  echo "</table>";
 ?>
 </table>
 </div>
