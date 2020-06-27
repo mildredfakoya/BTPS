@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Created with Inkscape (http://www.inkscape.org/) -->
+
+<svg
+   xmlns:svg="http://www.w3.org/2000/svg"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:xlink="http://www.w3.org/1999/xlink"
+   version="1.1"
+   width="450"
+   height="450"
+   id="svg2">
+  <defs
+     id="defs4">
+    <linearGradient
+       id="linearGradient3790">
+      <stop
+         id="stop3792"
+         style="stop-color:#797979;stop-opacity:1"
+         offset="0" />
+      <stop
+         id="stop3794"
+         style="stop-color:#f2f2f2;stop-opacity:1"
+         offset="1" />
+    </linearGradient>
+    <radialGradient
+       cx="340.28546"
+       cy="376.31717"
+       r="142.4417"
+       fx="340.28546"
+       fy="376.31717"
+       id="radialGradient3798"
+       xlink:href="#linearGradient3790"
+       gradientUnits="userSpaceOnUse"
+       gradientTransform="matrix(1,-8.6589163e-8,4.5111661e-8,0.52098507,-1.6976291e-5,99.841966)" />
+    <radialGradient
+       cx="340.28546"
+       cy="376.31717"
+       r="142.4417"
+       fx="340.28546"
+       fy="376.31717"
+       id="radialGradient3808"
+       xlink:href="#linearGradient3790"
+       gradientUnits="userSpaceOnUse"
+       gradientTransform="matrix(1,-8.6589163e-8,4.5111661e-8,0.52098507,-1.6976291e-5,99.841966)" />
+    <radialGradient
+       cx="340.28546"
+       cy="376.31717"
+       r="142.4417"
+       fx="340.28546"
+       fy="376.31717"
+       id="radialGradient3815"
+       xlink:href="#linearGradient3790"
+       gradientUnits="userSpaceOnUse"
+       gradientTransform="matrix(1,-8.6589163e-8,4.5111661e-8,0.52098507,-178.85868,510.83235)" />
+  </defs>
+  <g
+     transform="translate(0,-602.36218)"
+     id="layer1">
+    <g
+       id="g3819">
+      <path
+         d="M 157.57884,611.49038 C 126.55893,612.36571 5.7791047,614.42679 8.1981701,664.67074 13.043729,766.20263 6.9108566,868.38211 23.86004,969.20913 c 24.10725,100.02707 254.82665,94.27377 277.125,9.28125 13.28204,-103.98621 14.32387,-209.22159 20.1563,-313.71875 1.96429,-33.76116 -82.08957,-52.94759 -163.5625,-53.28125 z"
+         id="path3716"
+         style="color:#000000;fill:#f2f2f2;fill-opacity:1;fill-rule:nonzero;stroke:#000000;stroke-width:3;stroke-miterlimit:4;stroke-dasharray:none;marker:none;visibility:visible;display:inline;overflow:visible;enable-background:accumulate" />
+      <path
+         d="m 158.60777,621.56627 c 78.66471,0 145.26073,18.55584 145.26073,44.98661 0,26.43077 -63.76149,47.875 -142.42621,47.875 -78.66471,0 -142.4572,-21.44423 -142.4572,-47.875 0,-26.43077 60.95797,-44.98661 139.62268,-44.98661 z"
+         id="path3702"
+         style="color:#000000;fill:url(#radialGradient3815);fill-opacity:1;fill-rule:nonzero;stroke:none;stroke-width:1;marker:none;visibility:visible;display:inline;overflow:visible;enable-background:accumulate" />
+      <path
+         d="m 301.85563,871.2097 c 96.56044,8.41195 142.54131,-64.64072 103.92857,-101.07143 -39.67906,-37.43676 -91.78571,5.71429 -97.50001,19.64286 l 3.2143,-71.78571 c 13.09096,16.16062 131.04936,-36.56483 130.35714,96.07143 -0.5806,111.24718 -137.98565,87.20273 -142.14286,113.92857"
+         id="path3696"
+         style="color:#000000;fill:#f2f2f2;fill-opacity:1;stroke:none;stroke-width:1;marker:none;visibility:visible;display:inline;overflow:visible;enable-background:accumulate" />
+      <path
+         d="m 311.49849,717.99542 c 13.09096,16.16062 131.04936,-36.56483 130.35714,96.07143 -0.5806,111.24718 -137.98565,87.20273 -142.14286,113.92857 m 8.57142,-138.21429 c 5.7143,-13.92857 57.82095,-57.07962 97.50001,-19.64286 38.61274,36.43071 -7.36813,109.48338 -103.92857,101.07143 m 1.42857,-204.67938 c -2.29979,64.59174 -278.18591,63.77786 -285,-2.82063"
+         id="path3682"
+         style="color:#000000;fill:none;stroke:#000000;stroke-width:3;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:42.40000153;stroke-opacity:1;stroke-dasharray:none;stroke-dashoffset:0;marker:none;visibility:visible;display:inline;overflow:visible;enable-background:accumulate" />
+      <path
+         d="m 311.48509,717.99038 -6.09375,108.375 -3.53125,44.84375 c 0.34614,0.0301 0.68641,0.0657 1.03125,0.0937 l -3.1875,56.68755 c 4.15721,-26.72584 141.57565,-2.69032 142.15625,-113.9375 0.69222,-132.63626 -117.28404,-79.90188 -130.375,-96.0625 z"
+         id="path3689"
+         style="color:#000000;fill:none;stroke:none;stroke-width:1;marker:none;visibility:visible;display:inline;overflow:visible;enable-background:accumulate" />
+    </g>
+  </g>
+</svg>
