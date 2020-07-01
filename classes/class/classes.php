@@ -1620,6 +1620,19 @@ score VARCHAR(50)
 ";
 $this->conn->exec($sql77);
 
+$sql78 =
+"CREATE TABLE IF NOT EXISTS btps_student_grades(
+id INT PRIMARY KEY AUTO_INCREMENT ,
+`email` varchar(255) NOT NULL,
+assessment_id VARCHAR(50) NOT NULL,
+subject VARCHAR(100) NOT NULL,
+class VARCHAR(100) NOT NULL,
+assessment_type VARCHAR(100) NOT NULL,
+total VARCHAR(100) NOT NULL
+)ENGINE=InnoDB DEFAULT CHARSET=utf8;
+";
+$this->conn->exec($sql78);
+
 }
 public function runQuery($sql)
 	{

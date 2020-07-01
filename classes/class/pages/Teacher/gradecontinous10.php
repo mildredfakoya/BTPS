@@ -3,7 +3,7 @@ require_once "includes/teacherheader.php";
 $inputkey = "marketdayanyigba";
 $blocksize = 256;
 $assessmentid = !empty($_POST['hiddenid']) ? $helper->test_input($_POST['hiddenid']) : null;
-$sqlgrade= "SELECT * FROM btps_student_assignment_pre_k WHERE assessment_id =:id GROUP BY email";
+$sqlgrade= "SELECT * FROM btps_student_continous_grade_10 WHERE assessment_id =:id GROUP BY email";
 $stmtgrade= $user_home->runQuery($sqlgrade);
 $stmtgrade->bindparam(':id', $assessmentid);
 $stmtgrade->execute();
@@ -19,7 +19,7 @@ foreach($stmtgrade as $rowgrade){
   $fndec =$fn->decrypt();
   $lndec =$ln->decrypt();
   echo "<div class ='container'>";
-  echo "<form method ='post' action ='gradeasspk.php'>";
+  echo "<form method ='post' action ='gradecont10.php'>";
   echo "<h5>".$fndec." ".$lndec."</h5>";
   echo "<input type = 'text' name ='email' value ='".$emaildec."' readonly class ='borderless'>";
   echo "<input type = 'hidden' name ='hiddenassessment' value ='".$assessmentid."'>";

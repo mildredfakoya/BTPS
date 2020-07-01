@@ -20,8 +20,11 @@ $month = date('m', $y);
 
  <script>
  $(document).ready(function() {
-   $('#summernote').summernote();
+   $('#summernote').summernote({
+     maximumImageFileSize: 102400
+   });
  });
+
 
  $(document).ready(function(){
    $("#multiquestion").validate({

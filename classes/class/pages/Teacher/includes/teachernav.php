@@ -60,7 +60,7 @@ $permissions = explode(" ", $list);
            ?>
       <a class="nav-link dropdown-toggle" href="#" id="navbardrop" data-toggle="dropdown">Pre-K</a>
       <div class="dropdown-menu">
-      <a class="dropdown-item" href="prek.php">View Assessments</a>
+      <a class="dropdown-item" href="#">Under reconstruction</a>
       </div>
     </li>
 
@@ -70,7 +70,7 @@ $permissions = explode(" ", $list);
          ?>
     <a class="nav-link dropdown-toggle" href="#" id="navbardrop" data-toggle="dropdown">Grade-K</a>
     <div class="dropdown-menu">
-        <a class="dropdown-item" href="gradek.php">View Assessments</a>
+        <a class="dropdown-item" href="#">Under reconstruction</a>
     </div>
   </li>
 
@@ -80,7 +80,7 @@ $permissions = explode(" ", $list);
        ?>
   <a class="nav-link dropdown-toggle" href="#" id="navbardrop" data-toggle="dropdown">Grade 1</a>
   <div class="dropdown-menu">
-    <a class="dropdown-item" href="grade1.php">View Assessments</a>
+  <a class="dropdown-item" href="#">Under reconstruction</a>
   </div>
 </li>
 
@@ -90,7 +90,7 @@ $permissions = explode(" ", $list);
      ?>
 <a class="nav-link dropdown-toggle" href="#" id="navbardrop" data-toggle="dropdown">Grade 2</a>
 <div class="dropdown-menu">
-<a class="dropdown-item" href="grade2.php">View Assessments</a>
+<a class="dropdown-item" href="#">Under reconstruction</a>
 </li>
 
 <?php
@@ -99,7 +99,7 @@ $permissions = explode(" ", $list);
      ?>
 <a class="nav-link dropdown-toggle" href="#" id="navbardrop" data-toggle="dropdown">Grade 3</a>
 <div class="dropdown-menu">
-<a class="dropdown-item" href="grade3.php">View Assessments</a>
+<a class="dropdown-item" href="#">Under reconstruction</a>
 </div>
 </li>
 
@@ -109,7 +109,7 @@ $permissions = explode(" ", $list);
      ?>
 <a class="nav-link dropdown-toggle" href="#" id="navbardrop" data-toggle="dropdown">Grade 4</a>
 <div class="dropdown-menu">
-<a class="dropdown-item" href="grade4.php">View Assessments</a>
+<a class="dropdown-item" href="#">Under reconstruction</a>
 </div>
 </li>
 
@@ -120,7 +120,7 @@ $permissions = explode(" ", $list);
      ?>
 <a class="nav-link dropdown-toggle" href="#" id="navbardrop" data-toggle="dropdown">Grade 5</a>
 <div class="dropdown-menu">
-<a class="dropdown-item" href="grade5.php">View Assessments</a>
+<a class="dropdown-item" href="#">Under reconstruction</a>
 </li>
 
 <?php
@@ -129,7 +129,7 @@ $permissions = explode(" ", $list);
      ?>
 <a class="nav-link dropdown-toggle" href="#" id="navbardrop" data-toggle="dropdown">Grade 6</a>
 <div class="dropdown-menu">
-<a class="dropdown-item" href="grade6.php">View Assessments</a>
+<a class="dropdown-item" href="#">Under reconstruction</a>
 </li>
 
 
@@ -139,7 +139,7 @@ $permissions = explode(" ", $list);
      ?>
 <a class="nav-link dropdown-toggle" href="#" id="navbardrop" data-toggle="dropdown">Grade 7</a>
 <div class="dropdown-menu">
-<a class="dropdown-item" href="grade7.php">View Assessments</a>
+<a class="dropdown-item" href="#">Under reconstruction</a>
 </div>
 </li>
 
@@ -149,7 +149,7 @@ $permissions = explode(" ", $list);
      ?>
 <a class="nav-link dropdown-toggle" href="#" id="navbardrop" data-toggle="dropdown">Grade 8</a>
 <div class="dropdown-menu">
-<a class="dropdown-item" href="grade8.php">View Assessments</a>
+<a class="dropdown-item" href="#">Under reconstruction</a>
 </div>
 </li>
 
@@ -159,7 +159,7 @@ $permissions = explode(" ", $list);
      ?>
 <a class="nav-link dropdown-toggle" href="#" id="navbardrop" data-toggle="dropdown">Grade 9</a>
 <div class="dropdown-menu">
-<a class="dropdown-item" href="grade9.php">View Assessments</a>
+<a class="dropdown-item" href="#">Under reconstruction</a>
 </div>
 </li>
 
@@ -169,7 +169,7 @@ $permissions = explode(" ", $list);
      ?>
 <a class="nav-link dropdown-toggle" href="#" id="navbardrop" data-toggle="dropdown">Grade 10</a>
 <div class="dropdown-menu">
-<a class="dropdown-item" href="grade10.php">View Assessments</a>
+<a class="dropdown-item" href="#">Under reconstruction</a>
 </div>
 </li>
 
@@ -179,7 +179,7 @@ $permissions = explode(" ", $list);
      ?>
 <a class="nav-link dropdown-toggle" href="#" id="navbardrop" data-toggle="dropdown">Grade 11</a>
 <div class="dropdown-menu">
-<a class="dropdown-item" href="grade11.php">View Assessments</a>
+<a class="dropdown-item" href="#">Under reconstruction</a>
 </div>
 </li>
 
