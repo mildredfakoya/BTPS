@@ -1,9 +1,8 @@
 <?php
 require "includes/studentinit.php";
-
 date_default_timezone_set('America/dominica');
 $submittedat = date("y-m-d h:i:sa");
-
+$status = "TAKEN";
 $studentanswer= $_POST['answer'];
 $questionid= $_POST['hiddenid'];
 $assessmentid= $_POST['hiddenassessment'];
@@ -28,6 +27,9 @@ for($i=0;$i<count($questionid);$i++)
 try{
   $sqlmultichoice= "UPDATE btps_student_assignment_grade_8 SET submitted_at ='$submittedat', student_answer ='$studentanswer[$i]' WHERE question_id = '$questionid[$i]' AND email ='$email'";
   $result = $user_home->runQuery4($sqlmultichoice);
+
+  $sqltime= "UPDATE btps_student_timer SET end_time ='$submittedat',status = '$status' WHERE email ='$email'";
+  $resulttime = $user_home->runQuery4($sqltime);
 
 
 }
@@ -56,6 +58,11 @@ else{
   $stmtsubmit->bindValue(':visibility' ,$visibility);
   $stmtsubmit->bindValue(':feedback' ,$feedback[$i]);
   $resultsubmit = $stmtsubmit->execute();
+
+  $sqltime= "UPDATE btps_student_timer SET end_time ='$submittedat', status = '$status' WHERE email ='$email'";
+  $resulttime = $user_home->runQuery4($sqltime);
+
+
 }
 
 catch(PDOException $e)

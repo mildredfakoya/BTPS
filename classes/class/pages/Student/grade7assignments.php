@@ -1,6 +1,5 @@
 <?php
 include_once "includes/studentheader.php";
-
 # The original page before form processing;
 $email = $row['email'];
 $sqlid="SELECT * FROM ihs_user_permissions WHERE email= :email" ;
@@ -19,8 +18,6 @@ else{
 <div class ="jumbotron">
 <div class ="header" style ="background-color:#ff0000"><h3>Welcome to Grade 7 Graded Assessment page</h3>
 <p>All assessment listed here are access controlled. Your teacher will give you the access code.<br/>Once a correct access code is entered, your question form will be displayed at the top of this page.</p></div>
-
-
 <!---For Assignments and Projects--->
 
 <h5 class ="header">Assignments</h5>
@@ -43,6 +40,7 @@ else{
 
 
       if($diffdate <= 0){
+
       echo "<form method ='post' action ='grade7assignmentform.php' id ='getassignment' novalidate = 'novalidate'>";
       echo "<div class ='row'>";
       echo "<div class ='col-3'>";
@@ -66,6 +64,7 @@ else{
       echo "</div>";
       echo "</form>";
       echo "<div class ='textspacer'></div>";
+
     }
   }
 

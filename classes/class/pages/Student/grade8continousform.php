@@ -1,5 +1,6 @@
 <?php include "includes/studentheader.php";
 # The original page before form processing;
+date_default_timezone_set("America/dominica");
 $email = $row['email'];
 $sqlid="SELECT * FROM ihs_user_permissions WHERE email= :email" ;
 $stmtid = $user_home->runQuery($sqlid);
@@ -12,42 +13,53 @@ if(!in_array("grade_8", $permissions)){
 $user_home->redirect('../../errors.php?nop');
 }
 else{
+
 ?>
+
 <script>
+
+// slight update to account for browsers not supporting e.which
+//$(document).bind("keydown", disableF5);
+//$(document).on("keydown", disableF5);
+//window.onbeforeunload = function () {
+  //return false;
+//}
+
+function myFunction() {
+  $("form").submit();
+}
+
+
 $(document).ready(function() {
   $('.summernote').summernote({
     maximumImageFileSize: 102400
   });
 });
-$(document).ready(function(){
-$(".submit").validate({
+$(document).ready(function() {
+  $(".submit").validate({
 
         submitHandler: function(form) {
 
-	var r = confirm('Are you ready to save the information?');
-	if(r==true){
 	$.ajax({
 		  url:"submitcontinous8.php",
 		  method:"post",
 		  data:$('form').serialize(),
 		  dataType:"text",
       success:function(){
-       alert('Submitted');
-       location.reload();
+       //alert('Submitted');
+       location.assign('grade8.php');
 }
 
-
-
 	   })
-	}
+
 }
 	})
      });
 
-
 </script>
+
 <?php
-#for processing Assignments
+#for processing continouss
 if(isset($_POST['getass'])){
   $firstname = $row['firstname'];
   $lastname = $row['lastname'];
@@ -91,8 +103,75 @@ if(isset($_POST['getass'])){
     $stmtblank->execute();
 
 
-    if($rowaccess['access_code'] == $accesscode){
+if($rowaccess['access_code'] == $accesscode){
+
+  $sqltimer= "SELECT * FROM btps_student_timer WHERE assessment_id = :id AND email = :email";
+  $stmttimer = $user_home->runQuery($sqltimer);
+  $stmttimer->bindValue(':id', $assessmentid);
+  $stmttimer->bindValue(':email' ,$email);
+  $stmttimer->execute();
+  $rowtimer =$stmttimer->fetch(PDO::FETCH_ASSOC);
+  if(!empty($rowtimer)){
+
+      echo "<div class ='alert alert-success'>Our Records show that you have previously viewed or submitted this assessment. For further assisstance, contact administration</div>";
+
+
+    }
+else{
+
+
+       $duration = $rowaccess['duration'];
+      if(!empty($duration)||$duration !=NULL){
+        $value = 60;
+       $duration = $duration * $value; //convert to seconds
+    }
+    else{
+      $duration = 86400;
+    }
+
+    $_SESSION['start'] = date("Y-m-d H:i:s a");
+    $starttime = date("H:i:s a");
+
+    $endtime = date("H:i:s a", time() + $duration);
+    //$_SESSION['expire'] = strtotime($starttime + $duration);
+    $status = 'STARTED';
+    $sqlsubmit = "INSERT INTO btps_student_timer(assessment_id, email, start_time, duration, status)
+    VALUES(:assessment_id, :email, :start_time, :duration, :status)";
+    $stmtsubmit = $user_home->runQuery($sqlsubmit);
+    $stmtsubmit->bindValue(':email' ,$email);
+    $stmtsubmit->bindValue(':assessment_id' ,$assessmentid);
+    $stmtsubmit->bindValue(':start_time' ,$_SESSION['start']);
+    $stmtsubmit->bindValue(':duration' ,$duration);
+    $stmtsubmit->bindValue(':status' ,$status);
+    $resultsubmit = $stmtsubmit->execute();
+
      ?>
+     <div class ="container">
+       <h3>Start time : <?php echo $starttime ?></h3>
+       <h3>End time : <?php echo $endtime?></h3>
+       <h4>Seconds until your time expires</h4>
+     <h5 id = "timeRemaining" style ="font-size:'large'"></h5>
+
+    </div>
+     <script>
+
+
+
+     var LOG_OUT = <?php echo $duration ?>;
+     var secondscounter = 0;
+
+    window.setInterval(checktime, 1000);
+
+     function checktime() {
+         secondscounter++;
+         var oPanel = document.getElementById("timeRemaining");
+         if (oPanel)
+             oPanel.innerHTML = (LOG_OUT - secondscounter) + "";
+             if (secondscounter >= LOG_OUT) {
+                $("form").submit();
+             }
+         }
+     </script>
      <div class ="header" style ='background-color:green'><h5><?php echo $subject." ".$rowaccess['assessment_type']?></h5></div>
      <div class ="jumbotron">
      <?php
@@ -113,7 +192,8 @@ foreach($stmtmulti as $rowmulti){
   $rowcheck = $stmtcheck->fetch(PDO::FETCH_ASSOC);
 
 ?>
-  <form method = "post" class ="submit">
+
+  <form method = "post" name = "submitform" class ="submit">
   <div class ="header">Question <?php echo $counter++ ?></div>
   <div class ="jumbotron"><div class ="container" style="background-color:white"><p><strong><?php echo htmlspecialchars_decode($rowmulti['question_text']) ?></strong></p>
   </div>
@@ -122,13 +202,14 @@ foreach($stmtmulti as $rowmulti){
   <b>Option 2:</b>    <input type ="radio" name ="answer[]" value = "option2" <?php if ($rowcheck['student_answer'] == "option2") echo "checked"; ?>/> <?php echo $rowmulti['option2'] ?><br/><br/>
   <b>Option 3:</b>    <input type ="radio" name ="answer[]" value = "option3" <?php if ($rowcheck['student_answer'] == "option3") echo "checked"; ?>/> <?php echo $rowmulti['option3'] ?><br/><br/>
   <b>Option 4:</b>    <input type ="radio" name ="answer[]" value = "option4" <?php if ($rowcheck['student_answer'] == "option4") echo "checked"; ?>/> <?php echo $rowmulti['option4'] ?><br/><br/>
+  <input type ='hidden' name ='hiddentime' value =<?php echo $starttime?>>
   <input type ='hidden' name ='hiddenid[]' value =<?php echo $rowmulti['question_id']?>>
   <input type ='hidden' name ='hiddenanswer[]' value =<?php echo $rowmulti['answer']?>>
   <input type ='hidden' name ='hiddenfeedback[]' value =<?php echo $rowmulti['feedback']?>>
   <input type ='hidden' name ='hiddentopic[]' value =<?php echo $rowmulti['topic']?>>
   <input type ='hidden' name ='hiddenassessment[]' value =<?php echo $assessmentid?>>
   <input type ='hidden' name ='hiddensubject[]' value =<?php echo $subject?>>
-  <input type ='submit' class ='btn btn-danger' name ='submit' value ='Submit'>
+  <!--<input type ='submit' class ='btn btn-danger' name ='submit' value ='Submit'>-->
   </form>
   <?php
   if($rowcheck['student_answer'] == NULL ||$rowcheck['student_answer'] ==''){
@@ -163,7 +244,7 @@ foreach($stmtblank as $rowblank){
   $stmtcheck->execute();
   $rowcheck = $stmtcheck->fetch(PDO::FETCH_ASSOC);
 ?>
- <form method ="post" class ="submit">
+ <form method ="post" name = "submitform" class ="submit">
   <div class ="header">Question <?php echo $counter++ ?></div>
   <div class ="jumbotron">
   <div class ="container" style="background-color:white"><p><strong><?php echo htmlspecialchars_decode($rowblank['question_text']) ?></strong></p>
@@ -171,22 +252,23 @@ foreach($stmtblank as $rowblank){
   <textarea class ="summernote" name ="answer[]">
     <?php
     if($rowcheck['student_answer']==NULL || $rowcheck['student_answer']==''){
-        echo NULL;
+        echo '';
     }else{
       echo $rowcheck['student_answer'];
     }
     ?>
   </textarea><br/><br/>
+  <input type ='hidden' name ='hiddentime' value =<?php echo $starttime?>>
   <input type ='hidden' name ='hiddenid[]' value =<?php echo $rowblank['question_id']?>>
   <input type ='hidden' name ='hiddenanswer[]' value =<?php echo $rowblank['answer_keyword']?>>
   <input type ='hidden' name ='hiddenfeedback[]' value =<?php echo $rowblank['feedback']?>>
   <input type ='hidden' name ='hiddentopic[]' value =<?php echo $rowblank['topic']?>>
   <input type ='hidden' name ='hiddenassessment[]' value =<?php echo $assessmentid?>>
   <input type ='hidden' name ='hiddensubject[]' value =<?php echo $subject?>>
-  <input type ='submit' class ='btn btn-danger' name ='submit' value ='Submit'>
+<!--  <input type ='submit' class ='btn btn-danger' name ='submit' value ='Submit'>-->
   </form>
   <?php
-  if(empty($rowcheck['student_answer'])|| $rowcheck['student_answer'] == NULL || $rowcheck['student_answer'] ==''){
+  if($rowcheck['student_answer'] == NULL ||$rowcheck['student_answer'] ==''){
   echo "<div class ='alert alert-danger'><p>No submission exists for this question</p></div>";
   }
 
@@ -216,7 +298,7 @@ foreach($stmtessay as $rowessay){
   $stmtcheck->execute();
   $rowcheck = $stmtcheck->fetch(PDO::FETCH_ASSOC);
 ?>
-  <form method = "post" class ="submit">
+  <form method = "post" name = "submitform" class ="submit">
   <div class ="header">Question <?php echo $counter++ ?></div>
   <div class ="jumbotron">
   <div class ="container" style="background-color:white"><p><strong><?php echo htmlspecialchars_decode($rowessay['question_text']) ?></strong></p>
@@ -229,13 +311,14 @@ foreach($stmtessay as $rowessay){
     }
     ?>
   </textarea><br/><br/>
+  <input type ='hidden' name ='hiddentime' value =<?php echo $starttime?>>
     <input type ='hidden' name ='hiddenid[]' value ='<?php echo $rowessay['question_id']?>'>
   <input type ='hidden' name ='hiddenanswer[]' value ='<?php echo $rowessay['answer_guide']?>'>
   <input type ='hidden' name ='hiddenfeedback[]' value ='<?php echo $rowessay['feedback']?>'>
   <input type ='hidden' name ='hiddentopic[]' value ='<?php echo $rowessay['topic']?>'>
   <input type ='hidden' name ='hiddenassessment[]' value ='<?php echo $assessmentid?>'>
   <input type ='hidden' name ='hiddensubject[]' value ='<?php echo $subject?>'>
-  <input type ='submit' class ='btn btn-danger' value ='Submit'>
+  <!--<input type ='submit' class ='btn btn-danger' value ='Submit'>-->
   </form>
   <?php
   if(empty($rowcheck['student_answer'])|| $rowcheck['student_answer'] == NULL || $rowcheck['student_answer'] ==''){
@@ -267,7 +350,7 @@ foreach($stmtbool as $rowbool){
   $stmtcheck->execute();
   $rowcheck = $stmtcheck->fetch(PDO::FETCH_ASSOC);
 ?>
-<form method = "post" class ="submit">
+<form method = "post" name = "submitform" class ="submit">
   <div class ="header">Question <?php echo $counter++ ?></div>
   <div class ="jumbotron">
   <div class ="container" style="background-color:white"><p><strong><?php echo htmlspecialchars_decode($rowbool['question_text']) ?></strong></p>
@@ -275,13 +358,14 @@ foreach($stmtbool as $rowbool){
   <input type ="radio" name ="answer[]" value = "" <?php if((!$rowcheck['student_answer']||$rowcheck['student_answer'] == "") || ($rowcheck['student_answer'] == NULL)){echo "checked";} ?>/>This is a default selection if no answer is selected<br/><br/>
   <b>Option 1:</b>    <input type ="radio" name ="answer[]" value = 'option1' <?php if ($rowcheck['student_answer'] == "option1") echo "checked"; ?>/> <?php echo $rowbool['option1'] ?><br/><br/>
   <b>Option 2:</b>    <input type ="radio" name ="answer[]" value = "option2" <?php if ($rowcheck['student_answer'] == "option2") echo "checked"; ?>/> <?php echo $rowbool['option2'] ?><br/><br/>
+<input type ='hidden' name ='hiddentime' value =<?php echo $starttime?>>
     <input type ='hidden' name ='hiddenid[]' value ='<?php echo $rowbool['question_id']?>'>
   <input type ='hidden' name ='hiddenanswer[]' value ='<?php echo $rowbool['answer']?>'>
   <input type ='hidden' name ='hiddenfeedback[]' value ='<?php echo $rowbool['feedback']?>'>
   <input type ='hidden' name ='hiddentopic[]' value ='<?php echo $rowbool['topic']?>'>
   <input type ='hidden' name ='hiddenassessment[]' value ='<?php echo $assessmentid?>'>
   <input type ='hidden' name ='hiddensubject[]' value ='<?php echo $subject?>'>
-  <input type ='submit' class ='btn btn-danger'  value ='Submit'>
+  <!--<input type ='submit' class ='btn btn-danger'  value ='Submit'>-->
   </form>
   <?php
     if($rowcheck['student_answer'] != NULL ||$rowcheck['student_answer'] !=''){
@@ -300,13 +384,8 @@ foreach($stmtbool as $rowbool){
   }
   //end of true or false
 
-
-
-
-
-
-
-
+echo "<button onclick='myFunction()' class ='btn btn-large btn-danger'>SUBMIT</button>";
+}
 
 } //end of if access code is correct
 else{

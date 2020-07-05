@@ -300,14 +300,6 @@ foreach($stmtbool as $rowbool){
   }
   //end of true or false
 
-
-
-
-
-
-
-
-
 } //end of if access code is correct
 else{
       echo "The access code you entered is not correct. Please enter the correct access code and try again";
@@ -317,8 +309,6 @@ else{
       echo "Please fill in all required fields";
   }
 }
-
-
 ?>
 </div>
 </div>

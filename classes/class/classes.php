@@ -561,6 +561,8 @@ $sql2 =
  date_last_updated VARCHAR(50) DEFAULT NULL,
  updated_by_firstname VARCHAR(250) DEFAULT NULL,
  updated_by_lastname VARCHAR(250) DEFAULT NULL,
+ duration VARCHAR(50) DEFAULT NULL,
+ style VARCHAR(50) DEFAULT NULL,
  access_status VARCHAR(50) DEFAULT 'UNLOCKED',
  month VARCHAR(15) DEFAULT NULL,
  year VARCHAR(4) DEFAULT NULL
@@ -1632,6 +1634,30 @@ total VARCHAR(100) NOT NULL
 )ENGINE=InnoDB DEFAULT CHARSET=utf8;
 ";
 $this->conn->exec($sql78);
+
+
+$sql79 =
+"CREATE TABLE IF NOT EXISTS btps_student_timer(
+id INT PRIMARY KEY AUTO_INCREMENT ,
+`email` varchar(255) NOT NULL,
+assessment_id VARCHAR(50) NOT NULL,
+start_time VARCHAR(50) NOT NULL,
+duration VARCHAR(50) NOT NULL,
+end_time VARCHAR(50) NOT NULL,
+status VARCHAR(50) DEFAULT 'NOT TAKEN',
+FOREIGN KEY (assessment_id)
+REFERENCES btps_new_assessment(assessment_id)
+ON DELETE CASCADE ON UPDATE CASCADE
+)ENGINE=InnoDB DEFAULT CHARSET=utf8;
+";
+$this->conn->exec($sql79);
+
+
+$sql80 = "CREATE OR REPLACE VIEW grades AS (SELECT y.email, y.firstname, y.middlename, y.lastname, g.assessment_id, g.subject, g.class, g.assessment_type, g.total FROM ihs_users y JOIN btps_student_grades g ON y.email = g.email)
+";
+$this->conn->exec($sql80);
+
+
 
 }
 public function runQuery($sql)
