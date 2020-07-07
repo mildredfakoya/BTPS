@@ -1643,7 +1643,7 @@ id INT PRIMARY KEY AUTO_INCREMENT ,
 assessment_id VARCHAR(50) NOT NULL,
 start_time VARCHAR(50) NOT NULL,
 duration VARCHAR(50) NOT NULL,
-end_time VARCHAR(50) NOT NULL,
+end_time VARCHAR(50) DEFAULT NULL,
 status VARCHAR(50) DEFAULT 'NOT TAKEN',
 FOREIGN KEY (assessment_id)
 REFERENCES btps_new_assessment(assessment_id)
