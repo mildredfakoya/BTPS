@@ -20,7 +20,7 @@ if(in_array("pre_k_teacher", $permissions)){
   $class ='Pre - K';
 echo "<div class ='container'>";
 echo "<h5 class ='header'>Pre - K</h5>";
-$sqlcheck= "SELECT * FROM grades WHERE class = '$class' ORDER BY assessment_type";
+$sqlcheck= "SELECT * FROM grades WHERE class = '$class' ORDER BY email, assessment_type";
 $stmtcheck = $user_home->runQuery($sqlcheck);
 $stmtcheck->execute();
 ?>
@@ -71,7 +71,7 @@ if(in_array("grade_k_teacher", $permissions)){
   $class ='Grade K';
 echo "<div class ='container'>";
 echo "<h5 class ='header'>Grade - K</h5>";
-$sqlcheck= "SELECT * FROM grades WHERE class = '$class' ORDER BY assessment_type";
+$sqlcheck= "SELECT * FROM grades WHERE class = '$class' ORDER BY email, assessment_type";
 $stmtcheck = $user_home->runQuery($sqlcheck);
 $stmtcheck->execute();
 ?>
@@ -119,7 +119,7 @@ if(in_array("grade_1_teacher", $permissions)){
   $class ='Grade 1';
 echo "<div class ='container'>";
 echo "<h5 class ='header'>Grade 1</h5>";
-$sqlcheck= "SELECT * FROM grades WHERE class = '$class' ORDER BY assessment_type";
+$sqlcheck= "SELECT * FROM grades WHERE class = '$class' ORDER BY email, assessment_type";
 $stmtcheck = $user_home->runQuery($sqlcheck);
 $stmtcheck->execute();
 ?>
@@ -168,7 +168,7 @@ if(in_array("grade_2_teacher", $permissions)){
   $class ='Grade 2';
 echo "<div class ='container'>";
 echo "<h5 class ='header'>Grade 2</h5>";
-$sqlcheck= "SELECT * FROM grades WHERE class = '$class' ORDER BY assessment_type";
+$sqlcheck= "SELECT * FROM grades WHERE class = '$class' ORDER BY email, assessment_type";
 $stmtcheck = $user_home->runQuery($sqlcheck);
 $stmtcheck->execute();
 ?>
@@ -217,7 +217,7 @@ if(in_array("grade_3_teacher", $permissions)){
   $class ='Grade 3';
 echo "<div class ='container'>";
 echo "<h5 class ='header'>Grade 3</h5>";
-$sqlcheck= "SELECT * FROM grades WHERE class = '$class' ORDER BY assessment_type";
+$sqlcheck= "SELECT * FROM grades WHERE class = '$class' ORDER BY email, assessment_type";
 $stmtcheck = $user_home->runQuery($sqlcheck);
 $stmtcheck->execute();
 ?>
@@ -266,7 +266,7 @@ if(in_array("grade_4_teacher", $permissions)){
   $class ='Grade 4';
 echo "<div class ='container'>";
 echo "<h5 class ='header'>Grade 4</h5>";
-$sqlcheck= "SELECT * FROM grades WHERE class = '$class' ORDER BY assessment_type";
+$sqlcheck= "SELECT * FROM grades WHERE class = '$class' ORDER BY email, assessment_type";
 $stmtcheck = $user_home->runQuery($sqlcheck);
 $stmtcheck->execute();
 ?>
@@ -314,7 +314,7 @@ if(in_array("grade_5_teacher", $permissions)){
   $class ='Grade 5';
 echo "<div class ='container'>";
 echo "<h5 class ='header'>Grade 5</h5>";
-$sqlcheck= "SELECT * FROM grades WHERE class = '$class' ORDER BY assessment_type";
+$sqlcheck= "SELECT * FROM grades WHERE class = '$class' ORDER BY email, assessment_type";
 $stmtcheck = $user_home->runQuery($sqlcheck);
 $stmtcheck->execute();
 ?>
@@ -364,7 +364,7 @@ if(in_array("grade_6_teacher", $permissions)){
   $class ='Grade 6';
 echo "<div class ='container'>";
 echo "<h5 class ='header'>Grade 6</h5>";
-$sqlcheck= "SELECT * FROM grades WHERE class = '$class' ORDER BY assessment_type";
+$sqlcheck= "SELECT * FROM grades WHERE class = '$class' ORDER BY email, assessment_type";
 $stmtcheck = $user_home->runQuery($sqlcheck);
 $stmtcheck->execute();
 ?>
@@ -415,7 +415,7 @@ if(in_array("grade_7_teacher", $permissions)){
   $class ='Grade 7';
 echo "<div class ='container'>";
 echo "<h5 class ='header'>Grade 7</h5>";
-$sqlcheck= "SELECT * FROM grades WHERE class = '$class' ORDER BY assessment_type";
+$sqlcheck= "SELECT * FROM grades WHERE class = '$class' ORDER BY email, assessment_type";
 $stmtcheck = $user_home->runQuery($sqlcheck);
 $stmtcheck->execute();
 ?>
@@ -465,7 +465,7 @@ if(in_array("grade_8_teacher", $permissions)){
   $class ='Grade 8';
 echo "<div class ='container'>";
 echo "<h5 class ='header'>Grade 8</h5>";
-$sqlcheck= "SELECT * FROM grades WHERE class = '$class' ORDER BY assessment_type";
+$sqlcheck= "SELECT * FROM grades WHERE class = '$class' ORDER BY email, assessment_type";
 $stmtcheck = $user_home->runQuery($sqlcheck);
 $stmtcheck->execute();
 ?>
@@ -514,7 +514,7 @@ if(in_array("grade_9_teacher", $permissions)){
   $class ='Grade 9';
 echo "<div class ='container'>";
 echo "<h5 class ='header'>Grade 9</h5>";
-$sqlcheck= "SELECT * FROM grades WHERE class = '$class' ORDER BY assessment_type";
+$sqlcheck= "SELECT * FROM grades WHERE class = '$class' ORDER BY email, assessment_type";
 $stmtcheck = $user_home->runQuery($sqlcheck);
 $stmtcheck->execute();
 ?>
@@ -564,7 +564,7 @@ if(in_array("grade_10_teacher", $permissions)){
   $class ='Grade 10';
 echo "<div class ='container'>";
 echo "<h5 class ='header'>Grade 10</h5>";
-$sqlcheck= "SELECT * FROM grades WHERE class = '$class' ORDER BY assessment_type";
+$sqlcheck= "SELECT * FROM grades WHERE class = '$class' ORDER BY email, assessment_type";
 $stmtcheck = $user_home->runQuery($sqlcheck);
 $stmtcheck->execute();
 ?>
@@ -614,7 +614,7 @@ if(in_array("grade_11_teacher", $permissions)){
   $class ='Grade 11';
 echo "<div class ='container'>";
 echo "<h5 class ='header'>Grade 11</h5>";
-$sqlcheck= "SELECT * FROM grades WHERE class = '$class' ORDER BY assessment_type";
+$sqlcheck= "SELECT * FROM grades WHERE class = '$class' ORDER BY email, assessment_type";
 $stmtcheck = $user_home->runQuery($sqlcheck);
 $stmtcheck->execute();
 ?>
