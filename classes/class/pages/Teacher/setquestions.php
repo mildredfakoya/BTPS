@@ -123,7 +123,7 @@ echo "<td>". $key['answer']. "</td>";
 echo "<td></td>";
 echo "<td>". $key['topic']. "</td>";
 echo "<td>". $key['feedback']."</td>";
-echo "<td><input type = 'submit' class ='btn btn-info' name ='updatemulti' value ='UPDATE'><input type = 'hidden' name ='hiddenmulti' value =".$key['question_id']."></td></tr>";
+echo "<td><input type = 'submit' class ='btn btn-info' name ='updatemulti' value ='UPDATE'><br/><input type = 'submit' class ='btn btn-danger' name ='deletemulti' value ='DELETE'><input type = 'hidden' name ='hiddenmulti' value =".$key['question_id']."></td></tr>";
 echo "</form>";
 }
 
@@ -139,7 +139,7 @@ echo "<td>". $keybool['answer']. "</td>";
 echo "<td></td>";
 echo "<td>". $keybool['topic']. "</td>";
 echo "<td>". $keybool['feedback']. "</td>";
-echo "<td><input type = 'submit' class ='btn btn-info' name ='updatemulti' value ='UPDATE'><input type = 'hidden' name ='hiddenmulti' value =".$keybool['question_id']."></td></tr>";
+echo "<td><input type = 'submit' class ='btn btn-info' name ='updatemulti' value ='UPDATE'><br/><input type = 'submit' class ='btn btn-danger' name ='deletemulti' value ='DELETE'><input type = 'hidden' name ='hiddenmulti' value =".$keybool['question_id']."></td></tr>";
 echo "</form>";
 
 }
@@ -155,7 +155,7 @@ echo "<td></td>";
 echo "<td>". $keyessay['answer_guide']. "</td>";
 echo "<td>". $keyessay['topic']. "</td>";
 echo "<td>". $keyessay['feedback']. "</td>";
-echo "<td><input type = 'submit' class ='btn btn-info' name ='updatemulti' value ='UPDATE'><input type = 'hidden' name ='hiddenmulti' value =".$keyessay['question_id']."></td></tr>";
+echo "<td><input type = 'submit' class ='btn btn-info' name ='updatemulti' value ='UPDATE'><br/><input type = 'submit' class ='btn btn-danger' name ='deletemulti' value ='DELETE'><input type = 'hidden' name ='hiddenmulti' value =".$keyessay['question_id']."></td></tr>";
 echo "</form>";
 }
 
@@ -170,7 +170,7 @@ echo "<td></td>";
 echo "<td>". $keyblank['answer_keyword']. "</td>";
 echo "<td>". $keyblank['topic']. "</td>";
 echo "<td>". $keyblank['feedback']. "</td>";
-echo "<td><input type = 'submit' class ='btn btn-info' name ='updatemulti' value ='UPDATE'><input type = 'hidden' name ='hiddenmulti' value =".$keyblank['question_id']."></td></tr>";
+echo "<td><input type = 'submit' class ='btn btn-info' name ='updatemulti' value ='UPDATE'><br/><input type = 'submit' class ='btn btn-danger' name ='deletemulti' value ='DELETE'><input type = 'hidden' name ='hiddenmulti' value =".$keyblank['question_id']."></td></tr>";
 echo "</form>";
 }
 ?>

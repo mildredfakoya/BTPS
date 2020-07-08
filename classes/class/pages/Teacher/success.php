@@ -9,6 +9,16 @@ if(isset($_GET['deleted']))
          header('refresh:3;teacherhome.php');
 		}
 
+
+		if(isset($_GET['deletedquestion']))
+				{
+
+		          echo  "<div class='alert alert-success'>
+						<strong>File has been deleted</strong>
+				</div>" ;
+		         header('refresh:3;myassessments.php');
+				}
+
 		if(isset($_GET['topicdeleted']))
 				{
 

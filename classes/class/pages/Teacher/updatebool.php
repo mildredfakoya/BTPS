@@ -16,6 +16,27 @@ $y = strtotime($date_created);
 $year = date('Y', $y);
 $month = date('m', $y);
 
+if(isset($_POST['deletemulti'])){
+
+  try{
+      $sql = "DELETE FROM btps_boolean WHERE question_id='$questionid'";
+      $result = $user_home->runQuery4($sql);
+     if ($result){
+
+                     $helper->redirect('success.php?deletedquestion');
+                   }
+      else{
+        echo "Update Failed";
+
+      }
+
+  }
+  catch(PDOException $e)
+      {
+      die('SYSTEM FAILURE!! PLEASE CONTACT YOUR ADMINISTRATOR');
+      }
+}
+
 ?>
 
  <script>
