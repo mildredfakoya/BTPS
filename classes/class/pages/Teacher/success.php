@@ -28,4 +28,13 @@ if(isset($_GET['deleted']))
 		         header('refresh:3;createtopics.php');
 				}
 
+	if(isset($_GET['reset']))
+						{
+
+				          echo  "<div class='alert alert-success'>
+								<strong>Student's access has been reset</strong>
+						</div>" ;
+				         header('refresh:3;release.php');
+						}
+
     ?>
