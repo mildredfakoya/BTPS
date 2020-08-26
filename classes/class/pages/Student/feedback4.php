@@ -21,7 +21,7 @@ $stmtreleaseassignment->execute();
 foreach($stmtreleaseassignment as $getid){
   echo "<form method = 'post'>";
   echo "<input type = 'hidden' name ='assessment_id' value = ".$getid['assessment_id'].">";
-  echo "<input type = 'submit' name = ".$getid['assessment_id']." class ='btn btn-primary'>";
+  echo "<input type = 'submit' value = ".$getid['assessment_id']." name = 'submit' class ='btn btn-primary'>";
   echo "</form>";
 }
 # For Continous assessment
