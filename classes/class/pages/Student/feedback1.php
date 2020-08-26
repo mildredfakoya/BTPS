@@ -8,7 +8,7 @@ $stmtid->execute();
 $rowid = $stmtid->fetch(PDO::FETCH_ASSOC);
 $list = $rowid['permissions'];
 $permissions = explode(" ", $list);
-if(!in_array("grade_4", $permissions)){
+if(!in_array("grade_1", $permissions)){
 $user_home->redirect('../../errors.php?nop');
 }
 else{
@@ -44,7 +44,7 @@ echo "</table></div>";
 # For Exams
 echo "<h4>Click on the button that holds the assessment id and scroll down to review questions and feedback.</h4>";
 echo "<h5> Examinations </h5>";
-$releaseassignments = "SELECT DISTINCT assessment_id FROM btps_student_exam_grade_4 WHERE email = :email AND visibility = 'Visible'";
+$releaseassignments = "SELECT DISTINCT assessment_id FROM btps_student_exam_grade_1 WHERE email = :email AND visibility = 'Visible'";
 $stmtreleaseassignment = $user_home->runQuery($releaseassignments);
 $stmtreleaseassignment->bindValue(':email', $email);
 $stmtreleaseassignment->execute();
@@ -59,7 +59,7 @@ foreach($stmtreleaseassignment as $getid){
 
 # For Continous assessment
 echo "<h5> Continous Assessment </h5>";
-$releaseassignments = "SELECT DISTINCT assessment_id FROM btps_student_continous_grade_4 WHERE email = :email AND visibility = 'Visible'";
+$releaseassignments = "SELECT DISTINCT assessment_id FROM btps_student_continous_grade_1 WHERE email = :email AND visibility = 'Visible'";
 $stmtreleaseassignment = $user_home->runQuery($releaseassignments);
 $stmtreleaseassignment->bindValue(':email', $email);
 $stmtreleaseassignment->execute();
@@ -74,7 +74,7 @@ foreach($stmtreleaseassignment as $getid){
 
 # For Continous assessment
 echo "<h5> Assignments and Projects </h5>";
-$releaseassignments = "SELECT DISTINCT assessment_id FROM btps_student_assignment_grade_4 WHERE email = :email AND visibility = 'Visible'";
+$releaseassignments = "SELECT DISTINCT assessment_id FROM btps_student_assignment_grade_1 WHERE email = :email AND visibility = 'Visible'";
 $stmtreleaseassignment = $user_home->runQuery($releaseassignments);
 $stmtreleaseassignment->bindValue(':email', $email);
 $stmtreleaseassignment->execute();
