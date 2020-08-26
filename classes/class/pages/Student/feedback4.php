@@ -35,18 +35,36 @@ if(isset($_POST['feedbackexam'])){
   $stmtmulti->execute();
   foreach($stmtmulti as $rowmulti){
   ?>
-
   <div class ="jumbotron">
   <div class ="container" style="background-color:white"><p><strong><?php echo htmlspecialchars_decode($rowmulti['question_text']) ?></strong></p>
   <b>Option 1: </b><?php echo $rowmulti['option1'] ?><br/><br/>
   <b>Option 2: </b><?php echo $rowmulti['option2'] ?><br/><br/>
   <b>Option 3: </b><?php echo $rowmulti['option3'] ?><br/><br/>
   <b>Option 4: </b><?php echo $rowmulti['option4'] ?><br/><br/>
-  <b>Correct Answer:</b><?php echo htmlspecialchars_decode($rowmulti['answer']) ?><br/><br/>
-  <b>Feedback:</b><?php echo htmlspecialchars_decode($rowmulti['feedback']) ?><br/><br/>
-</div>
+  <b>Correct Answer: </b><?php echo htmlspecialchars_decode($rowmulti['answer']) ?><br/><br/>
+  <b>Feedback: </b><?php echo htmlspecialchars_decode($rowmulti['feedback']) ?><br/><br/>
+</div></div>
 <?php
 }
+
+#for true or false
+$sqlbool= "SELECT * FROM btps_boolean WHERE assessment_id = :id ORDER BY id";
+$stmtbool = $user_home->runQuery($sqlbool);
+$stmtbool->bindValue(':id', $assessmentid);
+$stmtbool->execute();
+
+foreach($stmtbool as $rowbool){
+?>
+<div class ="jumbotron">
+<div class ="container" style="background-color:white"><p><strong><?php echo htmlspecialchars_decode($rowbool['question_text']) ?></strong></p>
+<b>Option 1: </b><?php echo $rowbool['option1'] ?><br/><br/>
+<b>Option 2: </b><?php echo $rowbool['option2'] ?><br/><br/>
+<b>Correct Answer: </b><?php echo htmlspecialchars_decode($rowbool['answer']) ?><br/><br/>
+<b>Feedback: </b><?php echo htmlspecialchars_decode($rowbool['feedback']) ?><br/><br/>
+</div></div>
+<?php
+}
+
 
 
 
