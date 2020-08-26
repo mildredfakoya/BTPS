@@ -45,6 +45,7 @@ $stmtuploads->execute();
 			<h5 class ="header">Click for: <a href ='prekassignments.php'>Assignments & Projects</a></h5>
 			<h5 class ="header">Click for: <a href ='prekcontinous.php'>Continous Assessments</a></h5>
 			<h5 class ="header">Click for: <a href ='prekexams.php'>Examination</a></h5>
+			<h5 class ="header">Click for: <a href ='feedbackpk.php'>Grades and Feed back</a></h5>
 			<h5 class ="header">Click for: <a href ='studyguideprek.php'>Study Guide</a></h5>
 		</div>
 <h5 class ="header">Class news</h5>
