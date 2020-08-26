@@ -20,9 +20,8 @@ $stmtreleaseassignment->bindValue(':email', $email);
 $stmtreleaseassignment->execute();
 foreach($stmtreleaseassignment as $getid){
   echo "<form method = 'post'>";
-  echo "<input type ='text' name ='subject' value = '".$getid['subject']."'>";
   echo "<input type = 'hidden' name ='assessment_id' value = ".$getid['assessment_id'].">";
-  echo "<input type = 'submit' value = ".$getid['assessment_id']." name = 'feedbackexam' class ='btn btn-primary'>";
+  echo "<input type = 'submit' value = ".$getid['assessment_id'].'---'.$getid['subject']." name = 'feedbackexam' class ='btn btn-primary'><br/><br/>";
   echo "</form>";
 }
 
