@@ -14,7 +14,7 @@ $user_home->redirect('../../errors.php?nop');
 else{
 
 # For Assignments
-$releaseassignments = "SELECT DISTINCT assessment_id FROM btps_student_assignment_grade_4 WHERE email = :email";
+$releaseassignments = "SELECT DISTINCT assessment_id FROM btps_student_exam_grade_4 WHERE email = :email";
 $stmtreleaseassignment = $user_home->runQuery($releaseassignments);
 $stmtreleaseassignment->bindValue(':email', $email);
 $stmtreleaseassignment->execute();
