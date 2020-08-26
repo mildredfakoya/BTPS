@@ -12,7 +12,7 @@ if(!in_array("grade_4", $permissions)){
 $user_home->redirect('../../errors.php?nop');
 }
 else{
-
+echo "<div class ='jumbotron'>";
 # For Exams
 echo "<h5> Examinations </h5>";
 $releaseassignments = "SELECT DISTINCT assessment_id FROM btps_student_exam_grade_4 WHERE email = :email";
@@ -291,7 +291,7 @@ foreach($stmtblank as $rowblank){
 
 
 
-
+echo "</div>";
 include "includes/studentfooter.php";
 }
 ?>
