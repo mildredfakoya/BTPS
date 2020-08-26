@@ -20,10 +20,41 @@ $stmtreleaseassignment->bindValue(':email', $email);
 $stmtreleaseassignment->execute();
 foreach($stmtreleaseassignment as $getid){
   echo "<form method = 'post'>";
+  echo "<input type ='text' name ='subject' value = '".$getid['subject']."'>";
   echo "<input type = 'hidden' name ='assessment_id' value = ".$getid['assessment_id'].">";
-  echo "<input type = 'submit' value = ".$getid['assessment_id']." name = 'submit' class ='btn btn-primary'>";
+  echo "<input type = 'submit' value = ".$getid['assessment_id']." name = 'feedbackexam' class ='btn btn-primary'>";
   echo "</form>";
 }
+
+if(isset($_POST['feedbackexam'])){
+  $assessmentid= !empty($_POST['assessment_id']) ? $helper->test_input($_POST['assessment_id']) : null;
+  #for multichoice Questions
+  $sqlmulti= "SELECT * FROM btps_multichoice WHERE assessment_id = :id ORDER BY id";
+  $stmtmulti = $user_home->runQuery($sqlmulti);
+  $stmtmulti->bindValue(':id', $assessmentid);
+  $stmtmulti->execute();
+  foreach($stmtmulti as $rowmulti){
+  ?>
+
+  <div class ="jumbotron"><div class ="container" style="background-color:white"><p><strong><?php echo htmlspecialchars_decode($rowmulti['question_text']) ?></strong></p>
+  </div>
+  <b>Option 1:</b><?php echo $rowmulti['option1'] ?><br/><br/>
+  <b>Option 2:</b><?php echo $rowmulti['option2'] ?><br/><br/>
+  <b>Option 3:</b><?php echo $rowmulti['option3'] ?><br/><br/>
+  <b>Option 4:</b><?php echo $rowmulti['option4'] ?><br/><br/>
+  <b>Correct Answer:</b><?php echo htmlspecialchars_decode($rowmulti['answer']) ?><br/><br/>
+  <b>Feedback:</b><?php echo htmlspecialchars_decode($rowmulti['feedback']) ?><br/><br/>
+
+<?php
+}
+
+
+
+
+}
+
+
+
 # For Continous assessment
 
 
