@@ -17,7 +17,7 @@ echo "<div class ='container'>";
 echo "<h5 class ='headeranimated'>Graded Work</h5>";
 
 #Grades
-$releasegrades = "SELECT DISTINCT assessment_id FROM grades WHERE email = :email";
+$releasegrades = "SELECT * FROM grades WHERE email = :email";
 $stmtreleasegrades = $user_home->runQuery($releasegrades);
 $stmtreleasegrades->bindValue(':email', $email);
 $stmtreleasegrades->execute();
