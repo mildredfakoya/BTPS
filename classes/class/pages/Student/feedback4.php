@@ -42,6 +42,7 @@ echo "</table></div>";
 //$rowaccess = $stmtaccess->fetch(PDO::FETCH_ASSOC);
 
 # For Exams
+echo "<h3>Click on the button that holds the assessment id and scroll down to review questions and feedback.</h3>";
 echo "<h5> Examinations </h5>";
 $releaseassignments = "SELECT DISTINCT assessment_id FROM btps_student_exam_grade_4 WHERE email = :email AND visibility = 'Visible'";
 $stmtreleaseassignment = $user_home->runQuery($releaseassignments);
