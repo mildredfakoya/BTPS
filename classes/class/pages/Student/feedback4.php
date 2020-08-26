@@ -13,7 +13,7 @@ $user_home->redirect('../../errors.php?nop');
 }
 else{
 
-# For Assignments
+# For Exams
 $releaseassignments = "SELECT DISTINCT assessment_id FROM btps_student_exam_grade_4 WHERE email = :email";
 $stmtreleaseassignment = $user_home->runQuery($releaseassignments);
 $stmtreleaseassignment->bindValue(':email', $email);
@@ -21,7 +21,7 @@ $stmtreleaseassignment->execute();
 foreach($stmtreleaseassignment as $getid){
   echo "<form method = 'post'>";
   echo "<input type = 'hidden' name ='assessment_id' value = ".$getid['assessment_id'].">";
-  echo "<input type = 'submit' value = ".$getid['assessment_id'].'---'.$getid['subject']." name = 'feedbackexam' class ='btn btn-primary'><br/><br/>";
+  echo "<input type = 'submit' value = ".$getid['assessment_id']." name = 'feedbackexam' class ='btn btn-primary'><br/><br/>";
   echo "</form>";
 }
 
@@ -66,6 +66,37 @@ foreach($stmtbool as $rowbool){
 
 
 
+$sqlessay= "SELECT * FROM btps_essay WHERE assessment_id = :id ORDER BY id";
+$stmtessay = $user_home->runQuery($sqlessay);
+$stmtessay->bindValue(':id', $assessmentid);
+$stmtessay->execute();
+
+
+foreach($stmtessay as $rowessay){
+?>
+<div class ="jumbotron">
+<div class ="container" style="background-color:white"><p><strong><?php echo htmlspecialchars_decode($rowessay['question_text']) ?></strong></p>
+<b>Correct Answer: </b><?php echo htmlspecialchars_decode($rowessay['answer']) ?><br/><br/>
+<b>Feedback: </b><?php echo htmlspecialchars_decode($rowessay['feedback']) ?><br/><br/>
+</div></div>
+<?php
+}
+
+#for fill in the blank Questions
+$sqlblank= "SELECT * FROM btps_blank WHERE assessment_id = :id ORDER BY id";
+$stmtblank = $user_home->runQuery($sqlblank);
+$stmtblank->bindValue(':id', $assessmentid);
+$stmtblank->execute();
+
+foreach($stmtblank as $rowblank){
+?>
+<div class ="jumbotron">
+<div class ="container" style="background-color:white"><p><strong><?php echo htmlspecialchars_decode($rowblank['question_text']) ?></strong></p>
+<b>Correct Answer: </b><?php echo htmlspecialchars_decode($rowblank['answer']) ?><br/><br/>
+<b>Feedback: </b><?php echo htmlspecialchars_decode($rowblank['feedback']) ?><br/><br/>
+</div></div>
+<?php
+}
 
 
 }
