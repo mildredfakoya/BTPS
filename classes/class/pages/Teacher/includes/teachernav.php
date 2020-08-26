@@ -52,7 +52,9 @@ $permissions = explode(" ", $list);
       <a class="dropdown-item" href="proctor.php">Proctor an Assessment</a>
       <a class="dropdown-item" href="gradeassessment.php">Grade an assessment</a>
       <a class="dropdown-item" href="graded.php">View Graded Assessments</a>
-      <a class="dropdown-item" href="release.php">Release Assessment</a>
+      <a class="dropdown-item" href="release.php">Unlock assessment for student access</a>
+      <a class="dropdown-item" href="releasegrades.php">Release graded assessment for student's Feedback</a>
+
 
       </div>
       </li>

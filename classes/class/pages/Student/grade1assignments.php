@@ -80,7 +80,9 @@ else{
 foreach($stmtcheck as $get){
   echo "<li>".$get['assessment_id']."</li>";
 }
-echo "</div>";
+echo "</ul></div>";
+
+$
 ?>
 
 

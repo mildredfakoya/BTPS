@@ -80,7 +80,23 @@ else{
 foreach($stmtcheck as $get){
   echo "<li>".$get['assessment_id']."</li>";
 }
-echo "</div>";
+echo "</ul></div>";
+
+$visibility = "Visible";
+$sqlcheck= "SELECT * FROM btps_student_assignment_pre_k WHERE email = :email AND visibility = :visibility GROUP BY assessment_id";
+$stmtcheck = $user_home->runQuery($sqlcheck);
+$stmtcheck->bindValue(':email', $email);
+$stmtcheck->bindValue(':visibility', $visibility);
+$stmtcheck->execute();
+//  $rowcheck = $stmtcheck->fetch(PDO::FETCH_ASSOC);
+echo "<div class ='spacer'></div>";
+echo "<div class ='header' style = 'background-color:green'><p>Review your graded work";
+echo "<ul>";
+foreach($stmtcheck as $get){
+echo "<li>".$get['assessment_id']."</li>";
+
+}
+echo "</ul></div>";
 ?>
 
 

@@ -66,7 +66,7 @@ $permissions = explode(" ", $list);
   <div class="dropdown-menu">
     <a class="dropdown-item" href="grade1.php"> Grade one Home Page</a>
     <a class="dropdown-item" target= "_blank" href="https://blackboard.coursesites.com/">Blackboard</a>
-    <a class="dropdown-item" target= "_blank" href="https://us02web.zoom.us/j/87114057766">Join Zoom Class</a>
+    <!--<a class="dropdown-item" target= "_blank" href="https://us02web.zoom.us/j/87114057766">Join Zoom Class</a>-->
   </div>
 </li>
 
@@ -78,7 +78,7 @@ $permissions = explode(" ", $list);
 <div class="dropdown-menu">
   <a class="dropdown-item" href="grade2.php">Grade two Home Page</a>
   <a class="dropdown-item" target= "_blank" href="https://blackboard.coursesites.com/">Blackboard</a>
-  <a class="dropdown-item" target= "_blank" href="https://us02web.zoom.us/j/82052708190">Join Zoom Class</a>
+<!--  <a class="dropdown-item" target= "_blank" href="https://us02web.zoom.us/j/82052708190">Join Zoom Class</a>-->
 </div>
 </li>
 
@@ -90,7 +90,7 @@ $permissions = explode(" ", $list);
 <div class="dropdown-menu">
   <a class="dropdown-item" href="grade3.php">Grade three Home Page</a>
   <a class="dropdown-item" target= "_blank" href="https://blackboard.coursesites.com/">Blackboard</a>
-  <a class="dropdown-item" target= "_blank" href="https://us02web.zoom.us/j/84702993730">Join Zoom Class</a>
+  <!--<a class="dropdown-item" target= "_blank" href="https://us02web.zoom.us/j/84702993730">Join Zoom Class</a>-->
 </div>
 </li>
 
@@ -102,7 +102,7 @@ $permissions = explode(" ", $list);
 <div class="dropdown-menu">
   <a class="dropdown-item" href="grade4.php">Grade four Home Page</a>
   <a class="dropdown-item" target= "_blank" href="https://blackboard.coursesites.com/">Blackboard</a>
-  <a class="dropdown-item" target= "_blank" href="https://us02web.zoom.us/j/85675057132">Join Zoom Class</a>
+  <!--<a class="dropdown-item" target= "_blank" href="https://us02web.zoom.us/j/85675057132">Join Zoom Class</a>-->
 </div>
 </li>
 
@@ -115,7 +115,7 @@ $permissions = explode(" ", $list);
 <div class="dropdown-menu">
   <a class="dropdown-item" href="grade5.php">Grade five Home Page</a>
   <a class="dropdown-item" target= "_blank" href="https://blackboard.coursesites.com/">Blackboard</a>
-  <a class="dropdown-item" target= "_blank" href="https://us02web.zoom.us/j/87063460642">Join Zoom Class</a>
+  <!--<a class="dropdown-item" target= "_blank" href="https://us02web.zoom.us/j/87063460642">Join Zoom Class</a>-->
 </div>
 </li>
 
@@ -127,7 +127,7 @@ $permissions = explode(" ", $list);
 <div class="dropdown-menu">
     <a class="dropdown-item" href="grade6.php">Grade six Home Page</a>
     <a class="dropdown-item" target= "_blank" href="https://blackboard.coursesites.com/">Blackboard</a>
-    <a class="dropdown-item" target= "_blank" href="https://us02web.zoom.us/j/81104844111">Join Zoom Class</a>
+    <!--<a class="dropdown-item" target= "_blank" href="https://us02web.zoom.us/j/81104844111">Join Zoom Class</a>-->
 </div>
 </li>
 
@@ -152,7 +152,7 @@ $permissions = explode(" ", $list);
 <div class="dropdown-menu">
   <a class="dropdown-item" href="grade8.php">Grade eight Home Page</a>
   <a class="dropdown-item" target= "_blank" href="https://blackboard.coursesites.com/">Blackboard</a>
-  <a class="dropdown-item" target= "_blank" href=" https://us02web.zoom.us/j/85617723160">Join Zoom Class</a>
+  <!--<a class="dropdown-item" target= "_blank" href=" https://us02web.zoom.us/j/85617723160">Join Zoom Class</a>-->
 </div>
 </li>
 
