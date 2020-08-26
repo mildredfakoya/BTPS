@@ -13,9 +13,37 @@ $user_home->redirect('../../errors.php?nop');
 }
 else{
 echo "<div class ='jumbotron'>";
+echo "<div class ='container'>";
+echo "<h5 class ='headeranimated'>Graded Work</h5>";
+
+#Grades
+$releasegrades = "SELECT DISTINCT assessment_id FROM grades WHERE email = :email";
+$stmtreleasegrades = $user_home->runQuery($releasegrades);
+$stmtreleasegrades->bindValue(':email', $email);
+$stmtreleasegrades->execute();
+echo "<table><tr>";
+echo "<th>Assessment ID</th>";
+echo "<th>Subject</th>";
+echo "<th>Class</th>";
+echo "<th>Assessment type</th>";
+echo "<th>Score</th>";
+echo "</tr>";
+foreach($stmtreleasegrades as $rowgrades){
+  echo "<tr>";
+  echo "<td>".$rowgrades['assessment_id']."</td>";
+  echo "<td>".$rowgrades['subject']."</td>";
+  echo "<td>".$rowgrades['class']."</td>";
+  echo "<td>".$rowgrades['assessment_type']."</td>";
+    echo "<td>".$rowgrades['total']."</td>";
+  echo "</tr>";
+}
+
+echo "</table></div>";
+//$rowaccess = $stmtaccess->fetch(PDO::FETCH_ASSOC);
+
 # For Exams
 echo "<h5> Examinations </h5>";
-$releaseassignments = "SELECT DISTINCT assessment_id FROM btps_student_exam_grade_4 WHERE email = :email";
+$releaseassignments = "SELECT DISTINCT assessment_id FROM btps_student_exam_grade_4 WHERE email = :email AND visibility = 'Visible'";
 $stmtreleaseassignment = $user_home->runQuery($releaseassignments);
 $stmtreleaseassignment->bindValue(':email', $email);
 $stmtreleaseassignment->execute();
@@ -30,7 +58,7 @@ foreach($stmtreleaseassignment as $getid){
 
 # For Continous assessment
 echo "<h5> Continous Assessment </h5>";
-$releaseassignments = "SELECT DISTINCT assessment_id FROM btps_student_continous_grade_4 WHERE email = :email";
+$releaseassignments = "SELECT DISTINCT assessment_id FROM btps_student_continous_grade_4 WHERE email = :email AND visibility = 'Visible'";
 $stmtreleaseassignment = $user_home->runQuery($releaseassignments);
 $stmtreleaseassignment->bindValue(':email', $email);
 $stmtreleaseassignment->execute();
@@ -45,7 +73,7 @@ foreach($stmtreleaseassignment as $getid){
 
 # For Continous assessment
 echo "<h5> Assignments and Projects </h5>";
-$releaseassignments = "SELECT DISTINCT assessment_id FROM btps_student_assignment_grade_4 WHERE email = :email";
+$releaseassignments = "SELECT DISTINCT assessment_id FROM btps_student_assignment_grade_4 WHERE email = :email AND visibility = 'Visible'";
 $stmtreleaseassignment = $user_home->runQuery($releaseassignments);
 $stmtreleaseassignment->bindValue(':email', $email);
 $stmtreleaseassignment->execute();
