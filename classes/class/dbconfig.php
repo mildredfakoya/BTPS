@@ -5,7 +5,7 @@ class Database
     private $host = "localhost";
     private $database = "bonneterreschool";
     private $username = "root";
-    private $password ="";
+    private $password ="newlife11";
     public $conn;
 
     public function dbConnection()
