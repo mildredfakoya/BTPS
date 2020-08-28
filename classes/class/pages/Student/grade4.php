@@ -89,7 +89,7 @@ $rowtable = $stmttimetable->fetch(PDO::FETCH_ASSOC);
 </div>
 
 <div class ="container">
-		<h5 class ="header"><a href ='#'>Chat Room / Discussion Forums</a></h5>
+		<h5 class ="header"><a href ='chatroom4.php'>Chat Room / Discussion Forums</a></h5>
 		<h5 class ="header"><a href ='#'>Live web conference - Bonne Terre Meet</a></h5>
 </div>
 

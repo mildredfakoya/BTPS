@@ -1658,6 +1658,174 @@ $sql80 = "CREATE OR REPLACE VIEW grades AS (SELECT y.email, y.firstname, y.middl
 $this->conn->exec($sql80);
 
 
+$sql81 =
+"CREATE TABLE IF NOT EXISTS chats4(
+id INT PRIMARY KEY AUTO_INCREMENT,
+created_at VARCHAR(255),
+created_by_email VARCHAR(255),
+chat_id VARCHAR(50),
+content TEXT NOT NULL,
+recipient_mail VARCHAR(255) NOT NULL DEFAULT 'All'
+)ENGINE=InnoDB DEFAULT CHARSET=utf8;
+";
+$this->conn->exec($sql81);
+
+
+$sql82 =
+"CREATE TABLE IF NOT EXISTS chats5(
+id INT PRIMARY KEY AUTO_INCREMENT,
+created_at VARCHAR(255),
+created_by_email VARCHAR(255),
+chat_id VARCHAR(50),
+content TEXT NOT NULL,
+recipient_mail VARCHAR(255) NOT NULL DEFAULT 'All'
+)ENGINE=InnoDB DEFAULT CHARSET=utf8;
+";
+$this->conn->exec($sql82);
+
+
+$sql83 =
+"CREATE TABLE IF NOT EXISTS chats6(
+id INT PRIMARY KEY AUTO_INCREMENT,
+created_at VARCHAR(255),
+created_by_email VARCHAR(255),
+chat_id VARCHAR(50),
+content TEXT NOT NULL,
+recipient_mail VARCHAR(255) NOT NULL DEFAULT 'All'
+)ENGINE=InnoDB DEFAULT CHARSET=utf8;
+";
+$this->conn->exec($sql83);
+
+$sql84 =
+"CREATE TABLE IF NOT EXISTS chats7(
+id INT PRIMARY KEY AUTO_INCREMENT,
+created_at VARCHAR(255),
+created_by_email VARCHAR(255),
+chat_id VARCHAR(50),
+content TEXT NOT NULL,
+recipient_mail VARCHAR(255) NOT NULL DEFAULT 'All'
+)ENGINE=InnoDB DEFAULT CHARSET=utf8;
+";
+$this->conn->exec($sql84);
+
+
+$sql85 =
+"CREATE TABLE IF NOT EXISTS chats8(
+id INT PRIMARY KEY AUTO_INCREMENT,
+created_at VARCHAR(255),
+created_by_email VARCHAR(255),
+chat_id VARCHAR(50),
+content TEXT NOT NULL,
+recipient_mail VARCHAR(255) NOT NULL DEFAULT 'All'
+)ENGINE=InnoDB DEFAULT CHARSET=utf8;
+";
+$this->conn->exec($sql85);
+
+$sql86 =
+"CREATE TABLE IF NOT EXISTS chats9(
+id INT PRIMARY KEY AUTO_INCREMENT,
+created_at VARCHAR(255),
+created_by_email VARCHAR(255),
+chat_id VARCHAR(50),
+content TEXT NOT NULL,
+recipient_mail VARCHAR(255) NOT NULL DEFAULT 'All'
+)ENGINE=InnoDB DEFAULT CHARSET=utf8;
+";
+$this->conn->exec($sql86);
+
+
+$sql87 =
+"CREATE TABLE IF NOT EXISTS chats10(
+id INT PRIMARY KEY AUTO_INCREMENT,
+created_at VARCHAR(255),
+created_by_email VARCHAR(255),
+chat_id VARCHAR(50),
+content TEXT NOT NULL,
+recipient_mail VARCHAR(255) NOT NULL DEFAULT 'All'
+)ENGINE=InnoDB DEFAULT CHARSET=utf8;
+";
+$this->conn->exec($sql87);
+
+
+$sql88 =
+"CREATE TABLE IF NOT EXISTS chats11(
+id INT PRIMARY KEY AUTO_INCREMENT,
+created_at VARCHAR(255),
+created_by_email VARCHAR(255),
+chat_id VARCHAR(50),
+content TEXT NOT NULL,
+recipient_mail VARCHAR(255) NOT NULL DEFAULT 'All'
+)ENGINE=InnoDB DEFAULT CHARSET=utf8;
+";
+$this->conn->exec($sql88);
+
+
+
+$sql89 =
+"CREATE TABLE IF NOT EXISTS chats3(
+id INT PRIMARY KEY AUTO_INCREMENT,
+created_at VARCHAR(255),
+created_by_email VARCHAR(255),
+chat_id VARCHAR(50),
+content TEXT NOT NULL,
+recipient_mail VARCHAR(255) NOT NULL DEFAULT 'All'
+)ENGINE=InnoDB DEFAULT CHARSET=utf8;
+";
+$this->conn->exec($sql89);
+
+
+$sql90 =
+"CREATE TABLE IF NOT EXISTS chats2(
+id INT PRIMARY KEY AUTO_INCREMENT,
+created_at VARCHAR(255),
+created_by_email VARCHAR(255),
+chat_id VARCHAR(50),
+content TEXT NOT NULL,
+recipient_mail VARCHAR(255) NOT NULL DEFAULT 'All'
+)ENGINE=InnoDB DEFAULT CHARSET=utf8;
+";
+$this->conn->exec($sql90);
+
+$sql91 =
+"CREATE TABLE IF NOT EXISTS chats1(
+id INT PRIMARY KEY AUTO_INCREMENT,
+created_at VARCHAR(255),
+created_by_email VARCHAR(255),
+chat_id VARCHAR(50),
+content TEXT NOT NULL,
+recipient_mail VARCHAR(255) NOT NULL DEFAULT 'All'
+)ENGINE=InnoDB DEFAULT CHARSET=utf8;
+";
+$this->conn->exec($sql91);
+
+
+$sql92 =
+"CREATE TABLE IF NOT EXISTS chatsk(
+id INT PRIMARY KEY AUTO_INCREMENT,
+created_at VARCHAR(255),
+created_by_email VARCHAR(255),
+chat_id VARCHAR(50),
+content TEXT NOT NULL,
+recipient_mail VARCHAR(255) NOT NULL DEFAULT 'All'
+)ENGINE=InnoDB DEFAULT CHARSET=utf8;
+";
+$this->conn->exec($sql92);
+
+
+$sql93 =
+"CREATE TABLE IF NOT EXISTS chatspk(
+id INT PRIMARY KEY AUTO_INCREMENT,
+created_at VARCHAR(255),
+created_by_email VARCHAR(255),
+chat_id VARCHAR(50),
+content TEXT NOT NULL,
+recipient_mail VARCHAR(255) NOT NULL DEFAULT 'All'
+)ENGINE=InnoDB DEFAULT CHARSET=utf8;
+";
+$this->conn->exec($sql93);
+
+
+
 
 }
 public function runQuery($sql)

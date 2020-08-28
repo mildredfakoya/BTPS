@@ -11,6 +11,7 @@ if(!$user_home->is_logged_in())
 }
 $role = $_SESSION['userrole'];
 $access = $_SESSION['userpermission'];
+//$_SESSION['username'] = "Abuhena Rony";
 if(!isset($role) || $role!="Student"){
 $helper->redirect('../../errors.php?error2');
 

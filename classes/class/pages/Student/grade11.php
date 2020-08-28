@@ -87,6 +87,12 @@ $rowtable = $stmttimetable->fetch(PDO::FETCH_ASSOC);
 	Click for <a target = '_blank' href='<?php echo $rowtable["file"]?>'> time table </a>
 </h5>
 </div>
+
+<div class ="container">
+		<h5 class ="header"><a href ='chatroom11.php'>Chat Room / Discussion Forums</a></h5>
+		<h5 class ="header"><a href ='#'>Live web conference - Bonne Terre Meet</a></h5>
+</div>
+
 <div class ="jumbotron">
 <div class ="outer">
 <div class ="heading">File / Video Uploads</div>

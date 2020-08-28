@@ -9,6 +9,8 @@
 <link rel = "stylesheet" type ="text/css" href ="../../../../css/style.css" media="screen">
 <link rel="stylesheet" href="../../../../scripts/bootstrap.min.css">
 <link rel="stylesheet" href="../../../../summernote/summernote-bs4.min.css">
+
+
 <script src="../../../../scripts/jquery.min.js"></script>
 <script src="../../../../scripts/popper.min.js"></script>
 <script src="../../../../scripts/bootstrap.min.js"></script>
@@ -18,6 +20,7 @@
 <script src="../../../../scripts/formvalidator.js"></script>
 <script src ="../../../../scripts/loader.js"></script>
 <script src ="../../../../summernote/summernote-bs4.min.js"></script>
+
 <style>
 * {
   box-sizing: border-box;
