@@ -3,7 +3,6 @@ require_once 'includes/teacherheader.php';
 $email = $row['email'];
 $firstname = $row['firstname'];
 $lastname = $row['lastname'];
-
 $sqlid="SELECT * FROM ihs_user_permissions WHERE email= :email" ;
 $stmtid = $user_home->runQuery($sqlid);
 $stmtid->bindValue(':email', $email);
@@ -18,7 +17,6 @@ else{
 ?>
 <script>
 $(document).ready(function (e) {
-
  $("#form").on('submit',(function(e) {
   e.preventDefault();
   $.ajax({
@@ -92,7 +90,7 @@ $(document).ready(function (e) {
       </tr>
 
       <tr>
-        <th>Book Description</th>
+        <th>Book Description and Author</th>
         <td><textarea name ='description'></textarea></td>
       </tr>
 
@@ -105,8 +103,6 @@ $(document).ready(function (e) {
     <input type = 'submit' name ='uploadbook' class ='btn btn-secondary' value = 'Add Book to Library'>
   </form>
 </div>
-
-
 
 <?php
 require_once 'includes/teacherfooter.php';
