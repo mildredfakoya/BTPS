@@ -24,7 +24,7 @@ else{
   <div class ='header'>Pre k Grade Book</div>
   <div class ='container'>
   <?php
-  $sqlgetstudents="SELECT DISTINCT * FROM grades WHERE class ='Pre - K'" ;
+  $sqlgetstudents="SELECT DISTINCT email FROM grades WHERE class ='Pre - K'" ;
   $stmtgetstudents= $user_home->runQuery($sqlgetstudents);
   //$stmtid->bindValue(':email', $email);
   $stmtgetstudents->execute();
@@ -50,7 +50,7 @@ else{
   <div class ='header'>Grade k Grade Book</div>
   <div class ='container'>
     <?php
-    $sqlgetstudents="SELECT DISTINCT * FROM grades WHERE class ='Grade K'" ;
+    $sqlgetstudents="SELECT DISTINCT email FROM grades WHERE class ='Grade K'" ;
     $stmtgetstudents= $user_home->runQuery($sqlgetstudents);
     //$stmtid->bindValue(':email', $email);
     $stmtgetstudents->execute();
@@ -76,7 +76,7 @@ else{
   <div class ='header'>Grade 1 Grade Book</div>
   <div class ='container'>
     <?php
-    $sqlgetstudents="SELECT DISTINCT * FROM grades WHERE class ='Grade 1'" ;
+    $sqlgetstudents="SELECT DISTINCT email FROM grades WHERE class ='Grade 1'" ;
     $stmtgetstudents= $user_home->runQuery($sqlgetstudents);
     //$stmtid->bindValue(':email', $email);
     $stmtgetstudents->execute();
@@ -102,7 +102,7 @@ else{
   <div class ='header'>Grade 2 Grade Book</div>
   <div class ='container'>
     <?php
-    $sqlgetstudents="SELECT DISTINCT * FROM grades WHERE class ='Grade 2'" ;
+    $sqlgetstudents="SELECT DISTINCT email FROM grades WHERE class ='Grade 2'" ;
     $stmtgetstudents= $user_home->runQuery($sqlgetstudents);
     //$stmtid->bindValue(':email', $email);
     $stmtgetstudents->execute();
@@ -129,7 +129,7 @@ else{
   <div class ='header'>Grade 3 Grade Book</div>
   <div class ='container'>
     <?php
-    $sqlgetstudents="SELECT DISTINCT * FROM grades WHERE class ='Grade 3'" ;
+    $sqlgetstudents="SELECT DISTINCT email FROM grades WHERE class ='Grade 3'" ;
     $stmtgetstudents= $user_home->runQuery($sqlgetstudents);
     //$stmtid->bindValue(':email', $email);
     $stmtgetstudents->execute();
@@ -155,7 +155,7 @@ else{
   <div class ='header'>Grade 4 Grade Book</div>
   <div class ='container'>
     <?php
-    $sqlgetstudents="SELECT DISTINCT * FROM grades WHERE class ='Grade 4'" ;
+    $sqlgetstudents="SELECT DISTINCT email FROM grades WHERE class ='Grade 4'" ;
     $stmtgetstudents= $user_home->runQuery($sqlgetstudents);
     //$stmtid->bindValue(':email', $email);
     $stmtgetstudents->execute();
@@ -182,7 +182,7 @@ else{
   <div class ='header'>Grade 5 Grade Book</div>
   <div class ='container'>
     <?php
-    $sqlgetstudents="SELECT DISTINCT * FROM grades WHERE class ='Grade 5'" ;
+    $sqlgetstudents="SELECT DISTINCT email FROM grades WHERE class ='Grade 5'" ;
     $stmtgetstudents= $user_home->runQuery($sqlgetstudents);
     //$stmtid->bindValue(':email', $email);
     $stmtgetstudents->execute();
@@ -209,7 +209,7 @@ else{
   <div class ='header'>Grade 6 Grade Book</div>
   <div class ='container'>
     <?php
-    $sqlgetstudents="SELECT DISTINCT * FROM grades WHERE class ='Grade 6'" ;
+    $sqlgetstudents="SELECT DISTINCT email FROM grades WHERE class ='Grade 6'" ;
     $stmtgetstudents= $user_home->runQuery($sqlgetstudents);
     //$stmtid->bindValue(':email', $email);
     $stmtgetstudents->execute();
@@ -237,7 +237,7 @@ else{
   <div class ='header'>Grade 7 Grade Book</div>
   <div class ='container'>
     <?php
-    $sqlgetstudents="SELECT DISTINCT * FROM grades WHERE class ='Grade 7'" ;
+    $sqlgetstudents="SELECT DISTINCT email FROM grades WHERE class ='Grade 7'" ;
     $stmtgetstudents= $user_home->runQuery($sqlgetstudents);
     //$stmtid->bindValue(':email', $email);
     $stmtgetstudents->execute();
@@ -264,7 +264,7 @@ else{
   <div class ='header'>Grade 8 Grade Book</div>
   <div class ='container'>
     <?php
-    $sqlgetstudents="SELECT DISTINCT * FROM grades WHERE class ='Grade 8'" ;
+    $sqlgetstudents="SELECT DISTINCT email FROM grades WHERE class ='Grade 8'" ;
     $stmtgetstudents= $user_home->runQuery($sqlgetstudents);
     //$stmtid->bindValue(':email', $email);
     $stmtgetstudents->execute();
@@ -291,7 +291,7 @@ else{
   <div class ='header'>Grade 9 Grade Book</div>
   <div class ='container'>
     <?php
-    $sqlgetstudents="SELECT DISTINCT * FROM grades WHERE class ='Grade 9'" ;
+    $sqlgetstudents="SELECT DISTINCT email FROM grades WHERE class ='Grade 9'" ;
     $stmtgetstudents= $user_home->runQuery($sqlgetstudents);
     //$stmtid->bindValue(':email', $email);
     $stmtgetstudents->execute();
@@ -318,7 +318,7 @@ else{
   <div class ='header'>Grade 10 Grade Book</div>
   <div class ='container'>
     <?php
-    $sqlgetstudents="SELECT DISTINCT * FROM grades WHERE class ='Grade 10'" ;
+    $sqlgetstudents="SELECT DISTINCT email FROM grades WHERE class ='Grade 10'" ;
     $stmtgetstudents= $user_home->runQuery($sqlgetstudents);
     //$stmtid->bindValue(':email', $email);
     $stmtgetstudents->execute();
@@ -346,7 +346,7 @@ else{
   <div class ='header'>Grade 11 Grade Book</div>
   <div class ='container'>
     <?php
-    $sqlgetstudents="SELECT DISTINCT * FROM grades WHERE class ='Grade 11'" ;
+    $sqlgetstudents="SELECT DISTINCT email FROM grades WHERE class ='Grade 11'" ;
     $stmtgetstudents= $user_home->runQuery($sqlgetstudents);
     //$stmtid->bindValue(':email', $email);
     $stmtgetstudents->execute();
