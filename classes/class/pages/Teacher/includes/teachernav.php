@@ -68,7 +68,7 @@ $permissions = explode(" ", $list);
       <a class="nav-link dropdown-toggle" href="#" id="navbardrop" data-toggle="dropdown">Library and Grade Book</a>
       <div class="dropdown-menu">
       <a class="dropdown-item" href="uploadedbooks.php">View library</a>
-      <a class="dropdown-item" href="eLibrary.php">Add books to Library</a>
+      <a class="dropdown-item" href="elibrary.php">Add books to Library</a>
       <a class="dropdown-item" href="deletebook.php">Delete added book</a>
 
 
