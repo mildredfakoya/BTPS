@@ -74,7 +74,7 @@ $permissions = explode(" ", $list);
     ?>
       <a class="nav-link dropdown-toggle" href="#" id="navbardrop" data-toggle="dropdown">Records</a>
       <div class="dropdown-menu">
-        <a class="dropdown-item" href="eLibrary.php">Create eLibrary</a>
+        <a class="dropdown-item" href="elibrary.php">Create eLibrary</a>
         <a class="dropdown-item" href="uploadedbooks.php">View Library</a>
         <a class="dropdown-item" href="getstudents.php">Student's Records</a>
         <a class="dropdown-item" href="getteachers.php">Teacher's records</a>
