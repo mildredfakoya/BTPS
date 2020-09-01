@@ -13,7 +13,6 @@ $role = $_SESSION['userrole'];
 $access = $_SESSION['userpermission'];
 if(!isset($role) || $role!="Teacher"){
 $helper->redirect('../../errors.php?error2');
-
 }
 $stmt = $user_home->runQuery("SELECT * FROM ihs_users WHERE id=:id");
 $stmt->execute(array(":id"=>$_SESSION['userSession']));

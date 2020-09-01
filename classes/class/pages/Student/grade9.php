@@ -46,6 +46,7 @@ $stmtuploads->execute();
 			<h5 class ="header">Click for: <a href ='grade9continous.php'>Continous Assessments</a></h5>
 			<h5 class ="header">Click for: <a href ='grade9exams.php'>Examination</a></h5>
 			<h5 class ="header">Click for: <a href ='feedback9.php'>Grades and Feed back</a></h5>
+			<h5 class ="header">Click for: <a href ='library.php'>Electronic Library</a></h5>
 			<h5 class ="header">Click for: <a href ='studyguide9.php'>Study Guide</a></h5>
 		</div>
 <h5 class ="header">Class news</h5>

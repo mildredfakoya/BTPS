@@ -10,6 +10,14 @@ if(isset($_GET['deleted']))
 		}
 
 
+		if(isset($_GET['tabledeleted']))
+				{
+					echo "<div class='alert alert-success'>
+							  <strong>Success!</strong> File has been deleted.
+								</div>";
+								 header('refresh:5; uploadedbooks.php');
+				}
+
 		if(isset($_GET['deletedquestion']))
 				{
 

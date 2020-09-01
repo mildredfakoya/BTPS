@@ -3,6 +3,21 @@ require_once 'includes/adminheader.php';
 require_once '../../../../aes.php';
 $inputkey = "marketdayanyigba";
 $blocksize = 256;
+$email = $row['email'];
+$firstname = $row['firstname'];
+$lastname = $row['lastname'];
+
+$sqlid="SELECT * FROM ihs_user_permissions WHERE email= :email" ;
+$stmtid = $user_home->runQuery($sqlid);
+$stmtid->bindValue(':email', $email);
+$stmtid->execute();
+$rowid = $stmtid->fetch(PDO::FETCH_ASSOC);
+$list = $rowid['permissions'];
+$permissions = explode(" ", $list);
+if(!in_array("records", $permissions)){
+$user_home->redirect('../../errors.php?nop');
+}
+else{
 ?>
 <script>
 $(document).ready(function(){
@@ -136,22 +151,22 @@ if(isset($_POST['choose'])){
 <div id="tabscontent">
   <nav class="tabpage" id="tabpage_1">
     <table>
-			<thead>
+			<tr>
 				<th>This account was created at:</th>
 				<th>This account was created by:</th>
 				<th>Student's first name</th>
 				<th>Student's middle name</th>
 				<th>Student's last name</th>
 				<th>Student's Email</th>
-			</thead>
-			<tbody>
+			</tr>
+			<tr>
 				<td><?php echo $rowid['created_at'] ?></td>
 				<td><?php echo $fndec. ' '.$lndec?></td>
 				<td><?php echo $studentfndec?></td>
 				<td><?php echo $studentmndec?></td>
 				<td><?php echo $studentlndec?></td>
 				<td><?php echo $studentemaildec?></td>
-			</tbody>
+			</tr>
   </table>
   </nav>
   <nav class="tabpage" id="tabpage_2">
@@ -164,15 +179,12 @@ $rowaccess = $stmtaccess->fetch(PDO::FETCH_ASSOC);
 ?>
 <form method ="post" id ="personal" novalidate ="novalidate" autocomplete="off">
 <table>
-<thead>
   <tr>
   <th>Date of birth:</th>
 	<th>Gender:</th>
 	<th>Grade:</th>
 	<th>Access_right: </th>
 </tr>
-</thead>
-<tbody>
   <tr>
 	<td>
 	  <div class ="row">
@@ -219,35 +231,30 @@ $rowaccess = $stmtaccess->fetch(PDO::FETCH_ASSOC);
 </select>
 </td>
 </tr>
-</tbody>
-<thead>
+
   <tr>
     <th>Address:</th>
     <th>Telephone number:</th>
     <th>Medical Conditions:</th>
     <th>Medications:</th>
   </tr>
-</thead>
-<tbody>
+
   <tr>
     <td><input type ="text"  name = "address" value ="<?php echo $rowid['address']?>"/></td>
     <td><input type ="number"  name = "phone" value ="<?php echo $rowid['telephone']?>"/></td>
     <td><textarea name="conditions" cols="50" rows="4" ><?php echo $rowid['medical_conditions'] ?></textarea></td>
     <td><textarea name="medications" cols="50" rows="4"><?php echo $rowid['medications'] ?></textarea></td>
   </tr>
-</tbody>
-<thead>
+
   <tr>
     <th>Emergency contact:</th>
     <th>Other Information:</th>
   </tr>
-</thead>
-<tbody>
+
   <tr>
     <td><input type ="text"  name = "contact" value ="<?php echo $rowid['emergency_contact']?>"/></td>
     <td><textarea name="others" cols="50" rows="4"><?php echo $rowid['other_information'] ?></textarea></td>
   </tr>
-</tbody>
 </table>
 <input type ="hidden" value ="<?php echo $rowid['email']?>" name = "hiddenpersonal">
 <input type ="submit" value ="Update" class ="btn btn-primary">
@@ -278,6 +285,6 @@ else{
 }
 
 }
-
+}
 require_once 'includes/adminfooter.php';
 ?>

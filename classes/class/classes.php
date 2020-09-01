@@ -98,6 +98,7 @@ $sql2 =
  INSERT INTO `ihs_permissions` VALUES (36, 'deletes', 'admin');
  INSERT INTO `ihs_permissions` VALUES (37, 'assessment', 'teacher');
  INSERT INTO `ihs_permissions` VALUES (38, 'review', 'admin');
+ INSERT INTO `ihs_permissions` VALUES (39, 'libraryandgradebook', 'teacher');
  ";
  $this->conn->exec($sql3);
 
@@ -1825,7 +1826,49 @@ recipient_mail VARCHAR(255) NOT NULL DEFAULT 'All'
 $this->conn->exec($sql93);
 
 
+$sql94 =
+"CREATE TABLE IF NOT EXISTS assessmentdefinitions(
+id INT PRIMARY KEY AUTO_INCREMENT,
+created_at VARCHAR(255),
+created_by_email VARCHAR(255),
+definition_code VARCHAR(50) NOT NULL,
+term VARCHAR(50),
+academic_year VARCHAR(50),
+class  VARCHAR(50),
+assignment VARCHAR(50),
+projects VARCHAR(50),
+contassess VARCHAR(50),
+exam VARCHAR(50),
+amin VARCHAR(50),
+amax VARCHAR(50),
+bmin VARCHAR(50),
+bmax VARCHAR(50),
+cmin VARCHAR(50),
+cmax VARCHAR(50),
+dmin VARCHAR(50),
+dmax VARCHAR(50),
+emin VARCHAR(50),
+emax VARCHAR(5)
+)ENGINE=InnoDB DEFAULT CHARSET=utf8;
+";
+$this->conn->exec($sql94);
 
+
+$sql95 =
+"CREATE TABLE IF NOT EXISTS btps_library(
+id INT UNIQUE AUTO_INCREMENT ,
+created_at varchar(100),
+created_by_firstname VARCHAR(100) NOT NULL,
+created_by_lastname VARCHAR(100) NOT NULL,
+email VARCHAR(100) DEFAULT NULL,
+booktitle VARCHAR(100) DEFAULT NULL,
+class VARCHAR(100) DEFAULT NULL,
+subject VARCHAR(100) DEFAULT NULL,
+image VARCHAR(100) DEFAULT NULL,
+description TEXT
+)ENGINE=InnoDB DEFAULT CHARSET=utf8;
+";
+$this->conn->exec($sql95);
 
 }
 public function runQuery($sql)

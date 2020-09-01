@@ -11,4 +11,20 @@ if(isset($_GET['tabledeleted']))
 						 header('refresh:5; adminhome.php');
 		}
 
+		if(isset($_GET['definitiondeleted']))
+				{
+					echo "<div class='alert alert-success'>
+							  <strong>Success!</strong> Grading Scheme has been deleted.
+								</div>";
+								 header('refresh:5; viewandeditgradingscheme.php');
+				}
+
+if(isset($_GET['definitionupdated']))
+		{
+			echo "<div class='alert alert-success'>
+			<strong>Success!</strong> Grading Scheme has updated.
+			</div>";
+			header('refresh:5; viewandeditgradingscheme.php');
+		}
+
 require_once 'includes/adminfooter.php';

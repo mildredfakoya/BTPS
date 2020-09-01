@@ -74,8 +74,10 @@ $permissions = explode(" ", $list);
     ?>
       <a class="nav-link dropdown-toggle" href="#" id="navbardrop" data-toggle="dropdown">Records</a>
       <div class="dropdown-menu">
+        <a class="dropdown-item" href="eLibrary.php">Create eLibrary</a>
+        <a class="dropdown-item" href="uploadedbooks.php">View Library</a>
         <a class="dropdown-item" href="getstudents.php">Student's Records</a>
-        <a class="dropdown-item" href="#">Teacher's records</a>
+        <a class="dropdown-item" href="getteachers.php">Teacher's records</a>
       </div>
     </li>
 
@@ -85,11 +87,13 @@ $permissions = explode(" ", $list);
     ?>
       <a class="nav-link dropdown-toggle" href="#" id="navbardrop" data-toggle="dropdown">Exams and Promotions</a>
       <div class="dropdown-menu">
+        <a class="dropdown-item" href="definetermassessment.php">Define Grading Scheme</a>
+        <a class="dropdown-item" href="viewandeditgradingscheme.php">View and Edit Grading Scheme</a>
         <a class="dropdown-item" href="reviewassessment.php">Review an Assessment</a>
         <a class ="dropdown-item" href ="unlock.php">Unlock an assessment</a>
-        <a class="dropdown-item" href="#">Create / Review / Approve Grades</a>
+        <a class="dropdown-item" href="approveandreleasegrades.php">Approve and Release Grades</a>
         <a class="dropdown-item" href="#">Promote Students</a>
-        <a class="dropdown-item" href="#">Mock Examinations</a>
+
 
       </div>
     </li>
@@ -101,11 +105,9 @@ $permissions = explode(" ", $list);
       <a class="nav-link dropdown-toggle" href="#" id="navbardrop" data-toggle="dropdown">Create Information</a>
       <div class="dropdown-menu">
         <a class="dropdown-item" href="information.php">Create Visitor's Information</a>
-        <a class="dropdown-item" href="#">Create Admissions Information</a>
         <a class="dropdown-item" href="createsubjects.php">Create subject</a>
-        <a class="dropdown-item" href="#">Create Grade sheet</a>
-        <a class="dropdown-item" href="#">Create Grading Scheme</a>
-        <a class="dropdown-item" href="#">Create Teachers Guidelines</a>
+          <a class="dropdown-item" href="#">Create Admissions Information</a>
+        <a class="dropdown-item" href="#">Create grade book</a>
         <a class="dropdown-item" href="#">Create Students and Parents Brochure</a>
         <a class="dropdown-item" href="#">Create event sign-up sheet</a>
       </div>
@@ -130,6 +132,7 @@ $permissions = explode(" ", $list);
     ?>
       <a class="nav-link dropdown-toggle" href="#" id="navbardrop" data-toggle="dropdown">Delete a file</a>
       <div class="dropdown-menu">
+        <a class="dropdown-item" href="deletebook.php">Delete a book from the Library</a>
         <a class="dropdown-item" href="deletetimetable.php">Delete timetable</a>
         <a class="dropdown-item" href="deletefoodmenu.php">Delete food menu</a>
         <a class="dropdown-item" href="deleteteachers.php">Delete teachers uploads</a>

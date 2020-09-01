@@ -59,13 +59,31 @@ $permissions = explode(" ", $list);
       </div>
       </li>
 
+
+
+      <?php
+         $decide = in_array("libraryandgradebook", $permissions)?'<li class="nav-item dropdown">':'<li class="nav-item dropdown hidden">';
+        echo $decide;
+           ?>
+      <a class="nav-link dropdown-toggle" href="#" id="navbardrop" data-toggle="dropdown">Library and Grade Book</a>
+      <div class="dropdown-menu">
+      <a class="dropdown-item" href="uploadedbooks.php">View library</a>
+      <a class="dropdown-item" href="eLibrary.php">Add books to Library</a>
+      <a class="dropdown-item" href="deletebook.php">Delete added book</a>
+
+
+
+
+      </div>
+      </li>
+
       <?php
     	   $decide = in_array("pre_k_teacher", $permissions)?'<li class="nav-item dropdown">':'<li class="nav-item dropdown hidden">';
     	  echo $decide;
            ?>
       <a class="nav-link dropdown-toggle" href="#" id="navbardrop" data-toggle="dropdown">Pre-K</a>
       <div class="dropdown-menu">
-      <a class="dropdown-item" href="#">Under reconstruction</a>
+      <a class="dropdown-item" href="#">Updategradebookpk.php</a>
       </div>
     </li>
 
