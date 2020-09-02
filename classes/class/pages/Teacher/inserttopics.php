@@ -9,19 +9,23 @@ $datecreated = date("y-m-d h:i:sa");
 $createdbyfirstname = $row['firstname'];
 $createdbylastname = $row['lastname'];
 $createdbyemail = $row['email'];
+$term= !empty($_POST['term']) ? $helper->test_input($_POST['term']) : null;
+$academicyear= !empty($_POST['academicyear2']) ? $helper->test_input($_POST['academicyear2']) : null;
 $subject= !empty($_POST['subject']) ? $helper->test_input($_POST['subject']) : null;
 $grade= !empty($_POST['grade']) ? $helper->test_input($_POST['grade']) : null;
 $topic= !empty($_POST['topic']) ? $helper->test_input($_POST['topic']) : null;
 $notes= !empty($_POST['notes']) ? $helper->test_input($_POST['notes']) : null;
 
 try{
- $sqlf="INSERT INTO btps_topics(created_at, created_by_firstname, created_by_lastname, email, subject, grade, topics_covered, notes)
- VALUES(:created_at, :created_by_firstname, :created_by_lastname, :email, :subject, :grade, :topics_covered, :notes)";
+ $sqlf="INSERT INTO btps_topics(created_at, created_by_firstname, created_by_lastname, email, term, academic_year, subject, grade, topics_covered, notes)
+ VALUES(:created_at, :created_by_firstname, :created_by_lastname, :email, :term, :academic_year, :subject, :grade, :topics_covered, :notes)";
  $stmtf = $user_home->runQuery($sqlf);
  $stmtf->bindValue(':created_at', $datecreated);
  $stmtf->bindValue(':created_by_firstname', $createdbyfirstname);
  $stmtf->bindValue(':created_by_lastname', $createdbylastname);
  $stmtf->bindValue(':email', $createdbyemail);
+ $stmtf->bindValue(':term', $term);
+ $stmtf->bindValue(':academic_year', $academicyear);
  $stmtf->bindValue(':subject', $subject);
  $stmtf->bindValue(':grade', $grade);
  $stmtf->bindValue(':topics_covered', $topic);

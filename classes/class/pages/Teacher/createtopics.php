@@ -1,8 +1,7 @@
 <?php
 require_once 'includes/teacherheader.php';
 $email = $row['email'];
-#to view all the subjects added
-#for multichoice Questions
+
 $sqltopics= "SELECT * FROM btps_topics WHERE email = :email";
 $stmttopics = $user_home->runQuery($sqltopics);
 $stmttopics->bindValue(':email',$email);
@@ -38,7 +37,6 @@ if(isset($_POST['update'])){
   });
   </script>
   <script>
-
 
      $(document).ready(function(){
        $("#createtopic").validate({
@@ -121,6 +119,17 @@ if(isset($_POST['update'])){
      })
     });
 
+
+$(document).ready(function(){
+  $.dobPicker({
+    yearSelector: '#academicyear', /* Required */
+    yearDefault: 'Year', /* Optional */
+    minimumAge: -2, /* Optional */
+    maximumAge: 2 /* Optional */
+  });
+});
+
+
    </script>
 
    <div class ="container">
@@ -135,6 +144,31 @@ if(isset($_POST['update'])){
      </div>
    </div>
    <div class ="textspacer"></div>
+
+
+           <div class ="row">
+             <div class ="col-4"><h4>Term in Academic Year</h4></div>
+             <div class ="col-8 columnspacer">
+              <select name ="term">
+                <option value ="<?php echo $rowtopic['term'] ?>" selected><?php echo $rowtopic['term'] ?></option>
+                <option value = "term_1" <?php if($rowtopic['term'] == 'term_1') echo "selected" ?>>Term 1</option>
+                <option value = "term_2" <?php if($rowtopic['term'] == 'term_2') echo "selected" ?>>Term 2</option>
+                <option value = "term_3" <?php if($rowtopic['term'] == 'term_3') echo "selected" ?>>Term 3</option>
+                <option value = "summer_school" <?php if($rowtopic['term'] == 'summer_school') echo "selected" ?>>Summer School</option>
+                <option value = "virtual_term" <?php if($rowtopic['term'] == 'virtual_term') echo "selected" ?>>Virtual Term</option>
+                <option value = "after_school" <?php if($rowtopic['term'] == 'after_school') echo "selected" ?>>After School Program</option>
+              </select>
+             </div>
+           </div>
+<div class ='textspacer'></div>
+
+<div class ='row'>
+  <div class ="col-4"><h5>Academic Year</h5></div>
+  <div class ='col-8 columnspacer'>
+   <select name ="academicyear" id ="academicyear">
+         <option value ="academicyear"><?php echo $rowtopic['academic_year'] ?></option>
+       </select></div>
+</div>
 
    <div class="row">
      <div class ="col-4">
@@ -184,7 +218,7 @@ if(isset($_POST['update'])){
     <h5>Study Guide</h5>
      </div>
      <div class ="columnspacer col-8">
-     <textarea class="summernote" name ="notesupdate"><?php echo htmlspecialchars_decode($rowtopic["notes"])?></textarea>
+     <textarea class="summernote" name ="details"><?php echo htmlspecialchars_decode($rowtopic['notes'])?></textarea>
      </div>
    </div>
    <div class ="textspacer"></div>
@@ -203,6 +237,8 @@ if(isset($_POST['update'])){
   <table>
 <tr>
   <th>Date Created</th>
+  <th>Term</th>
+  <th>Aademic year</th>
   <th>Subject</th>
   <th>Class</th>
   <th>Topics</th>
@@ -213,6 +249,8 @@ if(isset($_POST['update'])){
 <?php
 foreach ($stmttopics as $key) {
 echo "<form method ='post'><tr><td>". $key['created_at']. "</td>";
+echo "<td>". $key['term']. "</td>";
+echo "<td>". $key['academic_year']. "</td>";
 echo "<td>". $key['subject']. "</td>";
 echo "<td>". $key['grade']. "</td>";
 echo "<td>". $key['topics_covered']. "</td>";
@@ -263,6 +301,16 @@ $(document).ready(function(){
    }
   })
  });
+
+
+ $(document).ready(function(){
+   $.dobPicker({
+     yearSelector: '#academicyear2', /* Required */
+     yearDefault: 'Year', /* Optional */
+     minimumAge: -2, /* Optional */
+     maximumAge: 2 /* Optional */
+   });
+ });
 </script>
 
 
@@ -302,6 +350,31 @@ $(document).ready(function(){
 <option value = "general">General</option>
 </select>
 </div>
+</div>
+
+
+           <div class ="row">
+             <div class ="col-4"><h4>Term in Academic Year</h4></div>
+             <div class ="col-8 columnspacer">
+              <select name ="term">
+                <option value ="" selected disabled>[Choose Here]</option>
+                <option value = "term_1">Term 1</option>
+                <option value = "term_2">Term 2</option>
+                <option value = "term_3">Term 3</option>
+                <option value = "summer_school">Summer School</option>
+                <option value = "virtual_term">Virtual Term</option>
+                <option value = "after_school">After School Program</option>
+              </select>
+             </div>
+           </div>
+<div class ='textspacer'></div>
+
+<div class ='row'>
+  <div class ="col-4"><h5>Academic Year</h5></div>
+  <div class ='col-8 columnspacer'>
+   <select name ="academicyear2" id ="academicyear2">
+         <option value ="academicyear2">[Choose Here]</option>
+       </select></div>
 </div>
 <div class ="row">
   <div class ="col-4">
