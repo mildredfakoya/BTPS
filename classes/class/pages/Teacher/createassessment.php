@@ -23,6 +23,8 @@ $("#insertassessment").validate({
 rules: {
       assessment_id: "required",
       access_password: "required",
+      term: "required",
+      academicyear: "required",
       intendedaccessday: "required",
       intendedaccessmonth: "required",
       intendedaccessyear: "required",
@@ -38,6 +40,8 @@ rules: {
 messages: {
   assessment_id: "required",
   access_password:"required",
+  term: "required",
+  academicyear: "required",
   intendedaccessday: "required",
   intendedaccessmonth: "required",
   intendedaccessyear: "required",
@@ -97,6 +101,15 @@ $(document).ready(function(){
   });
 });
 
+$(document).ready(function(){
+  $.dobPicker({
+    yearSelector: '#academicyear', /* Required */
+    yearDefault: 'Year', /* Optional */
+    minimumAge: -2, /* Optional */
+    maximumAge: 2 /* Optional */
+  });
+});
+
 </script>
 
 <!--The User Interface Form -->
@@ -129,6 +142,30 @@ $(document).ready(function(){
  </div>
 </div>
 <div class ="textspacer"></div>
+<div class ="row">
+  <div class ="col-5">Term in Academic Year</div>
+  <div class ="col-7 columnspacer">
+   <select name ="term">
+     <option value ="" selected disabled>[Choose Here]</option>
+     <option value = "term_1">Term 1</option>
+     <option value = "term_2">Term 2</option>
+     <option value = "term_3">Term 3</option>
+     <option value = "summer_school">Summer School</option>
+     <option value = "virtual_term">Virtual Term</option>
+     <option value = "after_school">After School Program</option>
+   </select>
+  </div>
+</div>
+<div class ='textspacer'></div>
+
+<div class ='row'>
+<div class ="col-5">Academic Year</div>
+<div class ='col-7 columnspacer'>
+<select name ="academicyear" id ="academicyear">
+<option value ="academicyear">[Select Year]</option>
+</select></div>
+</div>
+<div class ='textspacer'></div>
 <div class="row">
 <label class="col-5">Intended date of assessment</label>
 <div class="col-7 columnspacer">

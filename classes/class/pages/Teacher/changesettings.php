@@ -8,11 +8,23 @@ $stmtfindassessment->bindValue(':userfirst', $firstname);
 $stmtfindassessment->bindValue(':userlast', $lastname);
 $stmtfindassessment->execute();
 ?>
+<script>
+$(document).ready(function(){
+  $.dobPicker({
+    yearSelector: '#academicyear', /* Required */
+    yearDefault: 'Year', /* Optional */
+    minimumAge: -2, /* Optional */
+    maximumAge: 2 /* Optional */
+  });
+});
+</script>
 <div class='jumbotron'>
 <h5 class = 'header'>Change an assessment setting</h5>
 <table>
 <tr>
 <th>Assessment ID</th>
+<th>Term</th>
+<th>Academic Year</th>
 <th>Access code</th>
 <th>Target class</th>
 <th>Intended access date</th>
@@ -27,6 +39,22 @@ foreach($stmtfindassessment as $rowchange){
 <form method = 'post' action = 'updatesetting.php'>
   <tr>
     <td><input type ='text' name ='assessmentid' value ='<?php echo $rowchange['assessment_id'] ?>' readonly class ='borderless'/></td>
+    <td>
+      <select name ="term">
+        <option value ="<?php echo $rowchange['term'] ?>" selected><?php echo $rowchange['term'] ?></option>
+        <option value = "term_1" <?php if($rowchange['term'] == 'term_1') echo "selected" ?>>Term 1</option>
+        <option value = "term_2" <?php if($rowchange['term'] == 'term_2') echo "selected" ?>>Term 2</option>
+        <option value = "term_3" <?php if($rowchange['term'] == 'term_3') echo "selected" ?>>Term 3</option>
+        <option value = "summer_school" <?php if($rowchange['term'] == 'summer_school') echo "selected" ?>>Summer School</option>
+        <option value = "virtual_term" <?php if($rowchange['term'] == 'virtual_term') echo "selected" ?>>Virtual Term</option>
+        <option value = "after_school" <?php if($rowchange['term'] == 'after_school') echo "selected" ?>>After School Program</option>
+      </select>
+    </td>
+    <td>
+      <select name ="academicyear" id ="academicyear">
+            <option value ="academicyear"><?php echo $rowchange['academic_year'] ?></option>
+          </select>
+    </td>
     <td><input type ='text' name ='accesscode' value ='<?php echo $rowchange['access_code'] ?>'/></td>
     <td><select name ='class'>
       <option value ='<?php echo $rowchange["target_class"]?>' selected ><?php echo $rowchange["target_class"]?></option>

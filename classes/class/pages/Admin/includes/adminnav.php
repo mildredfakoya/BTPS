@@ -137,6 +137,7 @@ $permissions = explode(" ", $list);
         <a class="dropdown-item" href="deletefoodmenu.php">Delete food menu</a>
         <a class="dropdown-item" href="deleteteachers.php">Delete teachers uploads</a>
         <a class="dropdown-item" href="deletenewsletter.php">Delete newsletter</a>
+          <a class="dropdown-item" href="#">clear news</a>
           <a class="dropdown-item" href="deleteinformation.php">Delete Visitor's information</a>
       </div>
     </li>

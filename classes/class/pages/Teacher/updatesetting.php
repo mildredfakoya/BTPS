@@ -1,6 +1,8 @@
 <?php require_once 'includes/teacherheader.php';
 
 $assessmentid = !empty($_POST['assessmentid']) ? $helper->test_input($_POST['assessmentid']) : null;
+$term = !empty($_POST['term']) ? $helper->test_input($_POST['term']) : null;
+$academicyear = !empty($_POST['academicyear']) ? $helper->test_input($_POST['academicyear']) : null;
 $accesscode = !empty($_POST['accesscode']) ? $helper->test_input($_POST['accesscode']) : null;
 $class = !empty($_POST['class']) ? $helper->test_input($_POST['class']) : null;
 $accessdate = !empty($_POST['accessdate']) ? $helper->test_input($_POST['accessdate']) : null;
@@ -17,9 +19,9 @@ $y = strtotime($dateupdated);
 $year = date('Y', $y);
 $month = date('m', $y);
 
-if(!empty($assessmentid) && !empty($accesscode) && !empty($class) &&!empty($accessdate) && !empty($closedate) && !empty($subject) && !empty($type)){
+if(!empty($assessmentid) && !empty($term) &&!empty($academicyear) && !empty($accesscode) && !empty($class) &&!empty($accessdate) && !empty($closedate) && !empty($subject) && !empty($type)){
 try{
-  $sqlmultichoice= "UPDATE btps_new_assessment SET access_code ='$accesscode', target_class ='$class', intended_access_date ='$accessdate',
+  $sqlmultichoice= "UPDATE btps_new_assessment SET term = '$term', academic_year = '$academicyear', access_code ='$accesscode', target_class ='$class', intended_access_date ='$accessdate',
   intended_close_date = '$closedate', subject ='$subject', assessment_type = '$type' WHERE assessment_id = '$assessmentid'";
   $result = $user_home->runQuery4($sqlmultichoice);
   if($result){

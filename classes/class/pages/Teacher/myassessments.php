@@ -21,6 +21,8 @@ else{
 		<th>Record timestamp</th>
 		<th>Assessment ID</th>
 		<th>Assessment Type</th>
+		<th>Term</th>
+		<th>Academic Year</th>
 		<th>Target Grade</th>
 		<th>Subject</th>
 		<th>Access Password</th>
@@ -31,6 +33,8 @@ else{
  echo "<td>".$rowtest['created_at']."</td>";
  echo "<td style ='background-color:red; color :white'>".$rowtest['assessment_id']."</td>";
  echo "<td>".$rowtest['assessment_type']."</td>";
+ echo "<td>".$rowtest['term']."</td>";
+ echo "<td>".$rowtest['academic_year']."</td>";
  echo "<td>".$rowtest['target_class']."</td>";
  echo "<td>".$rowtest['subject']."</td>";
  echo "<td style ='background-color:green; color :white; font-sytle :bold'>".$rowtest['access_code']."</td>";
