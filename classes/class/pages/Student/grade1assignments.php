@@ -17,7 +17,7 @@ else{
 ?>
 
 <div class ="jumbotron">
-<div class ="header" style ="background-color:#ff0000"><h3>Welcome to Grade 1 Graded Assessment page</h3>
+<div class ="header" style ="background-color:#ff0000"><h3>Welcome to Grade 2 Graded Assessment page</h3>
 <p>All assessment listed here are access controlled. Your teacher will give you the access code.<br/>Once a correct access code is entered, your question form will be displayed at the top of this page.</p></div>
 
 
@@ -27,7 +27,7 @@ else{
 
   <?php
     $targetclass = "grade_1";
-    $sqlclass="SELECT * FROM btps_new_assessment WHERE target_class= :class AND (assessment_type = 'assignment' || assessment_type = 'project') AND approval_status ='Approved' AND access_status = 'UNLOCKED'" ;
+    $sqlclass="SELECT * FROM btps_new_assessment WHERE target_class= :class AND (assessment_type = 'assignment' || assessment_type = 'project') AND approval_status ='Approved'AND access_status = 'UNLOCKED'" ;
     $stmtclass = $user_home->runQuery($sqlclass);
     $stmtclass->bindValue(':class', $targetclass);
     $stmtclass->execute();
@@ -80,9 +80,7 @@ else{
 foreach($stmtcheck as $get){
   echo "<li>".$get['assessment_id']."</li>";
 }
-echo "</ul></div>";
-
-$
+echo "</div>";
 ?>
 
 

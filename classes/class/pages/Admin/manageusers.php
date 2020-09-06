@@ -212,12 +212,7 @@ try{
 	echo "<div class ='col-2 columnspacer effect'>". $row2['last_logged_in']."</div>";
 	echo "</div>";
 
-
-
-    echo '</nav>';
-
-
-
+  echo '</nav>';
 
    $sqlset = "SELECT * FROM ihs_user_permissions WHERE email =:email";
    $stmtset =$user_home->runQuery($sqlset);
