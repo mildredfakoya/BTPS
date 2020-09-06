@@ -4,14 +4,12 @@ require_once 'includes/teacherhead.php';
 require_once 'includes/teachernav.php';
  if(isset($_GET['error']))
 		{
-
-            echo "<div class='alert alert-success'>
+        echo "<div class='alert alert-success'>
 				<strong>Email not Found! please enter the correct email address</strong>
-			</div>";
-
+			  </div>";
 		}
 
-		if(isset($_GET['error1']))
+	if(isset($_GET['error1']))
 		{
 
            echo  "<div class='alert alert-success'>
@@ -96,6 +94,7 @@ require_once 'includes/teachernav.php';
                     <a class="nav-link dropdown-toggle" style ="color:White; font-size:large" href="#" id="navbardrop" data-toggle="dropdown">Grade K Virtual Classroom</a>
                     <div class="dropdown-menu">
                     <a class="dropdown-item" target = "_blank" href="http://www.blackboard.com/coursesites/?sig=0DyAy7pbqtC5xFiKzPrQtAPFleg%3D&courseId=_905236_1&timestamp=1599231063&inviteId=BB%253FBB_xjs4KjtxZMUKDJyw8tDVn7H3PyRSgJ7j6YY%252BboQSwvwtUG%252B4ivX5IA%253D%253D">Grade K</a>
+                    <a class="dropdown-item" target = "_blank" href="chatroomk.php">Chat Room and Discussion Forum</a>
                   </div>
                   </li>
 

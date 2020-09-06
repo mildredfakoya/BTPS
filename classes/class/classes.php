@@ -1876,6 +1876,18 @@ description TEXT
 ";
 $this->conn->exec($sql95);
 
+
+$sql96 =
+"CREATE TABLE IF NOT EXISTS btps_reset_term(
+id INT UNIQUE AUTO_INCREMENT ,
+created_at varchar(100),
+created_by_email VARCHAR(250) DEFAULT NULL,
+current_term VARCHAR(50) DEFAULT NULL,
+academic_year VARCHAR(20) DEFAULT NULL
+)ENGINE=InnoDB DEFAULT CHARSET=utf8;
+";
+$this->conn->exec($sql96);
+
 }
 public function runQuery($sql)
 	{
