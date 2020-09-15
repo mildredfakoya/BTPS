@@ -15,7 +15,13 @@ if(!in_array("records", $permissions)){
 $user_home->redirect('../../errors.php?nop');
 }
 else{
+?>
+<div class ="container">
+  <div class ="outer">
+  </div>
+</div>
 
+<?php
 
 
 }

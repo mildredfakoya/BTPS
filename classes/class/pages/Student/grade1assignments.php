@@ -17,7 +17,7 @@ else{
 ?>
 
 <div class ="jumbotron">
-<div class ="header" style ="background-color:#ff0000"><h3>Welcome to Grade 2 Graded Assessment page</h3>
+<div class ="header" style ="background-color:#ff0000"><h3>Welcome to Grade 1 Graded Assessment page</h3>
 <p>All assessment listed here are access controlled. Your teacher will give you the access code.<br/>Once a correct access code is entered, your question form will be displayed at the top of this page.</p></div>
 
 

@@ -33,7 +33,40 @@ require 'header.php';
 </style>
 <h1 class = "animation" style = "color:#0000ff;text-align:center">Explore your learning opportunities</h1>
 <div class ="jumbotron pencil">
-  <p>Bonne Terre Preparatory School Limited was established in September 1992. Use the links below to get detailed information that will help you in your decision for your child's educational future.</p>
+
+<div class ="row">
+  <div class ="col-6">
+<h4 class = "headeranimated">SCHOOL SAFETY MEASURES FOR COVID - 19</h4>
+<video max-width="auto" height="auto" controls autoplay>
+  <source src="tour.MP4" type="video/mp4">
+</video>
+<p>In keeping with COVID-19 protocols all parents and students coming on premises for dropping off by the gate must have face masks properly covering their faces (nose to chin). Temperature
+checks and hand washing/ hand sanitizing will be done upon arrival withno exceptions.
+All visits to the office to pay fees, collect receipts or purchase uniforms must be scheduled by appointment. Parents are encouraged as much as possible to make payments directly to the bank and submit bank deposit
+slips or transaction reference numbers via email. School issued receipts can then be placed directly into the children’s backpacks.
+We ask all parents to be exceptionally vigilant with their health and the health of their children and should they note ANYONE in their
+household experiencing any of the following symptoms, we must insist
+children be kept home:
+<ul>
+<li>Fever or chills</li>
+<li>Cough or runny nose (cause not relevant), congestion</li>
+<li>Shortness of breath or difficulty breathing</li>
+<li>Fatigue, muscle or body aches</li>
+<li>Headache</li>
+<li>Recent loss of taste or smell</li>
+<li>Sore throat</li>
+</ul>
+We remind parents that they are instrumental with helping us control the possible spread of COVID-19 at our school by taking the necessary precautionary measures and being upfront with disclosing relevant
+information that will allow us to keep all our students safe.</p>
+<p>In Term 1 additional features of our online learning management system
+will include: discussion forums for students, an e-library for reading and
+text books and built in video-conferencing. Portal Orientation for all
+students from Grade 1 to High School will take place in-class during the
+first week of school. All students from Grade 1 through to Grade 11
+must have access to a laptop or android tablet to access our school portal
+throughout the term</p>
+</div>
+<div class="col-6 columnspacer">
   <ul>
     <li><a href ="toddler-k.php">PreSchool - Toddlers to Kindergarten</a></li>
     <li><a href ="elementaryschool.php">Elementary School section - Grade 1  to Grade 4</a></li>
@@ -64,5 +97,6 @@ we will achieve our mission within a stable, orderly and secure environment by:
 
 <p>Click on <a href ="admissions.php">Apply now</a> to learn more</p>
 
-
+</div>
+</div>
 </div>
