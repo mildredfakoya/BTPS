@@ -1,5 +1,16 @@
 <?php
 require_once 'includes/adminheader.php';
+$email = $row['email'];
+$firstname = $row['firstname'];
+$lastname = $row['lastname'];
+
+$sqlid="SELECT * FROM ihs_user_permissions WHERE email= :email" ;
+$stmtid = $user_home->runQuery($sqlid);
+$stmtid->bindValue(':email', $email);
+$stmtid->execute();
+$rowid = $stmtid->fetch(PDO::FETCH_ASSOC);
+$list = $rowid['permissions'];
+$permissions = explode(" ", $list);
 if(!in_array("users_account", $permissions)){
 $user_home->redirect('../../errors.php?nop');
 }
@@ -48,11 +59,12 @@ try{
 	echo "<div class ='heading'><h3>Search result</h3>
 
 	</div>";
+	echo "<div class ='container'>";
 	echo "  <p style = 'color:black'>Please use the Activation status drop-down menu to manually activate a user. Note that Activation Status of Not activated will prevent the user from logging in.</p>
 		<p>If a user has administrative issues, change the Access right drop-down menu to Restricted.</p>
 		<p>When restricting access, please use the correct functionality as stated above. The error message that the user will get is dependant on the functionality you use. </p>
 		<p><b>Once you update any information on the manage users tab, ensure that you reset the user's permission as everytime you update a users information, they will loose all previous permissions.</b></p>";
-	echo "<div class ='container'>";
+
 	echo '</div><div id="wrapper">';
 
 	echo '<div id="tabContainer">';

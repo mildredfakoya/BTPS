@@ -95,14 +95,7 @@ $(document).ready(function (e) {
 
 });
 
-
-
-
 </script>
-
-
-</head>
-<body>
   <?php
   $inputkey = "marketdayanyigba";
   $blocksize = 256;
@@ -124,7 +117,25 @@ $(document).ready(function (e) {
 
 <div class="row">
   <div class="col-3 col-s-3 menu">
-  <!---session links placed here--->
+  <h5 class = header> Bonne Terre School Live Video Conferencing</h5>
+  <h4>Coming soon.....</h4>
+  <h5 class = header>Supervise Zoom Classes</h5>
+  <ul>
+    <li><a class="dropdown-item" target= "_blank" href="https://us02web.zoom.us/j/89411201821">Grade K Zoom Class</a></li>
+    <li><a class="dropdown-item" target= "_blank" href="https://us02web.zoom.us/j/84861399368">Grade 1 Zoom Class</a></li>
+    <li><a class="dropdown-item" target= "_blank" href="https://us02web.zoom.us/j/83372807857">Grade 2 Zoom Class</a></li>
+    <li><a class="dropdown-item" target= "_blank" href="https://us02web.zoom.us/j/81949720715">Grade 3 Zoom Class</a></li>
+    <li><a class="dropdown-item" target= "_blank" href="https://us02web.zoom.us/j/81117345716">Grade 4 Zoom Class</a></li>
+    <li><a class="dropdown-item" target= "_blank" href="https://us02web.zoom.us/j/89034591111">Grade 5 Zoom Class</a></li>
+    <li><a class="dropdown-item" target= "_blank" href="https://us02web.zoom.us/j/81417192976">Grade 6 Zoom Class</a></li>
+    <li><a class="dropdown-item" target= "_blank" href="https://us02web.zoom.us/j/86789487703">Grade 7 Zoom Class</a></li>
+    <li><a class="dropdown-item" target= "_blank" href="https://us02web.zoom.us/j/86394784275">Grade 8 Zoom Class</a></li>
+    <li><a class="dropdown-item" target= "_blank" href="https://us02web.zoom.us/j/85766438467">Grade 9 Zoom Class</a></li>
+    <li><a class="dropdown-item" target= "_blank" href="https://us02web.zoom.us/j/87538373793">Grade 10 and 11 Zoom Class</a></li>
+
+  </ul>
+
+
   </div>
   <div class="col-6 col-s-9">
     <h1>Upload Time tables, Food menu and Newsletters</h1>
@@ -213,32 +224,21 @@ $(document).ready(function (e) {
     <input class="btn btn-success" type="submit" value="Upload">
     </form>
     </div>
-
-
-
-
   </div>
 <?php
 $classemail = $row['email'];
 $encemail = new AES($classemail, $inputkey, $blocksize);
 $decemail = $encemail->decrypt();
-
-
-
-
-
-
-
- ?>
-  <div class="col-3 col-s-12">
-    <div class="aside">
+?>
+<div class="col-3 col-s-12">
+<div class="aside">
 
           <h2>Most recent uploads</h2><hr />
           <p> Note: If you just uploaded a file and it doesn't show up here, please refresh your page to update the list.<br/> Please use the date and time to locate the last uploaded file.<br/>
           The first 2 are from the timetable uploads, the next 2 are from the food menu uploads, the last 2 are from the news letters upload. You will get the 2 most recent uploads from each category</p>
 
           <?php
-          $sql2a ="SELECT * FROM ihs_timetable_uploads ORDER BY created_at DESC LIMIT 2";
+          $sql2a ="SELECT * FROM ihs_timetable_uploads ORDER BY created_at DESC LIMIT 13";
           $stmt2a = $user_home->runQuery($sql2a);
           $stmt2a->execute();
 
@@ -334,9 +334,5 @@ $decemail = $encemail->decrypt();
     </div>
   </div>
 </div>
-
-<!---<div class="footer">
-  <p>Resize the browser window to see how the content respond to the resizing.</p>
-</div>--->
 
 <?php require_once 'includes/adminfooter.php';?>

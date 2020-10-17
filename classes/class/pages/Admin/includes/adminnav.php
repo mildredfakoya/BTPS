@@ -64,6 +64,7 @@ $permissions = explode(" ", $list);
     <a class="dropdown-item" href="signup.php">Create New User</a>
 		<a class="dropdown-item" href="manageusers.php">Manage Existing User</a>
     <a class="dropdown-item" href="users.php">View all users</a>
+    <a class="dropdown-item" href="permissions.php">View user's permissions</a>
 
     </div>
     </li>
@@ -78,7 +79,11 @@ $permissions = explode(" ", $list);
         <a class="dropdown-item" href="elibrary.php">Create eLibrary</a>
         <a class="dropdown-item" href="uploadedbooks.php">View Library</a>
         <a class="dropdown-item" href="getstudents.php">Student's Records</a>
-        <a class="dropdown-item" href="getteachers.php">Teacher's records</a>
+        <a class="dropdown-item" href="#">Teacher's Assignment</a>
+        <a class="dropdown-item" href="#">View / Update Classroom</a>
+        <a class="dropdown-item" href="#">View / Update Contacts</a>
+        <a class="dropdown-item" href="#">View / Update Medicals</a>
+
       </div>
     </li>
 
@@ -138,8 +143,9 @@ $permissions = explode(" ", $list);
         <a class="dropdown-item" href="deletefoodmenu.php">Delete food menu</a>
         <a class="dropdown-item" href="deleteteachers.php">Delete teachers uploads</a>
         <a class="dropdown-item" href="deletenewsletter.php">Delete newsletter</a>
+        <a class="dropdown-item" href="deleteinformation.php">Delete Visitor's information</a>
           <a class="dropdown-item" href="#">clear news</a>
-          <a class="dropdown-item" href="deleteinformation.php">Delete Visitor's information</a>
+
       </div>
     </li>
 

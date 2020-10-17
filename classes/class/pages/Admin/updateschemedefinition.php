@@ -3,7 +3,21 @@ require_once 'includes/adminheader.php';
 require_once '../../../../aes.php';
 $inputkey = "marketdayanyigba";
 $blocksize = 256;
+$email = $row['email'];
+$firstname = $row['firstname'];
+$lastname = $row['lastname'];
 
+$sqlid="SELECT * FROM ihs_user_permissions WHERE email= :email" ;
+$stmtid = $user_home->runQuery($sqlid);
+$stmtid->bindValue(':email', $email);
+$stmtid->execute();
+$rowid = $stmtid->fetch(PDO::FETCH_ASSOC);
+$list = $rowid['permissions'];
+$permissions = explode(" ", $list);
+if(!in_array("exams", $permissions)){
+$user_home->redirect('../../errors.php?nop');
+}
+else{
 
 $definitioncode= !empty($_POST['definitioncode']) ? $helper->test_input($_POST['definitioncode']) : null;
 
@@ -179,6 +193,7 @@ if(isset($_POST['deleteform'])){
      {
      die('SYSTEM FAILURE!! PLEASE CONTACT YOUR ADMINISTRATOR');
      }
+}
 }
 require_once 'includes/adminfooter.php';
 ?>

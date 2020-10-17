@@ -107,7 +107,7 @@ if(isset($_POST['choose'])){
 		    $stmtid->bindValue(':email', $emailn);
 		    $stmtid->execute();
 		    $rowid = $stmtid->fetch(PDO::FETCH_ASSOC);
-			//IF THE CLIENT ALREADY HAS AN ACCOUNT, THEN INSERT THE NEW TEST INTO THE ihs_screenings table
+
 			if($rowid){
 				$created_by_firstname = $rowid['created_by_firstname'];
 				$created_by_lastname = $rowid['created_by_lastname'];
