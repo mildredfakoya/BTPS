@@ -79,7 +79,7 @@ $permissions = explode(" ", $list);
   <a class="dropdown-item" href="grade2.php">Grade two Home Page</a>
   <!--<a class="dropdown-item" target= "_blank" href="https://blackboard.coursesites.com/">Blackboard</a>-->
   <a class="dropdown-item" target= "_blank" href="http://www.blackboard.com/coursesites/?sig=wiwJGJ%2BewzackZcJ71FkU7N2CNc%3D&courseId=_797059_1&timestamp=1599227347&inviteId=BB%253FBB_qs%2FmKAWONPeBMazi65eANgW6Oy0el%2FQxL2ForN8720stUG%252B4ivX5IA%253D%253D">Blackboard</a>
-  <a class="dropdown-item" target= "_blank" href=" https://us02web.zoom.us/j/81949720715">Join Zoom Class</a>
+  <a class="dropdown-item" target= "_blank" href="  https://us02web.zoom.us/j/83372807857">Join Zoom Class</a>
 </div>
 </li>
 
@@ -92,7 +92,8 @@ $permissions = explode(" ", $list);
   <a class="dropdown-item" href="grade3.php">Grade three Home Page</a>
   <a class="dropdown-item" target= "_blank" href="http://www.blackboard.com/coursesites/?sig=YzRchIeL9LYJNkn50jU3eQ%2FsoeE%3D&courseId=_797060_1&timestamp=1599227762&inviteId=BB%253FBB_j2VFeZQam2t38ArLwXTnrsUno9zTQpePlLtwrRW%252B1JUtUG%252B4ivX5IA%253D%253D">Blackboard</a>
   <!--<a class="dropdown-item" target= "_blank" href="https://blackboard.coursesites.com/">Blackboard</a>-->
-  <a class="dropdown-item" target= "_blank" href="  https://us02web.zoom.us/j/83372807857">Join Zoom Class</a>
+
+  <a class="dropdown-item" target= "_blank" href=" https://us02web.zoom.us/j/81949720715">Join Zoom Class</a>
 </div>
 </li>
 
