@@ -1,8 +1,5 @@
 <?php
 require_once 'includes/adminheader.php';
-
-
-
 #to delete food menu uploads
 $sqlmenu = 'SELECT * FROM ihs_menu_uploads ORDER BY created_at DESC';
 $stmtmenu = $user_home->runQuery($sqlmenu);
@@ -23,7 +20,7 @@ foreach($stmtmenu as $rowmenu){
   $decemail =$emailn->decrypt();
 ?>
 
-  <h2>Food menu uploads</h2>
+<h2>Food menu uploads</h2>
 <form id ="form" method="post">
   <table>
 <tr>

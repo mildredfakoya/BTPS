@@ -18,6 +18,7 @@ else{
 ?>
 <div class ="container">
   <div class ="outer">
+    <div class ="header"><h4>Define a new term and academic year</h4></div>
   </div>
 </div>
 

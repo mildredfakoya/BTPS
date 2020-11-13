@@ -22,16 +22,14 @@ else{
 </div>
 
 <?php
-
-#to delete information entry
-$sqlinfo = 'SELECT * FROM btps_info ORDER BY created_at DESC';
+#delete News from all class news / Clear all the news for the term
+$sqlinfo = 'SELECT * FROM ihs_news ORDER BY created_at DESC';
 $stmtinfo = $user_home->runQuery($sqlinfo);
 $stmtinfo->execute();
 
+echo '<div class ="container">';
 
-
-
-#create the visitor information table
+#create the news table
 foreach($stmtinfo as $rowinfo){
   $firstname =$rowinfo['created_by_firstname'];
   $lastname =$rowinfo['created_by_lastname'];
@@ -44,41 +42,44 @@ foreach($stmtinfo as $rowinfo){
   $decemail =$emailn->decrypt();
 ?>
 
-  <h2>Visitors Information Content</h2>
+
 <form id ="form" method="post">
   <table>
 <tr>
   <th>Date created</th>
   <th>Created by</th>
   <th>Email</th>
-  <th>Grade</th>
-  <th>Ages</th>
-  <th>Information</th>
-  <th></th>
+  <th>Topic</th>
+  <th>Class</th>
+  <th>Details</th>
 </tr>
 <tr>
   <td><?php echo $rowinfo['created_at']  ?></td>
   <td><?php echo $dec.' '.$decl?></td>
   <td><?php echo $decemail ?></td>
-  <td><?php echo $rowinfo['grade']?></td>
-  <td><?php echo $rowinfo['ages']?></td>
-  <td><?php echo $rowinfo['information']?></td>
-  <td><input type='hidden' name='hiddeninfo' value='<?php echo $rowinfo['information']?>'><input type='submit' name='deleteinfo' value='Delete' class ='btn btn-danger' style ='width:100%'/></td>
+  <td><?php echo $rowinfo['topic']?></td>
+  <td><?php echo $rowinfo['class']?></td>
+  <td><?php echo $rowinfo['details']?></td>
 </tr>
-  </table>
-</form>
 <?php
 }
-
-            if(isset($_POST['deleteinfo'])){
+?>
+  </table>
+  <input type = "submit" name ="clearallnews" value = "Clear all news and reset classes" class ="btn btn-danger btn-large">
+</form>
+</div>
+<?php
+            if(isset($_POST['clearallnews'])){
                	try{
-                    $sql = "DELETE FROM btps_info WHERE information='$_POST[hiddeninfo]'";
+                    $sql = "DELETE FROM ihs_news";
+                    $sql2 = "DELETE FROM ihs_news_change";
                     $result = $user_home->runQuery4($sql);
-                   if ($result){
+                    $result2 = $user_home->runQuery4($sql2);
+                   if ($result && $result2){
                                    $helper->redirect('success.php?tabledeleted');
                                  }
                     else{
-                      echo "Update Failed";
+                      echo "Failure!! Unable to clear the news";
 
                     }
 
