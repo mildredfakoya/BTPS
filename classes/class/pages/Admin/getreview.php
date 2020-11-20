@@ -13,6 +13,10 @@ if(!in_array("exams", $permissions)){
 $user_home->redirect('../../errors.php?nop');
 }
 else{
+  $sqlcurrent="SELECT * FROM btps_reset_term ORDER BY created_at DESC LIMIT 1" ;
+  $stmtcurrent = $user_home->runQuery($sqlcurrent);
+  $stmtcurrent->execute();
+  $rowcurrent = $stmtcurrent->fetch(PDO::FETCH_ASSOC);
 ?>
 <script>
 $(document).ready(function(){
@@ -45,9 +49,11 @@ $assessmentid = !empty($_POST['assessmentid']) ? $helper->test_input($_POST['ass
 if(!empty($assessmentid)){
   echo "<h3 class ='header'>Assessment Questions for ".$assessmentid."</h3>";
   #for assessment settings
-  $sqlassess= "SELECT * FROM btps_new_assessment WHERE assessment_id = :id ORDER BY id";
+  $sqlassess= "SELECT * FROM btps_new_assessment WHERE assessment_id = :id && term = :term && academic_year = :year ORDER BY id";
   $stmtassess = $user_home->runQuery($sqlassess);
   $stmtassess->bindValue(':id', $assessmentid);
+  $stmtassess->bindValue(':term', $rowcurrent['current_term']);
+  $stmtassess->bindValue(':year', $rowcurrent['academic_year']);
   $stmtassess->execute();
   //date_default_timezone_set('America/dominica');
   $rowfindassessment = $stmtassess->fetch(PDO::FETCH_ASSOC);

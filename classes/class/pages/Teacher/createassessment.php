@@ -15,6 +15,11 @@ function random_strings($length_of_string)
 
 $assessment_id = random_strings(6);
 $access_passwd = random_strings(8);
+
+$sqlcurrent="SELECT * FROM btps_reset_term ORDER BY created_at DESC LIMIT 1" ;
+$stmtcurrent = $user_home->runQuery($sqlcurrent);
+$stmtcurrent->execute();
+$rowcurrent = $stmtcurrent->fetch(PDO::FETCH_ASSOC);
 ?>
 <script>
 //script for form validation and submission.
@@ -146,7 +151,7 @@ $(document).ready(function(){
   <div class ="col-5">Term in Academic Year</div>
   <div class ="col-7 columnspacer">
    <select name ="term">
-     <option value ="" selected disabled>[Choose Here]</option>
+     <option value ="<?php echo $rowcurrent['current_term']?>" selected><?php echo $rowcurrent['current_term']?></option>
      <option value = "term_1">Term 1</option>
      <option value = "term_2">Term 2</option>
      <option value = "term_3">Term 3</option>
@@ -162,7 +167,7 @@ $(document).ready(function(){
 <div class ="col-5">Academic Year</div>
 <div class ='col-7 columnspacer'>
 <select name ="academicyear" id ="academicyear">
-<option value ="academicyear">[Select Year]</option>
+<option value ="<?php echo $rowcurrent['academic_year']?>"><?php echo $rowcurrent['academic_year']?></option>
 </select></div>
 </div>
 <div class ='textspacer'></div>

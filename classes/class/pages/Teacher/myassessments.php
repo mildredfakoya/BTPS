@@ -4,13 +4,19 @@ if(!in_array("assessment", $permissions)){
 $user_home->redirect('../../errors.php?nop');
 }
 else{
+	$sqlcurrent="SELECT * FROM btps_reset_term ORDER BY created_at DESC LIMIT 1" ;
+  $stmtcurrent = $user_home->runQuery($sqlcurrent);
+  $stmtcurrent->execute();
+  $rowcurrent = $stmtcurrent->fetch(PDO::FETCH_ASSOC);
 		$firstname =$row['firstname'];
 		$lastname =$row['lastname'];
 	try{
-	  $sqltest = "SELECT * FROM btps_new_assessment WHERE created_by_firstname= :firstname AND created_by_lastname =:lastname";
+	  $sqltest = "SELECT * FROM btps_new_assessment WHERE created_by_firstname= :firstname AND created_by_lastname =:lastname AND term = :term AND academic_year = :academicyear";
     $stmttest = $user_home->runQuery($sqltest);
 	  $stmttest->bindValue(':firstname', $firstname);
 	  $stmttest->bindValue(':lastname', $lastname);
+		$stmttest->bindValue(':term', $rowcurrent['current_term']);
+		$stmttest->bindValue(':academicyear', $rowcurrent['academic_year']);
     $stmttest->execute();
 ?>
 <div class ="container">

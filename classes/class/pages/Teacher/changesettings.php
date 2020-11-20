@@ -2,10 +2,17 @@
 require_once "includes/teacherheader.php";
 $firstname = $row['firstname'];
 $lastname =$row['lastname'];
-$sqlassessment= "SELECT * FROM btps_new_assessment WHERE created_by_firstname = :userfirst AND created_by_lastname = :userlast";
+$sqlcurrent="SELECT * FROM btps_reset_term ORDER BY created_at DESC LIMIT 1" ;
+$stmtcurrent = $user_home->runQuery($sqlcurrent);
+$stmtcurrent->execute();
+$rowcurrent = $stmtcurrent->fetch(PDO::FETCH_ASSOC);
+
+$sqlassessment= "SELECT * FROM btps_new_assessment WHERE created_by_firstname = :userfirst AND created_by_lastname = :userlast AND term = :term AND academic_year = :academicyear";
 $stmtfindassessment = $user_home->runQuery($sqlassessment);
 $stmtfindassessment->bindValue(':userfirst', $firstname);
 $stmtfindassessment->bindValue(':userlast', $lastname);
+$stmtfindassessment->bindValue(':term', $rowcurrent['current_term']);
+$stmtfindassessment->bindValue(':academicyear', $rowcurrent['academic_year']);
 $stmtfindassessment->execute();
 ?>
 <script>

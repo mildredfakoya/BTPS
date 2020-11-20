@@ -2,9 +2,16 @@
 require_once 'includes/teacherheader.php';
 $email = $row['email'];
 
-$sqltopics= "SELECT * FROM btps_topics WHERE email = :email";
+$sqlcurrent="SELECT * FROM btps_reset_term ORDER BY created_at DESC LIMIT 1" ;
+$stmtcurrent = $user_home->runQuery($sqlcurrent);
+$stmtcurrent->execute();
+$rowcurrent = $stmtcurrent->fetch(PDO::FETCH_ASSOC);
+
+$sqltopics= "SELECT * FROM btps_topics WHERE email = :email && term =:term && academic_year = :year";
 $stmttopics = $user_home->runQuery($sqltopics);
 $stmttopics->bindValue(':email',$email);
+$stmttopics->bindValue(':term', $rowcurrent['current_term']);
+$stmttopics->bindValue(':year', $rowcurrent['academic_year']);
 $stmttopics->execute();
 
 
@@ -357,7 +364,7 @@ $(document).ready(function(){
              <div class ="col-4"><h4>Term in Academic Year</h4></div>
              <div class ="col-8 columnspacer">
               <select name ="term">
-                <option value ="" selected disabled>[Choose Here]</option>
+                <option value ="<?php echo $rowcurrent['current_term'] ?>" selected><?php echo $rowcurrent['current_term'] ?></option>
                 <option value = "term_1">Term 1</option>
                 <option value = "term_2">Term 2</option>
                 <option value = "term_3">Term 3</option>
@@ -373,7 +380,7 @@ $(document).ready(function(){
   <div class ="col-4"><h5>Academic Year</h5></div>
   <div class ='col-8 columnspacer'>
    <select name ="academicyear2" id ="academicyear2">
-         <option value ="academicyear2">[Choose Here]</option>
+         <option value ="academicyear2"><?php echo $rowcurrent['academic_year']?></option>
        </select></div>
 </div>
 <div class ="row">

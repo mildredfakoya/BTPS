@@ -12,13 +12,18 @@ if(!in_array("assessment", $permissions)){
 $user_home->redirect('../../errors.php?nop');
 }
 else{
-
+  $sqlcurrent="SELECT * FROM btps_reset_term ORDER BY created_at DESC LIMIT 1" ;
+  $stmtcurrent = $user_home->runQuery($sqlcurrent);
+  $stmtcurrent->execute();
+  $rowcurrent = $stmtcurrent->fetch(PDO::FETCH_ASSOC);
 
 echo "<div class ='jumbotron'>";
 
 if(in_array("pre_k_teacher", $permissions)){
-  $sqlreview= "SELECT * FROM btps_new_assessment WHERE target_class = 'pre_k'";
+  $sqlreview= "SELECT * FROM btps_new_assessment WHERE target_class = 'pre_k' AND term = :term AND academic_year = :academicyear";
   $stmtreview = $user_home->runQuery($sqlreview);
+  $stmtreview->bindValue(':term', $rowcurrent['current_term']);
+  $stmtreview->bindValue(':academicyear', $rowcurrent['academic_year']);
   $stmtreview->execute();
   foreach($stmtreview as $rowreview){
     echo "<div class ='container'>";
@@ -33,8 +38,10 @@ if(in_array("pre_k_teacher", $permissions)){
 }
 
 if(in_array("grade_k_teacher", $permissions)){
-  $sqlreview= "SELECT * FROM btps_new_assessment WHERE target_class = 'grade_k'";
+  $sqlreview= "SELECT * FROM btps_new_assessment WHERE target_class = 'grade_k' AND term = :term AND academic_year = :academicyear";
   $stmtreview = $user_home->runQuery($sqlreview);
+  $stmtreview->bindValue(':term', $rowcurrent['current_term']);
+  $stmtreview->bindValue(':academicyear', $rowcurrent['academic_year']);
   $stmtreview->execute();
   foreach($stmtreview as $rowreview){
     echo "<div class ='container'>";
@@ -51,8 +58,10 @@ if(in_array("grade_k_teacher", $permissions)){
 
 
 if(in_array("grade_1_teacher", $permissions)){
-  $sqlreview= "SELECT * FROM btps_new_assessment WHERE target_class = 'grade_1'";
+  $sqlreview= "SELECT * FROM btps_new_assessment WHERE target_class = 'grade_1' AND term = :term AND academic_year = :academicyear";
   $stmtreview = $user_home->runQuery($sqlreview);
+  $stmtreview->bindValue(':term', $rowcurrent['current_term']);
+  $stmtreview->bindValue(':academicyear', $rowcurrent['academic_year']);
   $stmtreview->execute();
   foreach($stmtreview as $rowreview){
     echo "<div class ='container'>";
@@ -68,8 +77,10 @@ if(in_array("grade_1_teacher", $permissions)){
 
 
 if(in_array("grade_2_teacher", $permissions)){
-  $sqlreview= "SELECT * FROM btps_new_assessment WHERE target_class = 'grade_2'";
+  $sqlreview= "SELECT * FROM btps_new_assessment WHERE target_class = 'grade_2' AND term = :term AND academic_year = :academicyear";
   $stmtreview = $user_home->runQuery($sqlreview);
+  $stmtreview->bindValue(':term', $rowcurrent['current_term']);
+  $stmtreview->bindValue(':academicyear', $rowcurrent['academic_year']);
   $stmtreview->execute();
   foreach($stmtreview as $rowreview){
     echo "<div class ='container'>";
@@ -86,8 +97,10 @@ if(in_array("grade_2_teacher", $permissions)){
 
 
 if(in_array("grade_3_teacher", $permissions)){
-  $sqlreview= "SELECT * FROM btps_new_assessment WHERE target_class = 'grade_3'";
+  $sqlreview= "SELECT * FROM btps_new_assessment WHERE target_class = 'grade_3' AND term = :term AND academic_year = :academicyear";
   $stmtreview = $user_home->runQuery($sqlreview);
+  $stmtreview->bindValue(':term', $rowcurrent['current_term']);
+  $stmtreview->bindValue(':academicyear', $rowcurrent['academic_year']);
   $stmtreview->execute();
   foreach($stmtreview as $rowreview){
     echo "<div class ='container'>";
@@ -104,8 +117,10 @@ if(in_array("grade_3_teacher", $permissions)){
 
 
 if(in_array("grade_4_teacher", $permissions)){
-  $sqlreview= "SELECT * FROM btps_new_assessment WHERE target_class = 'grade_4'";
+  $sqlreview= "SELECT * FROM btps_new_assessment WHERE target_class = 'grade_4' AND term = :term AND academic_year = :academicyear";
   $stmtreview = $user_home->runQuery($sqlreview);
+  $stmtreview->bindValue(':term', $rowcurrent['current_term']);
+  $stmtreview->bindValue(':academicyear', $rowcurrent['academic_year']);
   $stmtreview->execute();
   foreach($stmtreview as $rowreview){
     echo "<div class ='container'>";
@@ -123,8 +138,10 @@ if(in_array("grade_4_teacher", $permissions)){
 
 
 if(in_array("grade_5_teacher", $permissions)){
-  $sqlreview= "SELECT * FROM btps_new_assessment WHERE target_class = 'grade_5'";
+  $sqlreview= "SELECT * FROM btps_new_assessment WHERE target_class = 'grade_5' AND term = :term AND academic_year = :academicyear";
   $stmtreview = $user_home->runQuery($sqlreview);
+  $stmtreview->bindValue(':term', $rowcurrent['current_term']);
+  $stmtreview->bindValue(':academicyear', $rowcurrent['academic_year']);
   $stmtreview->execute();
   foreach($stmtreview as $rowreview){
     echo "<div class ='container'>";
@@ -142,8 +159,10 @@ if(in_array("grade_5_teacher", $permissions)){
 
 
 if(in_array("grade_6_teacher", $permissions)){
-  $sqlreview= "SELECT * FROM btps_new_assessment WHERE target_class = 'grade_6'";
+  $sqlreview= "SELECT * FROM btps_new_assessment WHERE target_class = 'grade_6' AND term = :term AND academic_year = :academicyear";
   $stmtreview = $user_home->runQuery($sqlreview);
+  $stmtreview->bindValue(':term', $rowcurrent['current_term']);
+  $stmtreview->bindValue(':academicyear', $rowcurrent['academic_year']);
   $stmtreview->execute();
   foreach($stmtreview as $rowreview){
     echo "<div class ='container'>";
@@ -161,8 +180,10 @@ if(in_array("grade_6_teacher", $permissions)){
 
 
 if(in_array("grade_7_teacher", $permissions)){
-  $sqlreview= "SELECT * FROM btps_new_assessment WHERE target_class = 'grade_7'";
+  $sqlreview= "SELECT * FROM btps_new_assessment WHERE target_class = 'grade_7' AND term = :term AND academic_year = :academicyear";
   $stmtreview = $user_home->runQuery($sqlreview);
+  $stmtreview->bindValue(':term', $rowcurrent['current_term']);
+  $stmtreview->bindValue(':academicyear', $rowcurrent['academic_year']);
   $stmtreview->execute();
   foreach($stmtreview as $rowreview){
     echo "<div class ='container'>";
@@ -179,8 +200,10 @@ if(in_array("grade_7_teacher", $permissions)){
 
 
 if(in_array("grade_8_teacher", $permissions)){
-  $sqlreview= "SELECT * FROM btps_new_assessment WHERE target_class = 'grade_8'";
+  $sqlreview= "SELECT * FROM btps_new_assessment WHERE target_class = 'grade_8' AND term = :term AND academic_year = :academicyear";
   $stmtreview = $user_home->runQuery($sqlreview);
+  $stmtreview->bindValue(':term', $rowcurrent['current_term']);
+  $stmtreview->bindValue(':academicyear', $rowcurrent['academic_year']);
   $stmtreview->execute();
   foreach($stmtreview as $rowreview){
     echo "<div class ='container'>";
@@ -198,8 +221,10 @@ if(in_array("grade_8_teacher", $permissions)){
 
 
 if(in_array("grade_9_teacher", $permissions)){
-  $sqlreview= "SELECT * FROM btps_new_assessment WHERE target_class = 'grade_9'";
+  $sqlreview= "SELECT * FROM btps_new_assessment WHERE target_class = 'grade_9' AND term = :term AND academic_year = :academicyear";
   $stmtreview = $user_home->runQuery($sqlreview);
+  $stmtreview->bindValue(':term', $rowcurrent['current_term']);
+  $stmtreview->bindValue(':academicyear', $rowcurrent['academic_year']);
   $stmtreview->execute();
   foreach($stmtreview as $rowreview){
     echo "<div class ='container'>";
@@ -216,8 +241,10 @@ if(in_array("grade_9_teacher", $permissions)){
 
 
 if(in_array("grade_10_teacher", $permissions)){
-  $sqlreview= "SELECT * FROM btps_new_assessment WHERE target_class = 'grade_10'";
+  $sqlreview= "SELECT * FROM btps_new_assessment WHERE target_class = 'grade_10' AND term = :term AND academic_year = :academicyear";
   $stmtreview = $user_home->runQuery($sqlreview);
+  $stmtreview->bindValue(':term', $rowcurrent['current_term']);
+  $stmtreview->bindValue(':academicyear', $rowcurrent['academic_year']);
   $stmtreview->execute();
   foreach($stmtreview as $rowreview){
     echo "<div class ='container'>";
@@ -236,8 +263,10 @@ if(in_array("grade_10_teacher", $permissions)){
 
 
 if(in_array("grade_11_teacher", $permissions)){
-  $sqlreview= "SELECT * FROM btps_new_assessment WHERE target_class = 'grade_11'";
+  $sqlreview= "SELECT * FROM btps_new_assessment WHERE target_class = 'grade_11' AND term = :term AND academic_year = :academicyear";
   $stmtreview = $user_home->runQuery($sqlreview);
+  $stmtreview->bindValue(':term', $rowcurrent['current_term']);
+  $stmtreview->bindValue(':academicyear', $rowcurrent['academic_year']);
   $stmtreview->execute();
   foreach($stmtreview as $rowreview){
     echo "<div class ='container'>";

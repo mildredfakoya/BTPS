@@ -15,6 +15,10 @@ if(!in_array("exams", $permissions)){
 $user_home->redirect('../../errors.php?nop');
 }
 else{
+  $sqlcurrent="SELECT * FROM btps_reset_term ORDER BY created_at DESC LIMIT 1" ;
+  $stmtcurrent = $user_home->runQuery($sqlcurrent);
+  $stmtcurrent->execute();
+  $rowcurrent = $stmtcurrent->fetch(PDO::FETCH_ASSOC);
 ?>
 <script>
 $(document).ready(function(){
@@ -109,8 +113,8 @@ $("#definition").validate({
 
 <div class ="row">
   <div class ="col-5"><h4>Academic year</h4></div>
-  <div class ="col-7 columnspacer">  <select name ="academicyear" id ="academicyear">
-        <option value ="academicyear">[Select Year]</option>
+  <div class ="col-7 columnspacer"> <select name ="academicyear" id ="academicyear">
+        <option value ="academicyear" selected><?php echo $rowcurrent['academic_year'] ?></option>
       </select></div>
 
 </div>
@@ -120,7 +124,7 @@ $("#definition").validate({
           <div class ="col-5"><h4>Term in Academic Year</h4></div>
           <div class ="col-7 columnspacer">
            <select name ="term">
-             <option value ="" selected disabled>[Choose Here]</option>
+             <option value ="<?php echo $rowcurrent['current_term'] ?>" selected><?php echo $rowcurrent['current_term'] ?></option>
              <option value = "term_1">Term 1</option>
              <option value = "term_2">Term 2</option>
              <option value = "term_3">Term 3</option>

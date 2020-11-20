@@ -15,13 +15,20 @@ if(!in_array("assessment", $permissions)){
 $user_home->redirect('../../errors.php?nop');
 }
 else{
+  $sqlcurrent="SELECT * FROM btps_reset_term ORDER BY created_at DESC LIMIT 1" ;
+  $stmtcurrent = $user_home->runQuery($sqlcurrent);
+  $stmtcurrent->execute();
+  $rowcurrent = $stmtcurrent->fetch(PDO::FETCH_ASSOC);
+
 
 if(in_array("pre_k_teacher", $permissions)){
   $class ='Pre - K';
 echo "<div class ='container'>";
 echo "<h5 class ='header'>Pre - K</h5>";
-$sqlcheck= "SELECT * FROM grades WHERE class = '$class' ORDER BY email, assessment_type";
+$sqlcheck= "SELECT * FROM grades WHERE class = '$class' AND term =:term AND academic_year = :year ORDER BY email, assessment_type";
 $stmtcheck = $user_home->runQuery($sqlcheck);
+$stmtcheck->bindValue(':term', $rowcurrent['current_term']);
+$stmtcheck->bindValue(':year', $rowcurrent['academic_year']);
 $stmtcheck->execute();
 ?>
 <table>

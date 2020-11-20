@@ -2,10 +2,19 @@
 require_once 'includes/teacherheader.php';
 $firstname = $row['firstname'];
 $lastname = $row['lastname'];
-$sql = 'SELECT * FROM btps_new_assessment WHERE created_by_firstname =:firstname AND created_by_lastname=:lastname ORDER BY created_at DESC';
+
+
+$sqlcurrent="SELECT * FROM btps_reset_term ORDER BY created_at DESC LIMIT 1" ;
+$stmtcurrent = $user_home->runQuery($sqlcurrent);
+$stmtcurrent->execute();
+$rowcurrent = $stmtcurrent->fetch(PDO::FETCH_ASSOC);
+
+$sql = 'SELECT * FROM btps_new_assessment WHERE created_by_firstname =:firstname AND created_by_lastname=:lastname AND term = :term AND academic_year = :academicyear ORDER BY created_at DESC';
 $stmtuploads = $user_home->runQuery($sql);
 $stmtuploads->bindValue(':firstname', $firstname);
 $stmtuploads->bindValue(':lastname', $lastname);
+$stmtuploads->bindValue(':term', $rowcurrent['current_term']);
+$stmtuploads->bindValue(':academicyear', $rowcurrent['academic_year']);
 $stmtuploads->execute();
 echo "<div class ='container'>";
 foreach($stmtuploads as $row1){

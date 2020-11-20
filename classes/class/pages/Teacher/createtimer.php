@@ -1,9 +1,18 @@
 <?php
 require_once "includes/teacherheader.php";
 $email = $row['email'];
-$sqlcheck= "SELECT * FROM btps_new_assessment WHERE email = :email";
+
+$sqlcurrent="SELECT * FROM btps_reset_term ORDER BY created_at DESC LIMIT 1" ;
+$stmtcurrent = $user_home->runQuery($sqlcurrent);
+$stmtcurrent->execute();
+$rowcurrent = $stmtcurrent->fetch(PDO::FETCH_ASSOC);
+
+
+$sqlcheck= "SELECT * FROM btps_new_assessment WHERE email = :email AND  term = :term AND academic_year = :academicyear";
 $stmtcheck = $user_home->runQuery($sqlcheck);
 $stmtcheck->bindValue(':email', $email);
+$stmtcheck->bindValue(':term', $rowcurrent['current_term']);
+$stmtcheck->bindValue(':academicyear', $rowcurrent['academic_year']);
 $stmtcheck->execute();
 //$rowcheck = $stmtcheck->fetch(PDO::FETCH_ASSOC);
 ?>

@@ -15,6 +15,10 @@ if(!in_array("exams", $permissions)){
 $user_home->redirect('../../errors.php?nop');
 }
 else{
+  $sqlcurrent="SELECT * FROM btps_reset_term ORDER BY created_at DESC LIMIT 1" ;
+  $stmtcurrent = $user_home->runQuery($sqlcurrent);
+  $stmtcurrent->execute();
+  $rowcurrent = $stmtcurrent->fetch(PDO::FETCH_ASSOC);
 ?>
 <div class ="jumbotron">
 <h5 class ="header">Assessments submitted by teachers for review and release to students</h5>
@@ -37,10 +41,12 @@ else{
 <?php
 $status = "Submitted";
 $approvestatus = "Not Approved";
-$sqlid="SELECT * FROM btps_new_assessment WHERE submitted_review = :status && approval_status = :approve";
+$sqlid="SELECT * FROM btps_new_assessment WHERE submitted_review = :status && approval_status = :approve && term =:term && academic_year = :year";
 $stmtid = $user_home->runQuery($sqlid);
 $stmtid->bindValue(':status', $status);
 $stmtid->bindValue(':approve', $approvestatus);
+$stmtid->bindValue(':term', $rowcurrent['current_term']);
+$stmtid->bindValue(':year', $rowcurrent['academic_year']);
 $stmtid->execute();
 #$rowid = $stmtid->fetch(PDO::FETCH_ASSOC);
 foreach($stmtid as $rowid){
@@ -84,9 +90,11 @@ echo "</tr></form>";
         <tr>
   <?php
   $status = "Approved";
-  $sqlapp="SELECT * FROM btps_new_assessment WHERE approval_status = :status";
+  $sqlapp="SELECT * FROM btps_new_assessment WHERE approval_status = :status && term =:term && academic_year = :year";
   $stmtapp = $user_home->runQuery($sqlapp);
   $stmtapp->bindValue(':status', $status);
+  $stmtapp->bindValue(':term', $rowcurrent['current_term']);
+  $stmtapp->bindValue(':year', $rowcurrent['academic_year']);
   $stmtapp->execute();
 
 

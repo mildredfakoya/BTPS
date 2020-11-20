@@ -43,6 +43,7 @@ $permissions = explode(" ", $list);
       <a class="nav-link dropdown-toggle" href="#" id="navbardrop" data-toggle="dropdown">Create and Review Assessment</a>
       <div class="dropdown-menu">
       <a class="dropdown-item" href="createtopics.php">Update the topics students will be assessed On</a>
+        <a class="dropdown-item" href="alltopics.php">View class topics</a>
       <a class="dropdown-item" href="myassessments.php">My assessments</a>
       <a class="dropdown-item" href="createassessment.php">Create an assessment</a>
       <a class="dropdown-item" href="getassessment.php">Review Questions / Add question(s) to an assessment</a>

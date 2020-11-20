@@ -1637,6 +1637,8 @@ assessment_id VARCHAR(50) NOT NULL,
 subject VARCHAR(100) NOT NULL,
 class VARCHAR(100) NOT NULL,
 assessment_type VARCHAR(100) NOT NULL,
+term VARCHAR(50) DEFAULT 'old_term',
+academic_year VARCHAR(10) DEFAULT 'old_year',
 total VARCHAR(100) NOT NULL
 )ENGINE=InnoDB DEFAULT CHARSET=utf8;
 ";
@@ -1660,7 +1662,7 @@ ON DELETE CASCADE ON UPDATE CASCADE
 $this->conn->exec($sql79);
 
 
-$sql80 = "CREATE OR REPLACE VIEW grades AS (SELECT y.email, y.firstname, y.middlename, y.lastname, g.assessment_id, g.subject, g.class, g.assessment_type, g.total FROM ihs_users y JOIN btps_student_grades g ON y.email = g.email)
+$sql80 = "CREATE OR REPLACE VIEW grades AS (SELECT y.email, y.firstname, y.middlename, y.lastname, g.assessment_id, g.subject, g.class, g.assessment_type, g.total,g.term, g.academic_year FROM ihs_users y JOIN btps_student_grades g ON y.email = g.email)
 ";
 $this->conn->exec($sql80);
 

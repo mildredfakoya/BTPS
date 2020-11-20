@@ -12,7 +12,18 @@ if(!in_array("assessment", $permissions)){
 $user_home->redirect('../../errors.php?nop');
 }
 else{
+  $sqlcurrent="SELECT * FROM btps_reset_term ORDER BY created_at DESC LIMIT 1" ;
+  $stmtcurrent = $user_home->runQuery($sqlcurrent);
+  $stmtcurrent->execute();
+  $rowcurrent = $stmtcurrent->fetch(PDO::FETCH_ASSOC);
 
+  $sqlcurrent1="SELECT * FROM btps_new_assessment WHERE term = :term AND academic_year = :year AND email = :email" ;
+  $stmtcurrent1 = $user_home->runQuery($sqlcurrent);
+  $stmtcurrent1->bindValue(':term', $rowcurrent['current_term']);
+  $stmtcurrent1->bindValue(':year', $rowcurrent['academic_year']);
+  $stmtcurrent1->bindValue(':email', $email);
+  $stmtcurrent1->execute();
+  //$rowcurrent = $stmtcurrent->fetch(PDO::FETCH_ASSOC);
 
 echo "<div class ='jumbotron'>";
 echo "<h5 class ='header'>Click on the button that holds the assessment ID to release student's grades and feedback</h5>";

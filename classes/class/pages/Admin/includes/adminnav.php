@@ -82,7 +82,6 @@ $permissions = explode(" ", $list);
         <a class="dropdown-item" href="#">View / Update Classroom</a>
         <a class="dropdown-item" href="#">View / Update Contacts</a>
         <a class="dropdown-item" href="#">View / Update Medicals</a>
-        <a class="dropdown-item" href="creategradebook.php">Create grade book</a>
         <a class="dropdown-item" href="createsubjects.php">Create subject</a>
         <a class="dropdown-item" href="#">Promote Students</a>
 
