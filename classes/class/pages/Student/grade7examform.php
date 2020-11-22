@@ -13,16 +13,11 @@ if(!in_array("grade_7", $permissions)){
 $user_home->redirect('../../errors.php?nop');
 }
 else{
-
 ?>
-
 <script>
-
 function myFunction() {
   $("form").submit();
 }
-
-
 $(document).ready(function() {
   $('.summernote').summernote({
     maximumImageFileSize: 102400
@@ -30,9 +25,7 @@ $(document).ready(function() {
 });
 $(document).ready(function() {
   $(".submit").validate({
-
         submitHandler: function(form) {
-
 	$.ajax({
 		  url:"submitexam7.php",
 		  method:"post",
@@ -183,7 +176,7 @@ foreach($stmtmulti as $rowmulti){
   $stmtcheck->bindValue(':email', $email);
   $stmtcheck->execute();
   $rowcheck = $stmtcheck->fetch(PDO::FETCH_ASSOC);
-
+  
 ?>
 
   <form method = "post" name = "submitform" class ="submit">

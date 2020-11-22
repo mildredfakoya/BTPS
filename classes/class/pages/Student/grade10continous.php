@@ -14,6 +14,10 @@ if(!in_array("grade_10", $permissions)){
 $user_home->redirect('../../errors.php?nop');
 }
 else{
+  $sqlcurrent="SELECT * FROM btps_reset_term ORDER BY created_at DESC LIMIT 1" ;
+  $stmtcurrent = $user_home->runQuery($sqlcurrent);
+  $stmtcurrent->execute();
+  $rowcurrent = $stmtcurrent->fetch(PDO::FETCH_ASSOC);
 ?>
 
 <div class ="jumbotron">
@@ -27,9 +31,11 @@ else{
 
   <?php
     $targetclass = "grade_10";
-    $sqlclass="SELECT * FROM btps_new_assessment WHERE target_class= :class and assessment_type = 'continous_assessment' and approval_status ='Approved' AND access_status = 'UNLOCKED'" ;
+    $sqlclass="SELECT * FROM btps_new_assessment WHERE target_class= :class and assessment_type = 'continous_assessment' and approval_status ='Approved' AND term =:term AND academic_year = :year AND access_status = 'UNLOCKED'" ;
     $stmtclass = $user_home->runQuery($sqlclass);
     $stmtclass->bindValue(':class', $targetclass);
+    $stmtclass->bindValue(':term', $rowcurrent['current_term']);
+    $stmtclass->bindValue(':year', $rowcurrent['academic_year']);
     $stmtclass->execute();
     #$rowclass = $stmtclass->fetch(PDO::FETCH_ASSOC);
     foreach($stmtclass as $rowclass){

@@ -20,16 +20,23 @@ else{
 <div class ="header" style ="background-color:#ff0000"><h3>Welcome to Grade 7 Graded Assessment page</h3>
 <p>All assessment listed here are access controlled. Your teacher will give you the access code.<br/>Once a correct access code is entered, your question form will be displayed at the top of this page.</p></div>
 
-
-<!---For Assignments and Projects--->
-
+<!---Examination-->
 <h5 class ="header">Examination</h5>
 
   <?php
+  #Get the current term
+  $sqlcurrent="SELECT * FROM btps_reset_term ORDER BY created_at DESC LIMIT 1" ;
+  $stmtcurrent = $user_home->runQuery($sqlcurrent);
+  $stmtcurrent->execute();
+  $rowcurrent = $stmtcurrent->fetch(PDO::FETCH_ASSOC);
+
+
     $targetclass = "grade_7";
-    $sqlclass="SELECT * FROM btps_new_assessment WHERE target_class= :class and assessment_type = 'exam' and approval_status ='Approved' AND access_status = 'UNLOCKED'" ;
+    $sqlclass="SELECT * FROM btps_new_assessment WHERE target_class= :class AND assessment_type = 'exam' AND term =:term AND academic_year = :year AND approval_status ='Approved' AND access_status = 'UNLOCKED'" ;
     $stmtclass = $user_home->runQuery($sqlclass);
     $stmtclass->bindValue(':class', $targetclass);
+    $stmtclass->bindValue(':term', $rowcurrent['current_term']);
+    $stmtclass->bindValue(':year', $rowcurrent['academic_year']);
     $stmtclass->execute();
     #$rowclass = $stmtclass->fetch(PDO::FETCH_ASSOC);
     foreach($stmtclass as $rowclass){
@@ -69,7 +76,7 @@ else{
     }
   }
 
-  $sqlcheck= "SELECT DISTINCT assessment_id FROM btps_student_exam_grade_7 WHERE email = :email";
+  $sqlcheck= "SELECT DISTINCT assessment_id, submitted_at FROM btps_student_exam_grade_7 WHERE email = :email";
   $stmtcheck = $user_home->runQuery($sqlcheck);
   $stmtcheck->bindValue(':email', $email);
   $stmtcheck->execute();
@@ -78,7 +85,7 @@ echo "<div class ='spacer'></div>";
 echo "<div class ='header' style = 'background-color:green'><p>You made submissions for the following assessments";
 echo "<ul>";
 foreach($stmtcheck as $get){
-echo "<li>".$get['assessment_id']."</li>";
+echo "<li>".$get['assessment_id']." submitted on ".$get['submitted_at']."</li>";
 }
 echo "</div>";
 

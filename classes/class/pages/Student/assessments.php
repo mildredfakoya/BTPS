@@ -9,6 +9,12 @@ $rowid = $stmtid->fetch(PDO::FETCH_ASSOC);
 
 $list = $rowid['permissions'];
 $permissions = explode(" ", $list);
+
+#Get the current term
+$sqlcurrent="SELECT * FROM btps_reset_term ORDER BY created_at DESC LIMIT 1" ;
+$stmtcurrent = $user_home->runQuery($sqlcurrent);
+$stmtcurrent->execute();
+$rowcurrent = $stmtcurrent->fetch(PDO::FETCH_ASSOC);
 ?>
 <div class ="jumbotron">
   <div class = "container">
@@ -20,9 +26,11 @@ $permissions = explode(" ", $list);
      $decide = in_array("pre_k", $permissions)?'<li>':'<li class="hidden">';
      echo $decide;
      $targetclass = "pre_k";
-    $sqlclass="SELECT * FROM btps_new_assessment WHERE target_class= :class and assessment_type = 'assignment' and approval_status ='Approved'" ;
+    $sqlclass="SELECT * FROM btps_new_assessment WHERE target_class= :class and assessment_type = 'assignment' AND term =:term AND academic_year = :year AND approval_status ='Approved'" ;
     $stmtclass = $user_home->runQuery($sqlclass);
     $stmtclass->bindValue(':class', $targetclass);
+    $stmtclass->bindValue(':term', $rowcurrent['current_term']);
+    $stmtclass->bindValue(':year', $rowcurrent['academic_year']);
     $stmtclass->execute();
     #$rowclass = $stmtclass->fetch(PDO::FETCH_ASSOC);
     foreach($stmtclass as $rowclass){
@@ -55,9 +63,11 @@ $permissions = explode(" ", $list);
  $decide = in_array("grade_k", $permissions)?'<li>':'<li class="hidden">';
  echo $decide;
  $targetclass = "grade_k";
- $sqlclass="SELECT * FROM btps_new_assessment WHERE target_class= :class and assessment_type = 'assignment' and approval_status ='Approved'" ;
+ $sqlclass="SELECT * FROM btps_new_assessment WHERE target_class= :class and assessment_type = 'assignment'  AND term =:term AND academic_year = :year AND approval_status ='Approved'" ;
  $stmtclass = $user_home->runQuery($sqlclass);
  $stmtclass->bindValue(':class', $targetclass);
+ $stmtclass->bindValue(':term', $rowcurrent['current_term']);
+ $stmtclass->bindValue(':year', $rowcurrent['academic_year']);
  $stmtclass->execute();
  #$rowclass = $stmtclass->fetch(PDO::FETCH_ASSOC);
  foreach($stmtclass as $rowclass){
@@ -91,9 +101,11 @@ $permissions = explode(" ", $list);
  $decide = in_array("grade_1", $permissions)?'<li>':'<li class="hidden">';
  echo $decide;
  $targetclass = "grade_1";
- $sqlclass="SELECT * FROM btps_new_assessment WHERE target_class= :class and assessment_type = 'assignment' and approval_status ='Approved'" ;
+ $sqlclass="SELECT * FROM btps_new_assessment WHERE target_class= :class and assessment_type = 'assignment'  AND term =:term AND academic_year = :year AND approval_status ='Approved'" ;
  $stmtclass = $user_home->runQuery($sqlclass);
  $stmtclass->bindValue(':class', $targetclass);
+ $stmtclass->bindValue(':term', $rowcurrent['current_term']);
+ $stmtclass->bindValue(':year', $rowcurrent['academic_year']);
  $stmtclass->execute();
  #$rowclass = $stmtclass->fetch(PDO::FETCH_ASSOC);
  foreach($stmtclass as $rowclass){
@@ -127,9 +139,11 @@ $permissions = explode(" ", $list);
  $decide = in_array("grade_2", $permissions)?'<li>':'<li class="hidden">';
  echo $decide;
  $targetclass = "grade_2";
- $sqlclass="SELECT * FROM btps_new_assessment WHERE target_class= :class and assessment_type = 'assignment' and approval_status ='Approved'" ;
+ $sqlclass="SELECT * FROM btps_new_assessment WHERE target_class= :class and assessment_type = 'assignment'  AND term =:term AND academic_year = :year AND approval_status ='Approved'" ;
  $stmtclass = $user_home->runQuery($sqlclass);
  $stmtclass->bindValue(':class', $targetclass);
+ $stmtclass->bindValue(':term', $rowcurrent['current_term']);
+ $stmtclass->bindValue(':year', $rowcurrent['academic_year']);
  $stmtclass->execute();
  #$rowclass = $stmtclass->fetch(PDO::FETCH_ASSOC);
  foreach($stmtclass as $rowclass){
@@ -163,9 +177,11 @@ $permissions = explode(" ", $list);
  $decide = in_array("grade_3", $permissions)?'<li>':'<li class="hidden">';
  echo $decide;
  $targetclass = "grade_3";
- $sqlclass="SELECT * FROM btps_new_assessment WHERE target_class= :class and assessment_type = 'assignment' and approval_status ='Approved'" ;
+ $sqlclass="SELECT * FROM btps_new_assessment WHERE target_class= :class and assessment_type = 'assignment'  AND term =:term AND academic_year = :year AND  approval_status ='Approved'" ;
  $stmtclass = $user_home->runQuery($sqlclass);
  $stmtclass->bindValue(':class', $targetclass);
+ $stmtclass->bindValue(':term', $rowcurrent['current_term']);
+ $stmtclass->bindValue(':year', $rowcurrent['academic_year']);
  $stmtclass->execute();
  #$rowclass = $stmtclass->fetch(PDO::FETCH_ASSOC);
  foreach($stmtclass as $rowclass){
@@ -196,14 +212,16 @@ $permissions = explode(" ", $list);
 
 
 
- <!---For Grade K --->
+ <!---For Grade 4 --->
  <?php
  $decide = in_array("grade_4", $permissions)?'<li>':'<li class="hidden">';
  echo $decide;
  $targetclass = "grade_4";
- $sqlclass="SELECT * FROM btps_new_assessment WHERE target_class= :class and assessment_type = 'assignment' and approval_status ='Approved'" ;
+ $sqlclass="SELECT * FROM btps_new_assessment WHERE target_class= :class and assessment_type = 'assignment'  AND term =:term AND academic_year = :year AND approval_status ='Approved'" ;
  $stmtclass = $user_home->runQuery($sqlclass);
  $stmtclass->bindValue(':class', $targetclass);
+ $stmtclass->bindValue(':term', $rowcurrent['current_term']);
+ $stmtclass->bindValue(':year', $rowcurrent['academic_year']);
  $stmtclass->execute();
  #$rowclass = $stmtclass->fetch(PDO::FETCH_ASSOC);
  foreach($stmtclass as $rowclass){
@@ -238,9 +256,11 @@ $permissions = explode(" ", $list);
  $decide = in_array("grade_5", $permissions)?'<li>':'<li class="hidden">';
  echo $decide;
  $targetclass = "grade_5";
- $sqlclass="SELECT * FROM btps_new_assessment WHERE target_class= :class and assessment_type = 'assignment' and approval_status ='Approved'" ;
+ $sqlclass="SELECT * FROM btps_new_assessment WHERE target_class= :class and assessment_type = 'assignment'  AND term =:term AND academic_year = :year AND approval_status ='Approved'" ;
  $stmtclass = $user_home->runQuery($sqlclass);
  $stmtclass->bindValue(':class', $targetclass);
+ $stmtclass->bindValue(':term', $rowcurrent['current_term']);
+ $stmtclass->bindValue(':year', $rowcurrent['academic_year']);
  $stmtclass->execute();
  #$rowclass = $stmtclass->fetch(PDO::FETCH_ASSOC);
  foreach($stmtclass as $rowclass){
@@ -269,14 +289,16 @@ $permissions = explode(" ", $list);
  ?>
  </li>
 
- <!---For Grade K --->
+ <!---For Grade 6 --->
  <?php
  $decide = in_array("grade_6", $permissions)?'<li>':'<li class="hidden">';
  echo $decide;
  $targetclass = "grade_6";
- $sqlclass="SELECT * FROM btps_new_assessment WHERE target_class= :class and assessment_type = 'assignment' and approval_status ='Approved'" ;
+ $sqlclass="SELECT * FROM btps_new_assessment WHERE target_class= :class and assessment_type = 'assignment'  AND term =:term AND academic_year = :year AND approval_status ='Approved'" ;
  $stmtclass = $user_home->runQuery($sqlclass);
  $stmtclass->bindValue(':class', $targetclass);
+ $stmtclass->bindValue(':term', $rowcurrent['current_term']);
+ $stmtclass->bindValue(':year', $rowcurrent['academic_year']);
  $stmtclass->execute();
  #$rowclass = $stmtclass->fetch(PDO::FETCH_ASSOC);
  foreach($stmtclass as $rowclass){
@@ -304,12 +326,6 @@ $permissions = explode(" ", $list);
  }
  ?>
  </li>
-
-
-
-
-
-
 </ul>
   </div>
 

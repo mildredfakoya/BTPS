@@ -14,22 +14,27 @@ if(!in_array("grade_k", $permissions)){
 $user_home->redirect('../../errors.php?nop');
 }
 else{
+  #Get the current term
+  $sqlcurrent="SELECT * FROM btps_reset_term ORDER BY created_at DESC LIMIT 1" ;
+  $stmtcurrent = $user_home->runQuery($sqlcurrent);
+  $stmtcurrent->execute();
+  $rowcurrent = $stmtcurrent->fetch(PDO::FETCH_ASSOC);
 ?>
 
 <div class ="jumbotron">
 <div class ="header" style ="background-color:#ff0000"><h3>Welcome to Grade K Graded Assessment page</h3>
 <p>All assessment listed here are access controlled. Your teacher will give you the access code.<br/>Once a correct access code is entered, your question form will be displayed at the top of this page.</p></div>
-
-
 <!---For Assignments and Projects--->
 
 <h5 class ="header">Assignments</h5>
 
   <?php
     $targetclass = "grade_k";
-    $sqlclass="SELECT * FROM btps_new_assessment WHERE target_class= :class AND (assessment_type = 'assignment' || assessment_type = 'project') AND approval_status ='Approved'" ;
+    $sqlclass="SELECT * FROM btps_new_assessment WHERE target_class= :class AND (assessment_type = 'assignment' || assessment_type = 'project') AND term =:term AND academic_year = :year AND approval_status ='Approved'" ;
     $stmtclass = $user_home->runQuery($sqlclass);
     $stmtclass->bindValue(':class', $targetclass);
+    $stmtclass->bindValue(':term', $rowcurrent['current_term']);
+    $stmtclass->bindValue(':year', $rowcurrent['academic_year']);
     $stmtclass->execute();
     #$rowclass = $stmtclass->fetch(PDO::FETCH_ASSOC);
     foreach($stmtclass as $rowclass){

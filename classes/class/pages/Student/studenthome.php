@@ -14,35 +14,31 @@ $fullname = $dec." ".$decl;
 $emailn =new AES($email, $inputkey, $blocksize);
 $decemail =$emailn->decrypt();
 
-
+# get the menu uploads
 $sqlfoodmenu ="SELECT * FROM ihs_menu_uploads ORDER BY created_at DESC LIMIT 3";
 $stmtfoodmenu = $user_home->runQuery($sqlfoodmenu);
 $stmtfoodmenu->execute();
 
+#get the newsletter uploads
 $sqlnewsletter ="SELECT * FROM ihs_newsletter_uploads ORDER BY created_at DESC LIMIT 3";
 $stmtnewsletter = $user_home->runQuery($sqlnewsletter);
 $stmtnewsletter->execute();
 
+#get the timetable uploads
 $sqltimetable ="SELECT * FROM ihs_timetable_uploads ORDER BY created_at DESC LIMIT 3";
 $stmttimetable = $user_home->runQuery($sqltimetable);
 $stmttimetable->execute();
 
 
-
 if(isset($_GET['msg']))
 	 {
-
-					 echo "<div class='alert alert-success'>
+			  echo "<div class='alert alert-success'>
 			 <button class='close' data-dismiss='alert'>&times;</button>
 			 <strong>Your email was sent</strong>
-		 </div>";
+		   </div>";
 		 header('refresh:3; studenthome.php');
-
 	 }
-
-
 ?>
-
 		<div class="headeranimated">
 		  <h1 style="color:#ffffff">Welcome!!  <?php echo $dec." ". $decl?></h1>
 		</div>
@@ -66,11 +62,11 @@ if(isset($_GET['msg']))
 						echo "</ul>";
 						}
 						?>
-<!---
+						<!---
 					<div class ="aside">
 						<h2 class ="aside" style ="background-color:brown">Assessment / Examination</h2>
-					<a class = "aside" href = "assessments.php" style ="color:white">Click me for assessment information</a>
-				</div>--->
+						<a class = "aside" href = "assessments.php" style ="color:white">Click me for assessment information</a>
+				  </div>--->
 		  </div>
 
 		  <div class="col-6 col-s-9">
@@ -83,15 +79,14 @@ if(isset($_GET['msg']))
         <div class ="row">
 					<div class ="col-5">From:</div>
 					<div class ="col-7 columnspacer"><input type ="text" name ="from" value ="<?php echo $decemail?>" readonly/></div>
-					</div>
+				</div>
 
          <div class ="textspacer"></div>
-					<div class ="row">
-						<div class ="col-5">To:</div>
-						<div class ="col-7 columnspacer">
-
+				<div class ="row">
+					<div class ="col-5">To:</div>
+					<div class ="col-7 columnspacer">
 						<select name ="to">
-						 <option selected disabled>[Select email]</option>
+						 	<option selected disabled>[Select email]</option>
 																				 <?php
 																				 $sqlemail = "SELECT * FROM ihs_users where role ='Teacher'";
 																				 $stmtemail = $user_home->runQuery($sqlemail);
@@ -110,19 +105,13 @@ if(isset($_GET['msg']))
 																				 }
 																				 ?>
 									</select>
-
-
-
 						</div>
 						</div>
-
-
 						<div class ="textspacer"></div>
-					 	<div class ="row">
+						<div class ="row">
 					 		<div class ="col-5">Subject:</div>
 					 		<div class ="col-7 columnspacer"><input type="text" class="input-block-level" placeholder="Subject" name="subject" required /></div>
-					 		</div>
-
+					 	</div>
 
 					<div class ="textspacer"></div>
 					<div class ="row">
@@ -135,16 +124,11 @@ if(isset($_GET['msg']))
 					<div class ="col-5">Attach files</div>
 					<div class ="col-7 columnspacer"><input type="file" class="input-block-level" name="file" accept =".doc, .docx, .pdf, .jpg, .jpeg, .png"></div>
 					</div>
-
-
-
 			<hr />
 				<button class="btn btn-danger btn-primary" type="submit" name="btn-submit">Send</button>
-
 			</form>
 		</div>
 		  </div>
-
 		  <div class="col-3 col-s-12">
 		    <div class="aside">
 		      <h2>News Letter</h2>
@@ -159,9 +143,6 @@ if(isset($_GET['msg']))
 		  </div>
 		</div>
 <?php
-
-
-
 if(isset($_POST['btn-submit']))
 {
     $from =!empty($_POST['from']) ? $helper->test_input($_POST['from']) : null;
@@ -178,11 +159,4 @@ if(isset($_POST['btn-submit']))
 			$user_home->redirect('studenthome.php?msg');
       unlink($path);
 		}
-
-
-
-
-
-
-
  require_once 'includes/studentfooter.php';?>
