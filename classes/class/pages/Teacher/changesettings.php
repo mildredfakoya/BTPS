@@ -59,7 +59,7 @@ foreach($stmtfindassessment as $rowchange){
     </td>
     <td>
       <select name ="academicyear" id ="academicyear">
-            <option value ="academicyear"><?php echo $rowchange['academic_year'] ?></option>
+            <option value ="<?php echo $rowchange['academic_year'] ?>"><?php echo $rowchange['academic_year'] ?></option>
           </select>
     </td>
     <td><input type ='text' name ='accesscode' value ='<?php echo $rowchange['access_code'] ?>'/></td>
